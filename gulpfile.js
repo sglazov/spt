@@ -22,8 +22,9 @@ var gulp = require('gulp'),
     clearfix = require('postcss-clearfix'),
     size = require('postcss-size'),
     normalize = require('postcss-normalize'),
-    property = require('postcss-property-lookup');
-
+    property = require('postcss-property-lookup'),
+    center = require('postcss-center'),
+    mqpacker = require('css-mqpacker');
 
 // Ресурсы проекта
 var paths = {
@@ -69,15 +70,21 @@ gulp.task('include', function() {
 // Компиляция стилей, добавление префиксов
 gulp.task('styles', function () {
   var processors = [
-    imprt(),
-    cssnext(),
-    vars(),
-    nested(),
-    autoprefixer({browsers: 'last 3 version'}),
-    size(),
-    clearfix(),
-    normalize(),
-    property()
+    imprt,
+    cssnext({
+        autoprefixer: {
+          browsers: ['IE >= 8']
+        }
+      }),
+    vars,
+    nested,
+    //autoprefixer({browsers: 'last 3 version'}),
+    size,
+    clearfix,
+    normalize,
+    property,
+    center,
+    mqpacker
   ];
   return gulp.src(paths.styles + 'layout.sss')
   .pipe(plumber({errorHandler: onError}))

@@ -43,9 +43,10 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 2. [SugarSS](https://github.com/postcss/sugarss). Синтаксис Stylus со всеми штуками PostCSS;
 3. [PostCSS Clearfix](https://github.com/seaneking/postcss-clearfix). Добавляет Clearfix аттрибуты для очистки плавающих элементов;
 4. [PostCSS Size](https://github.com/postcss/postcss-size). Добавляет CSS свойство size для обозначения ширины и высоты элемента;
-5. [PostCSS Normalize](https://github.com/seaneking/postcss-normalize). [normalize.css](https://github.com/necolas/normalize.css) перед всеми своийствами в CSS;
-6. [PostCSS Property-lookup](https://github.com/simonsmith/postcss-property-lookup). Ссылка на другие свойства.
-
+5. [PostCSS Normalize](https://github.com/seaneking/postcss-normalize). Правила [normalize.css](https://github.com/necolas/normalize.css) перед всеми своийствами в CSS;
+6. [PostCSS Property-lookup](https://github.com/simonsmith/postcss-property-lookup). Ссылка на другие свойства;
+7. [PostCSS Center](https://github.com/jedmao/postcss-center). Плагин для беззаботной центровки элементов;
+8. [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker). Группирует медиазапросы и помещает их в конец CSS документа.
 - - - -
 
 ## Структура папок и файлов
