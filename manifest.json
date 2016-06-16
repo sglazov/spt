@@ -11,8 +11,8 @@
 // это для сервисворкера
 
 {
-  "name": "",
-  "short_name": "",
+  "name": "SPT",
+  "short_name": "SPT",
   "icons": [{
         "src": "images/touch/_128.png",
         "type": "image/png",
