@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Шаблон проекта для быстрого старта</title>
+
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" name="viewport" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+
+    <link sizes="57x57" href="/apple-touch-icon-57x57.png" rel="apple-touch-icon"/>
+    <link sizes="60x60" href="/apple-touch-icon-60x60.png" rel="apple-touch-icon"/>
+    <link sizes="72x72" href="/apple-touch-icon-72x72.png" rel="apple-touch-icon"/>
+    <link sizes="76x76" href="/apple-touch-icon-76x76.png" rel="apple-touch-icon"/>
+    <link sizes="114x114" href="/apple-touch-icon-114x114.png" rel="apple-touch-icon"/>
+    <link sizes="120x120" href="/apple-touch-icon-120x120.png" rel="apple-touch-icon"/>
+    <link sizes="144x144" href="/apple-touch-icon-144x144.png" rel="apple-touch-icon"/>
+    <link sizes="152x152" href="/apple-touch-icon-152x152.png" rel="apple-touch-icon"/>
+    <link sizes="180x180" href="/apple-touch-icon-180x180.png" rel="apple-touch-icon"/>
+    <link sizes="16x16" href="/favicon-16x16.png" rel="icon" type="image/png"/>
+    <link sizes="32x32" href="/favicon-32x32.png" rel="icon" type="image/png"/>
+    <link sizes="96x96" href="/favicon-96x96.png" rel="icon" type="image/png"/>
+    <link sizes="160x160" href="/favicon-160x160.png" rel="icon" type="image/png"/>
+    <link sizes="192x192" href="/favicon-192x192.png" rel="icon" type="image/png"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" sizes="192x192" href="/favicon-192x192.png"/>
+    <link rel="apple-touch-icon" href="/favicon-192x192.png"/>
+    <meta name="msapplication-TileImage" content="/ifavicon-144x144.png"/>
+
+    <meta itemprop="name" content="Шаблон проекта для быстрого старта"/>
+    <meta itemprop="description" content=""/>
+    <meta itemprop="image" content="/image.jpg"/>
+
+    <!-- Twitter Card data-->
+    <meta name="twitter:card" content="product"/>
+    <meta name="twitter:site" content="@publisher_handle"/>
+    <meta name="twitter:title" content="Шаблон проекта для быстрого старта"/>
+    <meta name="twitter:description" content=""/>
+    <meta name="twitter:creator" content="@author_handle"/>
+    <meta name="twitter:image" content="http://www.example.com/image.html"/>
+    <meta name="twitter:data1" content="$3"/>
+    <meta name="twitter:label1" content="Price"/>
+    <meta name="twitter:data2" content="Black"/>
+    <meta name="twitter:label2" content="Color"/>
+
+    <!-- Open Graph data-->
+    <meta property="og:title" content="Шаблон проекта для быстрого старта"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http://www.example.com/"/>
+    <meta property="og:image" content="http://example.com/image.jpg"/>
+    <meta property="og:description" content=""/>
+    <meta property="og:site_name" content="Site Name, i.e. Moz"/>
+    <meta property="og:price:amount" content="15.00"/>
+    <meta property="og:price:currency" content="USD"/>
+
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="application-name" content=""/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-title" content=""/>
+    <meta name="msapplication-TileColor" content="#ff6600"/>
+    <meta name="theme-color" content="#ff6600"/>
+    <link rel="manifest" href="manifest.json"/>
+    <link rel="yandex-tableau-widget" href="/manifest.json"/>
+  </head>
+
+  <body>
+    <div class="start-warp">
+      <style type="text/css">
+        body {
+          padding: 20px;
+          font-family: Textbook, sans-serif;
+        }
+        h1 {
+          font-size: 35px;
+          margin-top: 10px;
+          margin-bottom: 30px;
+        }
+        h2 {
+          font-size: 25px;
+          margin-top: 30px;
+          margin-bottom: 35px;
+        }
+        ul, li {
+          margin-left: 0;
+        }
+        ul li {
+          list-style: none;
+          margin-bottom: 0.7em;
+          position: relative;
+        }
+        ul ul {
+          display: block;
+          margin: 0.5em 0 1em 1.5em;
+          padding: 0;
+          position: static;
+        }
+        ul {
+          display: inline-block;
+          position: relative;
+          margin-left: 0;
+          padding-left: 0;
+        }
+        .selected {
+          font-weight: bold;
+        }
+        .progress {
+          position: absolute;
+          top: 0.1em;
+          left: 100%;
+          white-space: nowrap;
+        }
+        .progress.design {
+          margin-left: 40px;
+        }
+        .progress.html {
+          margin-left: 320px;
+        }
+        .progress.time {
+          margin-left: 590px;
+          opacity: .25;
+        }
+        progress {
+          margin-right: 0.5em;
+          width: 200px;
+        }
+        progress,  .progress_value {
+          display: inline-block;
+        }
+        .readme pre {
+          background: #fff0be;
+          font-family: monospace;
+          padding: 20px;
+        }
+        @media only screen and (min-device-width : 100px) and (max-device-width : 760px) {
+          h1 {
+              font-size: 120%;
+              margin-bottom: 15px;
+              margin-top: 5px;
+              line-height: 22px;
+          }
+          h2 {
+            font-size: 100%;
+            margin-bottom: 20px;
+            margin-top: 15px;
+          }
+          progress,
+          .progress.design,
+          .progress.time,
+          .readme,
+          h1 > span {
+            display: none;
+          }
+          .progress.html {
+            margin-left: 10px;
+            font-size: 11px;
+          }
+          ul li {
+            margin-bottom: 1px;
+            font-size: 14px;
+          }
+          ul ul {
+            margin: 0 0 0 10px;
+          }
+        }
+      </style>
+      <h1>Шаблон проекта для быстрого старта</h1>
+      <ul class="navigation">
+
+        <li class="selected">
+          <strong class="selected">Карта сайта</strong>
+          <div class="progress design"><strong>Дизайн</strong></div>
+          <div class="progress html"><strong>Вёрстка</strong></div>
+          <div class="progress time"><strong>Время</strong></div>
+        </li>
+
+        <li>
+          <a href="index.html" class="link">Главная страница</a>
+          <div class="progress design">
+            <progress max="100" value="100"></progress>
+            <span class="progress_value">100%</span>
+          </div>
+          <div class="progress html">
+            <progress max="100" value="100"></progress>
+            <span class="progress_value">100%</span>
+          </div>
+          <div class="progress time">—</div>
+        </li>
+
+      </ul>
+      <div class="readme">
+      <h2>Структура папок и файлов</h2>
+    <pre>./</pre>
+      </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+
+  </body>
+</html>

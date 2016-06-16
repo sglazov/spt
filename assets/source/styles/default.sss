@@ -1,0 +1,45 @@
+body
+  font-family: $stp_Font
+  background: #fff
+  font-size: 14px
+  line-height: 1.58
+  text-size-adjust: 100%
+  color: #2e3233
+
+body, html
+  height: 87.5%
+  margin: 0
+  padding: 0
+
+// Формы
+input, textarea, button
+  outline: none
+  font-family: $stp_Font
+  font-weight: normal
+
+// Аккуратные таблицы
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+// изменим плёйсхолдер в лучшую сторону
+*::-webkit-input-placeholder
+  color: #abb6ba
+*:-moz-placeholder
+  color: #abb6ba
+  opacity: 1
+*::-moz-placeholder
+  color: #abb6ba
+  opacity: 1
+*:-ms-input-placeholder
+  color: #abb6ba
+*:placeholder-shown
+  color: #abb6ba
+
+// предопределим выделение текста
+::selection
+  background: #ff6600
+  color: #fff
+::-moz-selection
+  background: #ff6600
+  color: #fff
