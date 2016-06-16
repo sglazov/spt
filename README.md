@@ -31,37 +31,47 @@ gulp external-world
 ####PostCSS
 Переменные ([postcss-simple-vars](https://github.com/postcss/postcss-simple-vars)):
 ```css
-$f_Helvetica: "Helvetica Neue", Arial, sans-serif;
+$stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 ```
 Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested)) для элементов в БЭМе:
+
 ```css
-.block {
+// Inline comments
+.parent >
+.child
+  color: black
   ...
-
-  &__element {
+  &__element
     ...
-  }
-}
 ```
-[CSSNext](http://cssnext.io). Штуки из CSS 4, префиксы, кастомные медиа-запросы.
 
---
+[CSSNext](http://cssnext.io). Штуки из CSS 4, префиксы, кастомные медиа-запросы.
+[SugarSS](https://github.com/postcss/sugarss). Синтаксис Stylus со всеми штуками PostCSS
+[PostCSS Clearfix](https://github.com/seaneking/postcss-clearfix). Добавляет Clearfix аттрибуты для очистки плавающих элементов
+[PostCSS Size](https://github.com/postcss/postcss-size). Добавляет CSS свойство size для обозначения ширины и высоты элемента
+[PostCSS Normalize](https://github.com/seaneking/postcss-normalize). https://github.com/necolas/normalize.css перед всеми своийствами в CSS
+[PostCSS Property-lookup](https://github.com/simonsmith/postcss-property-lookup). Ссылка на другие свойства
+
+- - - -
 
 ## Структура папок и файлов
 
 ```
-├── templates/                 # Шаблоны вёрстки
-│   ├── includes/              # Подключаемые блоки
-│   │   └── _header.html       # Разметка тега <head>
-│   └── blocks/                # Блоки
-│       ├── _header.html       # Разметка шапки
-│       └── _footer.html       # Разметка подвала
+├── templates/                     # Шаблоны вёрстки
+│   └── blocks/                    # Блоки
+│       ├── _head.html             # Разметка тега <head>
+│       ├── _header.html           # Разметка шапки
+│       ├── _start.html            # Вводная лекция
+│       └── _footer.html           # Разметка подвала
 ├── assets/                        # Подключаемые ресурсы
 │   ├── source/                    # Исходники
 │   │   ├── scripts/               # Исходники скриптов
 │   │   └── styles/                # Исходники стилей
-│   │       ├── helpers/           # Помощники
-│   │       └── _variables.css     # Переменные
+│   │       ├── default.sss        # Стили по умолчанию
+│   │       ├── variables.sss      # Переменные
+│   │       ├── fonts.sss          # Подключение шрифтов
+│   │       ├── typo.sss           # Типографика
+│   │       └── layout.sss         # Базовый стилевой файл
 │   ├── fonts/                     # Шрифты
 │   ├── images/                    # Изображения
 │   ├── js/                        # Скрипты
@@ -70,6 +80,7 @@ $f_Helvetica: "Helvetica Neue", Arial, sans-serif;
 ├── progress.html                  # Прогресс разработки
 ├── package.json                   # Список модулей и прочей информации
 ├── gulpfile.js                    # Конфигурация Gulp.js
+├── manifest.json                  # СервисВоркеры (¯\_(ツ)_/¯)
 ├── .readme.md                     # Документация шаблона
 └── .gitignore                     # Список исключённых файлов из Git
 ```
