@@ -374,13 +374,16 @@ body {
           text-size-adjust: 100%;
   color: #2e3233
 }
-body, html {
+body,
+html {
   height: 87.5%;
   margin: 0;
   padding: 0
 }
 /* Формы */
-input, textarea, button {
+input,
+textarea,
+button {
   outline: none;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;;
   font-weight: normal
@@ -392,9 +395,6 @@ table {
 }
 /* изменим плёйсхолдер в лучшую сторону */
 *::-webkit-input-placeholder {
-  color: #abb6ba
-}
-*:-moz-placeholder {
   color: #abb6ba;
   opacity: 1
 }
@@ -403,9 +403,23 @@ table {
   opacity: 1
 }
 *:-ms-input-placeholder {
+  color: #abb6ba;
+  opacity: 1
+}
+*::placeholder {
+  color: #abb6ba;
+  opacity: 1
+}
+*::-webkit-input-placeholder-shown {
   color: #abb6ba
 }
-*:placeholder-shown {
+*::-moz-placeholder-shown {
+  color: #abb6ba
+}
+*:-ms-input-placeholder-shown {
+  color: #abb6ba
+}
+*::placeholder-shown {
   color: #abb6ba
 }
 /* предопределим выделение текста */
