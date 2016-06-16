@@ -2,7 +2,7 @@
 Шаблон помогает быстро начать вёрстку проекта.
 
 Перед первым запуском:
-```bash 
+```bash
 sudo npm install
 ```
 ##Режимы
@@ -40,10 +40,15 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 ```
 
 [CSSNext](http://cssnext.io). Штуки из CSS 4, префиксы, кастомные медиа-запросы.
+
 [SugarSS](https://github.com/postcss/sugarss). Синтаксис Stylus со всеми штуками PostCSS
+
 [PostCSS Clearfix](https://github.com/seaneking/postcss-clearfix). Добавляет Clearfix аттрибуты для очистки плавающих элементов
+
 [PostCSS Size](https://github.com/postcss/postcss-size). Добавляет CSS свойство size для обозначения ширины и высоты элемента
+
 [PostCSS Normalize](https://github.com/seaneking/postcss-normalize). https://github.com/necolas/normalize.css перед всеми своийствами в CSS
+
 [PostCSS Property-lookup](https://github.com/simonsmith/postcss-property-lookup). Ссылка на другие свойства
 
 - - - -
