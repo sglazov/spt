@@ -8,11 +8,13 @@
       font-size: 35px;
       margin-top: 10px;
       margin-bottom: 30px;
+      font-weight: 400;
     }
     h2 {
       font-size: 25px;
-      margin-top: 30px;
-      margin-bottom: 35px;
+      margin-top: 25px;
+      margin-bottom: 20px;
+      font-weight: 400;
     }
     ul, li {
       margin-left: 0;
@@ -47,23 +49,33 @@
       margin-left: 40px;
     }
     .progress.html {
-      margin-left: 320px;
+      margin-left: 330px;
     }
     .progress.time {
-      margin-left: 590px;
-      opacity: .25;
+      margin-left: 615px;
+      opacity: .35;
     }
     progress {
-      margin-right: 0.5em;
+      margin-right: 8px;
       width: 200px;
     }
     progress,  .progress_value {
       display: inline-block;
+      vertical-align: middle;
     }
     .readme pre {
       background: #fff0be;
       font-family: monospace;
       padding: 20px;
+    }
+    .link__spacer,
+    .link__file-name {
+      color: #b6b6b6;
+      font-size: 12px;
+      line-height: 12px;
+      font-style: italic;
+      padding: 0 0 0 2px;
+      margin: 0;
     }
     @media only screen and (min-device-width : 100px) and (max-device-width : 760px) {
       h1 {
@@ -98,31 +110,37 @@
     }
   </style>
   <h1>Шаблон проекта для быстрого старта</h1>
-  <ul class="navigation">
+  <div class="page-list__list">
+    <ul class="navigation">
 
-    <li class="selected">
-      <strong class="selected">Карта сайта</strong>
-      <div class="progress design"><strong>Дизайн</strong></div>
-      <div class="progress html"><strong>Вёрстка</strong></div>
-      <div class="progress time"><strong>Время</strong></div>
-    </li>
+      <li class="selected">
+        <strong class="selected">Карта сайта</strong>
+        <div class="progress design"><strong>Дизайн</strong></div>
+        <div class="progress html"><strong>Вёрстка</strong></div>
+        <div class="progress time"><strong>Время</strong></div>
+      </li>
 
-    <li>
-      <a href="index.html" class="link">Главная страница</a>
-      <div class="progress design">
-        <progress max="100" value="100"></progress>
-        <span class="progress_value">100%</span>
-      </div>
-      <div class="progress html">
-        <progress max="100" value="100"></progress>
-        <span class="progress_value">100%</span>
-      </div>
-      <div class="progress time">—</div>
-    </li>
+      <li class="page-list__item">
+        <a href="index.html" class="link">Главная страница</a>
+        <span class="link__spacer">—</span>
+        <span class="link__file-name">index.html</span>
+        <div class="progress design">
+          <progress max="100" value="100"></progress>
+          <span class="progress_value">100%</span>
+        </div>
+        <div class="progress html">
+          <progress max="100" value="100"></progress>
+          <span class="progress_value">100%</span>
+        </div>
+        <div class="progress time">—</div>
+      </li>
 
-  </ul>
+    </ul>
+  </div>
+
   <div class="readme">
   <h2>Структура папок и файлов</h2>
 <pre>./</pre>
   </div>
+
 </div>
