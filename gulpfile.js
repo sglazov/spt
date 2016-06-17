@@ -77,7 +77,7 @@ gulp.task('styles', function () {
     imprt,
     cssnext({
         autoprefixer: {
-          browsers: ['IE >= 8']
+          browsers: ['> 1%', 'IE 7']
         }
       }),
     vars,
