@@ -47,6 +47,10 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 6. [PostCSS Property-lookup](https://github.com/simonsmith/postcss-property-lookup). Ссылка на другие свойства;
 7. [PostCSS Center](https://github.com/jedmao/postcss-center). Плагин для беззаботной центровки элементов;
 8. [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker). Группирует медиазапросы и помещает их в конец CSS документа.
+9. [PostCSS SVG](https://github.com/Pavliko/postcss-svg)
+10. [PostCSS RGBa-fallback](https://github.com/postcss/postcss-color-rgba-fallback) Поддержка RGBa для IE8
+11. [PostCSS ASSETS](https://github.com/assetsjs/postcss-assets). Магия для работы с ресурсами сайта
+12. [DoIuse](https://github.com/anandthakker/doiuse). Сверяет используемые свойства с сервисом caniuse.com
 - - - -
 
 ## Структура папок и файлов

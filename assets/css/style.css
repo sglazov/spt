@@ -431,10 +431,6 @@ table {
   background: #ff6600;
   color: #fff
 }
-::-moz-selection {
-  background: #ff6600;
-  color: #fff
-}
 a,
 a:visited {
   color: rgb(0,114,186);
@@ -445,26 +441,32 @@ a:visited {
 }
 a:hover, a:visited:hover {
   color: rgb(208,64,0);
+  border-color: #d04000;
   border-color: rgba(208, 64, 0, .5);
   -webkit-transition: 0s ease;
   transition: 0s ease
 }
 a.dark, a:visited.dark {
+  color: #000000;
   color: rgba(0, 0, 0, 1);
   border-bottom: 1px solid rgba(0, 0, 0, .5)
 }
 a.dark:hover, a:visited.dark:hover {
   color: #d04000;
+  border-color: #d04000;
   border-color: rgba(208, 64, 0, .5);
   -webkit-transition: 0s ease;
   transition: 0s ease
 }
 a.lite, a:visited.lite {
+  color: #ffffff;
   color: rgba(255, 255, 255, 1);
   border-bottom: 1px solid rgba(255, 255, 255, .5)
 }
 a.lite:hover, a:visited.lite:hover {
+  color: #f2f201;
   color: rgba(242, 242, 1, 1);
+  border-color: #f2f201;
   border-color: rgba(242, 242, 1, .5);
   -webkit-transition: 0s ease;
   transition: 0s ease

@@ -4,14 +4,10 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     gutil = require('gulp-util'),
     plumber = require('gulp-plumber'),
-    portfinder = require('portfinder'),
     postcss = require('gulp-postcss'),
     autoprefixer = require('autoprefixer'),
-    nested = require("postcss-nested"),
-    cssnext = require("postcss-cssnext"),
-    vars = require('postcss-simple-vars'),
-    imprt = require('postcss-import'),
-    nano = require('gulp-cssnano'),
+    cssnano = require('gulp-cssnano'),
+    portfinder = require('portfinder'),
     browserSync = require("browser-sync"),
     reload = browserSync.reload,
     uglify = require('gulp-uglify'),
@@ -24,7 +20,15 @@ var gulp = require('gulp'),
     normalize = require('postcss-normalize'),
     property = require('postcss-property-lookup'),
     center = require('postcss-center'),
-    mqpacker = require('css-mqpacker');
+    mqpacker = require('css-mqpacker'),
+    postcsssvg = require('postcss-svg'),
+    colorRgbaFallback = require("postcss-color-rgba-fallback"),
+    assets = require('postcss-assets'),
+    nested = require("postcss-nested"),
+    cssnext = require("postcss-cssnext"),
+    vars = require('postcss-simple-vars'),
+    imprt = require('postcss-import'),
+    doiuse = require('doiuse');
 
 // Ресурсы проекта
 var paths = {
@@ -84,13 +88,29 @@ gulp.task('styles', function () {
     normalize,
     property,
     center,
-    mqpacker
+    mqpacker,
+    postcsssvg({ defaults: '[fill]: black' }),
+    colorRgbaFallback,
+    assets({
+      loadPaths: ['assets/images/']
+    })
+    // doiuse({
+    //   browsers: [
+    //     'ie >= 8',
+    //     '> 1%'
+    //   ],
+    //   ignore: ['rem'], // что не смотреть?
+    //   ignoreFiles: ['**/normalize.css'], // куда не смотреть?
+    //   onFeatureUsage: function (usageInfo) {
+    //     console.log(usageInfo.message)
+    //   }
+    // })
   ];
   return gulp.src(paths.styles + 'layout.sss')
   .pipe(plumber({errorHandler: onError}))
   .pipe(postcss(processors, { parser: sugarss }))
   .pipe(rename('style.css'))
-  //.pipe(nano({convertValues: {length: false}}))
+  //.pipe(cssnano({discardComments: {removeAll: true}, convertValues: {length: false}}))
   .pipe(gulp.dest(paths.css))
   .pipe(reload({stream: true}));
 });
