@@ -50,7 +50,8 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 9. [PostCSS SVG](https://github.com/Pavliko/postcss-svg). Работа с SVG в CSS;
 10. [PostCSS RGBa-fallback](https://github.com/postcss/postcss-color-rgba-fallback). Поддержка RGBa для IE8;
 11. [PostCSS ASSETS](https://github.com/assetsjs/postcss-assets). Магия для работы с ресурсами сайта;
-12. [DoIuse](https://github.com/anandthakker/doiuse). Сверяет используемые свойства с сервисом [caniuse.com](http://caniuse.com).
+12. [DoIuse](https://github.com/anandthakker/doiuse). Сверяет используемые свойства с сервисом [caniuse.com](http://caniuse.com);
+13. [PostCSS Grid System](https://github.com/francoisromain/postcss-grid-system). Сетка.
 - - - -
 
 ## Структура папок и файлов

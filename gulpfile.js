@@ -28,7 +28,8 @@ var gulp = require('gulp'),
     cssnext = require("postcss-cssnext"),
     vars = require('postcss-simple-vars'),
     imprt = require('postcss-import'),
-    doiuse = require('doiuse');
+    doiuse = require('doiuse'),
+    grid = require('postcss-grid-system');
 
 // Ресурсы проекта
 var paths = {
@@ -93,7 +94,8 @@ gulp.task('styles', function () {
     colorRgbaFallback,
     assets({
       loadPaths: ['assets/images/']
-    })
+    }),
+    grid
     // doiuse({
     //   browsers: [
     //     'ie >= 8',
