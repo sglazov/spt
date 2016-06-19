@@ -29,31 +29,53 @@ var gulp = require('gulp'),
     vars = require('postcss-simple-vars'),
     imprt = require('postcss-import'),
     doiuse = require('doiuse'),
-    grid = require('postcss-grid-system');
+    grid = require('postcss-grid-system'),
+    zip = require('gulp-zip');
 
 // Ресурсы проекта
 var paths = {
-  styles: 'assets/source/styles/',
-  css: 'assets/css/',
-  scripts: 'assets/source/scripts/',
-  js: 'assets/js/',
-  templates: 'templates/',
-  html: ''
+  styles: 'app/styles/',
+  css: 'dist/styles/',
+  scripts: 'app/scripts/',
+  js: 'dist/scripts/',
+  templates: 'app/templates/',
+  html: 'dist/'
+};
+
+// Дата для формирования архива
+var correctNumber = function correctNumber(number) {
+	return number < 10 ? '0' + number : number;
+};
+// Дата прям сейчас
+var getDateTime = function getDateTime() {
+	var now = new Date();
+	var year = now.getFullYear();
+	var month = correctNumber(now.getMonth() + 1);
+	var day = correctNumber(now.getDate());
+	var hours = correctNumber(now.getHours());
+	var minutes = correctNumber(now.getMinutes());
+	return year + '-' + month + '-' + day + '-' + hours + minutes;
 };
 
 // Одноразовая сборка проекта
 gulp.task('default', function() {
-  gulp.start('include', 'styles', 'scripts');
+  gulp.start('include', 'styles', 'scripts', 'copy-assets');
+});
+
+// Одноразовая сборка проекта в *.zip-архив в корне проекта
+gulp.task('zip', function() {
+		gulp.start('include', 'styles', 'scripts', 'copy-assets', 'build-zip', 'cleanup');
+    return gutil.log(gutil.colors.green('Архив готов, лежит в корне проекта;'));
 });
 
 // Запуск живой сборки
 gulp.task('live', function() {
-  gulp.start('server', 'include', 'styles', 'scripts', 'watch');
+  gulp.start('server', 'include', 'styles', 'scripts', 'watch', 'copy-assets');
 });
 
 // Туннель
 gulp.task('external-world', function() {
-  gulp.start('web-server', 'include', 'styles', 'scripts', 'watch');
+  gulp.start('web-server', 'include', 'styles', 'scripts', 'watch', 'copy-assets');
 });
 
 // Федеральная служба по контролю за оборотом файлов
@@ -67,12 +89,12 @@ gulp.task('watch', function() {
 // Шаблонизация
 gulp.task('include', function() {
   return gulp.src(paths.templates + '*.html')
-  .pipe(plumber({errorHandler: onError}))
+  .pipe(plumber({errorHandler: errorHandler}))
   .pipe(include())
   .pipe(gulp.dest(paths.html));
 });
 
-// Компиляция стилей, добавление префиксов
+// Компиляция стилей
 gulp.task('styles', function () {
   var processors = [
     imprt,
@@ -93,7 +115,7 @@ gulp.task('styles', function () {
     postcsssvg({ defaults: '[fill]: black' }),
     colorRgbaFallback,
     assets({
-      loadPaths: ['assets/images/']
+      loadPaths: ['app/images/']
     }),
     grid
     // doiuse({
@@ -109,7 +131,7 @@ gulp.task('styles', function () {
     // })
   ];
   return gulp.src(paths.styles + 'layout.sss')
-  .pipe(plumber({errorHandler: onError}))
+  .pipe(plumber({errorHandler: errorHandler}))
   .pipe(postcss(processors, { parser: sugarss }))
   .pipe(rename('style.css'))
   //.pipe(cssnano({discardComments: {removeAll: true}, convertValues: {length: false}}))
@@ -120,7 +142,7 @@ gulp.task('styles', function () {
 // Сборка и минификация скриптов
 gulp.task('scripts', function() {
   return gulp.src(paths.scripts + '*.js')
-  .pipe(plumber({errorHandler: onError}))
+  .pipe(plumber({errorHandler: errorHandler}))
   .pipe(eslint())
   .pipe(eslint.format())
   .pipe(concat('scripts.js'))
@@ -134,7 +156,7 @@ gulp.task('server', function() {
   portfinder.getPort(function (err, port){
     browserSync({
       server: {
-        baseDir: "."
+        baseDir: "./dist"
       },
       host: 'localhost',
       notify: false,
@@ -148,7 +170,7 @@ gulp.task('web-server', function() {
   portfinder.getPort(function (err, port){
     browserSync({
       server: {
-        baseDir: "."
+        baseDir: "./dist"
       },
       tunnel: true,
       host: 'localhost',
@@ -164,14 +186,42 @@ gulp.task('html', function () {
   .pipe(reload({stream: true}));
 });
 
-// Ошибки
-var onError = function(error) {
-  gutil.log([
-    (error.name + ' in ' + error.plugin).bold.red,
-    '',
-    error.message,
-    ''
-  ].join('\n'));
-  gutil.beep();
+// Копируем статичные файлы
+gulp.task('copy-assets', function() {
+  var distFonts = gulp.src('app/fonts/**/*') // Переносим шрифты
+      .pipe(gulp.dest('dist/fonts'));
+  var buildImages = gulp.src('app/images/**/*') // Переносим картинки
+      .pipe(gulp.dest('dist/images'));
+  var buildResources = gulp.src('app/resources/**/*') // Переносим остальные файлы
+      .pipe(gulp.dest('dist/resources'));
+});
+
+// Собирем архив в датой в названии
+gulp.task('build-zip', function() {
+	var datetime = '-' + getDateTime();
+	var zipName = 'dist' + datetime + '.zip';
+
+	return gulp.src('dist/**/*')
+		.pipe(zip(zipName))
+		.pipe(gulp.dest('.'));
+});
+
+gulp.task('cleanup', function(cb) {
+  return del(path.html + '/*', cb);
+});
+
+
+// Функция обработки ошибок
+var errorHandler = function(err) {
+  gutil.log(gutil.colors.Red([(err.name + ' in ' + err.plugin), '', err.message, ''].join('\n')));
+  if (gutil.env.beep) {
+    gutil.beep();
+  }
   this.emit('end');
+};
+
+// Print object in console
+var debugObj = function (obj) {
+	var util = require('util');
+	console.log(util.inspect(obj, {showHidden: false, depth: null}));
 };
