@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     cssnano = require('gulp-cssnano'),
     portfinder = require('portfinder'),
     browserSync = require("browser-sync"),
+    newer = require('gulp-newer'),
     reload = browserSync.reload,
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
@@ -18,7 +19,9 @@ var gulp = require('gulp'),
     clearfix = require('postcss-clearfix'),
     size = require('postcss-size'),
     normalize = require('postcss-normalize'),
+    gpath = require('path'),
     property = require('postcss-property-lookup'),
+    runSequence = require('run-sequence'),
     center = require('postcss-center'),
     mqpacker = require('css-mqpacker'),
     postcsssvg = require('postcss-svg'),
@@ -28,18 +31,31 @@ var gulp = require('gulp'),
     cssnext = require("postcss-cssnext"),
     vars = require('postcss-simple-vars'),
     imprt = require('postcss-import'),
+    imagemin = require('gulp-imagemin'),
     doiuse = require('doiuse'),
     grid = require('postcss-grid-system'),
-    zip = require('gulp-zip');
+    zip = require('gulp-zip'),
+    del = require('del');
 
-// Ресурсы проекта
-var paths = {
-  styles: 'app/styles/',
-  css: 'dist/styles/',
-  scripts: 'app/scripts/',
-  js: 'dist/scripts/',
-  templates: 'app/templates/',
-  html: 'dist/'
+var src = './app/',
+    dist = './dist/',
+    paths = {
+      build: {
+        html:       dist,
+        scripts:    dist + 'scripts',
+        styles:     dist + 'styles',
+        images:     dist + 'images',
+        fonts:      dist + 'fonts',
+        resources:  dist
+      },
+      source: {
+        templates:  [src + 'templates/'],
+        scripts:    [src + 'scripts/'],
+        styles:     [src + 'styles/'],
+        images:     [src + 'images/**/*'],
+        fonts:      [src + 'fonts/**/*'],
+        resources:  [src + 'resources/**/*']
+      }
 };
 
 // Дата для формирования архива
@@ -54,44 +70,65 @@ var getDateTime = function getDateTime() {
 	var day = correctNumber(now.getDate());
 	var hours = correctNumber(now.getHours());
 	var minutes = correctNumber(now.getMinutes());
-	return year + '-' + month + '-' + day + '-' + hours + minutes;
+	return year + '-' + month + '-' + day + '-' + hours + '_' + minutes;
 };
 
 // Одноразовая сборка проекта
 gulp.task('default', function() {
-  gulp.start('include', 'styles', 'scripts', 'copy-assets');
+  gulp.start('include', 'styles', 'scripts', 'copy');
 });
 
 // Одноразовая сборка проекта в *.zip-архив в корне проекта
-gulp.task('zip', function() {
-		gulp.start('include', 'styles', 'scripts', 'copy-assets', 'build-zip', 'cleanup');
-    return gutil.log(gutil.colors.green('Архив готов, лежит в корне проекта;'));
+gulp.task('zip', function(cb) {
+  return runSequence(
+    'cleanup',
+    ['include', 'styles', 'scripts', 'copy', 'build-zip'],
+    'build-zip',
+    'cleanup',
+    cb
+  );
+  return gutil.log(gutil.colors.green('Архив готов, лежит в корне проекта;'));
+});
+
+// Копируем статичные файлы
+gulp.task('copy', function(cb) {
+  return runSequence(
+    [
+      'fonts',
+      'images',
+      'resources'
+    ],
+    cb
+  );
 });
 
 // Запуск живой сборки
 gulp.task('live', function() {
-  gulp.start('server', 'include', 'styles', 'scripts', 'watch', 'copy-assets');
+  gulp.start('server', 'include', 'styles', 'scripts', 'watch', 'copy');
 });
 
 // Туннель
 gulp.task('external-world', function() {
-  gulp.start('web-server', 'include', 'styles', 'scripts', 'watch', 'copy-assets');
+  gulp.start('web-server', 'include', 'styles', 'scripts', 'watch', 'copy');
 });
 
 // Федеральная служба по контролю за оборотом файлов
 gulp.task('watch', function() {
-  gulp.watch(paths.styles + '**/*.sss', ['styles']);
-  gulp.watch(paths.scripts + '*.js', ['scripts']);
-  gulp.watch(paths.templates + '**/*.html', ['include', 'html']);
-  gulp.watch(paths.templates + 'blocks/*.html', ['include', 'html']);
+  gulp.watch(paths.source.styles + '**/*.sss', ['styles']);
+  gulp.watch(paths.source.scripts + '*.js', ['scripts']);
+  gulp.watch(paths.source.templates + '**/*.html', ['include', 'html']);
+  gulp.watch(paths.source.templates + 'blocks/*.html', ['include', 'html']);
+  gulp.watch(paths.source.images + '**/*.*', ['images']);
+  gulp.watch(paths.source.fonts + '**/*.*', ['fonts']);
+  gulp.watch(paths.source.resources + '**/*.*', ['resources']);
 });
 
 // Шаблонизация
 gulp.task('include', function() {
-  return gulp.src(paths.templates + '*.html')
+  return gulp.src(paths.source.templates + '*.html')
   .pipe(plumber({errorHandler: errorHandler}))
   .pipe(include())
-  .pipe(gulp.dest(paths.html));
+  .pipe(gulp.dest(paths.build.html));
 });
 
 // Компиляция стилей
@@ -130,24 +167,24 @@ gulp.task('styles', function () {
     //   }
     // })
   ];
-  return gulp.src(paths.styles + 'layout.sss')
+  return gulp.src(paths.source.styles + 'layout.sss')
   .pipe(plumber({errorHandler: errorHandler}))
   .pipe(postcss(processors, { parser: sugarss }))
   .pipe(rename('style.css'))
   //.pipe(cssnano({discardComments: {removeAll: true}, convertValues: {length: false}}))
-  .pipe(gulp.dest(paths.css))
+  .pipe(gulp.dest(paths.build.styles))
   .pipe(reload({stream: true}));
 });
 
 // Сборка и минификация скриптов
 gulp.task('scripts', function() {
-  return gulp.src(paths.scripts + '*.js')
+  return gulp.src(paths.source.scripts + '*.js')
   .pipe(plumber({errorHandler: errorHandler}))
   .pipe(eslint())
   .pipe(eslint.format())
   .pipe(concat('scripts.js'))
   .pipe(uglify())
-  .pipe(gulp.dest(paths.js))
+  .pipe(gulp.dest(paths.build.scripts))
   .pipe(reload({stream: true}));
 });
 
@@ -182,38 +219,71 @@ gulp.task('web-server', function() {
 
 // Рефреш ХТМЛ-страниц
 gulp.task('html', function () {
-  gulp.src(paths.html + '*.html')
+  gulp.src(paths.build.html + '*.html')
   .pipe(reload({stream: true}));
 });
 
-// Копируем статичные файлы
-gulp.task('copy-assets', function() {
-  var distFonts = gulp.src('app/fonts/**/*') // Переносим шрифты
-      .pipe(gulp.dest('dist/fonts'));
-  var buildImages = gulp.src('app/images/**/*') // Переносим картинки
-      .pipe(gulp.dest('dist/images'));
-  var buildResources = gulp.src('app/resources/**/*') // Переносим остальные файлы
-      .pipe(gulp.dest('dist/resources'));
+// Копируем шрифты
+gulp.task('fonts', function () {
+  gulp.src(paths.source.fonts)
+    .pipe(plumber({errorHandler: errorHandler}))
+
+    .pipe(newer(paths.build.fonts))
+    .pipe(gulp.dest(paths.build.fonts))
+
+    .pipe(reload({stream: true}));
+  gutil.log(gutil.colors.green('Шрифты скопированы;'));
 });
 
-// Собирем архив в датой в названии
+// Копируем и минимизируем изображения
+gulp.task('images', function() {
+  gulp.src(paths.source.images)
+    .pipe(plumber({errorHandler: errorHandler}))
+
+    .pipe(newer(paths.build.images))
+    .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
+    .pipe(gulp.dest(paths.build.images))
+
+    .pipe(reload({stream: true}));
+  return gutil.log(gutil.colors.green('Картинки скопированы;'));
+});
+
+// Копируем другие файлы в корень проекта
+gulp.task('resources', function() {
+  gulp.src(paths.source.resources)
+    .pipe(plumber({errorHandler: errorHandler}))
+
+    .pipe(newer(paths.build.resources))
+
+    .pipe(gulp.dest(paths.build.resources))
+
+    .pipe(reload({stream: true}));
+  return gutil.log(gutil.colors.green('Статичные файлы скопированы;'));
+});
+
+// Собирем архив с именем проекта и датой в названии
 gulp.task('build-zip', function() {
-	var datetime = '-' + getDateTime();
-	var zipName = 'dist' + datetime + '.zip';
+  var prjName = 'dist';
+  var rootFolderName = gpath.basename(__dirname);
+  if (!rootFolderName || typeof rootFolderName === 'string') {
+    prjName = rootFolderName;
+  }
+  var datetime = '-' + getDateTime();
+  var zipName = prjName + datetime + '.zip';
 
-	return gulp.src('dist/**/*')
-		.pipe(zip(zipName))
-		.pipe(gulp.dest('.'));
+  return gulp.src('dist/**/*')
+    .pipe(zip(zipName))
+    .pipe(gulp.dest('.'));
 });
 
+// Отчистка папки dist
 gulp.task('cleanup', function(cb) {
-  return del(path.html + '/*', cb);
+  return del('./dist', cb);
 });
-
 
 // Функция обработки ошибок
 var errorHandler = function(err) {
-  gutil.log(gutil.colors.Red([(err.name + ' in ' + err.plugin), '', err.message, ''].join('\n')));
+  gutil.log(gutil.colors.red([(err.name + ' in ' + err.plugin), '', err.message, ''].join('\n')));
   if (gutil.env.beep) {
     gutil.beep();
   }
@@ -222,6 +292,5 @@ var errorHandler = function(err) {
 
 // Print object in console
 var debugObj = function (obj) {
-	var util = require('util');
-	console.log(util.inspect(obj, {showHidden: false, depth: null}));
+	console.log(gutil.inspect(obj, {showHidden: false, depth: null}));
 };
