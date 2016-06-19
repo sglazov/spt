@@ -46,7 +46,8 @@
     "postcss-size":                    "^1.0.0",
     "postcss-svg":                     "^1.0.6",
     "run-sequence":                    "^1.2.1",
-    "sugarss":                         "^0.1.4"
+    "sugarss":                         "^0.1.4",
+    "gulp-watch":                      "^4.3.8"
   },
   "license": "MIT"
 }

@@ -1,41 +1,42 @@
 'use strict';
 
-var gulp = require('gulp'),
-    rename = require('gulp-rename'),
-    gutil = require('gulp-util'),
-    plumber = require('gulp-plumber'),
-    postcss = require('gulp-postcss'),
-    autoprefixer = require('autoprefixer'),
-    cssnano = require('gulp-cssnano'),
-    portfinder = require('portfinder'),
-    browserSync = require("browser-sync"),
-    newer = require('gulp-newer'),
-    reload = browserSync.reload,
-    uglify = require('gulp-uglify'),
-    concat = require('gulp-concat'),
-    eslint = require('gulp-eslint'),
-    include = require("gulp-html-tag-include"),
-    sugarss = require("sugarss"),
-    clearfix = require('postcss-clearfix'),
-    size = require('postcss-size'),
-    normalize = require('postcss-normalize'),
-    gpath = require('path'),
-    property = require('postcss-property-lookup'),
-    runSequence = require('run-sequence'),
-    center = require('postcss-center'),
-    mqpacker = require('css-mqpacker'),
-    postcsssvg = require('postcss-svg'),
+var gulp              = require('gulp'),
+    rename            = require('gulp-rename'),
+    gutil             = require('gulp-util'),
+    plumber           = require('gulp-plumber'),
+    postcss           = require('gulp-postcss'),
+    autoprefixer      = require('autoprefixer'),
+    cssnano           = require('gulp-cssnano'),
+    portfinder        = require('portfinder'),
+    browserSync       = require("browser-sync"),
+    newer             = require('gulp-newer'),
+    reload            = browserSync.reload,
+    uglify            = require('gulp-uglify'),
+    concat            = require('gulp-concat'),
+    eslint            = require('gulp-eslint'),
+    include           = require("gulp-html-tag-include"),
+    sugarss           = require("sugarss"),
+    clearfix          = require('postcss-clearfix'),
+    size              = require('postcss-size'),
+    normalize         = require('postcss-normalize'),
+    gpath             = require('path'),
+    property          = require('postcss-property-lookup'),
+    runSequence       = require('run-sequence'),
+    center            = require('postcss-center'),
+    mqpacker          = require('css-mqpacker'),
+    postcsssvg        = require('postcss-svg'),
     colorRgbaFallback = require("postcss-color-rgba-fallback"),
-    assets = require('postcss-assets'),
-    nested = require("postcss-nested"),
-    cssnext = require("postcss-cssnext"),
-    vars = require('postcss-simple-vars'),
-    imprt = require('postcss-import'),
-    imagemin = require('gulp-imagemin'),
-    doiuse = require('doiuse'),
-    grid = require('postcss-grid-system'),
-    zip = require('gulp-zip'),
-    del = require('del');
+    assets            = require('postcss-assets'),
+    nested            = require("postcss-nested"),
+    cssnext           = require("postcss-cssnext"),
+    vars              = require('postcss-simple-vars'),
+    imprt             = require('postcss-import'),
+    imagemin          = require('gulp-imagemin'),
+    doiuse            = require('doiuse'),
+    grid              = require('postcss-grid-system'),
+    zip               = require('gulp-zip'),
+    del               = require('del'),
+    watch             = require('gulp-watch');
 
 var src = './app/',
     dist = './dist/',
@@ -118,9 +119,9 @@ gulp.task('watch', function() {
   gulp.watch(paths.source.scripts + '*.js', ['scripts']);
   gulp.watch(paths.source.templates + '**/*.html', ['include', 'html']);
   gulp.watch(paths.source.templates + 'blocks/*.html', ['include', 'html']);
-  gulp.watch(paths.source.images + '**/*.*', ['images']);
-  gulp.watch(paths.source.fonts + '**/*.*', ['fonts']);
-  gulp.watch(paths.source.resources + '**/*.*', ['resources']);
+  //gulp.watch(paths.watch.images + '**/', ['images']);
+  //gulp.watch(paths.watch.fonts, ['fonts']);
+  //gulp.watch(paths.watch.resources, ['resources']);
 });
 
 // Шаблонизация

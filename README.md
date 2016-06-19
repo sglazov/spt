@@ -1,33 +1,50 @@
 #Шаблон проекта для быстрого старта
+
 Шаблон помогает быстро начать вёрстку проекта.
 
 Перед первым запуском (_один раз на проект_):
+
 ```bash
 sudo npm install
 ```
 ##Режимы
+
 Одноразовая сборка:
+
 ```bash
 gulp
 ```
+
 Запуск живой сборки на локальном сервере:
+
 ```bash
 gulp live
 ```
+
 Живая сборка на локальном сервере и туннель в интернет:
+
 ```bash
 gulp external-world
 ```
-Сборка проекта в *.zip-архив
+
+Сборка проекта в *.zip-архив (_архив кладётся в корень_):
+
 ```bash
 gulp zip
 ```
+
 ##Шаблонизация
+
 Шаблоны собираются в папке `templates` с помощью тегов `<include>`. Составные части лежат в `blocks`. Переменные — через `@@var` (см. [gulp-html-tag-include](https://github.com/zaharin/gulp-html-tag-include)). Боевые файлы автоматически собираются в корне проекта.
+
 ##Стили
+
 Верстаются в `assets/source/styles/layout.sss`, компилируются в `assets/css/style.css`.
+
 ####PostCSS
+
 Переменные ([postcss-simple-vars](https://github.com/postcss/postcss-simple-vars)):
+
 ```css
 $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 ```
@@ -60,8 +77,6 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 ## Структура папок и файлов
 
-
-## Структура папок и файлов
 ```
 ├── app/                       # Исходники
 │   ├── templates/             # Шаблоны
@@ -75,14 +90,14 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 │   │   └── app.js             # Главный скрипт
 │   ├── styles/                # Стили
 │   │   ├── default.sss        # Стили по умолчанию
-│   │   ├── variables.sss      # Переменные
+│   │   ├── variables.sss      # CSS-Переменные
 │   │   ├── fonts.sss          # Подключение шрифтов
 │   │   ├── typo.sss           # Типографика
 │   │   └── layout.sss         # Главный стилевой файл
 │   ├── fonts/                 # Шрифты
 │   ├── images/                # Картинки
 │   └── resources/             # Статические файлы для копирования в dist
-│       └── manifest.json      # СервисВоркеры (¯\_(ツ)_/¯)
+│       └── manifest.json      # ¯\_(ツ)_/¯
 ├── dist/                      # Сборка (автогенерация)
 │   ├── assets/                # Подключаемые ресурсы
 │   │   ├── fonts/             # Шрифты
@@ -90,8 +105,8 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 │   │   ├── scripts/           # Скрипты
 │   │   └── styles/            # Стили
 │   └── index.html             # Страница
-├── .gitignore                     # Список исключённых файлов из Git
-├── package.json                   # Список модулей и прочей информации
-├── gulpfile.js                    # Конфигурация Gulp.js
-└── readme.md                     # Документация шаблона
+├── .gitignore                 # Список исключённых файлов из Git
+├── package.json               # Список модулей и прочей информации
+├── gulpfile.js                # Конфигурация Gulp.js
+└── readme.md                  # Документация шаблона
 ```
