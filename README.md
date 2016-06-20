@@ -2,6 +2,12 @@
 
 Шаблон помогает быстро начать вёрстку проекта.
 
+Склонировать репозиторий и перейти в созданную папку проекта
+
+```bash
+git clone git@bitbucket.org:chenki/spt.git new-project && cd new-project
+```
+
 Перед первым запуском (_один раз на проект_):
 
 ```bash
@@ -35,11 +41,11 @@ gulp zip
 
 ##Шаблонизация
 
-Шаблоны собираются в папке `templates` с помощью тегов `<include>`. Составные части лежат в `blocks`. Переменные — через `@@var` (см. [gulp-html-tag-include](https://github.com/zaharin/gulp-html-tag-include)). Боевые файлы автоматически собираются в корне проекта.
+Шаблоны собираются в папке `templates` с помощью тегов `<include>`. Составные части лежат в `blocks`. Переменные — через `@@var` (см. [gulp-html-tag-include](https://github.com/zaharin/gulp-html-tag-include)). Боевые файлы автоматически собираются в корне папки dist/.
 
 ##Стили
 
-Верстаются в `assets/source/styles/layout.sss`, компилируются в `assets/css/style.css`.
+Верстаются в `app/styles/layout.sss` (_базовый стилевой файл_), компилируются в `dist/assets/styles/style.css`.
 
 ####PostCSS
 
@@ -72,7 +78,8 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 10. [PostCSS RGBa-fallback](https://github.com/postcss/postcss-color-rgba-fallback). Поддержка RGBa для IE8;
 11. [PostCSS ASSETS](https://github.com/assetsjs/postcss-assets). Магия для работы с ресурсами сайта;
 12. [DoIuse](https://github.com/anandthakker/doiuse). Сверяет используемые свойства с сервисом [caniuse.com](http://caniuse.com);
-13. [PostCSS Grid System](https://github.com/francoisromain/postcss-grid-system). Сетка.
+13. [PostCSS Grid System](https://github.com/francoisromain/postcss-grid-system). Сетка;
+14. [PostCSS Responsive Type](https://github.com/seaneking/postcss-responsive-type). Адаптивная типографика.
 - - - -
 
 ## Структура папок и файлов
