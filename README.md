@@ -80,6 +80,7 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 12. [DoIuse](https://github.com/anandthakker/doiuse). Сверяет используемые свойства с сервисом [caniuse.com](http://caniuse.com);
 13. [PostCSS Grid System](https://github.com/francoisromain/postcss-grid-system). Сетка;
 14. [PostCSS Responsive Type](https://github.com/seaneking/postcss-responsive-type). Адаптивная типографика.
+14. [PostCSS Font Magician](https://github.com/jonathantneal/postcss-font-magician). Беззаботное подключение шрифтов.
 - - - -
 
 ## Структура папок и файлов
