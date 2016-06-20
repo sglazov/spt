@@ -27,6 +27,7 @@ var autoprefixer        = require('autoprefixer'),
     clearfix            = require('postcss-clearfix'),
     colorRgbaFallback   = require("postcss-color-rgba-fallback"),
     cssnext             = require("postcss-cssnext"),
+    fontmagician        = require('postcss-font-magician'),
     grid                = require('postcss-grid-system'),
     imprt               = require('postcss-import'),
     nested              = require("postcss-nested"),
@@ -162,7 +163,8 @@ var processors = [
   }),
   grid,
   doiuse,
-  responsivetype
+  responsivetype,
+  fontmagician
 ];
 
 // Дата для формирования архива
