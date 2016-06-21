@@ -156,7 +156,10 @@ var processors = [
   property,
   center,
   mqpacker,
-  postcsssvg({ defaults: '[fill]: black' }),
+  postcsssvg({
+    paths: ['app/images'],
+    ei: { "defaults": "[fill]: black" }
+  }),
   colorRgbaFallback,
   assets({
     loadPaths: ['app/images/']
