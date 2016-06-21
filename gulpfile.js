@@ -227,7 +227,7 @@ gulp.task('copy', function(cb) {
 // Федеральная служба по контролю за оборотом файлов
 gulp.task('watch', function() {
   watch(paths.watch.templates, function() {
-    return runSequence(['include', 'html']);
+    return runSequence('include', 'html');
   });
   watch(paths.watch.styles, function() {
     return runSequence('styles');
