@@ -107,12 +107,14 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 │   │   └── layout.sss         # Главный стилевой файл
 │   ├── fonts/                 # Шрифты
 │   ├── images/                # Картинки
+│   │   └── sprites            # Папка PNG-иконок для генерации растрового спрайта
 │   └── resources/             # Статические файлы для копирования в dist
 │       └── manifest.json      # ¯\_(ツ)_/¯
 ├── dist/                      # Сборка (автогенерация)
 │   ├── assets/                # Подключаемые ресурсы
 │   │   ├── fonts/             # Шрифты
 │   │   ├── images/            # Изображения
+│   │   │   └── sprites/       # Спрайты (автогенерация)
 │   │   ├── scripts/           # Скрипты
 │   │   └── styles/            # Стили
 │   └── index.html             # Страница

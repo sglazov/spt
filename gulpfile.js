@@ -116,7 +116,7 @@ var plugins = {
   sprites: {
     options: {
       stylesheetPath: './dist/assets/styles/',
-      spritePath: './dist/assets/images/sprite/'
+      spritePath: './dist/assets/images/sprites/'
     }
   },
 
