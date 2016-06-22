@@ -3,6 +3,7 @@
 var autoprefixer        = require('autoprefixer'),
     browserSync         = require("browser-sync"),
     mqpacker            = require('css-mqpacker'),
+    cqPostcss           = require('cq-prolyfill/postcss-plugin'),
     del                 = require('del'),
     doiuse              = require('doiuse'),
     gulp                = require('gulp'),
@@ -16,6 +17,7 @@ var autoprefixer        = require('autoprefixer'),
     plumber             = require('gulp-plumber'),
     postcss             = require('gulp-postcss'),
     rename              = require('gulp-rename'),
+    rucksack            = require('gulp-rucksack'),
     uglify              = require('gulp-uglify'),
     gutil               = require('gulp-util'),
     watch               = require('gulp-watch'),
@@ -30,12 +32,13 @@ var autoprefixer        = require('autoprefixer'),
     fontmagician        = require('postcss-font-magician'),
     grid                = require('postcss-grid-system'),
     imprt               = require('postcss-import'),
+    initial             = require('postcss-initial'),
     nested              = require("postcss-nested"),
     normalize           = require('postcss-normalize'),
     property            = require('postcss-property-lookup'),
-    responsivetype      = require('postcss-responsive-type'),
     vars                = require('postcss-simple-vars'),
-    size                = require('postcss-size'),
+    sprites             = require('postcss-sprites').default,
+    shorter             = require('postcss-short'),
     postcsssvg          = require('postcss-svg'),
     runSequence         = require('run-sequence'),
     sugarss             = require("sugarss"),
@@ -110,6 +113,13 @@ var plugins = {
     }
   },
 
+  sprites: {
+    options: {
+      stylesheetPath: './dist/assets/styles/',
+      spritePath: './dist/assets/images/sprite/'
+    }
+  },
+
   doiuse: {
     options: {
       browsers: [
@@ -145,12 +155,14 @@ var plugins = {
 // Список задач для сборки стилей
 var processors = [
   imprt,
+  sprites(plugins.sprites.options),
   cssnext({
       autoprefixer: (plugins.autoprefixer.options)
     }),
   vars,
   nested,
-  size,
+  shorter,
+  rucksack,
   clearfix,
   normalize,
   property,
@@ -165,9 +177,10 @@ var processors = [
     loadPaths: ['app/images/']
   }),
   grid,
-  doiuse,
-  responsivetype,
-  fontmagician
+  //doiuse(plugins.doiuse.options),
+  fontmagician,
+  initial,
+  cqPostcss,
 ];
 
 // Дата для формирования архива

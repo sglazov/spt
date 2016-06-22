@@ -69,7 +69,7 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 1. [CSSNext](http://cssnext.io). Штуки из CSS 4, префиксы, кастомные медиа-запросы;
 2. [SugarSS](https://github.com/postcss/sugarss). Синтаксис Stylus со всеми штуками PostCSS;
 3. [PostCSS Clearfix](https://github.com/seaneking/postcss-clearfix). Добавляет Clearfix аттрибуты для очистки плавающих элементов;
-4. [PostCSS Size](https://github.com/postcss/postcss-size). Добавляет CSS свойство size для обозначения ширины и высоты элемента;
+4. [PostCSS Short](https://github.com/jonathantneal/postcss-short). Логичные укороченные конструкции дял свойств;
 5. [PostCSS Normalize](https://github.com/seaneking/postcss-normalize). Правила [normalize.css](https://github.com/necolas/normalize.css) перед всеми своийствами в CSS;
 6. [PostCSS Property-lookup](https://github.com/simonsmith/postcss-property-lookup). Ссылка на другие свойства;
 7. [PostCSS Center](https://github.com/jedmao/postcss-center). Плагин для беззаботной центровки элементов;
@@ -79,8 +79,11 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 11. [PostCSS ASSETS](https://github.com/assetsjs/postcss-assets). Магия для работы с ресурсами сайта;
 12. [DoIuse](https://github.com/anandthakker/doiuse). Сверяет используемые свойства с сервисом [caniuse.com](http://caniuse.com);
 13. [PostCSS Grid System](https://github.com/francoisromain/postcss-grid-system). Сетка;
-14. [PostCSS Responsive Type](https://github.com/seaneking/postcss-responsive-type). Адаптивная типографика.
-14. [PostCSS Font Magician](https://github.com/jonathantneal/postcss-font-magician). Беззаботное подключение шрифтов.
+14. [PostCSS Rucksack](https://github.com/simplaio/rucksack) или [документация и примеры](http://simplaio.github.io/rucksack/) на сайте. CSS-рюкзак с адаптивной типографикой, сокращенным свойствами и т.п.;
+15. [PostCSS Font Magician](https://github.com/jonathantneal/postcss-font-magician). Беззаботное подключение шрифтов;
+16. [PostCSS Initial](https://github.com/maximkoretskiy/postcss-initial). `all: initial` внутри CSS;
+17. [Container Queries Prolyfill](https://github.com/ausi/cq-prolyfill). Адаптивные контейнеры;
+18. [PostCSS Sprites](https://github.com/2createStudio/postcss-sprites). Автоспрайты с поддержкой ретины;
 - - - -
 
 ## Структура папок и файлов
