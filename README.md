@@ -77,13 +77,13 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 9. [PostCSS SVG](https://github.com/Pavliko/postcss-svg). Работа с SVG в CSS;
 10. [PostCSS RGBa-fallback](https://github.com/postcss/postcss-color-rgba-fallback). Поддержка RGBa для IE8;
 11. [PostCSS ASSETS](https://github.com/assetsjs/postcss-assets). Магия для работы с ресурсами сайта;
-12. [DoIuse](https://github.com/anandthakker/doiuse). Сверяет используемые свойства с сервисом [caniuse.com](http://caniuse.com);
+12. [DoIuse](https://github.com/anandthakker/doiuse). Сверяет используемые свойства с сервисом [caniuse.com](http://caniuse.com) и ругается в консоль;
 13. [PostCSS Grid System](https://github.com/francoisromain/postcss-grid-system). Сетка;
-14. [PostCSS Rucksack](https://github.com/simplaio/rucksack) или [документация и примеры](http://simplaio.github.io/rucksack/) на сайте. CSS-рюкзак с адаптивной типографикой, сокращенным свойствами и т.п.;
+14. [PostCSS Rucksack](https://github.com/simplaio/rucksack) или [документация и демо](http://simplaio.github.io/rucksack/). Полезные CSS-штуки;
 15. [PostCSS Font Magician](https://github.com/jonathantneal/postcss-font-magician). Беззаботное подключение шрифтов;
-16. [PostCSS Initial](https://github.com/maximkoretskiy/postcss-initial). `all: initial` внутри CSS;
+16. [PostCSS Initial](https://github.com/maximkoretskiy/postcss-initial). Сброс стилей через `all: initial` в CSS;
 17. [Container Queries Prolyfill](https://github.com/ausi/cq-prolyfill). Адаптивные контейнеры;
-18. [PostCSS Sprites](https://github.com/2createStudio/postcss-sprites). Автоспрайты с поддержкой ретины;
+18. [PostCSS Sprites](https://github.com/2createStudio/postcss-sprites). Автоспрайты с поддержкой ретины, картинки для спрайта класть в `./app/images/sprite`;
 - - - -
 
 ## Структура папок и файлов
