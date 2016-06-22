@@ -2,7 +2,7 @@
 
 Шаблон помогает быстро начать вёрстку проекта.
 
-Склонировать репозиторий и перейти в созданную папку проекта
+Склонировать репозиторий и перейти в созданную папку проекта:
 
 ```bash
 git clone git@bitbucket.org:chenki/spt.git new-project && cd new-project
@@ -41,13 +41,13 @@ gulp zip
 
 ##Шаблонизация
 
-Шаблоны собираются в папке `templates` с помощью тегов `<include>`. Составные части лежат в `blocks`. Переменные — через `@@var` (см. [gulp-html-tag-include](https://github.com/zaharin/gulp-html-tag-include)). Боевые файлы автоматически собираются в корне папки dist/.
+Шаблоны собираются в папке `templates` с помощью тегов `<include>`. Составные части лежат в `blocks`. Переменные — через `@@var` (см. [gulp-html-tag-include](https://github.com/zaharin/gulp-html-tag-include)). Боевые файлы автоматически собираются в корне папки `./dist/`.
 
 ##Стили
 
 Верстаются в `app/styles/layout.sss` (_базовый стилевой файл_), компилируются в `dist/assets/styles/style.css`.
 
-####PostCSS
+###PostCSS
 
 Переменные ([postcss-simple-vars](https://github.com/postcss/postcss-simple-vars)):
 
