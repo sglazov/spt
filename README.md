@@ -105,13 +105,11 @@ background: url(images/sprite/name.png) no-repeat 0 0;
 
 Общий спрайт автоматически кладётся в `dist/assets/images/sprites/`.
 
-- - - -
-
-Картинки кладутся в `app/images`, собираются в `dist/assets/images`, в CSS:
+Все изображения кладутся в `app/images`, собираются в `dist/assets/images`, в CSS:
 
 ```css
 background: resolve('name.jpg')
-size: size('name.png', 2)
+width: width('name.png')
 ```
 
 - - - -
