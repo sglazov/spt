@@ -2,19 +2,19 @@
 @import 'default.sss'
 @import 'typo.sss'
 
-// MakeUP — px2px: дизайн на вёрстку
+// дизайн под вёрстку
 .px2px
-  background-image: url('/px2px.png')
-  background-attachment: scroll
-  width: 1360px
-  height: 8069px
-  display: block
   position: absolute
   top: 0
   left: 50%
-  margin: 0 0 0 -675px
-  pointer-events: none
-  opacity: .4
-  filter: invert(100%)
-  transition: all .3s
   z-index: 9999
+  display: block
+  width: width('test/px2px.png')
+  height: height('test/px2px.png')
+  margin: 0 0 0 width('test/px2px.png', -2)
+  pointer-events: none
+  transition: all .3s
+  opacity: .4
+  background-image: resolve('test/px2px.png')
+  background-attachment: scroll
+  filter: invert(100%)

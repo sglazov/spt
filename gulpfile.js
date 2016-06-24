@@ -1,6 +1,7 @@
 'use strict';
 
-var autoprefixer        = require('autoprefixer'),
+var argv                = require('yargs').argv,
+    autoprefixer        = require('autoprefixer'),
     browserSync         = require("browser-sync"),
     mqpacker            = require('css-mqpacker'),
     cqPostcss           = require('cq-prolyfill/postcss-plugin'),
@@ -11,6 +12,7 @@ var autoprefixer        = require('autoprefixer'),
     cssnano             = require('gulp-cssnano'),
     eslint              = require('gulp-eslint'),
     include             = require("gulp-html-tag-include"),
+    gulpif              = require('gulp-if'),
     imagemin            = require('gulp-imagemin'),
     imageminPngquant    = require('imagemin-pngquant'),
     newer               = require('gulp-newer'),
@@ -18,6 +20,7 @@ var autoprefixer        = require('autoprefixer'),
     postcss             = require('gulp-postcss'),
     rename              = require('gulp-rename'),
     rucksack            = require('gulp-rucksack'),
+    stripCssComments    = require('gulp-strip-css-comments'),
     uglify              = require('gulp-uglify'),
     gutil               = require('gulp-util'),
     watch               = require('gulp-watch'),
@@ -174,13 +177,14 @@ var processors = [
   }),
   colorRgbaFallback,
   assets({
-    loadPaths: ['app/images/']
+    basePath: 'dist/',
+    loadPaths: ['assets/images/']
   }),
   grid,
   //doiuse(plugins.doiuse.options),
   fontmagician,
   initial,
-  cqPostcss,
+  cqPostcss
 ];
 
 // Дата для формирования архива
@@ -273,8 +277,11 @@ gulp.task('styles', function () {
     .pipe(plumber({errorHandler: errorHandler}))
     .pipe(postcss(processors, { parser: sugarss }))
     .pipe(rename('style.css'))
-    //.pipe(cssnano({discardComments: {removeAll: true}, convertValues: {length: false}}))
+    .pipe(gulpif(argv.build, stripCssComments()))
     .pipe(gulp.dest(paths.build.styles))
+    .pipe(gulpif(argv.build, cssnano({discardComments: {removeAll: true}, convertValues: {length: false}})))
+    .pipe(gulpif(argv.build, rename('style.min.css')))
+    .pipe(gulpif(argv.build, gulp.dest(paths.build.styles)))
     .pipe(reload({stream: true}));
 });
 
@@ -285,8 +292,10 @@ gulp.task('scripts', function() {
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(concat('scripts.js'))
-    .pipe(uglify())
     .pipe(gulp.dest(paths.build.scripts))
+    .pipe(gulpif(argv.build, uglify()))
+    .pipe(gulpif(argv.build, rename('scripts.min.css')))
+    .pipe(gulpif(argv.build, gulp.dest(paths.build.scripts)))
     .pipe(reload({stream: true}));
 });
 
