@@ -103,9 +103,9 @@ PNG-иконки для спрайтов собираются в папке `app
 background: url(images/sprite/name.png) no-repeat 0 0;
 ```
 
-Общий спрайт автоматически кладётся в `dist/assets/images/sprites/`.
+Общий спрайт автоматически собирается в `dist/assets/images/sprites/`.
 
-Все изображения кладутся в `app/images`, собираются в `dist/assets/images`, в CSS:
+Графика размещается в `app/images`, собираются в `dist/assets/images`, в CSS:
 
 ```css
 background: resolve('name.jpg')
