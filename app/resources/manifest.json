@@ -4,45 +4,47 @@
     "api_version": 4,
     "layout": {
         "logo": "",
-        "color": "#f2f7f8"
+        "color": "#ffffff"
     }
 }
 
 // это для сервисворкера
-
 {
   "name": "SPT",
   "short_name": "SPT",
-  "icons": [{
-        "src": "images/touch/_128.png",
-        "type": "image/png",
-        "sizes": "128x128"
-      }, {
-        "src": "images/touch/_152.png",
-        "type": "image/png",
-        "sizes": "152x152"
-      }, {
-        "src": "images/touch/_144.png",
-        "type": "image/png",
-        "sizes": "144x144"
-      }, {
-        "src": "images/touch/_192.png",
-        "type": "image/png",
-        "sizes": "192x192"
-      },
-      {
-        "src": "images/touch/_256.png",
-        "type": "image/png",
-        "sizes": "256x256"
-      },
-      {
-        "src": "images/touch/_512.png",
-        "type": "image/png",
-        "sizes": "512x512"
-      }],
   "start_url": "/?homescreen=1",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#ff6600",
-  "theme_color": "#ff6600"
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "default_locale": "ru",
+  "icons": [
+    {
+      "src": "images/touch/_128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    }, {
+      "src": "images/touch/_152.png",
+      "type": "image/png",
+      "sizes": "152x152"
+    }, {
+      "src": "images/touch/_144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }, {
+      "src": "images/touch/_192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "images/touch/_256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "images/touch/_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
 }

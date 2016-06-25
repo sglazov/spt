@@ -48,8 +48,8 @@ var argv                = require('yargs').argv,
     reload              = browserSync.reload;
 
 // Пути к файлам
-var src = './app/',
-    dist = './dist/',
+var src = 'app/',
+    dist = 'dist/',
     paths = {
       build: {
         html:           dist,
@@ -82,7 +82,7 @@ var plugins = {
   browserSync: {
     locall: {
       server: {
-        baseDir: "./dist"
+        baseDir: "dist"
       },
       host: 'localhost',
       notify: false,
@@ -90,7 +90,7 @@ var plugins = {
     },
     world: {
       server: {
-        baseDir: "./dist"
+        baseDir: "dist"
       },
       tunnel: true,
       host: 'localhost',
@@ -118,8 +118,8 @@ var plugins = {
 
   sprites: {
     options: {
-      stylesheetPath: './dist/assets/styles/',
-      spritePath: './dist/assets/images/sprites/'
+      stylesheetPath: 'dist/assets/styles/',
+      spritePath: 'dist/assets/images/sprites/'
     }
   },
 
@@ -203,18 +203,33 @@ var getDateTime = function getDateTime() {
 };
 
 // Одноразовая сборка проекта
-gulp.task('default', function() {
-  gulp.start('include', 'styles', 'scripts', 'copy');
+gulp.task('default', function(cb) {
+  return runSequence(
+    'include',
+    'styles',
+    'scripts',
+    'watch',
+    'copy',
+    cb
+  );
 });
 
 // Запуск живой сборки
-gulp.task('live', function() {
-  gulp.start('server', 'include', 'styles', 'scripts', 'watch', 'copy');
+gulp.task('live', function(cb) {
+  return runSequence(
+    ['include', 'styles', 'scripts', 'watch', 'copy'],
+    'server',
+    cb
+  );
 });
 
 // Туннель
-gulp.task('external-world', function() {
-  gulp.start('web-server', 'include', 'styles', 'scripts', 'watch', 'copy');
+gulp.task('external-world', function(cb) {
+  return runSequence(
+    ['include', 'styles', 'scripts', 'watch', 'copy'],
+    'web-server',
+    cb
+  );
 });
 
 // Одноразовая сборка проекта в *.zip-архив в корне проекта
@@ -244,22 +259,22 @@ gulp.task('copy', function(cb) {
 // Федеральная служба по контролю за оборотом файлов
 gulp.task('watch', function() {
   watch(paths.watch.templates, function() {
-    return runSequence('include', 'html');
+    return runSequence('include', 'html', browserSync.reload);
   });
   watch(paths.watch.styles, function() {
-    return runSequence('styles');
+    return runSequence('styles', browserSync.reload);
   });
   watch(paths.watch.scripts, function() {
-    return runSequence('scripts');
+    return runSequence('scripts', browserSync.reload);
   });
   watch(paths.watch.images, function() {
-    return runSequence('images');
+    return runSequence('images', browserSync.reload);
   });
   watch(paths.watch.resources, function() {
-    return runSequence('resources');
+    return runSequence('resources', browserSync.reload);
   });
   watch(paths.watch.fonts, function() {
-    return runSequence('fonts');
+    return runSequence('fonts', browserSync.reload);
   });
 });
 
@@ -282,7 +297,6 @@ gulp.task('styles', function () {
     .pipe(gulpif(argv.build, cssnano({discardComments: {removeAll: true}, convertValues: {length: false}})))
     .pipe(gulpif(argv.build, rename('style.min.css')))
     .pipe(gulpif(argv.build, gulp.dest(paths.build.styles)))
-    .pipe(reload({stream: true}));
 });
 
 // Сборка и минификация скриптов
@@ -296,7 +310,6 @@ gulp.task('scripts', function() {
     .pipe(gulpif(argv.build, uglify()))
     .pipe(gulpif(argv.build, rename('scripts.min.css')))
     .pipe(gulpif(argv.build, gulp.dest(paths.build.scripts)))
-    .pipe(reload({stream: true}));
 });
 
 // Запуск локального сервера
@@ -316,7 +329,6 @@ gulp.task('web-server', function() {
 // Рефреш ХТМЛ-страниц
 gulp.task('html', function () {
   gulp.src(paths.build.html + '*.html')
-  .pipe(reload({stream: true}));
 });
 
 // Копируем шрифты
@@ -336,7 +348,6 @@ gulp.task('images', function() {
     .pipe(newer(paths.build.images))
     .pipe(imagemin(plugins.imagemin.options))
     .pipe(gulp.dest(paths.build.images))
-    .pipe(reload({stream: true}));
   return gutil.log(gutil.colors.green('Картинки скопированы;'));
 });
 
@@ -346,7 +357,6 @@ gulp.task('resources', function() {
     .pipe(plumber({errorHandler: errorHandler}))
     .pipe(newer(paths.build.resources))
     .pipe(gulp.dest(paths.build.resources))
-    .pipe(reload({stream: true}));
   return gutil.log(gutil.colors.green('Статичные файлы скопированы;'));
 });
 
@@ -362,12 +372,12 @@ gulp.task('build-zip', function() {
 
   return gulp.src('dist/**/*')
     .pipe(zip(zipName))
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest(''));
 });
 
 // Отчистка папки dist
 gulp.task('cleanup', function(cb) {
-  return del('./dist', cb);
+  return del('dist', cb);
 });
 
 // Функция обработки ошибок
