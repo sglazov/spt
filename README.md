@@ -54,21 +54,27 @@ gulp zip --build
 ```css
 $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 ```
+
 Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested)) для элементов в БЭМе, ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)):
 
 ```css
 // Комментарии
+...
 .parent >
 .child
-  color: black
+  ...
+  color: rgba(0,0,0,.95)
   width: 200px
   height: @width
   ...
   &__element
+    all: initial
     top: center
     size: 50px
     ...
 ```
+
+##### PostCSS-плагины
 
 1. [CSSNext](http://cssnext.io). Штуки из CSS 4, перменные, кастомные медиа-запросы;
 1. [SugarSS](https://github.com/postcss/sugarss). Синтаксис Stylus со всеми штуками PostCSS;
@@ -82,7 +88,7 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 1. [PostCSS Sprites](https://github.com/2createStudio/postcss-sprites). Генерация спрайтов;
 1. [PostCSS Grid System](https://github.com/francoisromain/postcss-grid-system). Сетка;
 1. [PostCSS Rucksack](https://github.com/simplaio/rucksack). Полезные CSS-[штуки](http://simplaio.github.io/rucksack/);
-1. [PostCSS Initial](https://github.com/maximkoretskiy/postcss-initial). Сброс стилей через `all: initial` в CSS;
+1. [PostCSS Initial](https://github.com/maximkoretskiy/postcss-initial). Сброс CSS-стилей элемента;
 
 ## Графика и файлы проекта
 
@@ -99,12 +105,12 @@ background-image: svg('name.svg', '[fill]: #000000');
 PNG-иконки для спрайтов собираются в папке `app/images/sprites/`, в CSS:
 
 ```css
-background: url(images/sprite/name.png) no-repeat 0 0;
+background: url(images/sprites/name.png) no-repeat 0 0;
 ```
 
 Общий спрайт автоматически собирается в `dist/assets/images/sprites/`.
 
-#### Другие изображения
+#### Изображения
 
 Графика размещается в `app/images`, собираются в `dist/assets/images`, в CSS:
 
@@ -138,11 +144,12 @@ width: width('name.png')
 │   │   ├── fonts.sss          # Подключение шрифтов
 │   │   ├── typo.sss           # Типографика
 │   │   └── layout.sss         # Главный стилевой файл
-│   ├── fonts/                 # Шрифты
 │   ├── images/                # Картинки
-│   │   └── sprites            # Папка PNG-иконок для генерации растрового спрайта
-│   └── resources/             # Статические файлы для копирования в dist
-│       └── manifest.json      # ¯\_(ツ)_/¯
+│   │   ├── sprites/           # Папка PNG-иконок для генерации растрового спрайта
+│   │   └── test/              # Папка для тестовых картинок
+│   ├── resources/             # Статические файлы для копирования в dist/
+│   │   └── manifest.json      # ¯\_(ツ)_/¯
+│   └── fonts/                 # Шрифты
 ├── dist/                      # Сборка (автогенерация)
 │   ├── assets/                # Подключаемые ресурсы
 │   │   ├── fonts/             # Шрифты

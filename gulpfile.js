@@ -332,7 +332,7 @@ gulp.task('fonts', function () {
     .pipe(newer(paths.build.fonts))
     .pipe(gulp.dest(paths.build.fonts))
     .pipe(reload({stream: true}));
-  gutil.log(gutil.colors.green('Шрифты скопированы;'));
+  gutil.log(gutil.colors.cyan('Шрифты скопированы...'));
 });
 
 // Копируем и минимизируем изображения
@@ -342,7 +342,7 @@ gulp.task('images', function() {
     .pipe(newer(paths.build.images))
     .pipe(imagemin(plugins.imagemin.options))
     .pipe(gulp.dest(paths.build.images))
-  return gutil.log(gutil.colors.green('Картинки скопированы;'));
+  return gutil.log(gutil.colors.cyan('Картинки скопированы...'));
 });
 
 // Копируем другие файлы в корень проекта
@@ -351,7 +351,7 @@ gulp.task('resources', function() {
     .pipe(plumber({errorHandler: errorHandler}))
     .pipe(newer(paths.build.resources))
     .pipe(gulp.dest(paths.build.resources))
-  return gutil.log(gutil.colors.green('Статичные файлы скопированы;'));
+  return gutil.log(gutil.colors.cyan('Статичные файлы скопированы...'));
 });
 
 // Собирем архив с именем проекта и датой в названии
