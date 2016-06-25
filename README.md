@@ -33,7 +33,7 @@ gulp live
 gulp external-world
 ```
 
-Сборка проекта в *.zip-архив (_архив заворчачивается в корень; CSS и JS внутри архива в двух экземплярах: минифицированный и оригинальный без комментариев_):
+Сборка проекта в *.zip-архив. Архив появляется в корне проекта; CSS- и JS-файлы в архиве собираются в двух экземплярах: минифицированный и оригинальный без комментариев:
 
 ```bash
 gulp zip --build
@@ -54,36 +54,35 @@ gulp zip --build
 ```css
 $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 ```
-Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested)) для элементов в БЭМе:
+Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested)) для элементов в БЭМе, ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)):
 
 ```css
-// Inline comments
+// Комментарии
 .parent >
 .child
   color: black
+  width: 200px
+  height: @width
   ...
   &__element
+    top: center
+    size: 50px
     ...
 ```
 
-1. [CSSNext](http://cssnext.io). Штуки из CSS 4, префиксы, кастомные медиа-запросы;
-2. [SugarSS](https://github.com/postcss/sugarss). Синтаксис Stylus со всеми штуками PostCSS;
-3. [Container Queries Prolyfill](https://github.com/ausi/cq-prolyfill). Адаптивные контейнеры;
-4. [DoIuse](https://github.com/anandthakker/doiuse). Сверяет используемые свойства с сервисом [caniuse.com](http://caniuse.com) и ругается в консоль;
-5. [PostCSS Clearfix](https://github.com/seaneking/postcss-clearfix). Добавляет Clearfix аттрибуты для очистки плавающих элементов;
-6. [PostCSS Short](https://github.com/jonathantneal/postcss-short). Логичные укороченные конструкции дял свойств;
-7. [PostCSS Normalize](https://github.com/seaneking/postcss-normalize). Правила [normalize.css](https://github.com/necolas/normalize.css) перед всеми своийствами в CSS;
-8. [PostCSS Property-lookup](https://github.com/simonsmith/postcss-property-lookup). Ссылка на другие свойства;
-9. [PostCSS Center](https://github.com/jedmao/postcss-center). Плагин для беззаботной центровки элементов;
-10. [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker). Группирует медиазапросы и помещает их в конец CSS документа;
-11. [PostCSS SVG](https://github.com/Pavliko/postcss-svg). Работа с SVG в CSS;
-12. [PostCSS RGBa-fallback](https://github.com/postcss/postcss-color-rgba-fallback). Поддержка RGBa для IE8;
-13. [PostCSS ASSETS](https://github.com/assetsjs/postcss-assets). Магия для работы с ресурсами сайта;
-14. [PostCSS Sprites](https://github.com/2createStudio/postcss-sprites). Автоспрайты с поддержкой ретины, картинки для спрайта класть в `app/images/sprite`;
-15. [PostCSS Grid System](https://github.com/francoisromain/postcss-grid-system). Сетка;
-16. [PostCSS Rucksack](https://github.com/simplaio/rucksack) или [документация и демо](http://simplaio.github.io/rucksack/). Полезные CSS-штуки;
-17. [PostCSS Font Magician](https://github.com/jonathantneal/postcss-font-magician). Беззаботное подключение шрифтов;
-18. [PostCSS Initial](https://github.com/maximkoretskiy/postcss-initial). Сброс стилей через `all: initial` в CSS;
+1. [CSSNext](http://cssnext.io). Штуки из CSS 4, перменные, кастомные медиа-запросы;
+1. [SugarSS](https://github.com/postcss/sugarss). Синтаксис Stylus со всеми штуками PostCSS;
+1. [Container Queries Prolyfill](https://github.com/ausi/cq-prolyfill). Адаптивные контейнеры;
+1. [DoIuse](https://github.com/anandthakker/doiuse). Сверяет используемые свойства с [caniuse.com](http://caniuse.com) и ругается в консоль;
+1. [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker). Группирует медиазапросы и помещает их в конец CSS документа;
+1. [PostCSS Short](https://github.com/jonathantneal/postcss-short). Логичные укороченные конструкции дял свойств;
+1. [PostCSS Center](https://github.com/jedmao/postcss-center). Плагин для беззаботной центровки элементов;
+1. [PostCSS SVG](https://github.com/Pavliko/postcss-svg). Работа с SVG в CSS;
+1. [PostCSS ASSETS](https://github.com/assetsjs/postcss-assets). Магия для работы с ресурсами сайта;
+1. [PostCSS Sprites](https://github.com/2createStudio/postcss-sprites). Генерация спрайтов;
+1. [PostCSS Grid System](https://github.com/francoisromain/postcss-grid-system). Сетка;
+1. [PostCSS Rucksack](https://github.com/simplaio/rucksack). Полезные CSS-[штуки](http://simplaio.github.io/rucksack/);
+1. [PostCSS Initial](https://github.com/maximkoretskiy/postcss-initial). Сброс стилей через `all: initial` в CSS;
 
 ## Графика и файлы проекта
 
@@ -92,7 +91,7 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 SVG-иконки собираются в папке `app/images/`, в CSS:
 
 ```css
-background-image: svg('name.svg', '[fill]: #ff6600');
+background-image: svg('name.svg', '[fill]: #000000');
 ```
 
 ### Растр
@@ -105,12 +104,18 @@ background: url(images/sprite/name.png) no-repeat 0 0;
 
 Общий спрайт автоматически собирается в `dist/assets/images/sprites/`.
 
+#### Другие изображения
+
 Графика размещается в `app/images`, собираются в `dist/assets/images`, в CSS:
 
 ```css
 background: resolve('name.jpg')
 width: width('name.png')
 ```
+
+#### Шрифты и файлы проекта
+
+Шрифты и файлы размещаются в папках `app/fonts` и `app/resources`, копируются в `dist/assets/fonts/` и `dist/assets/resources/` соответственно.
 
 - - - -
 

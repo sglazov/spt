@@ -29,10 +29,8 @@ var argv                = require('yargs').argv,
     portfinder          = require('portfinder'),
     assets              = require('postcss-assets'),
     center              = require('postcss-center'),
-    clearfix            = require('postcss-clearfix'),
     colorRgbaFallback   = require("postcss-color-rgba-fallback"),
     cssnext             = require("postcss-cssnext"),
-    fontmagician        = require('postcss-font-magician'),
     grid                = require('postcss-grid-system'),
     imprt               = require('postcss-import'),
     initial             = require('postcss-initial'),
@@ -165,8 +163,6 @@ var processors = [
   vars,
   nested,
   shorter,
-  rucksack,
-  clearfix,
   normalize,
   property,
   center,
@@ -182,24 +178,23 @@ var processors = [
   }),
   grid,
   //doiuse(plugins.doiuse.options),
-  fontmagician,
   initial,
   cqPostcss
 ];
 
 // Дата для формирования архива
 var correctNumber = function correctNumber(number) {
-	return number < 10 ? '0' + number : number;
+  return number < 10 ? '0' + number : number;
 };
 // Дата прям сейчас
 var getDateTime = function getDateTime() {
-	var now = new Date();
-	var year = now.getFullYear();
-	var month = correctNumber(now.getMonth() + 1);
-	var day = correctNumber(now.getDate());
-	var hours = correctNumber(now.getHours());
-	var minutes = correctNumber(now.getMinutes());
-	return year + '-' + month + '-' + day + '-' + hours + '_' + minutes;
+  var now = new Date();
+  var year = now.getFullYear();
+  var month = correctNumber(now.getMonth() + 1);
+  var day = correctNumber(now.getDate());
+  var hours = correctNumber(now.getHours());
+  var minutes = correctNumber(now.getMinutes());
+  return year + '-' + month + '-' + day + '-' + hours + '_' + minutes;
 };
 
 // Одноразовая сборка проекта
@@ -247,11 +242,9 @@ gulp.task('zip', function(cb) {
 // Копируем статичные файлы
 gulp.task('copy', function(cb) {
   return runSequence(
-    [
-      'fonts',
-      'images',
-      'resources'
-    ],
+    ['fonts',
+    'images',
+    'resources'],
     cb
   );
 });
@@ -291,6 +284,7 @@ gulp.task('styles', function () {
   return gulp.src(paths.source.styles + 'layout.sss')
     .pipe(plumber({errorHandler: errorHandler}))
     .pipe(postcss(processors, { parser: sugarss }))
+    .pipe(rucksack())
     .pipe(rename('style.css'))
     .pipe(gulpif(argv.build, stripCssComments()))
     .pipe(gulp.dest(paths.build.styles))
