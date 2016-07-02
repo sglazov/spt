@@ -10,14 +10,14 @@
       del                 = require('del'),
       doiuse              = require('doiuse'),
       gulp                = require('gulp'),
+      changed             = require('gulp-changed'),
       concat              = require('gulp-concat'),
       cssnano             = require('gulp-cssnano'),
       eslint              = require('gulp-eslint'),
       include             = require("gulp-html-tag-include"),
-      gulpif              = require('gulp-if'),
+      _if                 = require('gulp-if'),
       imagemin            = require('gulp-imagemin'),
-      imageminPngquant    = require('imagemin-pngquant'),
-      newer               = require('gulp-newer'),
+       imageminPngquant   = require('imagemin-pngquant'),
       plumber             = require('gulp-plumber'),
       postcss             = require('gulp-postcss'),
       rename              = require('gulp-rename'),
@@ -36,6 +36,7 @@
       grid                = require('postcss-grid-system'),
       imprt               = require('postcss-import'),
       initial             = require('postcss-initial'),
+      mixins              = require('postcss-mixins'),
       nested              = require("postcss-nested"),
       normalize           = require('postcss-normalize'),
       property            = require('postcss-property-lookup'),
@@ -85,6 +86,7 @@
 
   // Настройки плагинов
   var plugins = {
+
     browserSync: {
       locall: {
         server: {
@@ -108,16 +110,9 @@
     autoprefixer: {
       options: {
         browsers: [
-            'last 2 version',
-            'Chrome >= 20',
-            'Firefox >= 20',
-            'Opera >= 12',
-            'Android 2.3',
-            'Android >= 4',
-            'iOS >= 6',
-            'Safari >= 6',
-            'Explorer >= 8'
-          ],
+          'ie >= 8',
+          '> 1%'
+        ],
         cascade: false
       }
     },
@@ -132,15 +127,8 @@
     doiuse: {
       options: {
         browsers: [
-          'last 2 version',
-          'Chrome >= 20',
-          'Firefox >= 20',
-          'Opera >= 12',
-          'Android 2.3',
-          'Android >= 4',
-          'iOS >= 6',
-          'Safari >= 6',
-          'Explorer >= 8'
+          'ie >= 8',
+          '> 1%'
         ],
         ignore: ['rem'], // что не смотреть?
         ignoreFiles: ['**/normalize.css'], // куда не смотреть?
@@ -158,16 +146,32 @@
         svgoPlugins: [{removeViewBox: false}],
         use: [imageminPngquant()]
       }
+    },
+
+    assets: {
+      options: {
+        basePath: 'dist/',
+        loadPaths: ['assets/images/']
+      }
+    },
+
+    postcsssvg: {
+      options: {
+        paths: ['app/images/'],
+        ei: { "defaults": "[fill]: black" }
+      }
     }
+
   }
 
   // Список задач для сборки стилей
   var processors = [
     imprt,
     sprites(plugins.sprites.options),
-    cssnext({
-        autoprefixer: (plugins.autoprefixer.options)
-      }),
+    cssnext({autoprefixer: (plugins.autoprefixer.options)}),
+    postcsssvg(plugins.postcsssvg.options),
+    assets(plugins.assets.options),
+    mixins,
     vars,
     nested,
     shorter,
@@ -175,15 +179,7 @@
     property,
     center,
     mqpacker,
-    postcsssvg({
-      paths: ['app/images'],
-      ei: { "defaults": "[fill]: black" }
-    }),
     colorRgbaFallback,
-    assets({
-      basePath: 'dist/',
-      loadPaths: ['assets/images/']
-    }),
     grid,
     //doiuse(plugins.doiuse.options),
     initial,
@@ -194,7 +190,7 @@
   var correctNumber = function correctNumber(number) {
     return number < 10 ? '0' + number : number;
   };
-  // Дата прям сейчас
+  // Сегодня сейчас
   var getDateTime = function getDateTime() {
     var now = new Date();
     var year = now.getFullYear();
@@ -216,31 +212,38 @@
       .pipe(gulp.dest(paths.build.html));
   });
 
+  // Рефреш ХТМЛ-страниц
+  gulp.task('html', function () {
+    gulp.src(paths.build.html + '*.html')
+  });
+
   // Компиляция стилей
   gulp.task('styles', function () {
     return gulp.src(paths.source.styles + 'layout.sss')
       .pipe(plumber({errorHandler: errorHandler}))
+      .pipe(changed(paths.build.styles))
       .pipe(postcss(processors, { parser: sugarss }))
       .pipe(rucksack())
       .pipe(rename('style.css'))
-      .pipe(gulpif(argv.build, stripCssComments()))
+      .pipe(stripCssComments())
       .pipe(gulp.dest(paths.build.styles))
-      .pipe(gulpif(argv.build, cssnano({discardComments: {removeAll: true}, convertValues: {length: false}})))
-      .pipe(gulpif(argv.build, rename('style.min.css')))
-      .pipe(gulpif(argv.build, gulp.dest(paths.build.styles)));
+      .pipe(_if(argv.prod, cssnano()))
+      .pipe(_if(argv.prod, rename('style.min.css')))
+      .pipe(_if(argv.prod, gulp.dest(paths.build.styles)));
   });
 
   // Сборка и минификация скриптов
   gulp.task('scripts', function() {
     return gulp.src(paths.source.scripts + '*.js')
       .pipe(plumber({errorHandler: errorHandler}))
+      .pipe(changed(paths.build.scripts))
       .pipe(eslint())
       .pipe(eslint.format())
       .pipe(concat('scripts.js'))
       .pipe(gulp.dest(paths.build.scripts))
-      .pipe(gulpif(argv.build, uglify()))
-      .pipe(gulpif(argv.build, rename('scripts.min.css')))
-      .pipe(gulpif(argv.build, gulp.dest(paths.build.scripts)));
+      .pipe(_if(argv.prod, uglify()))
+      .pipe(_if(argv.prod, rename('scripts.min.css')))
+      .pipe(_if(argv.prod, gulp.dest(paths.build.scripts)));
   });
 
   // Запуск локального сервера
@@ -257,16 +260,11 @@
     });
   });
 
-  // Рефреш ХТМЛ-страниц
-  gulp.task('html', function () {
-    gulp.src(paths.build.html + '*.html')
-  });
-
   // Копируем шрифты
   gulp.task('fonts', function () {
-    gulp.src(paths.source.fonts)
+    return gulp.src(paths.source.fonts)
       .pipe(plumber({errorHandler: errorHandler}))
-      .pipe(newer(paths.build.fonts))
+      .pipe(changed(paths.build.fonts))
       .pipe(gulp.dest(paths.build.fonts))
       .pipe(reload({stream: true}));
     gutil.log(gutil.colors.cyan('Шрифты скопированы...'));
@@ -274,9 +272,9 @@
 
   // Копируем и минимизируем изображения
   gulp.task('images', function() {
-    gulp.src(paths.source.images)
+    return gulp.src(paths.source.images)
       .pipe(plumber({errorHandler: errorHandler}))
-      .pipe(newer(paths.build.images))
+      .pipe(changed(paths.build.images))
       .pipe(imagemin(plugins.imagemin.options))
       .pipe(gulp.dest(paths.build.images));
     return gutil.log(gutil.colors.cyan('Картинки скопированы...'));
@@ -284,11 +282,16 @@
 
   // Копируем другие файлы в корень проекта
   gulp.task('resources', function() {
-    gulp.src(paths.source.resources)
+    return gulp.src(paths.source.resources)
       .pipe(plumber({errorHandler: errorHandler}))
-      .pipe(newer(paths.build.resources))
+      .pipe(changed(paths.build.resources))
       .pipe(gulp.dest(paths.build.resources));
     return gutil.log(gutil.colors.cyan('Статичные файлы скопированы...'));
+  });
+
+  // Отчистка папки dist
+  gulp.task('cleanup', function(cb) {
+    return del('dist', cb);
   });
 
   // Собирем архив с именем проекта и датой в названии
@@ -304,11 +307,6 @@
     return gulp.src('dist/**/*')
       .pipe(zip(zipName))
       .pipe(gulp.dest(''));
-  });
-
-  // Отчистка папки dist
-  gulp.task('cleanup', function(cb) {
-    return del('dist', cb);
   });
 
 
@@ -378,7 +376,7 @@
       'cleanup',
       cb
     );
-    return gutil.log(gutil.colors.green('Архив готов, лежит в корне проекта;'));
+    return gutil.log(gutil.colors.green('Архив готов, искать нужно в корне проекта;'));
   });
 
   // Копируем статичные файлы
@@ -402,7 +400,7 @@
     }
     this.emit('end');
   };
-  // Print object in console
+  // Показать ошибку в консоль
   var debugObj = function (obj) {
   	console.log(gutil.inspect(obj, {showHidden: false, depth: null}));
   };

@@ -36,7 +36,7 @@ gulp external-world
 Сборка проекта в *.zip-архив. Архив появляется в корне проекта; CSS- и JS-файлы в архиве собираются в двух экземплярах: минифицированный и оригинальный без комментариев:
 
 ```bash
-gulp zip --build
+gulp zip --prod
 ```
 
 ##Шаблонизация
@@ -55,13 +55,13 @@ gulp zip --build
 $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 ```
 
-Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested)) для элементов в БЭМе, ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)):
+Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested)) для элементов в БЭМе, ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)), миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)):
 
 ```css
 // Комментарии
 ...
-.parent >
-.child
+.parent,
+.synonym
   ...
   color: rgba(0,0,0,.95)
   width: 200px
@@ -70,7 +70,7 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   &__element
     all: initial
     top: center
-    size: 50px
+    size: @width/2
     ...
 ```
 
@@ -105,7 +105,7 @@ background-image: svg('name.svg', '[fill]: #000000');
 PNG-иконки для спрайтов собираются в папке `app/images/sprites/`, в CSS:
 
 ```css
-background: url(images/sprites/name.png) no-repeat 0 0;
+background: url('images/sprites/name.png') no-repeat 0 0;
 ```
 
 Общий спрайт автоматически собирается в `dist/assets/images/sprites/`.
