@@ -13,6 +13,7 @@ git clone git@bitbucket.org:chenki/spt.git new-project && cd new-project
 ```bash
 sudo npm install
 ```
+
 ##Режимы
 
 Одноразовая сборка:
@@ -90,9 +91,9 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 1. [PostCSS Rucksack](https://github.com/simplaio/rucksack). Полезные CSS-[штуки](http://simplaio.github.io/rucksack/);
 1. [PostCSS Initial](https://github.com/maximkoretskiy/postcss-initial). Сброс CSS-стилей элемента;
 
-## Графика и файлы проекта
+##Графика и файлы проекта
 
-### Вектор
+###Вектор
 
 SVG-иконки собираются в папке `app/images/`, в CSS:
 
@@ -100,7 +101,7 @@ SVG-иконки собираются в папке `app/images/`, в CSS:
 background-image: svg('name.svg', '[fill]: #000000');
 ```
 
-### Растр
+###Растр
 
 PNG-иконки для спрайтов собираются в папке `app/images/sprites/`, в CSS:
 
@@ -110,7 +111,7 @@ background: url('images/sprites/name.png') no-repeat 0 0;
 
 Общий спрайт автоматически собирается в `dist/assets/images/sprites/`.
 
-#### Изображения
+###Изображения
 
 Графика размещается в `app/images`, собираются в `dist/assets/images`, в CSS:
 
@@ -119,9 +120,13 @@ background: resolve('name.jpg')
 width: width('name.png')
 ```
 
-#### Шрифты и файлы проекта
+##Шрифты и файлы проекта
 
 Шрифты и файлы размещаются в папках `app/fonts` и `app/resources`, копируются в `dist/assets/fonts/` и `dist/assets/resources/` соответственно.
+
+##JS
+
+Никаких `#id`. Классы для JS начинаются с `_`.
 
 - - - -
 
