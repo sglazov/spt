@@ -71,11 +71,11 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   &__element
     all: initial
     top: center
-    size: @width/2
+    size: 50px
     ...
 ```
 
-##### PostCSS-плагины
+#### PostCSS-плагины
 
 1. [CSSNext](http://cssnext.io). Штуки из CSS 4, перменные, кастомные медиа-запросы;
 1. [SugarSS](https://github.com/postcss/sugarss). Синтаксис Stylus со всеми штуками PostCSS;
@@ -126,7 +126,7 @@ width: width('name.png')
 
 ##JS
 
-Никаких `#id`. Классы для JS начинаются с `_`.
+Никаких `#id` для JS. Классы для JS начинаются с `_`.
 
 - - - -
 

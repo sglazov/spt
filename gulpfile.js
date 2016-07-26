@@ -2,51 +2,51 @@
 
 /*---------- Что нужно и как ----------*/
 
-  var argv                = require('yargs').argv,
-      autoprefixer        = require('autoprefixer'),
-      browserSync         = require("browser-sync"),
-      mqpacker            = require('css-mqpacker'),
-      cqPostcss           = require('cq-prolyfill/postcss-plugin'),
-      del                 = require('del'),
-      doiuse              = require('doiuse'),
-      gulp                = require('gulp'),
-      changed             = require('gulp-changed'),
-      concat              = require('gulp-concat'),
-      cssnano             = require('gulp-cssnano'),
-      eslint              = require('gulp-eslint'),
-      include             = require("gulp-html-tag-include"),
-      _if                 = require('gulp-if'),
-      imagemin            = require('gulp-imagemin'),
-       imageminPngquant   = require('imagemin-pngquant'),
-      plumber             = require('gulp-plumber'),
-      postcss             = require('gulp-postcss'),
-      rename              = require('gulp-rename'),
-      rucksack            = require('gulp-rucksack'),
-      stripCssComments    = require('gulp-strip-css-comments'),
-      uglify              = require('gulp-uglify'),
-      gutil               = require('gulp-util'),
-      watch               = require('gulp-watch'),
-      zip                 = require('gulp-zip'),
-      gpath               = require('path'),
-      portfinder          = require('portfinder'),
-      assets              = require('postcss-assets'),
-      center              = require('postcss-center'),
-      colorRgbaFallback   = require("postcss-color-rgba-fallback"),
-      cssnext             = require("postcss-cssnext"),
-      grid                = require('postcss-grid-system'),
-      imprt               = require('postcss-import'),
-      initial             = require('postcss-initial'),
-      mixins              = require('postcss-mixins'),
-      nested              = require("postcss-nested"),
-      normalize           = require('postcss-normalize'),
-      property            = require('postcss-property-lookup'),
-      vars                = require('postcss-simple-vars'),
-      sprites             = require('postcss-sprites').default,
-      shorter             = require('postcss-short'),
-      postcsssvg          = require('postcss-svg'),
-      runSequence         = require('run-sequence'),
-      sugarss             = require("sugarss"),
-      reload              = browserSync.reload;
+  var argv                = require('yargs').argv;
+  var autoprefixer        = require('autoprefixer');
+  var browserSync         = require("browser-sync");
+  var mqpacker            = require('css-mqpacker');
+  var cqPostcss           = require('cq-prolyfill/postcss-plugin');
+  var del                 = require('del');
+  var doiuse              = require('doiuse');
+  var gulp                = require('gulp');
+  var changed             = require('gulp-changed');
+  var concat              = require('gulp-concat');
+  var cssnano             = require('gulp-cssnano');
+  var eslint              = require('gulp-eslint');
+  var include             = require("gulp-html-tag-include");
+  var _if                 = require('gulp-if');
+  var imagemin            = require('gulp-imagemin');
+   var imageminPngquant   = require('imagemin-pngquant');
+  var plumber             = require('gulp-plumber');
+  var postcss             = require('gulp-postcss');
+  var rename              = require('gulp-rename');
+  var rucksack            = require('gulp-rucksack');
+  var stripCssComments    = require('gulp-strip-css-comments');
+  var uglify              = require('gulp-uglify');
+  var gutil               = require('gulp-util');
+  var watch               = require('gulp-watch');
+  var zip                 = require('gulp-zip');
+  var gpath               = require('path');
+  var portfinder          = require('portfinder');
+  var assets              = require('postcss-assets');
+  var center              = require('postcss-center');
+  var colorRgbaFallback   = require("postcss-color-rgba-fallback");
+  var cssnext             = require("postcss-cssnext");
+  var grid                = require('postcss-grid-system');
+  var imprt               = require('postcss-import');
+  var initial             = require('postcss-initial');
+  var mixins              = require('postcss-mixins');
+  var nested              = require("postcss-nested");
+  var normalize           = require('postcss-normalize');
+  var property            = require('postcss-property-lookup');
+  var vars                = require('postcss-simple-vars');
+  var sprites             = require('postcss-sprites').default;
+  var shorter             = require('postcss-short');
+  var postcsssvg          = require('postcss-svg');
+  var runSequence         = require('run-sequence');
+  var sugarss             = require("sugarss");
+  var reload              = browserSync.reload;
 
 
 /*---------- Пути к файлам, с котороыми работаем ----------*/
@@ -160,6 +160,12 @@
         paths: ['app/images/'],
         ei: { "defaults": "[fill]: black" }
       }
+    },
+
+    plumber: {
+      options: {
+        errorHandler: errorHandler
+      }
     }
 
   }
@@ -220,7 +226,7 @@
   // Компиляция стилей
   gulp.task('styles', function () {
     return gulp.src(paths.source.styles + 'layout.sss')
-      .pipe(plumber({errorHandler: errorHandler}))
+      .pipe(plumber(plugins.plumber.options))
       .pipe(changed(paths.build.styles))
       .pipe(postcss(processors, { parser: sugarss }))
       .pipe(rucksack())
@@ -235,9 +241,9 @@
   // Сборка и минификация скриптов
   gulp.task('scripts', function() {
     return gulp.src(paths.source.scripts + '*.js')
-      .pipe(plumber({errorHandler: errorHandler}))
+      .pipe(plumber(plugins.plumber.options))
       .pipe(changed(paths.build.scripts))
-      .pipe(eslint())
+      //.pipe(eslint())
       .pipe(eslint.format())
       .pipe(concat('scripts.js'))
       .pipe(gulp.dest(paths.build.scripts))
@@ -263,7 +269,7 @@
   // Копируем шрифты
   gulp.task('fonts', function () {
     return gulp.src(paths.source.fonts)
-      .pipe(plumber({errorHandler: errorHandler}))
+      .pipe(plumber(plugins.plumber.options))
       .pipe(changed(paths.build.fonts))
       .pipe(gulp.dest(paths.build.fonts))
       .pipe(reload({stream: true}));
@@ -273,7 +279,7 @@
   // Копируем и минимизируем изображения
   gulp.task('images', function() {
     return gulp.src(paths.source.images)
-      .pipe(plumber({errorHandler: errorHandler}))
+      .pipe(plumber(plugins.plumber.options))
       .pipe(changed(paths.build.images))
       .pipe(imagemin(plugins.imagemin.options))
       .pipe(gulp.dest(paths.build.images));
@@ -283,7 +289,7 @@
   // Копируем другие файлы в корень проекта
   gulp.task('resources', function() {
     return gulp.src(paths.source.resources)
-      .pipe(plumber({errorHandler: errorHandler}))
+      .pipe(plumber(plugins.plumber.options))
       .pipe(changed(paths.build.resources))
       .pipe(gulp.dest(paths.build.resources));
     return gutil.log(gutil.colors.cyan('Статичные файлы скопированы...'));
