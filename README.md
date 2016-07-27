@@ -56,7 +56,7 @@ gulp zip --prod
 $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 ```
 
-Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested)) для элементов в ([БЭМ](https://ru.bem.info/))е, ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)), миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)), ([postcss-extend](https://github.com/travco/postcss-extend)) для использования `@extend`:
+Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested)) для элементов в [БЭМ](https://ru.bem.info/)е, ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)), миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)), ([postcss-extend](https://github.com/travco/postcss-extend)) для использования `@extend`:
 
 ```css
 // Комментарии
