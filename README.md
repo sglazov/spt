@@ -8,7 +8,7 @@
 git clone git@bitbucket.org:chenki/spt.git new-project && cd new-project
 ```
 
-Перед первым запуском (_один раз на проект_):
+Перед первым запуском нужно установить зависимости (_один раз на проект_):
 
 ```bash
 sudo npm install
@@ -34,7 +34,7 @@ gulp live
 gulp external-world
 ```
 
-Сборка проекта в *.zip-архив. Архив появляется в корне проекта; CSS- и JS-файлы в архиве собираются в двух экземплярах: минифицированный и оригинальный без комментариев:
+Сборка проекта в *.zip-архив. Архив создаётся в корне проекта; CSS- и JS-файлы в архиве собираются в двух экземплярах: минифицированный и оригинальный без комментариев:
 
 ```bash
 gulp zip --prod
@@ -56,27 +56,27 @@ gulp zip --prod
 $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 ```
 
-Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested)) для элементов в БЭМе, ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)), миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)), ([postcss-extend](https://github.com/travco/postcss-extend)) для использования `@extend`:
+Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested)) для элементов в ([БЭМ](https://ru.bem.info/))е, ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)), миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)), ([postcss-extend](https://github.com/travco/postcss-extend)) для использования `@extend`:
 
 ```css
 // Комментарии
 ...
 .head
   color: white
-.parent,
-.synonym
+.menu,
+.auth
   ...
   color: rgba(0,0,0,.95)
   width: 200px
   height: @width
   ...
-  &__element
+  &__item
     all: initial
     top: center
     size: 50px
     ...
   &__mod
-    @extend .first
+    @extend .head
 ```
 
 #### PostCSS-плагины
