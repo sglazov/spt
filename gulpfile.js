@@ -5,8 +5,8 @@
   var argv                = require('yargs').argv;
   var autoprefixer        = require('autoprefixer');
   var browserSync         = require("browser-sync");
-  var mqpacker            = require('css-mqpacker');
   var cqPostcss           = require('cq-prolyfill/postcss-plugin');
+  var mqpacker            = require('css-mqpacker');
   var del                 = require('del');
   var doiuse              = require('doiuse');
   var gulp                = require('gulp');
@@ -33,16 +33,17 @@
   var center              = require('postcss-center');
   var colorRgbaFallback   = require("postcss-color-rgba-fallback");
   var cssnext             = require("postcss-cssnext");
+  var extend              = require('postcss-extend');
   var grid                = require('postcss-grid-system');
   var imprt               = require('postcss-import');
   var initial             = require('postcss-initial');
-  var mixins              = require('postcss-mixins');
+  //var mixins              = require('postcss-mixins');
   var nested              = require("postcss-nested");
   var normalize           = require('postcss-normalize');
   var property            = require('postcss-property-lookup');
+  var shorter             = require('postcss-short');
   var vars                = require('postcss-simple-vars');
   var sprites             = require('postcss-sprites').default;
-  var shorter             = require('postcss-short');
   var postcsssvg          = require('postcss-svg');
   var runSequence         = require('run-sequence');
   var sugarss             = require("sugarss");
@@ -56,28 +57,28 @@
       dist = 'dist/',
       paths = {
         build: {
-          html:           dist,
-          scripts:        dist + 'assets/scripts',
-          styles:         dist + 'assets/styles',
-          images:         dist + 'assets/images',
-          fonts:          dist + 'assets/fonts',
-          resources:      dist
+          html:        dist,
+          scripts:     dist + 'assets/scripts',
+          styles:      dist + 'assets/styles',
+          images:      dist + 'assets/images',
+          fonts:       dist + 'assets/fonts',
+          resources:   dist
         },
         source: {
-          templates:      [src + 'templates/'],
-          scripts:        [src + 'scripts/'],
-          styles:         [src + 'styles/'],
-          images:         [src + 'images/**/*'],
-          fonts:          [src + 'fonts/**/*'],
-          resources:      [src + 'resources/**/*']
+          templates:   [src + 'templates/'],
+          scripts:     [src + 'scripts/'],
+          styles:      [src + 'styles/'],
+          images:      [src + 'images/**/*'],
+          fonts:       [src + 'fonts/**/*'],
+          resources:   [src + 'resources/**/*']
         },
         watch: {
-          templates:      [src + 'templates/**/*.html'],
-          scripts:        [src + 'scripts/**/*.js'],
-          styles:         [src + 'styles/**/*.sss'],
-          images:         [src + 'images/**/*.*'],
-          fonts:          [src + 'fonts/**/*.*'],
-          resources:      [src + 'resources/**/*.*']
+          templates:   [src + 'templates/**/*.html'],
+          scripts:     [src + 'scripts/**/*.js'],
+          styles:      [src + 'styles/**/*.sss'],
+          images:      [src + 'images/**/*.*'],
+          fonts:       [src + 'fonts/**/*.*'],
+          resources:   [src + 'resources/**/*.*']
         }
   };
 
@@ -130,8 +131,8 @@
           'ie >= 8',
           '> 1%'
         ],
-        ignore: ['rem'], // что не смотреть?
-        ignoreFiles: ['**/normalize.css'], // куда не смотреть?
+        ignore: ['rem'],
+        ignoreFiles: ['**/normalize.css'],
         onFeatureUsage: function (usageInfo) {
           console.log(usageInfo.message)
         }
@@ -177,9 +178,10 @@
     cssnext({autoprefixer: (plugins.autoprefixer.options)}),
     postcsssvg(plugins.postcsssvg.options),
     assets(plugins.assets.options),
-    mixins,
+    //mixins,
     vars,
     nested,
+    extend,
     shorter,
     normalize,
     property,

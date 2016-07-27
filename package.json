@@ -1,6 +1,6 @@
 {
   "name": "SPT",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "Start Project Template",
   "author": "Sergey Glazov <mail@4enki.ru>",
   "repository": {
@@ -9,14 +9,14 @@
   },
   "scripts": {
     "start": "gulp live",
-    "zip": "gulp zip --prod",
+    "zip": "gulp zip",
     "world": "gulp external-world"
   },
   "devDependencies": {
     "autoprefixer":                    "^6.3.7",
     "browser-sync":                    "^2.13.0",
-    "css-mqpacker":                    "^5.0.1",
     "cq-prolyfill":                    "^0.3.2",
+    "css-mqpacker":                    "^5.0.1",
     "del":                             "^2.2.1",
     "doiuse":                          "^2.4.1",
     "gulp":                            "^3.9.1",
@@ -44,6 +44,7 @@
     "postcss-center":                  "^1.0.0",
     "postcss-color-rgba-fallback":     "^2.2.0",
     "postcss-cssnext":                 "^2.7.0",
+    "postcss-extend":                  "^1.0.4",
     "postcss-grid-system":             "^0.4.2",
     "postcss-import":                  "^8.1.2",
     "postcss-initial":                 "^1.5.2",
@@ -51,9 +52,9 @@
     "postcss-nested":                  "^1.0.0",
     "postcss-normalize":               "^0.3.0",
     "postcss-property-lookup":         "^1.2.1",
+    "postcss-short":                   "^1.4.0",
     "postcss-simple-vars":             "^3.0.0",
     "postcss-sprites":                 "^3.3.0",
-    "postcss-short":                   "^1.4.0",
     "postcss-svg":                     "^1.0.6",
     "run-sequence":                    "^1.2.2",
     "sugarss":                         "^0.1.5",
