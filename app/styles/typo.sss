@@ -22,3 +22,80 @@ a:visited
       color: rgba(242, 242, 1, 1)
       border-color: rgba(242, 242, 1, .5)
       transition: 0s ease
+
+.link
+  &.pseudo
+    color: rgb(0,114,186)
+    border-bottom: 1px dotted rgba(0, 114, 186, .5)
+    transition: 0.5s ease
+    &:hover
+      cursor: pointer
+      color: rgb(208,64,0)
+      border-color: rgba(208, 64, 0, .5)
+      transition: 0s ease
+
+code,
+tt
+  background: #FFFCD7
+  border: 1px solid #FFFCD7
+  color: rgb(203, 55, 22)
+  border-radius: 3px
+  padding: 3px 5px
+
+.guideline
+  padding: 25px 35px
+
+h1, h2, h3, h4, h5, h6
+  font-weight: normal
+
+h1
+  font-weight: normal
+  margin: 0
+  padding: 0
+  line-height: 1
+
+.main_content_inner
+  width: 67%
+
+sub,
+sup
+  font-size: 75%
+  line-height: 0
+  position: relative
+  vertical-align: baseline
+sup
+  top: -0.5em
+sub
+  bottom: -0.25em
+
+.footnote
+  background: #fff
+  font-size: 11px
+  line-height: 1
+  color: rgba(0, 0, 0, 1)
+  &_hint
+    background: #fff
+    margin: 0 2px
+    border: 1px solid #E5E5E5
+    border-radius: 3px
+    padding: 1px 2px
+    font-size: 85%
+    color: rgba(0, 0, 0, 1)
+    padding: 1px 1em
+    max-width: 40%
+    &.footnote
+      display: none
+
+.footnotes
+  border-top: 1px solid #E5E5E5
+  padding: 0.8em 0.5em 1px
+  font-size: 85%
+  line-height: 1.3
+  &.footnote
+    border: 0
+    font-size: 100%
+    color: black
+    top: 0
+    margin-left: 0
+    padding-left: 0
+    padding-right: 4px
