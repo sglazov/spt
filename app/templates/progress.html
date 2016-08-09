@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+  <include src="blocks/_head.html" title="Что происходит? А что делать?" description=""></include>
+  <body>
+    <include src="blocks/_header.html"></include>
+    <style type="text/css">
+      body {
+        padding: 25px 35px;
+        font-family: Textbook, sans-serif;
+      }
+      h1 {
+        font-size: 35px;
+        margin-top: 5px;
+        margin-bottom: 25px;
+        font-weight: 400;
+        line-height: 1;
+      }
+      h2 {
+        font-size: 25px;
+        margin-top: 25px;
+        margin-bottom: 20px;
+        font-weight: 400;
+      }
+      ul, li {
+        margin-left: 0;
+      }
+      ul li {
+        list-style: none;
+        margin-bottom: 0.7em;
+        position: relative;
+      }
+      ul ul {
+        display: block;
+        margin: 0.5em 0 1em 1.5em;
+        padding: 0;
+        position: static;
+      }
+      ul {
+        display: inline-block;
+        position: relative;
+        margin-left: 0;
+        padding-left: 0;
+      }
+      .selected {
+        font-weight: bold;
+      }
+      .progress {
+        position: absolute;
+        top: 0.1em;
+        left: 100%;
+        white-space: nowrap;
+      }
+      .progress.design {
+        margin-left: 40px;
+      }
+      .progress.html {
+        margin-left: 330px;
+      }
+      .progress.time {
+        margin-left: 615px;
+        opacity: 0.05;
+      }
+      progress {
+        margin-right: 8px;
+        width: 200px;
+      }
+      progress,  .progress_value {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .readme pre {
+        background: #fff0be;
+        font-family: Consolas, Menlo, "Liberation Mono", Courier, monospace;
+        padding: 15px 15px;
+        font-size: 12px;
+        line-height: 1.335;
+      }
+      .link__spacer,
+      .link__file-name {
+        color: #b6b6b6;
+        font-size: 12px;
+        line-height: 12px;
+        font-style: italic;
+        padding: 0 0 0 2px;
+        margin: 0;
+      }
+      .link__file-name:hover {
+        cursor: help;
+      }
+      @media only screen and (min-device-width : 100px) and (max-device-width : 760px) {
+        h1 {
+            font-size: 120%;
+            margin-bottom: 15px;
+            margin-top: 5px;
+            line-height: 22px;
+        }
+        h2 {
+          font-size: 100%;
+          margin-bottom: 20px;
+          margin-top: 15px;
+        }
+        progress,
+        .progress.design,
+        .progress.time,
+        .readme,
+        h1 > span {
+          display: none;
+        }
+        .progress.html {
+          margin-left: 10px;
+          font-size: 11px;
+        }
+        ul li {
+          margin-bottom: 1px;
+          font-size: 14px;
+        }
+        ul ul {
+          margin: 0 0 0 10px;
+        }
+      }
+    </style>
+    <div class="start-warp">
+      <h1>Шаблон проекта для быстрого старта</h1>
+      <div class="page-list__list">
+
+        <ul class="navigation">
+
+          <li class="selected">
+            <strong class="selected">Карта сайта</strong>
+            <div class="progress design"><strong>Дизайн</strong></div>
+            <div class="progress html"><strong>Вёрстка</strong></div>
+            <div class="progress time"><strong>Время</strong></div>
+          </li>
+
+          <li class="page-list__item">
+            <a href="index.html" class="link">Главная страница</a>
+            <span class="link__spacer">—</span>
+            <span class="link__file-name" title="app/templates/index.html">index.html</span>
+            <div class="progress design">
+              <progress max="100" value="100"></progress>
+              <span class="progress_value">100%</span>
+            </div>
+            <div class="progress html">
+              <progress max="100" value="100"></progress>
+              <span class="progress_value">100%</span>
+            </div>
+            <div class="progress time">—</div>
+          </li><!-- /.page-list__item -->
+
+          <li class="page-list__item">
+            <a href="guideline.html" class="link">Типовая текстовая страница</a>
+            <span class="link__spacer">—</span>
+            <span class="link__file-name" title="app/templates/guideline.html">guideline.html</span>
+            <div class="progress design">
+              <progress max="100" value="100"></progress>
+              <span class="progress_value">100%</span>
+            </div>
+            <div class="progress html">
+              <progress max="100" value="100"></progress>
+              <span class="progress_value">100%</span>
+            </div>
+            <div class="progress time">—</div>
+          </li><!-- /.page-list__item -->
+
+        </ul>
+
+      </div><!-- /.page-list__list -->
+
+      <div class="readme">
+      <h2>Структура папок и файлов</h2>
+<pre>
+├── app/                       # Исходники
+│   ├── templates/             # Шаблоны
+│   │   ├── blocks/            # Блоки
+│   │   │   ├── _head.html     # Разметка тега <head>
+│   │   │   ├── _header.html   # Разметка шапки
+│   │   │   ├── _start.html    # Вводная лекция
+│   │   │   └── _footer.html   # Разметка подвала
+│   │   ├── guideline.html     # Типовая текстовая страница
+│   │   ├── progress.html      # Карта сайта с прогрессом работ
+│   │   └── index.html         # Главная страница шаблона
+│   ├── scripts/               # Скрипты
+│   │   └── app.js             # Главный скрипт
+│   ├── styles/                # Стили
+│   │   ├── default.sss        # Стили по умолчанию
+│   │   ├── variables.sss      # CSS-Переменные
+│   │   ├── fonts.sss          # Подключение шрифтов
+│   │   ├── typo.sss           # Типографика
+│   │   └── layout.sss         # Главный стилевой файл
+│   ├── images/                # Картинки
+│   │   ├── sprites/           # Папка PNG-иконок для генерации растрового спрайта
+│   │   └── test/              # Папка для тестовых картинок
+│   ├── resources/             # Статические файлы для копирования в dist/
+│   │   ├── manifest.json      # ¯\_(ツ)_/¯
+│   │   └── robots.txt         # Для роботов
+│   └── fonts/                 # Шрифты
+├── dist/                      # Сборка (автогенерация)
+│   ├── assets/                # Подключаемые ресурсы
+│   │   ├── fonts/             # Шрифты
+│   │   ├── images/            # Изображения
+│   │   │   └── sprites/       # Спрайты (автогенерация)
+│   │   ├── scripts/           # Скрипты
+│   │   └── styles/            # Стили
+│   ├── manifest.json          # ¯\_(ツ)_/¯
+│   ├── robots.txt             # Файл для роботов
+│   ├── progress.html          # Карта сайта с прогрессом работ
+│   ├── guideline.html         # Типовая текстовая страница
+│   └── index.html             # Сборка главной страницы
+├── .gitignore                 # Список исключённых файлов из Git
+├── package.json               # Список модулей и прочей информации
+├── gulpfile.js                # Конфигурация Gulp.js
+└── README.md                  # Документация шаблона
+</pre>
+      </div><!-- /.readme -->
+
+    </div><!-- /.start-warp -->
+    <include src="blocks/_footer.html"></include>
+  </body>
+</html>
