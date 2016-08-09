@@ -38,8 +38,8 @@ a,
 // списки на странице
 .before_list
   margin-bottom: 0.5em
-ul,
-ol
+ul.list,
+ol.list
   margin-bottom: 2em
   padding-left: 0
   li
@@ -47,7 +47,7 @@ ol
     line-height: 1.5
     li
       margin-bottom: 0.5em
-ul
+ul.list
   list-style-type: none
   > li
     margin-left: 1em
@@ -62,9 +62,9 @@ ul
       &:before
         display: none
         visibility: hidden
-ol > li
+ol.list > li
   margin-left: 2.5em
-li ul, li ol
+li ul.list, li ol.list
   margin: 0.3em 0 0.5em
   text-indent: 0
 
