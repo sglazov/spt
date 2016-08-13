@@ -8,7 +8,6 @@
   var cqPostcss           = require('cq-prolyfill/postcss-plugin');
   var mqpacker            = require('css-mqpacker');
   var del                 = require('del');
-  var doiuse              = require('doiuse');
   var gulp                = require('gulp');
   var changed             = require('gulp-changed');
   var concat              = require('gulp-concat');
@@ -23,7 +22,6 @@
   var rucksack            = require('gulp-rucksack');
   var stripCssComments    = require('gulp-strip-css-comments');
   var uglify              = require('gulp-uglify');
-  var gutil               = require('gulp-util');
   var watch               = require('gulp-watch');
   var zip                 = require('gulp-zip');
   var gpath               = require('path');
@@ -32,11 +30,10 @@
   var center              = require('postcss-center');
   var colorRgbaFallback   = require("postcss-color-rgba-fallback");
   var cssnext             = require("postcss-cssnext");
+  var imprt               = require('postcss-easy-import');
   var extend              = require('postcss-extend');
   var grid                = require('postcss-grid-system');
-  var imprt               = require('postcss-import');
   var initial             = require('postcss-initial');
-  //var mixins              = require('postcss-mixins');
   var nested              = require("postcss-nested");
   var normalize           = require('postcss-normalize');
   var property            = require('postcss-property-lookup');
@@ -124,20 +121,6 @@
       }
     },
 
-    doiuse: {
-      options: {
-        browsers: [
-          'ie >= 8',
-          '> 1%'
-        ],
-        ignore: ['rem'],
-        ignoreFiles: ['**/normalize.css'],
-        onFeatureUsage: function (usageInfo) {
-          console.log(usageInfo.message)
-        }
-      }
-    },
-
     imagemin: {
       options: {
         optimizationLevel: 3,
@@ -160,13 +143,19 @@
         paths: ['app/images/'],
         ei: { "defaults": "[fill]: black" }
       }
+    },
+
+    imprt: {
+      options: {
+        extensions: ['.sss']
+      }
     }
 
   }
 
   // Список задач для сборки стилей
   var processors = [
-    imprt,
+    imprt(plugins.imprt.options),
     sprites(plugins.sprites.options),
     cssnext({autoprefixer: (plugins.autoprefixer.options)}),
     postcsssvg(plugins.postcsssvg.options),
@@ -182,7 +171,6 @@
     mqpacker,
     colorRgbaFallback,
     grid,
-  //doiuse(plugins.doiuse.options),
     initial,
     cqPostcss
   ];
@@ -202,6 +190,13 @@
     return year + '-' + month + '-' + day + '-' + hours + '_' + minutes;
   };
 
+
+/*---------- Meanwhile ----------*/
+
+  function handleError(err) {
+    console.log(err.toString());
+    this.emit('end');
+  }
 
 /*---------- Tasks ----------*/
 
@@ -225,6 +220,7 @@
       .pipe(postcss(processors, { parser: sugarss }))
       .on('error', handleError)
       .pipe(rucksack())
+      .on('error', handleError)
       .pipe(rename('style.css'))
       .pipe(stripCssComments())
       .pipe(gulp.dest(paths.build.styles))
@@ -268,7 +264,6 @@
       .on('error', handleError)
       .pipe(gulp.dest(paths.build.fonts))
       .pipe(reload({stream: true}));
-    gutil.log(gutil.colors.cyan('Шрифты скопированы...'));
   });
 
   // Копируем и минимизируем изображения
@@ -278,7 +273,6 @@
       .pipe(imagemin(plugins.imagemin.options))
       .on('error', handleError)
       .pipe(gulp.dest(paths.build.images));
-    return gutil.log(gutil.colors.cyan('Картинки скопированы...'));
   });
 
   // Копируем другие файлы в корень проекта
@@ -287,7 +281,6 @@
       .pipe(changed(paths.build.resources))
       .on('error', handleError)
       .pipe(gulp.dest(paths.build.resources));
-    return gutil.log(gutil.colors.cyan('Статичные файлы скопированы...'));
   });
 
   // Отчистка папки dist
@@ -377,7 +370,6 @@
       'cleanup',
       cb
     );
-    return gutil.log(gutil.colors.green('Архив готов, искать нужно в корне проекта;'));
   });
 
   // Копируем статичные файлы
@@ -389,11 +381,3 @@
       cb
     );
   });
-
-
-/*---------- Meanwhile ----------*/
-
-  function handleError(err) {
-    console.log(err.toString()); // eslint-disable-line no-console
-    this.emit('end');
-  }

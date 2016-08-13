@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru" class="no-js">
   <include src="blocks/_head.html" title="Что происходит? А что делать?" description=""></include>
-  <body>
+  <body class="progress-page">
     <include src="blocks/_header.html"></include>
     <style type="text/css">
-      body {
+      .progress-page {
         padding: 25px 35px;
-        font-family: Textbook, sans-serif;
       }
       h1 {
         font-size: 35px;
@@ -73,7 +72,8 @@
         padding: 15px 15px;
         font-size: 12px;
         line-height: 1.335;
-        margin-bottom: 35px;
+        margin-bottom: 20px;
+        overflow-x: auto;
       }
       .link__spacer,
       .link__file-name {
@@ -88,6 +88,9 @@
         cursor: help;
       }
       @media only screen and (min-device-width : 100px) and (max-device-width : 760px) {
+        .progress-page {
+          padding: 10px 15px;
+        }
         h1 {
             font-size: 120%;
             margin-bottom: 15px;
@@ -101,14 +104,10 @@
         }
         progress,
         .progress.design,
-        .progress.time,
-        .readme,
+        .progress.html,
         h1 > span {
           display: none;
-        }
-        .progress.html {
-          margin-left: 10px;
-          font-size: 11px;
+          overflow: hidden;
         }
         ul li {
           margin-bottom: 1px;
