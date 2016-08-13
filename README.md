@@ -2,10 +2,10 @@
 
 Шаблон помогает быстро начать вёрстку проекта.
 
-Склонировать репозиторий и перейти в созданную папку проекта:
+Склонировать репозиторий, перейти в созданную папку проекта и удалить скрытую папку `.git`:
 
 ```bash
-git clone git@bitbucket.org:chenki/spt.git new-project && cd new-project
+git clone git@bitbucket.org:chenki/spt.git new-project && cd new-project && rm -rf ./.git
 ```
 
 Перед первым запуском нужно установить зависимости (_один раз на проект_):
