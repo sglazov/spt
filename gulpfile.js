@@ -18,7 +18,6 @@
   var _if                 = require('gulp-if');
   var imagemin            = require('gulp-imagemin');
    var imageminPngquant   = require('imagemin-pngquant');
-  var plumber             = require('gulp-plumber');
   var postcss             = require('gulp-postcss');
   var rename              = require('gulp-rename');
   var rucksack            = require('gulp-rucksack');
@@ -161,12 +160,6 @@
         paths: ['app/images/'],
         ei: { "defaults": "[fill]: black" }
       }
-    },
-
-    plumber: {
-      options: {
-        errorHandler: errorHandler
-      }
     }
 
   }
@@ -189,7 +182,7 @@
     mqpacker,
     colorRgbaFallback,
     grid,
-    //doiuse(plugins.doiuse.options),
+  //doiuse(plugins.doiuse.options),
     initial,
     cqPostcss
   ];
@@ -215,8 +208,8 @@
   // Шаблонизация
   gulp.task('include', function() {
     return gulp.src(paths.source.templates + '*.html')
-      .pipe(plumber({errorHandler: errorHandler}))
       .pipe(include())
+      .on('error', handleError)
       .pipe(gulp.dest(paths.build.html));
   });
 
@@ -228,9 +221,9 @@
   // Компиляция стилей
   gulp.task('styles', function () {
     return gulp.src(paths.source.styles + 'layout.sss')
-      .pipe(plumber(plugins.plumber.options))
       .pipe(changed(paths.build.styles))
       .pipe(postcss(processors, { parser: sugarss }))
+      .on('error', handleError)
       .pipe(rucksack())
       .pipe(rename('style.css'))
       .pipe(stripCssComments())
@@ -243,10 +236,10 @@
   // Сборка и минификация скриптов
   gulp.task('scripts', function() {
     return gulp.src(paths.source.scripts + '*.js')
-      .pipe(plumber(plugins.plumber.options))
       .pipe(changed(paths.build.scripts))
       //.pipe(eslint())
       .pipe(eslint.format())
+      .on('error', handleError)
       .pipe(concat('scripts.js'))
       .pipe(gulp.dest(paths.build.scripts))
       .pipe(_if(argv.prod, uglify()))
@@ -271,8 +264,8 @@
   // Копируем шрифты
   gulp.task('fonts', function () {
     return gulp.src(paths.source.fonts)
-      .pipe(plumber(plugins.plumber.options))
       .pipe(changed(paths.build.fonts))
+      .on('error', handleError)
       .pipe(gulp.dest(paths.build.fonts))
       .pipe(reload({stream: true}));
     gutil.log(gutil.colors.cyan('Шрифты скопированы...'));
@@ -281,9 +274,9 @@
   // Копируем и минимизируем изображения
   gulp.task('images', function() {
     return gulp.src(paths.source.images)
-      .pipe(plumber(plugins.plumber.options))
       .pipe(changed(paths.build.images))
       .pipe(imagemin(plugins.imagemin.options))
+      .on('error', handleError)
       .pipe(gulp.dest(paths.build.images));
     return gutil.log(gutil.colors.cyan('Картинки скопированы...'));
   });
@@ -291,8 +284,8 @@
   // Копируем другие файлы в корень проекта
   gulp.task('resources', function() {
     return gulp.src(paths.source.resources)
-      .pipe(plumber(plugins.plumber.options))
       .pipe(changed(paths.build.resources))
+      .on('error', handleError)
       .pipe(gulp.dest(paths.build.resources));
     return gutil.log(gutil.colors.cyan('Статичные файлы скопированы...'));
   });
@@ -400,15 +393,7 @@
 
 /*---------- Meanwhile ----------*/
 
-  // Функция обработки ошибок
-  var errorHandler = function(err) {
-    gutil.log(gutil.colors.red([(err.name + ' in ' + err.plugin), '', err.message, ''].join('\n')));
-    if (gutil.env.beep) {
-      gutil.beep();
-    }
+  function handleError(err) {
+    console.log(err.toString()); // eslint-disable-line no-console
     this.emit('end');
-  };
-  // Показать ошибку в консоль
-  var debugObj = function (obj) {
-  	console.log(gutil.inspect(obj, {showHidden: false, depth: null}));
-  };
+  }
