@@ -84,7 +84,6 @@ $stp_Font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Ari
 1. [CSSNext](http://cssnext.io). Штуки из CSS 4, перменные, кастомные медиа-запросы;
 1. [SugarSS](https://github.com/postcss/sugarss). Синтаксис Stylus со всеми штуками PostCSS;
 1. [Container Queries Prolyfill](https://github.com/ausi/cq-prolyfill). Адаптивные контейнеры;
-1. [DoIuse](https://github.com/anandthakker/doiuse). Сверяет используемые свойства с [caniuse.com](http://caniuse.com) и ругается в консоль;
 1. [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker). Группирует медиазапросы и помещает их в конец CSS документа;
 1. [PostCSS Short](https://github.com/jonathantneal/postcss-short). Логичные укороченные конструкции дял свойств;
 1. [PostCSS Center](https://github.com/jedmao/postcss-center). Плагин для беззаботной центровки элементов;
