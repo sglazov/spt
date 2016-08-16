@@ -53,7 +53,7 @@ gulp zip --prod
 Переменные ([postcss-simple-vars](https://github.com/postcss/postcss-simple-vars)):
 
 ```css
- $stp_Font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
+$stp_Font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
 ```
 
 Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested)) для элементов в [БЭМ](https://ru.bem.info/)е, ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)), миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)), `@extend` с помощью ([postcss-extend](https://github.com/travco/postcss-extend)):
@@ -101,7 +101,7 @@ gulp zip --prod
 SVG-иконки собираются в папке `app/images/`, в CSS:
 
 ```css
- background-image: svg('name.svg', '[fill]: #000000');
+background-image: svg('name.svg', '[fill]: #000000');
 ```
 
 ###Растр
@@ -109,7 +109,7 @@ SVG-иконки собираются в папке `app/images/`, в CSS:
 PNG-иконки для спрайтов собираются в папке `app/images/sprites/`, в CSS:
 
 ```css
- background: url('images/sprites/name.png') no-repeat 0 0;
+background: url('images/sprites/name.png') no-repeat 0 0;
 ```
 
 Общий спрайт автоматически собирается в `dist/assets/images/sprites/`.
@@ -119,8 +119,8 @@ PNG-иконки для спрайтов собираются в папке `app
 Графика размещается в `app/images`, собираются в `dist/assets/images`, в CSS:
 
 ```css
- background: resolve('name.jpg')
- width: width('name.png')
+background: resolve('name.jpg')
+width: width('name.png')
 ```
 
 ##Шрифты и файлы проекта
