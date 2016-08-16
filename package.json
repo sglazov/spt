@@ -1,6 +1,6 @@
 {
   "name": "SPT",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "A template for a quick start",
   "author": "Sergey Glazov <mail@4enki.ru>",
   "license": "MIT",
@@ -37,6 +37,7 @@
     "gulp-uglify":                     "^2.0.0",
     "gulp-watch":                      "^4.3.9",
     "gulp-zip":                        "^3.2.0",
+    "lost":                            "^7.0.4",
     "path":                            "^0.12.7",
     "portfinder":                      "^1.0.6",
     "postcss-assets":                  "^4.1.0",
@@ -45,7 +46,6 @@
     "postcss-cssnext":                 "^2.7.0",
     "postcss-easy-import":             "^1.0.1",
     "postcss-extend":                  "^1.0.5",
-    "postcss-grid-system":             "^0.4.2",
     "postcss-initial":                 "^1.5.2",
     "postcss-nested":                  "^1.0.0",
     "postcss-normalize":               "^0.3.0",

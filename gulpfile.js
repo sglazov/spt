@@ -24,6 +24,7 @@
   var uglify              = require('gulp-uglify');
   var watch               = require('gulp-watch');
   var zip                 = require('gulp-zip');
+  var grid                = require('lost');
   var gpath               = require('path');
   var portfinder          = require('portfinder');
   var assets              = require('postcss-assets');
@@ -32,7 +33,6 @@
   var cssnext             = require("postcss-cssnext");
   var imprt               = require('postcss-easy-import');
   var extend              = require('postcss-extend');
-  var grid                = require('postcss-grid-system');
   var initial             = require('postcss-initial');
   var nested              = require("postcss-nested");
   var normalize           = require('postcss-normalize');

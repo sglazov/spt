@@ -53,10 +53,10 @@ gulp zip --prod
 Переменные ([postcss-simple-vars](https://github.com/postcss/postcss-simple-vars)):
 
 ```css
-$stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$stp_Font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
 ```
 
-Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested)) для элементов в [БЭМ](https://ru.bem.info/)е, ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)), миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)), ([postcss-extend](https://github.com/travco/postcss-extend)) для использования `@extend`:
+Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested)) для элементов в [БЭМ](https://ru.bem.info/)е, ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)), миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)), `@extend` с помощью ([postcss-extend](https://github.com/travco/postcss-extend)):
 
 ```css
 // Комментарии
@@ -91,7 +91,7 @@ $stp_Font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 1. [PostCSS SVG](https://github.com/Pavliko/postcss-svg). Работа с SVG в CSS;
 1. [PostCSS ASSETS](https://github.com/assetsjs/postcss-assets). Магия для работы с ресурсами сайта;
 1. [PostCSS Sprites](https://github.com/2createStudio/postcss-sprites). Генерация спрайтов;
-1. [PostCSS Grid System](https://github.com/francoisromain/postcss-grid-system). Сетка;
+1. [Lost Grid System](https://github.com/peterramsing/lost). Сетка, [работающая](http://lostgrid.org/) через `calc()`;
 1. [PostCSS Rucksack](https://github.com/simplaio/rucksack). Полезные CSS-[штуки](http://simplaio.github.io/rucksack/);
 1. [PostCSS Initial](https://github.com/maximkoretskiy/postcss-initial). Сброс CSS-стилей элемента;
 
