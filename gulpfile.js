@@ -16,7 +16,7 @@
   var include             = require("gulp-html-tag-include");
   var _if                 = require('gulp-if');
   var imagemin            = require('gulp-imagemin');
-   var imageminPngquant   = require('imagemin-pngquant');
+  var imageminPngquant    = require('imagemin-pngquant');
   var postcss             = require('gulp-postcss');
   var rename              = require('gulp-rename');
   var rucksack            = require('gulp-rucksack');
@@ -106,10 +106,7 @@
 
     autoprefixer: {
       options: {
-        browsers: [
-          'ie >= 8',
-          '> 1%'
-        ],
+        browsers: ['last 4 versions'],
         cascade: false
       }
     },
@@ -160,7 +157,6 @@
     cssnext({autoprefixer: (plugins.autoprefixer.options)}),
     postcsssvg(plugins.postcsssvg.options),
     assets(plugins.assets.options),
-    //mixins,
     vars,
     nested,
     extend,
@@ -233,7 +229,7 @@
   gulp.task('scripts', function() {
     return gulp.src(paths.source.scripts + '*.js')
       .pipe(changed(paths.build.scripts))
-      //.pipe(eslint())
+    //.pipe(eslint())
       .pipe(eslint.format())
       .on('error', handleError)
       .pipe(concat('scripts.js'))
@@ -334,11 +330,11 @@
   // Одноразовая сборка проекта
   gulp.task('default', function(cb) {
     return runSequence(
+      'copy',
       'include',
       'styles',
       'scripts',
       'watch',
-      'copy',
       cb
     );
   });
@@ -346,7 +342,7 @@
   // Запуск живой сборки
   gulp.task('live', function(cb) {
     return runSequence(
-      ['include', 'styles', 'scripts', 'watch', 'copy'],
+      ['copy', 'include', 'styles', 'scripts', 'watch'],
       'server',
       cb
     );
@@ -355,7 +351,7 @@
   // Туннель
   gulp.task('external-world', function(cb) {
     return runSequence(
-      ['include', 'styles', 'scripts', 'watch', 'copy'],
+      ['copy', 'include', 'styles', 'scripts', 'watch'],
       'web-server',
       cb
     );
@@ -365,7 +361,7 @@
   gulp.task('zip', function(cb) {
     return runSequence(
       'cleanup',
-      ['include', 'styles', 'scripts', 'copy', 'build-zip'],
+      ['copy', 'include', 'styles', 'scripts', 'build-zip'],
       'build-zip',
       'cleanup',
       cb

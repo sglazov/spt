@@ -42,7 +42,7 @@ gulp zip --prod
 
 ##Шаблонизация
 
-Шаблоны собираются в папке `app/templates/` с помощью тегов `<include>`. Составные части лежат в `blocks`. Переменные — через `@@var` (см. [gulp-html-tag-include](https://github.com/zaharin/gulp-html-tag-include)). Боевые файлы автоматически собираются в корне папки `dist/`.
+Шаблоны собираются в папке `app/templates/` с помощью тегов `<include>`. Составные части лежат в `blocks/`. Переменные — через `@@var` (см. [gulp-html-tag-include](https://github.com/zaharin/gulp-html-tag-include)). Боевые файлы автоматически собираются в корне папки `dist/`.
 
 ##Стили
 
@@ -116,7 +116,7 @@ background: url('images/sprites/name.png') no-repeat 0 0;
 
 ###Изображения
 
-Графика размещается в `app/images`, собираются в `dist/assets/images`, в CSS:
+Графика размещается в `app/images`, собираются в `dist/assets/images/`, в CSS:
 
 ```css
 background: resolve('name.jpg')
