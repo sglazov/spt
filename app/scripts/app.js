@@ -10,6 +10,7 @@ $(document).ready(function() {
       .filter('[href="' + $(this).attr('href') + '"]')
       .toggleClass("hover", e.type == 'mouseover');
   });
+  // /подсвечиваем ссылки с одинаковым адресом
 
   // спойлер-блок на странице
   $('.foldable__content').hide()
@@ -22,10 +23,11 @@ $(document).ready(function() {
         $('.foldable__link').html('Показать раскрывающийся контент');
       }
   });
+  // /спойлер-блок на странице
 
 });
 
-
+// сноски в тексте
 $(function(){
  main.footnote.init();
 });
@@ -120,3 +122,4 @@ main.footnote.item.prototype = {
   main.footnote.opened = null;
  }
 };
+// /сноски в тексте

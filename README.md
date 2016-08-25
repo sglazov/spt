@@ -149,10 +149,12 @@ width: width('name.png')
 │   ├── scripts/                 # Скрипты
 │   │   └── app.js               # Главный скрипт
 │   ├── styles/                  # Стили
-│   │   ├── default.sss          # Стили по умолчанию
-│   │   ├── variables.sss        # CSS-Переменные
-│   │   ├── fonts.sss            # Подключение шрифтов
-│   │   ├── typo.sss             # Типографика
+│   │   ├── base/                # Блоки
+│   │   │   ├── default.sss      # Типографика
+│   │   │   └── typo.sss         # Разметка подвала
+│   │   ├── helpers/             # Блоки
+│   │   │   ├── variables.sss    # CSS-Переменные
+│   │   │   └── normalize.sss    # Разметка подвала
 │   │   └── layout.sss           # Главный стилевой файл
 │   ├── images/                  # Картинки
 │   │   ├── sprites/             # Папка PNG-иконок для генерации растрового спрайта

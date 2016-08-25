@@ -1,6 +1,6 @@
 {
   "name": "SPT",
-  "version": "0.3.9",
+  "version": "0.4.0",
   "description": "A template for a quick start",
   "author": "Sergey Glazov <mail@4enki.ru>",
   "license": "MIT",
@@ -48,7 +48,6 @@
     "postcss-extend":                  "^1.0.5",
     "postcss-initial":                 "^1.5.2",
     "postcss-nested":                  "^1.0.0",
-    "postcss-normalize":               "^0.3.0",
     "postcss-property-lookup":         "^1.2.1",
     "postcss-short":                   "^1.4.0",
     "postcss-simple-vars":             "^3.0.0",

@@ -35,7 +35,6 @@
   var extend              = require('postcss-extend');
   var initial             = require('postcss-initial');
   var nested              = require("postcss-nested");
-  var normalize           = require('postcss-normalize');
   var property            = require('postcss-property-lookup');
   var shorter             = require('postcss-short');
   var vars                = require('postcss-simple-vars');
@@ -91,7 +90,8 @@
         },
         host: 'localhost',
         notify: false,
-        port: 8000
+        logLevel: 'info',
+        port: 8000,
       },
       world: {
         server: {
@@ -161,7 +161,6 @@
     nested,
     extend,
     shorter,
-    normalize,
     property,
     center,
     mqpacker,
@@ -218,7 +217,6 @@
       .pipe(rucksack())
       .on('error', handleError)
       .pipe(rename('style.css'))
-      .pipe(stripCssComments())
       .pipe(gulp.dest(paths.build.styles))
       .pipe(_if(argv.prod, cssnano()))
       .pipe(_if(argv.prod, rename('style.min.css')))
