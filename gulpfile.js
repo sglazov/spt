@@ -39,7 +39,7 @@
   var property            = require('postcss-property-lookup');
   var shorter             = require('postcss-short');
   var vars                = require('postcss-simple-vars');
-  var sprites             = require('postcss-sprites').default;
+  var sprites             = require('postcss-sprites');
   var postcsssvg          = require('postcss-svg');
   var runSequence         = require('run-sequence');
   var sugarss             = require("sugarss");
