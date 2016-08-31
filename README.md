@@ -42,7 +42,7 @@ gulp zip --prod
 
 ##Шаблонизация
 
-Шаблоны собираются в папке `app/templates/` с помощью тегов `<include>`. Составные части лежат в `blocks/`. Переменные — через `@@var` (см. [gulp-html-tag-include](https://github.com/zaharin/gulp-html-tag-include)). Боевые файлы автоматически собираются в корне папки `dist/`.
+Шаблоны собираются в папке `app/templates/` с помощью тегов `<include>`. Составные части лежат в `blocks/`. [Переменные](https://github.com/zaharin/gulp-html-tag-include) — через `@@var`. Боевые файлы автоматически собираются в корне папки `dist/`.
 
 ##Стили
 
@@ -56,7 +56,7 @@ gulp zip --prod
 $stp_Font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
 ```
 
-Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested)) для элементов в [БЭМ](https://ru.bem.info/)е, ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)), миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)), `@extend` с помощью ([postcss-extend](https://github.com/travco/postcss-extend)):
+Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested) и [postcss-nested-ancestors](https://github.com/toomuchdesign/postcss-nested-ancestors)) для элементов по [БЭМ](https://ru.bem.info/), ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)), миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)), `@extend` с помощью ([postcss-extend](https://github.com/travco/postcss-extend)):
 
 ```css
 // Комментарии
@@ -81,7 +81,7 @@ $stp_Font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Ari
 
 #### PostCSS-плагины
 
-1. [CSSNext](http://cssnext.io). Штуки из CSS 4, перменные, кастомные медиа-запросы;
+1. [CSSNext](http://cssnext.io). Штуки из CSS4, перменные, кастомные медиа-запросы;
 1. [SugarSS](https://github.com/postcss/sugarss). Синтаксис Stylus со всеми штуками PostCSS;
 1. [Container Queries Prolyfill](https://github.com/ausi/cq-prolyfill). Адаптивные контейнеры;
 1. [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker). Группирует медиазапросы и помещает их в конец CSS документа;
