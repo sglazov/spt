@@ -35,6 +35,7 @@
   var extend              = require('postcss-extend');
   var initial             = require('postcss-initial');
   var nested              = require("postcss-nested");
+  var nestedancestors     = require("postcss-nested-ancestors");
   var property            = require('postcss-property-lookup');
   var shorter             = require('postcss-short');
   var vars                = require('postcss-simple-vars');
@@ -70,6 +71,7 @@
         watch: {
           templates:   [src + 'templates/**/*.html'],
           scripts:     [src + 'scripts/**/*.js'],
+          vendor:      [src + 'scripts/vendor/**/*.js'],
           styles:      [src + 'styles/**/*.sss'],
           images:      [src + 'images/**/*.*'],
           fonts:       [src + 'fonts/**/*.*'],
@@ -158,6 +160,7 @@
     postcsssvg(plugins.postcsssvg.options),
     assets(plugins.assets.options),
     vars,
+    nestedancestors,
     nested,
     extend,
     shorter,
@@ -192,6 +195,7 @@
     console.log(err.toString());
     this.emit('end');
   }
+
 
 /*---------- Tasks ----------*/
 
@@ -235,6 +239,14 @@
       .pipe(_if(argv.prod, uglify()))
       .pipe(_if(argv.prod, rename('scripts.min.css')))
       .pipe(_if(argv.prod, gulp.dest(paths.build.scripts)));
+  });
+
+  gulp.task('scripts:copy', function() {
+    return gulp.src(paths.source.scripts + 'vendor/*.js')
+      .on('error', handleError)
+      .pipe(concat('vendor.js'))
+      .pipe(uglify())
+      .pipe(gulp.dest(paths.build.scripts));
   });
 
   // Запуск локального сервера
@@ -311,6 +323,9 @@
     watch(paths.watch.scripts, function() {
       return runSequence('scripts', browserSync.reload);
     });
+    watch(paths.watch.vendor, function() {
+      runSequence('scripts:copy', browserSync.reload);
+    });
     watch(paths.watch.images, function() {
       return runSequence('images', browserSync.reload);
     });
@@ -360,7 +375,6 @@
     return runSequence(
       'cleanup',
       ['copy', 'include', 'styles', 'scripts', 'build-zip'],
-      'build-zip',
       'cleanup',
       cb
     );
@@ -369,9 +383,7 @@
   // Копируем статичные файлы
   gulp.task('copy', function(cb) {
     return runSequence(
-      ['fonts',
-      'images',
-      'resources'],
+      ['fonts', 'images', 'resources', 'scripts:copy'],
       cb
     );
   });

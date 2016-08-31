@@ -75,6 +75,17 @@
         margin-bottom: 20px;
         overflow-x: auto;
       }
+      .readme h2 {
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+      .readme .foldable {
+        margin-top: 10px;
+        margin-bottom: 15px;
+      }
+      .readme .foldable .foldable__content {
+        margin-top: 15px;
+      }
       .link__spacer,
       .link__file-name {
         color: #b6b6b6;
@@ -166,7 +177,11 @@
       </div><!-- /.page-list__list -->
 
       <div class="readme">
-      <h2>Структура папок и файлов</h2>
+      <h2>Исходники и структура папок и файлов</h2>
+      <p>Исходный код: <a href="https://bitbucket.org/chenki/spt" target="_blank">bitbucket.org/chenki/spt</a>. Техническая информация в файле <code>README.md</code>.</p>
+      <div class="foldable">
+        <div class="foldable__control"><span class="foldable__link link pseudo">Показать раскрывающийся контент</span></div>
+          <div class="foldable__content">
 <pre>
   ├── app/                         # Исходники
   │   ├── templates/               # Шаблоны
@@ -214,6 +229,8 @@
   ├── gulpfile.js                  # Конфигурация Gulp.js
   └── README.md                    # Документация шаблона
 </pre>
+          </div><!-- /.foldable__content -->
+        </div><!-- /.foldable-box -->
       </div><!-- /.readme -->
 
     </div><!-- /.start-warp -->
