@@ -46,6 +46,40 @@
   var reload              = browserSync.reload;
 
 
+/*---------- Пути к файлам, с котороыми работаем ----------*/
+
+  // Пути к файлам
+  var src = 'app/',
+      dist = 'dist/',
+      paths = {
+        build: {
+          html:        dist,
+          scripts:     dist + 'assets/scripts',
+          styles:      dist + 'assets/styles',
+          images:      dist + 'assets/images',
+          fonts:       dist + 'assets/fonts',
+          resources:   dist
+        },
+        source: {
+          templates:   [src + 'templates/'],
+          scripts:     [src + 'scripts/'],
+          styles:      [src + 'styles/'],
+          images:      [src + 'images/**/*'],
+          fonts:       [src + 'fonts/**/*'],
+          resources:   [src + 'resources/**/*']
+        },
+        watch: {
+          templates:   [src + 'templates/**/*.html'],
+          scripts:     [src + 'scripts/**/*.js'],
+          vendor:      [src + 'scripts/vendor/**/*.js'],
+          styles:      [src + 'styles/**/*.sss'],
+          images:      [src + 'images/**/*.*'],
+          fonts:       [src + 'fonts/**/*.*'],
+          resources:   [src + 'resources/**/*.*']
+        }
+  };
+
+
 /*---------- Настройки плагинов ----------*/
 
   // Настройки плагинов
@@ -276,6 +310,32 @@
   });
 
 
+/*---------- Бдительные вотчеры ----------*/
+
+  // Федеральная служба по контролю за оборотом файлов
+  gulp.task('watch', function() {
+    watch(paths.watch.templates, function() {
+      return runSequence('include', 'html', browserSync.reload);
+    });
+    watch(paths.watch.styles, function() {
+      return runSequence('styles', browserSync.reload);
+    });
+    watch(paths.watch.scripts, function() {
+      return runSequence('scripts', browserSync.reload);
+    });
+    watch(paths.watch.vendor, function() {
+      runSequence('scripts:copy', browserSync.reload);
+    });
+    watch(paths.watch.images, function() {
+      return runSequence('images', browserSync.reload);
+    });
+    watch(paths.watch.resources, function() {
+      return runSequence('resources', browserSync.reload);
+    });
+    watch(paths.watch.fonts, function() {
+      return runSequence('fonts', browserSync.reload);
+    });
+  });
 
 
 /*---------- Режимы ----------*/
