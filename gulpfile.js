@@ -1,5 +1,6 @@
 'use strict';
 
+
 /*---------- Что нужно и как ----------*/
 
   var argv                = require('yargs').argv;
@@ -18,10 +19,12 @@
   var imagemin            = require('gulp-imagemin');
   var imageminPngquant    = require('imagemin-pngquant');
   var postcss             = require('gulp-postcss');
+  var plumber             = require('gulp-plumber');
   var rename              = require('gulp-rename');
   var rucksack            = require('gulp-rucksack');
   var stripCssComments    = require('gulp-strip-css-comments');
   var uglify              = require('gulp-uglify');
+  var gutil               = require('gulp-util');
   var watch               = require('gulp-watch');
   var zip                 = require('gulp-zip');
   var grid                = require('lost');
@@ -35,7 +38,7 @@
   var extend              = require('postcss-extend');
   var initial             = require('postcss-initial');
   var nested              = require("postcss-nested");
-  var nestedancestors     = require("postcss-nested-ancestors");
+  var ancestors           = require("postcss-nested-ancestors");
   var property            = require('postcss-property-lookup');
   var shorter             = require('postcss-short');
   var vars                = require('postcss-simple-vars');
@@ -148,6 +151,10 @@
       options: {
         extensions: ['.sss']
       }
+    },
+
+    plumber: {
+      errorHandler: errorHandler
     }
 
   }
@@ -155,12 +162,12 @@
   // Список задач для сборки стилей
   var processors = [
     imprt(plugins.imprt.options),
+    ancestors,
     sprites(plugins.sprites.options),
     cssnext({autoprefixer: (plugins.autoprefixer.options)}),
     postcsssvg(plugins.postcsssvg.options),
     assets(plugins.assets.options),
     vars,
-    nestedancestors,
     nested,
     extend,
     shorter,
@@ -191,10 +198,13 @@
 
 /*---------- Meanwhile ----------*/
 
-  function handleError(err) {
-    console.log(err.toString());
+  var errorHandler = function (err) {
+    $.util.log([(err.name + ' in ' + err.plugin).bold.red, '', err.message, ''].join('\n'));
+    if ($.util.env.beep) {
+      $.util.beep();
+    }
     this.emit('end');
-  }
+  };
 
 
 /*---------- Tasks ----------*/
@@ -202,8 +212,8 @@
   // Шаблонизация
   gulp.task('include', function() {
     return gulp.src(paths.source.templates + '*.html')
+      .pipe(plumber(plugins.plumber))
       .pipe(include())
-      .on('error', handleError)
       .pipe(gulp.dest(paths.build.html));
   });
 
@@ -215,11 +225,10 @@
   // Компиляция стилей
   gulp.task('styles', function () {
     return gulp.src(paths.source.styles + 'layout.sss')
+      .pipe(plumber(plugins.plumber))
       .pipe(changed(paths.build.styles))
       .pipe(postcss(processors, { parser: sugarss }))
-      .on('error', handleError)
       .pipe(rucksack())
-      .on('error', handleError)
       .pipe(rename('style.css'))
       .pipe(gulp.dest(paths.build.styles))
       .pipe(_if(argv.prod, cssnano()))
@@ -230,10 +239,10 @@
   // Сборка и минификация скриптов
   gulp.task('scripts', function() {
     return gulp.src(paths.source.scripts + '*.js')
+      .pipe(plumber(plugins.plumber))
       .pipe(changed(paths.build.scripts))
     //.pipe(eslint())
       .pipe(eslint.format())
-      .on('error', handleError)
       .pipe(concat('scripts.js'))
       .pipe(gulp.dest(paths.build.scripts))
       .pipe(_if(argv.prod, uglify()))
@@ -243,7 +252,7 @@
 
   gulp.task('scripts:copy', function() {
     return gulp.src(paths.source.scripts + 'vendor/*.js')
-      .on('error', handleError)
+      .pipe(plumber(plugins.plumber))
       .pipe(concat('vendor.js'))
       .pipe(uglify())
       .pipe(gulp.dest(paths.build.scripts));
@@ -266,8 +275,8 @@
   // Копируем шрифты
   gulp.task('fonts', function () {
     return gulp.src(paths.source.fonts)
+      .pipe(plumber(plugins.plumber))
       .pipe(changed(paths.build.fonts))
-      .on('error', handleError)
       .pipe(gulp.dest(paths.build.fonts))
       .pipe(reload({stream: true}));
   });
@@ -275,17 +284,17 @@
   // Копируем и минимизируем изображения
   gulp.task('images', function() {
     return gulp.src(paths.source.images)
+      .pipe(plumber(plugins.plumber))
       .pipe(changed(paths.build.images))
       .pipe(imagemin(plugins.imagemin.options))
-      .on('error', handleError)
       .pipe(gulp.dest(paths.build.images));
   });
 
   // Копируем другие файлы в корень проекта
   gulp.task('resources', function() {
     return gulp.src(paths.source.resources)
+      .pipe(plumber(plugins.plumber))
       .pipe(changed(paths.build.resources))
-      .on('error', handleError)
       .pipe(gulp.dest(paths.build.resources));
   });
 

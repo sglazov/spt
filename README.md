@@ -56,7 +56,7 @@ gulp zip --prod
 $stp_Font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
 ```
 
-Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested) и [postcss-nested-ancestors](https://github.com/toomuchdesign/postcss-nested-ancestors)) для элементов по [БЭМ](https://ru.bem.info/), ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)), миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)), `@extend` с помощью ([postcss-extend](https://github.com/travco/postcss-extend)):
+Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested) и [postcss-nested-ancestors](https://github.com/toomuchdesign/postcss-nested-ancestors)) для элементов по [БЭМ](https://ru.bem.info/methodology/css/), ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)), миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)), `@extend` с помощью ([postcss-extend](https://github.com/travco/postcss-extend)):
 
 ```css
 // Комментарии
@@ -74,6 +74,9 @@ $stp_Font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Ari
     all: initial
     top: center
     size: 50px
+    &:hover
+      ^&-part
+        color: rgb(255, 102, 0)
     ...
   &__mod
     @extend .head
@@ -138,50 +141,54 @@ width: width('name.png')
 ## Структура папок и файлов
 
 ```
-├── app/                         # Исходники
-│   ├── templates/               # Шаблоны
-│   │   ├── blocks/              # Блоки
-│   │   │   ├── _head.html       # Разметка тега <head>
-│   │   │   ├── _header.html     # Разметка шапки
-│   │   │   ├── _start.html      # Вводная лекция
-│   │   │   └── _footer.html     # Разметка подвала
-│   │   ├── guideline.html       # Типовая текстовая страница
-│   │   ├── progress.html        # Карта сайта с прогрессом работ
-│   │   └── index.html           # Главная страница шаблона
-│   ├── scripts/                 # Скрипты
-│   │   ├── vendor/              # Сторонние скрипты и JS-библиотеки
-│   │   └── app.js               # Главный скрипт
-│   ├── styles/                  # Стили
-│   │   ├── base/                # Блоки
-│   │   │   ├── default.sss      # Типографика
-│   │   │   └── typo.sss         # Разметка подвала
-│   │   ├── helpers/             # Блоки
-│   │   │   ├── variables.sss    # CSS-Переменные
-│   │   │   └── normalize.sss    # Разметка подвала
-│   │   └── layout.sss           # Главный стилевой файл
-│   ├── images/                  # Картинки
-│   │   ├── sprites/             # Папка PNG-иконок для генерации растрового спрайта
-│   │   └── test/                # Папка для тестовых картинок
-│   ├── resources/               # Статические файлы для копирования в dist/
-│   │   ├──manifests             # Манифесты (в том числе и для Яндекса)
-│   │   │   └── manifest.json    # Файл манифеста
-│   │   └── robots.txt           # Для роботов
-│   └── fonts/                   # Шрифты
-├── dist/                        # Сборка (автогенерация)
-│   ├── assets/                  # Подключаемые ресурсы
-│   │   ├── fonts/               # Шрифты
-│   │   ├── images/              # Изображения
-│   │   │   └── sprites/         # Спрайты (автогенерация)
-│   │   ├── scripts/             # Скрипты
-│   │   └── styles/              # Стили
-│   ├── manifests                # Манифесты (в том числе и для Яндекса)
-│   │   └── manifest.json        # Файл манифеста
-│   ├── robots.txt               # Файл для поисковых роботов
-│   ├── progress.html            # Карта сайта с прогрессом работ
-│   ├── guideline.html           # Типовая текстовая страница
-│   └── index.html               # Сборка главной страницы
-├── .gitignore                   # Список исключённых файлов из Git
-├── package.json                 # Список модулей и прочей информации
-├── gulpfile.js                  # Конфигурация Gulp.js
-└── README.md                    # Документация шаблона
+├── app/                              # Исходники
+│   ├── templates/                    # Шаблоны
+│   │   ├── base/                     # Базовые блоки
+│   │   │   └── _head.html            # Разметка тега <head>
+│   │   ├── blocks/                   # Блоки
+│   │   │   ├── _header               # Блок шапки
+│   │   │   │   ├── _header.html      # Разметка шапки
+│   │   │   │   └── _header.sss       # Стили шапки
+│   │   │   ├── _footer               # Блок подвала
+│   │   │   │   ├── _footer.html      # Разметка подвала
+│   │   │   │   └── _footer.sss       # Стили подвала
+│   │   │   ├── _start.html           # Вводная лекция
+│   │   ├── guideline.html            # Типовая текстовая страница
+│   │   ├── progress.html             # Карта сайта с прогрессом работ
+│   │   └── index.html                # Главная страница шаблона
+│   ├── scripts/                      # Скрипты
+│   │   ├── vendor/                   # Сторонние скрипты и JS-библиотеки
+│   │   └── app.js                    # Главный скрипт
+│   ├── styles/                       # Стили
+│   │   ├── base/                     # Блоки
+│   │   │   ├── default.sss           # Типографика
+│   │   │   └── typo.sss              # Разметка подвала
+│   │   ├── helpers/                  # Блоки
+│   │   │   ├── variables.sss         # CSS-Переменные
+│   │   │   └── normalize.sss         # Разметка подвала
+│   │   └── layout.sss                # Главный стилевой файл
+│   ├── images/                       # Картинки
+│   │   ├── sprites/                  # Папка PNG-иконок для генерации растрового спрайта
+│   │   └── test/                     # Папка для тестовых картинок
+│   ├── resources/                    # Статические файлы для копирования в dist/
+│   │   ├── manifests                 # Манифесты (в том числе и для Яндекс.Табло)
+│   │   │   └── manifest.json         # Файл манифеста
+│   │   └── robots.txt                # Для роботов
+│   └── fonts/                        # Шрифты
+├── dist/                             # Сборка (автогенерация)
+│   ├── assets/                       # Подключаемые ресурсы
+│   │   ├── fonts/                    # Шрифты
+│   │   ├── images/                   # Изображения
+│   │   │   └── sprites/              # Спрайты (автогенерация)
+│   │   ├── scripts/                  # Скрипты
+│   │   └── styles/                   # Стили
+│   ├── manifests                     # Манифесты (в том числе и для Яндекса)
+│   ├── robots.txt                    # Файл для поисковых роботов
+│   ├── progress.html                 # Карта сайта с прогрессом работ
+│   ├── guideline.html                # Типовая текстовая страница
+│   └── index.html                    # Сборка главной страницы
+├── .gitignore                        # Список исключённых файлов из Git
+├── package.json                      # Список модулей и прочей информации
+├── gulpfile.js                       # Конфигурация Gulp.js
+└── README.md                         # Документация шаблона
 ```

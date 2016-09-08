@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru" class="no-js">
-  <include src="blocks/_head.html" title="Что происходит и что делать?" description="Страница прогресса разработки проекта"></include>
+  <include src="base/_head.html" title="Что происходит и что делать?" description="Страница прогресса разработки проекта"></include>
   <body class="progress-page">
-    <include src="blocks/_header.html"></include>
+    <include src="blocks/_header/_header.html"></include>
     <style type="text/css">
       .progress-page {
         padding: 25px 35px;
@@ -183,59 +183,66 @@
       <div class="foldable">
         <div class="foldable__control"><span class="foldable__link link pseudo">Показать раскрывающийся контент</span></div>
           <div class="foldable__content">
+
+&lt;head&gt;
+
 <pre>
-  ├── app/                         # Исходники
-  │   ├── templates/               # Шаблоны
-  │   │   ├── blocks/              # Блоки
-  │   │   │   ├── _head.html       # Разметка тега <head>
-  │   │   │   ├── _header.html     # Разметка шапки
-  │   │   │   ├── _start.html      # Вводная лекция
-  │   │   │   └── _footer.html     # Разметка подвала
-  │   │   ├── guideline.html       # Типовая текстовая страница
-  │   │   ├── progress.html        # Карта сайта с прогрессом работ
-  │   │   └── index.html           # Главная страница шаблона
-  │   ├── scripts/                 # Скрипты
-  │   │   ├── vendor/              # Сторонние скрипты и JS-библиотеки
-  │   │   └── app.js               # Главный скрипт
-  │   ├── styles/                  # Стили
-  │   │   ├── base/                # Блоки
-  │   │   │   ├── default.sss      # Типографика
-  │   │   │   └── typo.sss         # Разметка подвала
-  │   │   ├── helpers/             # Блоки
-  │   │   │   ├── variables.sss    # CSS-Переменные
-  │   │   │   └── normalize.sss    # Разметка подвала
-  │   │   └── layout.sss           # Главный стилевой файл
-  │   ├── images/                  # Картинки
-  │   │   ├── sprites/             # Папка PNG-иконок для генерации растрового спрайта
-  │   │   └── test/                # Папка для тестовых картинок
-  │   ├── resources/               # Статические файлы для копирования в dist/
-  │   │   ├──manifests             # Манифесты (в том числе и для Яндекса)
-  │   │   │   └── manifest.json    # Файл манифеста
-  │   │   └── robots.txt           # Для роботов
-  │   └── fonts/                   # Шрифты
-  ├── dist/                        # Сборка (автогенерация)
-  │   ├── assets/                  # Подключаемые ресурсы
-  │   │   ├── fonts/               # Шрифты
-  │   │   ├── images/              # Изображения
-  │   │   │   └── sprites/         # Спрайты (автогенерация)
-  │   │   ├── scripts/             # Скрипты
-  │   │   └── styles/              # Стили
-  │   ├── manifests                # Манифесты (в том числе и для Яндекса)
-  │   │   └── manifest.json        # Файл манифеста
-  │   ├── robots.txt               # Файл для поисковых роботов
-  │   ├── progress.html            # Карта сайта с прогрессом работ
-  │   ├── guideline.html           # Типовая текстовая страница
-  │   └── index.html               # Сборка главной страницы
-  ├── .gitignore                   # Список исключённых файлов из Git
-  ├── package.json                 # Список модулей и прочей информации
-  ├── gulpfile.js                  # Конфигурация Gulp.js
-  └── README.md                    # Документация шаблона
+├── app/                              # Исходники
+│   ├── templates/                    # Шаблоны
+│   │   ├── base/                     # Базовые блоки
+│   │   │   └── _head.html            # Разметка тега &lt;head&gt;
+│   │   ├── blocks/                   # Блоки
+│   │   │   ├── _header               # Блок шапки
+│   │   │   │   ├── _header.html      # Разметка шапки
+│   │   │   │   └── _header.sss       # Стили шапки
+│   │   │   ├── _footer               # Блок подвала
+│   │   │   │   ├── _footer.html      # Разметка подвала
+│   │   │   │   └── _footer.sss       # Стили подвала
+│   │   │   ├── _start.html           # Вводная лекция
+│   │   ├── guideline.html            # Типовая текстовая страница
+│   │   ├── progress.html             # Карта сайта с прогрессом работ
+│   │   └── index.html                # Главная страница шаблона
+│   ├── scripts/                      # Скрипты
+│   │   ├── vendor/                   # Сторонние скрипты и JS-библиотеки
+│   │   └── app.js                    # Главный скрипт
+│   ├── styles/                       # Стили
+│   │   ├── base/                     # Блоки
+│   │   │   ├── default.sss           # Типографика
+│   │   │   └── typo.sss              # Разметка подвала
+│   │   ├── helpers/                  # Блоки
+│   │   │   ├── variables.sss         # CSS-Переменные
+│   │   │   └── normalize.sss         # Разметка подвала
+│   │   └── layout.sss                # Главный стилевой файл
+│   ├── images/                       # Картинки
+│   │   ├── sprites/                  # Папка PNG-иконок для генерации растрового спрайта
+│   │   └── test/                     # Папка для тестовых картинок
+│   ├── resources/                    # Статические файлы для копирования в dist/
+│   │   ├── manifests                 # Манифесты (в том числе и для Яндекс.Табло)
+│   │   │   └── manifest.json         # Файл манифеста
+│   │   └── robots.txt                # Для роботов
+│   └── fonts/                        # Шрифты
+├── dist/                             # Сборка (автогенерация)
+│   ├── assets/                       # Подключаемые ресурсы
+│   │   ├── fonts/                    # Шрифты
+│   │   ├── images/                   # Изображения
+│   │   │   └── sprites/              # Спрайты (автогенерация)
+│   │   ├── scripts/                  # Скрипты
+│   │   └── styles/                   # Стили
+│   ├── manifests                     # Манифесты (в том числе и для Яндекса)
+│   ├── robots.txt                    # Файл для поисковых роботов
+│   ├── progress.html                 # Карта сайта с прогрессом работ
+│   ├── guideline.html                # Типовая текстовая страница
+│   └── index.html                    # Сборка главной страницы
+├── .gitignore                        # Список исключённых файлов из Git
+├── package.json                      # Список модулей и прочей информации
+├── gulpfile.js                       # Конфигурация Gulp.js
+└── README.md                         # Документация шаблона
 </pre>
           </div><!-- /.foldable__content -->
         </div><!-- /.foldable-box -->
       </div><!-- /.readme -->
 
     </div><!-- /.start-warp -->
-    <include src="blocks/_footer.html"></include>
+    <include src="blocks/_footer/_footer.html"></include>
   </body>
 </html>
