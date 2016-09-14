@@ -56,21 +56,20 @@ gulp zip --prod
 $stp_Font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
 ```
 
-Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested) и [postcss-nested-ancestors](https://github.com/toomuchdesign/postcss-nested-ancestors)) для элементов по [БЭМ](https://ru.bem.info/methodology/css/), ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)), миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)), `@extend` с помощью ([postcss-extend](https://github.com/travco/postcss-extend)):
+Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested) и [postcss-nested-ancestors](https://github.com/toomuchdesign/postcss-nested-ancestors)) для элементов и модификаторов в [БЭМ](https://ru.bem.info/methodology/css/)-методолгии; ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)); миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)); `@extend` с помощью ([postcss-extend](https://github.com/travco/postcss-extend)):
 
 ```css
 // Комментарии
 ...
 .head
   color: white
-.menu,
-.auth
+.block
   ...
   color: rgba(0,0,0,.95)
   width: 200px
   height: @width
   ...
-  &__item
+  &__element
     all: initial
     top: center
     size: 50px
@@ -78,7 +77,7 @@ $stp_Font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Ari
       ^&-part
         color: rgb(255, 102, 0)
     ...
-  &__mod
+  &--modifier
     @extend .head
 ```
 

@@ -1,11 +1,10 @@
 'use strict';
 
-
 /*---------- Что нужно и как ----------*/
 
-  var argv                = require('yargs').argv;
   var autoprefixer        = require('autoprefixer');
   var browserSync         = require("browser-sync");
+  var reload              = browserSync.reload;
   var cqPostcss           = require('cq-prolyfill/postcss-plugin');
   var mqpacker            = require('css-mqpacker');
   var del                 = require('del');
@@ -18,8 +17,8 @@
   var _if                 = require('gulp-if');
   var imagemin            = require('gulp-imagemin');
   var imageminPngquant    = require('imagemin-pngquant');
-  var postcss             = require('gulp-postcss');
   var plumber             = require('gulp-plumber');
+  var postcss             = require('gulp-postcss');
   var rename              = require('gulp-rename');
   var rucksack            = require('gulp-rucksack');
   var stripCssComments    = require('gulp-strip-css-comments');
@@ -46,7 +45,7 @@
   var postcsssvg          = require('postcss-svg');
   var runSequence         = require('run-sequence');
   var sugarss             = require("sugarss");
-  var reload              = browserSync.reload;
+  var argv                = require('yargs').argv;
 
 
 /*---------- Пути к файлам, с котороыми работаем ----------*/
