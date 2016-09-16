@@ -1,9 +1,245 @@
 <!DOCTYPE html>
 <html lang="ru" class="no-js">
-  <include src="base/_head.html" title="Шаблон проекта для быстрого старта" description="Шаблон проекта для быстрого старта"></include>
-  <body>
+  <include src="base/_head.html" title="Что происходит и что делать?" description="Страница прогресса разработки проекта"></include>
+  <body class="progress-page">
     <include src="blocks/_header/_header.html"></include>
-    <include src="blocks/_start.html" h1="Шаблон проекта для быстрого старта"></include>
+    <style type="text/css">
+      .progress-page {
+        padding: 25px 35px;
+      }
+      h1 {
+        font-size: 35px;
+        margin-bottom: 25px;
+        font-weight: 400;
+        line-height: 35px;
+      }
+      h2 {
+        font-size: 25px;
+        margin-top: 25px;
+        margin-bottom: 20px;
+        font-weight: 400;
+      }
+      ul, li {
+        margin-left: 0;
+      }
+      ul li {
+        list-style: none;
+        margin-bottom: 0.7em;
+        position: relative;
+      }
+      ul ul {
+        display: block;
+        margin: 0.5em 0 1em 1.5em;
+        padding: 0;
+        position: static;
+      }
+      ul {
+        display: inline-block;
+        position: relative;
+        margin-left: 0;
+        padding-left: 0;
+      }
+      .selected {
+        font-weight: bold;
+      }
+      .progress {
+        position: absolute;
+        top: 0.1em;
+        left: 100%;
+        white-space: nowrap;
+      }
+      .progress.design {
+        margin-left: 40px;
+      }
+      .progress.html {
+        margin-left: 330px;
+      }
+      .progress.time {
+        margin-left: 615px;
+        opacity: 0.09;
+      }
+      progress {
+        margin-right: 8px;
+        width: 200px;
+      }
+      progress,  .progress_value {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .readme pre {
+        background: #fff0be;
+        font-family: Consolas, Menlo, "Liberation Mono", Courier, monospace;
+        padding: 15px 15px;
+        font-size: 12px;
+        line-height: 1.335;
+        margin-bottom: 20px;
+        overflow-x: auto;
+      }
+      .readme h2 {
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+      .readme .foldable {
+        margin-top: 10px;
+        margin-bottom: 15px;
+      }
+      .readme .foldable .foldable__content {
+        margin-top: 15px;
+        display: none;
+      }
+      .link__spacer,
+      .link__file-name {
+        color: #b6b6b6;
+        font-size: 12px;
+        line-height: 12px;
+        font-style: italic;
+        padding: 0 0 0 2px;
+        margin: 0;
+      }
+      .link__file-name:hover {
+        cursor: help;
+      }
+      @media only screen and (min-device-width : 100px) and (max-device-width : 760px) {
+        .progress-page {
+          padding: 10px 15px;
+        }
+        h1 {
+            font-size: 120%;
+            margin-bottom: 15px;
+            margin-top: 5px;
+            line-height: 22px;
+        }
+        h2 {
+          font-size: 100%;
+          margin-bottom: 20px;
+          margin-top: 15px;
+        }
+        progress,
+        .progress.design,
+        .progress.html,
+        h1 > span {
+          display: none;
+          overflow: hidden;
+        }
+        ul li {
+          margin-bottom: 1px;
+          font-size: 14px;
+        }
+        ul ul {
+          margin: 0 0 0 10px;
+        }
+      }
+    </style>
+    <div class="start-warp">
+      <h1>Шаблон проекта для быстрого старта</h1>
+      <div class="page-list__list">
+
+        <ul class="navigation">
+
+          <li class="selected">
+            <strong class="selected">Карта сайта</strong>
+            <div class="progress design"><strong>Дизайн</strong></div>
+            <div class="progress html"><strong>Вёрстка</strong></div>
+            <div class="progress time"><strong>Время</strong></div>
+          </li>
+
+          <li class="page-list__item">
+            <a href="home.html" class="link">Главная страница</a>
+            <span class="link__spacer">—</span>
+            <span class="link__file-name" title="app/templates/home.html">home.html</span>
+            <div class="progress design">
+              <progress max="100" value="100"></progress>
+              <span class="progress_value">100%</span>
+            </div>
+            <div class="progress html">
+              <progress max="100" value="100"></progress>
+              <span class="progress_value">100%</span>
+            </div>
+            <div class="progress time">&ndash;&ndash;:&ndash;&ndash;:&ndash;&ndash;</div>
+          </li><!-- /.page-list__item -->
+
+          <li class="page-list__item">
+            <a href="guideline.html" class="link">Типовая текстовая страница</a>
+            <span class="link__spacer">—</span>
+            <span class="link__file-name" title="app/templates/guideline.html">guideline.html</span>
+            <div class="progress design">
+              <progress max="100" value="100"></progress>
+              <span class="progress_value">100%</span>
+            </div>
+            <div class="progress html">
+              <progress max="100" value="100"></progress>
+              <span class="progress_value">100%</span>
+            </div>
+            <div class="progress time">&ndash;&ndash;:&ndash;&ndash;:&ndash;&ndash;</div>
+          </li><!-- /.page-list__item -->
+
+        </ul>
+
+      </div><!-- /.page-list__list -->
+
+      <div class="readme">
+      <h2>Исходники и структура папок и файлов</h2>
+      <p>Исходный код: <a href="https://bitbucket.org/chenki/spt" target="_blank">bitbucket.org/chenki/spt</a>. Техническая информация в файле <code>README.md</code>.</p>
+      <div class="foldable">
+        <div class="foldable__control"><span class="foldable__link link pseudo">Показать раскрывающийся контент</span></div>
+          <div class="foldable__content">
+<pre>
+├── app/                              # Исходники
+│   ├── templates/                    # Шаблоны
+│   │   ├── base/                     # Базовые блоки
+│   │   │   └── _head.html            # Разметка тега &lt;head&gt;
+│   │   ├── blocks/                   # Блоки
+│   │   │   ├── _header               # Блок шапки
+│   │   │   │   ├── _header.html      # Разметка шапки
+│   │   │   │   └── _header.sss       # Стили шапки
+│   │   │   ├── _footer               # Блок подвала
+│   │   │   │   ├── _footer.html      # Разметка подвала
+│   │   │   │   └── _footer.sss       # Стили подвала
+│   │   │   ├── _start.html           # Вводная лекция
+│   │   ├── guideline.html            # Типовая текстовая страница
+│   │   ├── progress.html             # Карта сайта с прогрессом работ
+│   │   └── index.html                # Главная страница шаблона
+│   ├── scripts/                      # Скрипты
+│   │   ├── vendor/                   # Сторонние скрипты и JS-библиотеки
+│   │   └── app.js                    # Главный скрипт
+│   ├── styles/                       # Стили
+│   │   ├── base/                     # Блоки
+│   │   │   ├── default.sss           # Типографика
+│   │   │   └── typo.sss              # Разметка подвала
+│   │   ├── helpers/                  # Блоки
+│   │   │   ├── variables.sss         # CSS-Переменные
+│   │   │   └── normalize.sss         # Разметка подвала
+│   │   └── layout.sss                # Главный стилевой файл
+│   ├── images/                       # Картинки
+│   │   ├── sprites/                  # Папка PNG-иконок для генерации растрового спрайта
+│   │   └── test/                     # Папка для тестовых картинок
+│   ├── resources/                    # Статические файлы для копирования в dist/
+│   │   ├── manifests                 # Манифесты (в том числе и для Яндекс.Табло)
+│   │   │   └── manifest.json         # Файл манифеста
+│   │   └── robots.txt                # Для роботов
+│   └── fonts/                        # Шрифты
+├── dist/                             # Сборка (автогенерация)
+│   ├── assets/                       # Подключаемые ресурсы
+│   │   ├── fonts/                    # Шрифты
+│   │   ├── images/                   # Изображения
+│   │   │   └── sprites/              # Спрайты (автогенерация)
+│   │   ├── scripts/                  # Скрипты
+│   │   └── styles/                   # Стили
+│   ├── manifests                     # Манифесты (в том числе и для Яндекса)
+│   ├── robots.txt                    # Файл для поисковых роботов
+│   ├── progress.html                 # Карта сайта с прогрессом работ
+│   ├── guideline.html                # Типовая текстовая страница
+│   └── index.html                    # Сборка главной страницы
+├── .gitignore                        # Список исключённых файлов из Git
+├── package.json                      # Список модулей и прочей информации
+├── gulpfile.js                       # Конфигурация Gulp.js
+└── README.md                         # Документация шаблона
+</pre>
+          </div><!-- /.foldable__content -->
+        </div><!-- /.foldable-box -->
+      </div><!-- /.readme -->
+
+    </div><!-- /.start-warp -->
     <include src="blocks/_footer/_footer.html"></include>
   </body>
 </html>
