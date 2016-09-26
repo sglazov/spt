@@ -3,7 +3,7 @@ a,
   color: rgb(5, 95, 187)
   text-decoration: none
   border-bottom: 1px inset #b4cfea
-  transition: 0.5s ease
+  transition: 0.3s ease
   &:hover
     color: rgb(237,56,65)
     border-color: #fbb
@@ -14,7 +14,7 @@ a,
   &.pseudo
     color: rgb(0,114,186)
     border-bottom: 1px dashed rgba(0, 114, 186, .5)
-    transition: 0.5s ease
+    transition: 0.3s ease
     &:hover
       cursor: pointer
       color: rgb(237,56,65)
@@ -34,6 +34,23 @@ a,
       color: rgba(242, 242, 1, 1)
       border-color: rgba(242, 242, 1, .5)
       transition: 0s ease
+
+/* show external links differently */
+a[target="_blank"]
+  &:after
+    content: ''
+    size: 11px
+    background-image: svg('external-link.svg', '[fill]: #a3a3a3')
+    background-position: 50% 50%
+    text-indent: -9999px
+    background-repeat: no-repeat
+    display: inline-block
+    overflow: hidden
+    margin: 0 0 0 5px
+    transition: 0.3s ease
+  &:hover
+    &:after
+      background-image: svg('external-link.svg', '[fill]: #ed3841')
 
 // списки на странице
 ul.list,

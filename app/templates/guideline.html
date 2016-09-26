@@ -111,6 +111,35 @@
         </table>
       </div><!-- /.table-responsive -->
 
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <caption>Таблица с&nbsp;заголовочными ячейками, расположенными горизонтально.</caption>
+          <tbody>
+            <tr>
+              <th>Заголовочная ячейка</th>
+              <td>Ячейка с&nbsp;информацией</td>
+              <td colspan="2">Ячейка с&nbsp;информацией</td>
+              <td rowspan="3">Ячейка с&nbsp;информацией</td>
+              <td>Ячейка с&nbsp;информацией</td>
+            </tr>
+            <tr>
+              <th>Заголовочная ячейка</th>
+              <td>Ячейка с&nbsp;информацией</td>
+              <td>Ячейка с&nbsp;информацией</td>
+              <td>Ячейка с&nbsp;информацией</td>
+              <td>Ячейка с&nbsp;информацией</td>
+            </tr>
+            <tr>
+              <th>Заголовочная ячейка</th>
+              <td>Ячейка с&nbsp;информацией</td>
+              <td>Ячейка с&nbsp;информацией</td>
+              <td>Ячейка с&nbsp;информацией</td>
+              <td>Ячейка с&nbsp;информацией</td>
+            </tr>
+          </tbody>
+        </table>
+      </div><!-- /.table-responsive -->
+
       <h2>Раскрывающийся контент</h2>
       <p>Элемент «Раскрывающийся» (класс <code>.foldable</code>) используется для формирования раскрывающихся элементов. Например, для вопросов и ответов.</p>
       <div class="foldable">
@@ -121,10 +150,32 @@
       </div><!-- /.foldable-box -->
       <p>Контент прячется скриптом при инициализации страницы и в дальнейшем показывается по клику на контрол. Управляется классами <code>.foldable__content</code> и <code>.foldable__link</code>.</p>
 
-<!--  <h2>Формы и элементы форм</h2>
-      <h3>Кнопки</h3>
-      <h3>Табы</h3>
-      <h3>Чекбоксы и радиокнопки</h3>
+      <h2>Формы и элементы форм</h2>
+      <p>Все контролы на проекте типизированы <em>(например: кнопки, табы или попапы)</em>. Т.е. изменение стилей элемента/блока повлечет её изменение на всём проекте.</p>
+
+      <h3>Кнопки и табы</h3>
+      <h4>Табы</h4>
+      <div class="tabs-widget">
+        <ul class="tabs">
+          <li class="tab-title active"><a href="#panel2-1" tabindex="0" aria-controls="panel2-1">1</a></li>
+          <li class="tab-title"><a href="#panel2-2" tabindex="0" aria-controls="panel2-2">2</a></li>
+          <li class="tab-title"><a href="#panel2-3" tabindex="0" aria-controls="panel2-3">3</a></li>
+        </ul>
+        <div class="tabs-content">
+          <section class="content active" id="panel2-1">
+            <h2></h2>
+          </section>
+          <section class="content" id="panel2-2">
+            <h2></h2>
+          </section>
+          <section class="content" id="panel2-3">
+            <h2></h2>
+          </section>
+        </div><!-- /.tabs-content -->
+      </div><!-- /.tabs-widget -->
+      <h4>Кнопки</h4>
+
+<!--  <h3>Чекбоксы и радиокнопки</h3>
       <h3>Поля ввода</h3>
       <h3>Выпадающий список</h3> -->
 
