@@ -152,29 +152,65 @@
 
       <h2>Формы и элементы форм</h2>
       <p>Все контролы на проекте типизированы <em>(например: кнопки, табы или попапы)</em>. Т.е. изменение стилей элемента/блока повлечет её изменение на всём проекте.</p>
-
       <h3>Кнопки и табы</h3>
       <h4>Табы</h4>
+      <style media="screen">
+
+  ul.tabs{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+  }
+  ul.tabs li{
+    background: none;
+    color: #222;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+
+  ul.tabs li.active{
+    background: #fff4d9;
+    color: #222;
+  }
+
+  .tcontent{
+    display: none;
+    background: #fff4d9;
+    padding: 15px;
+  }
+
+  .tcontent.active{
+    display: inherit;
+  }
+      </style>
       <div class="tabs-widget">
         <ul class="tabs">
-          <li class="tab-title active"><a href="#panel2-1" tabindex="0" aria-controls="panel2-1">1</a></li>
-          <li class="tab-title"><a href="#panel2-2" tabindex="0" aria-controls="panel2-2">2</a></li>
-          <li class="tab-title"><a href="#panel2-3" tabindex="0" aria-controls="panel2-3">3</a></li>
+          <li class="tab-title active"><a href="#tab-1" tabindex="0" data-tab="tab-1">Таб 1 <sup>активный</sup></a></li>
+          <li class="tab-title"><a href="#tab-2" tabindex="0" data-tab="tab-2">Таб 2</a></li>
+          <li class="tab-title"><a href="#tab-3" tabindex="0" data-tab="tab-3">Таб 3</a></li>
         </ul>
         <div class="tabs-content">
-          <section class="content active" id="panel2-1">
-            <h2></h2>
+          <section class="tcontent active" id="tab-1">
+            <h2>Содержимое 1-го таба</h2>
+            <p>И еще немного специально написанного текста, чтобы получилось несколько строк для наглядности.</p>
           </section>
-          <section class="content" id="panel2-2">
-            <h2></h2>
+          <section class="tcontent" id="tab-2">
+            <h2>Содержимое 2-го таба</h2>
+            <p>И еще немного специально написанного текста, чтобы получилось несколько строк для наглядности.</p>
           </section>
-          <section class="content" id="panel2-3">
-            <h2></h2>
+          <section class="tcontent" id="tab-3">
+            <h2>Содержимое 3-го таба</h2>
+            <p>И еще немного специально написанного текста, чтобы получилось несколько строк для наглядности.</p>
           </section>
         </div><!-- /.tabs-content -->
       </div><!-- /.tabs-widget -->
       <h4>Кнопки</h4>
-
+      <button type="submit" name="button" class="form__button">Отправить</button>
+      <div class="input-field">
+        <label for="textarea1">Textarea</label>
+        <textarea class="control-resize" rows="1"></textarea>
+      </div>
 <!--  <h3>Чекбоксы и радиокнопки</h3>
       <h3>Поля ввода</h3>
       <h3>Выпадающий список</h3> -->
