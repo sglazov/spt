@@ -74,7 +74,7 @@
           templates:   [src + 'templates/**/*.html'],
           scripts:     [src + 'scripts/**/*.js'],
           vendor:      [src + 'scripts/vendor/**/*.js'],
-          styles:      [src + 'styles/**/*.sss'],
+          styles:      [src + 'styles/**/*.sss', src + 'templates/**/*.sss'],
           images:      [src + 'images/**/*.*'],
           fonts:       [src + 'fonts/**/*.*'],
           resources:   [src + 'resources/**/*.*']
@@ -96,15 +96,6 @@
         notify: false,
         logLevel: 'info',
         port: 8000,
-      },
-      world: {
-        server: {
-          baseDir: "dist"
-        },
-        tunnel: true,
-        host: 'localhost',
-        notify: false,
-        port: 8000
       }
     },
 
@@ -141,7 +132,7 @@
 
     postcsssvg: {
       options: {
-        paths: ['app/images/'],
+        paths: ['app/images/svg/'],
         ei: { "defaults": "[fill]: black" }
       }
     },
@@ -264,13 +255,6 @@
     });
   });
 
-  // Запуск локального сервера c туннелем
-  gulp.task('web-server', function() {
-    portfinder.getPort(function (err, port){
-      browserSync(plugins.browserSync.world);
-    });
-  });
-
   // Копируем шрифты
   gulp.task('fonts', function () {
     return gulp.src(paths.source.fonts)
@@ -348,8 +332,18 @@
 
 /*---------- Режимы ----------*/
 
-  // Одноразовая сборка проекта
+  // Запуск живой сборки
   gulp.task('default', function(cb) {
+    return runSequence(
+      'copy',
+      ['include', 'styles', 'scripts', 'watch'],
+      'server',
+      cb
+    );
+  });
+
+  // Одноразовая сборка проекта
+  gulp.task('one', function(cb) {
     return runSequence(
       'copy',
       'include',
@@ -360,29 +354,12 @@
     );
   });
 
-  // Запуск живой сборки
-  gulp.task('live', function(cb) {
-    return runSequence(
-      ['copy', 'include', 'styles', 'scripts', 'watch'],
-      'server',
-      cb
-    );
-  });
-
-  // Туннель
-  gulp.task('external-world', function(cb) {
-    return runSequence(
-      ['copy', 'include', 'styles', 'scripts', 'watch'],
-      'web-server',
-      cb
-    );
-  });
-
   // Одноразовая сборка проекта в *.zip-архив в корне проекта
   gulp.task('zip', function(cb) {
     return runSequence(
       'cleanup',
-      ['copy', 'include', 'styles', 'scripts'],
+      'copy',
+      ['include', 'styles', 'scripts'],
       'build-zip',
       'cleanup',
       cb

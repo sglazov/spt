@@ -10,13 +10,13 @@
   },
   "scripts": {
     "start": "gulp live",
-    "world": "gulp external-world",
+      "one": "gulp one",
       "zip": "gulp zip --build",
      "gulp": "./node_modules/.bin/gulp"
   },
   "devDependencies": {
-    "autoprefixer":                    "^6.4.1",
-    "browser-sync":                    "^2.15.0",
+    "autoprefixer":                    "^6.5.0",
+    "browser-sync":                    "^2.17.0",
     "cq-prolyfill":                    "^0.3.2",
     "css-mqpacker":                    "^5.0.1",
     "del":                             "^2.2.2",
@@ -36,7 +36,7 @@
     "gulp-strip-css-comments":         "^1.2.0",
     "gulp-uglify":                     "^2.0.0",
     "gulp-util":                       "^3.0.7",
-    "gulp-watch":                      "^4.3.9",
+    "gulp-watch":                      "^4.3.10",
     "gulp-zip":                        "^3.2.0",
     "lost":                            "^7.1.0",
     "path":                            "^0.12.7",
@@ -51,12 +51,12 @@
     "postcss-nested":                  "^1.0.0",
     "postcss-nested-ancestors":        "^0.0.1",
     "postcss-property-lookup":         "^1.2.1",
-    "postcss-short":                   "^1.4.0",
+    "postcss-short":                   "^2.0.1",
     "postcss-simple-vars":             "^3.0.0",
     "postcss-sprites":                 "^4.0.0",
     "postcss-svg":                     "^1.0.6",
     "run-sequence":                    "^1.2.2",
-    "sugarss":                         "^0.1.6",
-    "yargs":                           "^5.0.0"
+    "sugarss":                         "^0.2.0",
+    "yargs":                           "^6.0.0"
   }
 }
