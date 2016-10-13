@@ -47,7 +47,7 @@ npm run zip
 Переменные ([postcss-simple-vars](https://github.com/postcss/postcss-simple-vars)):
 
 ```css
-$stp_Font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
+$fontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
 ```
 
 Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested) и [postcss-nested-ancestors](https://github.com/toomuchdesign/postcss-nested-ancestors)) для элементов и модификаторов в [БЭМ](https://ru.bem.info/methodology/css/)-методолгии; ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)); миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)); `@extend` с помощью ([postcss-extend](https://github.com/travco/postcss-extend)):
@@ -94,7 +94,7 @@ $stp_Font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Ari
 
 ###Вектор
 
-SVG-иконки собираются в папке `app/images/`, в CSS:
+SVG-иконки собираются в папке `app/images/svg/`, в CSS:
 
 ```css
 background-image: svg('name.svg', '[fill]: #000000');

@@ -13,23 +13,23 @@ $(document).ready(function() {
   // /подсвечиваем ссылки с одинаковым адресом
 
   // спойлер-блок на странице
-  $('.foldable__content').hide()
-  $('.foldable__control').click(function(){
+  $('._foldable__content').hide()
+  $('._foldable__control').click(function(){
     $(this).toggleClass("folded").toggleClass("unfolded").next().slideToggle();
-    var close = $('.foldable__link').attr("data-text-close");
-    var  open = $('.foldable__link').attr("data-text-open");
+    var close = $('._foldable__link').attr("data-text-close");
+    var  open = $('._foldable__link').attr("data-text-open");
     if($(this).hasClass('folded')) {
       if (close) {
-        $('.foldable__link').html(close);
+        $('._foldable__link').html(close);
       } else {
-        $('.foldable__link').html('Свернуть раскрывающийся контент');
+        $('._foldable__link').html('Свернуть раскрывающийся контент');
       }
     }
     else {
       if (open) {
-        $('.foldable__link').html(open);
+        $('._foldable__link').html(open);
       } else {
-        $('.foldable__link').html('Показать раскрывающийся контент');
+        $('._foldable__link').html('Показать раскрывающийся контент');
       }
     }
   });
