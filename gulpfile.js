@@ -200,16 +200,12 @@
 /*---------- Tasks ----------*/
 
   // Шаблонизация
-  gulp.task('include', function() {
+  gulp.task('html', function() {
     return gulp.src(paths.source.templates + '*.html')
       .pipe(plumber(plugins.plumber))
       .pipe(include())
-      .pipe(gulp.dest(paths.build.html));
-  });
-
-  // Рефреш ХТМЛ-страниц
-  gulp.task('html', function () {
-    gulp.src(paths.build.html + '*.html')
+      .pipe(gulp.dest(paths.build.html))
+      .pipe(gulp.dest(paths.build.html + '*.html'));
   });
 
   // Компиляция стилей
@@ -307,7 +303,7 @@
   // Федеральная служба по контролю за оборотом файлов
   gulp.task('watch', function() {
     watch(paths.watch.templates, function() {
-      return runSequence('include', 'html', browserSync.reload);
+      return runSequence('html', browserSync.reload);
     });
     watch(paths.watch.styles, function() {
       return runSequence('styles', browserSync.reload);
@@ -336,7 +332,7 @@
   gulp.task('default', function(cb) {
     return runSequence(
       'copy',
-      ['include', 'styles', 'scripts', 'watch'],
+      ['html', 'styles', 'scripts', 'watch'],
       'server',
       cb
     );
@@ -346,7 +342,7 @@
   gulp.task('one', function(cb) {
     return runSequence(
       'copy',
-      'include',
+      'html',
       'styles',
       'scripts',
       'watch',
@@ -359,7 +355,7 @@
     return runSequence(
       'cleanup',
       'copy',
-      ['include', 'styles', 'scripts'],
+      ['html', 'styles', 'scripts'],
       'build-zip',
       'cleanup',
       cb

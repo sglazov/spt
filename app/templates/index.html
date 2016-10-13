@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru" class="no-js">
   <include src="base/_head.html" title="Что происходит и что делать?" description="Страница прогресса разработки проекта"></include>
-  <body class="progress-page">
+  <body>
     <include src="blocks/_header/_header.html"></include>
     <style type="text/css">
-      .progress-page {
-        padding: 25px 35px;
-      }
       h1 {
         font-size: 35px;
         margin-bottom: 25px;
@@ -181,7 +178,7 @@
       <h2>Исходники и структура папок и файлов</h2>
       <p>Исходный код: <a href="https://bitbucket.org/chenki/spt" target="_blank">bitbucket.org/chenki/spt</a>. Техническая информация в файле <code>README.md</code>.</p>
       <div class="foldable">
-        <div class="foldable__control"><span class="foldable__link link pseudo">Показать раскрывающийся контент</span></div>
+        <div class="foldable__control"><span class="foldable__link link pseudo" data-text-close="Свернуть стуктуру папок и файлов" data-text-open="Показать стуктуру папок и файлов">Показать стуктуру папок и файлов</span></div>
           <div class="foldable__content">
 <pre>
 ├── app/                              # Исходники

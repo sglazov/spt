@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru" class="no-js">
   <include src="base/_head.html" title="Типовая текстовая страница" description="Типовая текстовая страница"></include>
-  <body class="guideline-page">
+  <body>
     <include src="blocks/_header/_header.html"></include>
-    <div class="content">
+    <div class="example-page">
       <h1>Очень длинный заголовок типовой страницы, чтобы настроить междустрочный интервал (интерлиньяж)</h1>
       <p class="lead">Лид — это первый абзац статьи, информативный отрывок позволяющий захватить внимание читателя на данном материале. Необязательный элемент.</p>
       <p>Эта страница создана для демонстрации блоков и элементов, которые используются на сайте, и служит руководством для всех, кто работает над ним. Дизайнеры и технологи отрабатывают здесь стили, чтобы добиться приемлемых результатов в различных сочетаниях блоков и элементов. Контент-менеджеры и редакторы используют страницу в качестве справочника по верстке типовых страниц. Здесь же рассказывается о некоторых общих правилах оформления контента.</p>
@@ -143,23 +143,138 @@
       <h2>Раскрывающийся контент</h2>
       <p>Элемент «Раскрывающийся» (класс <code>.foldable</code>) используется для формирования раскрывающихся элементов. Например, для вопросов и ответов.</p>
       <div class="foldable">
-        <div class="foldable__control"><span class="foldable__link link pseudo">Показать раскрывающийся контент</span></div>
+        <div class="foldable__control">
+          <span class="foldable__link link pseudo" data-text-close="Свернуть раскрывающийся контент" data-text-open="Показать раскрывающийся контент">Показать раскрывающийся контент</span>
+        </div>
         <div class="foldable__content">
           <p>Элемент «Раскрывающийся» уместо использовать там, где скрываемая часть контента является больше вспомогательной по отношению к основному содержимому, чем смысловой.</p>
         </div><!-- /.foldable__content -->
       </div><!-- /.foldable-box -->
       <p>Контент прячется скриптом при инициализации страницы и в дальнейшем показывается по клику на контрол. Управляется классами <code>.foldable__content</code> и <code>.foldable__link</code>.</p>
 
-<!--  <h2>Формы и элементы форм</h2>
-      <p>Все контролы на проекте типизированы <em>(например: кнопки, табы или попапы)</em>. Т.е. изменение стилей элемента/блока повлечет её изменение на всём проекте.</p>
-      <h3>Кнопки и табы</h3>
-      <h4>Табы</h4>
-      <h4>Кнопки</h4>
-      <h3>Чекбоксы и радиокнопки</h3>
-      <h3>Поля ввода</h3>
-      <h3>Выпадающий список</h3> -->
+      <h2>Формы</h2>
+      <form role="form">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Пароль</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" id="exampleInputFile">
+          <p class="help-block">Example block-level help text here.</p>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Проверить меня
+          </label>
+        </div>
+        <button type="submit" class="btn btn-default">Отправить</button>
+      </form>
 
-    </div><!-- /.guideline -->
+      <form class="form-inline" role="form">
+        <div class="form-group">
+          <label class="sr-only" for="exampleInputEmail2">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="exampleInputPassword2">Пароль</label>
+          <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Запомнить меня
+          </label>
+        </div>
+        <button type="submit" class="btn btn-default">Войти</button>
+      </form>
+
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <p class="form-control-static">email@example.com</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword" class="col-sm-2 control-label">Пароль</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+          </div>
+        </div>
+      </form>
+
+      <h3>текст и стутсы</h3>
+      <textarea class="form-control" rows="3"></textarea>
+
+      <div class="form-group has-success">
+        <label class="control-label" for="inputSuccess1">Успешный ввод</label>
+        <input type="text" class="form-control" id="inputSuccess1">
+      </div>
+      <div class="form-group has-warning">
+        <label class="control-label" for="inputWarning1">Ввод с предупреждением</label>
+        <input type="text" class="form-control" id="inputWarning1">
+      </div>
+      <div class="form-group has-error">
+        <label class="control-label" for="inputError1">Ввод с ошибкой</label>
+        <input type="text" class="form-control" id="inputError1">
+      </div>
+
+      <h3>Флажки и радиоприемники</h3>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="">
+          Первая опция&mdash;выбирайте его, если вам нравится этот пункт
+        </label>
+      </div>
+
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+          Первая опция&mdash;выбирайте его, если вам нравится этот пункт
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+          Вторая опция - это несколько другое, и она отменяет выбор первой опции
+        </label>
+      </div>
+
+      <p>Используйте <code>.checkbox-inline</code> или <code>.radio-inline</code> класса набором флажков или радиоприемников для управления отображениями на той же линии.</p>
+
+      <label class="checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+      </label>
+
+      <h2>Хелп-текст</h2>
+      <form role="form">
+        <input type="text" class="form-control">
+        <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+      </form>
+
+      <h2>Кнопки</h2>
+      <button type="button" class="btn btn-default">Default</button>
+
+      <button type="button" class="btn btn-link">Ссылка</button>
+
+      <a href="#" class="btn btn-primary btn-lg active" role="button">Главная ссылка</a>
+
+      <a class="btn btn-default" href="#" role="button">Ссылка</a>
+      <button class="btn btn-default" type="submit">Кнопка</button>
+      <input class="btn btn-default" type="button" value="Input">
+      <input class="btn btn-default" type="submit" value="Submit">
+
+    </div><!-- /.example-page -->
     <include src="blocks/_footer/_footer.html"></include>
   </body>
 </html>

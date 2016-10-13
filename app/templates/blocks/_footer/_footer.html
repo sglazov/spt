@@ -2,14 +2,15 @@
   <style media="screen">
     footer {
       margin: 1em 0;
+      display: block;
+      width: 100%;
+      border-top: 1px solid #E5E5E5;
     }
     .start {
       font-size: 11px;
-      border-top: 1px solid #E5E5E5;
-      margin-top: 5px;
-      padding: 10px 10px 1px;
+      padding: 0;
       line-height: 1;
-      margin: 0 -20px 25px -10px;
+      background-color: #fff;
     }
     .start p {
       margin: 0 0 5px 0;
@@ -30,18 +31,20 @@
       font-style: italic;
     }
   </style>
-  <div class="start">
-    <p>
-      <span class="start__item"><a href="index.html" title="Страница структуры проекта и наглядного процесса работы над преоктом">Прогресс</a></span>
-      <span class="start__spacer">—</span>
-      <span class="start__help">Страница структуры проекта и наглядного процесса работы над преоктом</span>
-    </p>
-    <p>
-      <span class="start__item"><a href="guideline.html" title="Страница с общими типовыми элементами в каждом проекте, их стиялми и базовым JS">Гайдлайны</a></span>
-      <span class="start__spacer">—</span>
-      <span class="start__help">Страница с общими типовыми элементами в каждом проекте, их стиялми и базовым JS</span>
-    </p>
-  </div><!-- /.start -->
+  <div class="row">
+    <div class="start">
+      <p>
+        <span class="start__item"><a href="index.html" title="Страница структуры проекта и наглядного процесса работы над преоктом">Прогресс</a></span>
+        <span class="start__spacer">—</span>
+        <span class="start__help">Страница структуры проекта и наглядного процесса работы над преоктом</span>
+      </p>
+      <p>
+        <span class="start__item"><a href="guideline.html" title="Страница с общими типовыми элементами в каждом проекте, их стиялми и базовым JS">Гайдлайны</a></span>
+        <span class="start__spacer">—</span>
+        <span class="start__help">Страница с общими типовыми элементами в каждом проекте, их стиялми и базовым JS</span>
+      </p>
+    </div><!-- /.start -->
+  </div><!-- /.row -->
 </footer>
 
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
