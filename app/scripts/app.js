@@ -13,7 +13,7 @@ $(document).ready(function() {
   // /подсвечиваем ссылки с одинаковым адресом
 
   // спойлер-блок на странице
-  $('._foldable__content').hide()
+  $('._foldable__content').hide();
   $('._foldable__control').click(function(){
     $(this).toggleClass("folded").toggleClass("unfolded").next().slideToggle();
     var close = $('._foldable__link').attr("data-text-close");
