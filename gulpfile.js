@@ -204,8 +204,7 @@
     return gulp.src(paths.source.templates + '*.html')
       .pipe(plumber(plugins.plumber))
       .pipe(include())
-      .pipe(gulp.dest(paths.build.html))
-      .pipe(gulp.dest(paths.build.html + '*.html'));
+      .pipe(gulp.dest(paths.build.html));
   });
 
   // Компиляция стилей
@@ -342,10 +341,7 @@
   gulp.task('one', function(cb) {
     return runSequence(
       'copy',
-      'html',
-      'styles',
-      'scripts',
-      'watch',
+      ['html', 'styles', 'scripts'],
       cb
     );
   });
