@@ -231,7 +231,7 @@
       .pipe(concat('scripts.js'))
       .pipe(gulp.dest(paths.build.scripts))
       .pipe(_if(argv.prod, uglify()))
-      .pipe(_if(argv.prod, rename('scripts.min.css')))
+      .pipe(_if(argv.prod, rename('scripts.min.js')))
       .pipe(_if(argv.prod, gulp.dest(paths.build.scripts)));
   });
 
