@@ -47,7 +47,7 @@ npm run zip
 Переменные ([postcss-simple-vars](https://github.com/postcss/postcss-simple-vars)):
 
 ```css
-$fontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
+$GeneralFontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
 ```
 
 Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested) и [postcss-nested-ancestors](https://github.com/toomuchdesign/postcss-nested-ancestors)) для элементов и модификаторов в [БЭМ](https://ru.bem.info/methodology/css/)-методолгии; ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)); миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)); `@extend` с помощью ([postcss-extend](https://github.com/travco/postcss-extend)):
@@ -154,11 +154,13 @@ width: width('name.png')
 │   │   └── app.js                    # Главный скрипт
 │   ├── styles/                       # Стили
 │   │   ├── base/                     # Блоки
-│   │   │   ├── default.sss           # Типографика
-│   │   │   └── typo.sss              # Разметка подвала
+│   │   │   ├── default.sss           # Базовые стили
+│   │   │   └── typo.sss              # Стили типографики
+│   │   │   └── form.sss              # Стили форм и элементов форм
+│   │   │   └── table.sss             # Стили для таблиц
 │   │   ├── helpers/                  # Блоки
 │   │   │   ├── variables.sss         # CSS-Переменные
-│   │   │   └── normalize.sss         # Разметка подвала
+│   │   │   └── normalize.sss         # Сброс стилей (опционально)
 │   │   └── layout.sss                # Главный стилевой файл
 │   ├── images/                       # Картинки
 │   │   ├── sprites/                  # Папка PNG-иконок для генерации растрового спрайта

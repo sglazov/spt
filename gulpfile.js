@@ -152,22 +152,22 @@
   // Список задач для сборки стилей
   var processors = [
     imprt(plugins.imprt.options),
-    ancestors,
+    ancestors(),
     sprites(plugins.sprites.options),
     cssnext({autoprefixer: (plugins.autoprefixer.options)}),
     postcsssvg(plugins.postcsssvg.options),
     assets(plugins.assets.options),
-    vars,
-    nested,
-    extend,
-    shorter,
-    property,
-    center,
-    mqpacker,
-    colorRgbaFallback,
-    grid,
-    initial,
-    cqPostcss
+    vars(),
+    nested(),
+    extend(),
+    shorter(),
+    property(),
+    center(),
+    mqpacker(),
+    colorRgbaFallback(),
+    grid(),
+    initial(),
+    cqPostcss()
   ];
 
   // Дата для формирования архива

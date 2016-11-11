@@ -1,6 +1,6 @@
 {
   "name": "SPT",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "A template for a quick start",
   "author": "Sergey Glazov <mail@4enki.ru>",
   "license": "MIT",
@@ -15,8 +15,8 @@
      "gulp": "./node_modules/.bin/gulp"
   },
   "devDependencies": {
-    "autoprefixer":                    "^6.5.0",
-    "browser-sync":                    "^2.17.0",
+    "autoprefixer":                    "^6.5.3",
+    "browser-sync":                    "^2.17.5",
     "cq-prolyfill":                    "^0.3.2",
     "css-mqpacker":                    "^5.0.1",
     "del":                             "^2.2.2",
@@ -26,8 +26,8 @@
     "gulp-cssnano":                    "^2.1.2",
     "gulp-eslint":                     "^3.0.1",
     "gulp-html-tag-include":           "^1.0.1",
-    "gulp-if":                         "^2.0.1",
-    "gulp-imagemin":                   "^3.0.3",
+    "gulp-if":                         "^2.0.2",
+    "gulp-imagemin":                   "^3.1.1",
     "imagemin-pngquant":               "^5.0.0",
     "gulp-plumber":                    "^1.1.0",
     "gulp-postcss":                    "^6.2.0",
@@ -38,9 +38,9 @@
     "gulp-util":                       "^3.0.7",
     "gulp-watch":                      "^4.3.10",
     "gulp-zip":                        "^3.2.0",
-    "lost":                            "^7.1.0",
+    "lost":                            "^7.1.1",
     "path":                            "^0.12.7",
-    "portfinder":                      "^1.0.7",
+    "portfinder":                      "^1.0.10",
     "postcss-assets":                  "^4.1.0",
     "postcss-center":                  "^1.0.0",
     "postcss-color-rgba-fallback":     "^2.2.0",
@@ -49,7 +49,7 @@
     "postcss-extend":                  "^1.0.5",
     "postcss-initial":                 "^1.5.2",
     "postcss-nested":                  "^1.0.0",
-    "postcss-nested-ancestors":        "^0.0.1",
+    "postcss-nested-ancestors":        "^0.1.0",
     "postcss-property-lookup":         "^1.2.1",
     "postcss-short":                   "^2.0.1",
     "postcss-simple-vars":             "^3.0.0",
@@ -57,6 +57,6 @@
     "postcss-svg":                     "^1.0.6",
     "run-sequence":                    "^1.2.2",
     "sugarss":                         "^0.2.0",
-    "yargs":                           "^6.0.0"
+    "yargs":                           "^6.3.0"
   }
 }
