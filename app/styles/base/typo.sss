@@ -1,3 +1,4 @@
+// правильные ссылки
 a,
 .link
   color: rgb(5, 95, 187)
@@ -78,11 +79,12 @@ ul.list
         visibility: hidden
 ol.list > li
   margin-left: 2.5em
-li ul.list, li ol.list
+li ul.list,
+li ol.list
   margin: 0.3em 0 0.5em
   text-indent: 0
 
-// код, мониширные части
+// код, мониширные штуки
 code,
 tt
   background: #FFFCD7
@@ -100,7 +102,9 @@ h1
   margin: 0
   padding: 0
   line-height: 1
-
+h2
+  margin: 1em 0 0.2em
+  line-height: 1.2
 h6
   font-size: 14px
   color: rgb(68,83,101)
@@ -114,15 +118,10 @@ h2 + p
 p + h2
   margin-bottom: 0
   margin-top: 1em
-
 p
   margin: 1em 0
 
-h2
-  margin: 1em 0 0.2em
-  line-height: 1.2
-
-.lead
+p.lead
   font-size: 20px
   line-height: 1.5
   color: rgb(115,126,140)
