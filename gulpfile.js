@@ -3,6 +3,7 @@
 /*---------- Что нужно и как ----------*/
 
   var autoprefixer        = require('autoprefixer');
+  var babel               = require("gulp-babel");
   var browserSync         = require("browser-sync");
   var reload              = browserSync.reload;
   var cqPostcss           = require('cq-prolyfill/postcss-plugin');
@@ -88,20 +89,17 @@
   var plugins = {
 
     browserSync: {
-      locall: {
-        server: {
-          baseDir: "dist"
-        },
-        host: 'localhost',
-        notify: false,
-        logLevel: 'info',
-        port: 8000,
-      }
+      server: {
+        baseDir: "dist"
+      },
+      host: 'localhost',
+      notify: false,
+      port: 8000
     },
 
     autoprefixer: {
       options: {
-        browsers: ['last 4 versions'],
+        browsers: ['> 1%', 'IE 7'],
         cascade: false
       }
     },
@@ -226,8 +224,8 @@
     return gulp.src(paths.source.scripts + '*.js')
       .pipe(plumber(plugins.plumber))
       .pipe(changed(paths.build.scripts))
-    //.pipe(eslint())
       .pipe(eslint.format())
+      .pipe(babel())
       .pipe(concat('scripts.js'))
       .pipe(gulp.dest(paths.build.scripts))
       .pipe(_if(argv.prod, uglify()))
@@ -235,6 +233,7 @@
       .pipe(_if(argv.prod, gulp.dest(paths.build.scripts)));
   });
 
+  // Копируем сторонние скрипты и собираем в один файл
   gulp.task('scripts:copy', function() {
     return gulp.src(paths.source.scripts + 'vendor/*.js')
       .pipe(plumber(plugins.plumber))
@@ -246,7 +245,7 @@
   // Запуск локального сервера
   gulp.task('server', function() {
     portfinder.getPort(function (err, port){
-      browserSync(plugins.browserSync.locall);
+      browserSync(plugins.browserSync);
     });
   });
 

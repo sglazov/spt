@@ -11,7 +11,7 @@ git clone git@bitbucket.org:chenki/spt.git new-project && cd new-project && rm -
 Перед первым запуском нужно установить зависимости (_один раз на проект_):
 
 ```bash
-sudo npm install
+npm i
 ```
 
 ##Режимы
@@ -123,9 +123,11 @@ width: width('name.png')
 
 Шрифты и файлы размещаются в папках `app/fonts` и `app/resources`, копируются в `dist/assets/fonts/` и `dist/assets/resources/` соответственно.
 
-##JS
+##Скрипты
 
-Никаких `#id` для JS. Классы для JS начинаются с `_`, чтобы не мешать стили и логику в одну кучу. Исходники скриптов размещаются в `app/scripts/app.js`, компилируются в `dist/assets/scripts/scripts.js`.
+Можно писать на es2015 — подключен и работает Бабель. Включен jQuery v3.
+
+Никаких `#id` для JS. Классы для JS нужно начинать с `_`, чтобы не мешать стили и логику в одну кучу. Исходники скриптов размещаются в `app/scripts/app.js`, компилируются в `dist/assets/scripts/scripts.js`.
 
 Сторонние скрипты и библиотеки кладутся в папку `app/scripts/vendor`, компилируются в `dist/assets/scripts/vendor.js`.
 
