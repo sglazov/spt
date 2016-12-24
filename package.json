@@ -15,7 +15,7 @@
      "gulp": "./node_modules/.bin/gulp"
   },
   "devDependencies": {
-    "autoprefixer":                    "^6.5.4",
+    "autoprefixer":                    "^6.6.0",
     "browser-sync":                    "^2.18.5",
     "cq-prolyfill":                    "^0.3.2",
     "css-mqpacker":                    "^5.0.1",
