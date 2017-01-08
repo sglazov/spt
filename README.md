@@ -40,17 +40,17 @@ npm run zip
 
 ##Стили
 
-Верстаются в `app/styles/layout.sss` (_базовый стилевой файл_), компилируются в `dist/assets/styles/style.css`.
+Верстаются в `app/styles/layout.sss` (_базовый стилевой файл_), компилируются в `dist/assets/styles/style.css`. Синтаксис [SugarSS](https://github.com/postcss/sugarss).
 
 ###PostCSS
 
-Переменные ([postcss-simple-vars](https://github.com/postcss/postcss-simple-vars)):
+Переменные ([PreCSS](https://github.com/jonathantneal/precss#variables)):
 
 ```css
 $GeneralFontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
 ```
 
-Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested) и [postcss-nested-ancestors](https://github.com/toomuchdesign/postcss-nested-ancestors)) для элементов и модификаторов в [БЭМ](https://ru.bem.info/methodology/css/)-методолгии; ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)); миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)); `@extend` с помощью ([postcss-extend](https://github.com/travco/postcss-extend)):
+!!!Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested) и [postcss-nested-ancestors](https://github.com/toomuchdesign/postcss-nested-ancestors)) для элементов и модификаторов в [БЭМ](https://ru.bem.info/methodology/css/)-методолгии; ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)); миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)); `@extend` с помощью ([postcss-extend](https://github.com/travco/postcss-extend)):
 
 ```css
 // Комментарии
@@ -78,7 +78,7 @@ $GeneralFontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helve
 #### PostCSS-плагины
 
 1. [CSSNext](http://cssnext.io). Штуки из CSS4, перменные, кастомные медиа-запросы;
-1. [SugarSS](https://github.com/postcss/sugarss). Синтаксис Stylus со всеми штуками PostCSS;
+1. [PreCSS](https://github.com/jonathantneal/precss);
 1. [Container Queries Prolyfill](https://github.com/ausi/cq-prolyfill). Адаптивные контейнеры;
 1. [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker). Группирует медиазапросы и помещает их в конец CSS документа;
 1. [PostCSS Short](https://github.com/jonathantneal/postcss-short). Логичные укороченные конструкции дял свойств;
@@ -87,7 +87,6 @@ $GeneralFontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helve
 1. [PostCSS ASSETS](https://github.com/assetsjs/postcss-assets). Магия для работы с ресурсами сайта;
 1. [PostCSS Sprites](https://github.com/2createStudio/postcss-sprites). Генерация спрайтов;
 1. [Lost Grid System](https://github.com/peterramsing/lost). Сетка, [работающая](http://lostgrid.org/) через `calc()`;
-1. [PostCSS Rucksack](https://github.com/simplaio/rucksack). Полезные CSS-[штуки](http://simplaio.github.io/rucksack/);
 1. [PostCSS Initial](https://github.com/maximkoretskiy/postcss-initial). Сброс CSS-стилей элемента;
 
 ##Графика и файлы проекта
@@ -125,7 +124,7 @@ width: width('name.png')
 
 ##Скрипты
 
-Можно писать на es2015 — подключен и работает Бабель. Включен jQuery v3.
+Можно писать на es2015 — подключен и работает Babel. Включен jQuery v3.
 
 Никаких `#id` для JS. Классы для JS нужно начинать с `_`, чтобы не мешать стили и логику в одну кучу. Исходники скриптов размещаются в `app/scripts/app.js`, компилируются в `dist/assets/scripts/scripts.js`.
 

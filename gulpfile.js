@@ -2,7 +2,6 @@
 
 /*---------- Что нужно и как ----------*/
 
-  var autoprefixer        = require('autoprefixer');
   var babel               = require("gulp-babel");
   var browserSync         = require("browser-sync");
   var reload              = browserSync.reload;
@@ -21,7 +20,6 @@
   var plumber             = require('gulp-plumber');
   var postcss             = require('gulp-postcss');
   var rename              = require('gulp-rename');
-  var rucksack            = require('gulp-rucksack');
   var stripCssComments    = require('gulp-strip-css-comments');
   var uglify              = require('gulp-uglify');
   var gutil               = require('gulp-util');
@@ -29,19 +27,15 @@
   var zip                 = require('gulp-zip');
   var grid                = require('lost');
   var gpath               = require('path');
+  var precss              = require('precss');
   var portfinder          = require('portfinder');
   var assets              = require('postcss-assets');
   var center              = require('postcss-center');
-  var colorRgbaFallback   = require("postcss-color-rgba-fallback");
+  var clearfix            = require('postcss-clearfix');
   var cssnext             = require("postcss-cssnext");
   var imprt               = require('postcss-easy-import');
-  var extend              = require('postcss-extend');
-  var initial             = require('postcss-initial');
-  var nested              = require("postcss-nested");
   var ancestors           = require("postcss-nested-ancestors");
-  var property            = require('postcss-property-lookup');
   var shorter             = require('postcss-short');
-  var vars                = require('postcss-simple-vars');
   var sprites             = require('postcss-sprites');
   var postcsssvg          = require('postcss-svg');
   var runSequence         = require('run-sequence');
@@ -88,6 +82,13 @@
   // Настройки плагинов
   var plugins = {
 
+    autoprefixer: {
+        options: {
+            browsers: ['> 1%', 'IE 7'],
+            cascade: false
+        }
+    },
+
     browserSync: {
       server: {
         baseDir: "dist"
@@ -95,13 +96,6 @@
       host: 'localhost',
       notify: false,
       port: 8000
-    },
-
-    autoprefixer: {
-      options: {
-        browsers: ['> 1%', 'IE 7'],
-        cascade: false
-      }
     },
 
     sprites: {
@@ -150,21 +144,17 @@
   // Список задач для сборки стилей
   var processors = [
     imprt(plugins.imprt.options),
+    precss(),
     ancestors(),
     sprites(plugins.sprites.options),
     cssnext({autoprefixer: (plugins.autoprefixer.options)}),
     postcsssvg(plugins.postcsssvg.options),
     assets(plugins.assets.options),
-    vars(),
-    nested(),
-    extend(),
     shorter(),
-    property(),
     center(),
+    clearfix(),
     mqpacker(),
-    colorRgbaFallback(),
     grid(),
-    initial(),
     cqPostcss()
   ];
 
@@ -211,7 +201,6 @@
       .pipe(plumber(plugins.plumber))
       .pipe(changed(paths.build.styles))
       .pipe(postcss(processors, { parser: sugarss }))
-      .pipe(rucksack())
       .pipe(rename('style.css'))
       .pipe(gulp.dest(paths.build.styles))
       .pipe(_if(argv.prod, cssnano()))
