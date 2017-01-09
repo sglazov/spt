@@ -2,13 +2,12 @@
 
 /*---------- Что нужно и как ----------*/
 
-  var babel               = require("gulp-babel");
   var browserSync         = require("browser-sync");
-  var reload              = browserSync.reload;
   var cqPostcss           = require('cq-prolyfill/postcss-plugin');
   var mqpacker            = require('css-mqpacker');
   var del                 = require('del');
   var gulp                = require('gulp');
+  var babel               = require("gulp-babel");
   var changed             = require('gulp-changed');
   var concat              = require('gulp-concat');
   var cssnano             = require('gulp-cssnano');
@@ -16,15 +15,14 @@
   var include             = require("gulp-html-tag-include");
   var _if                 = require('gulp-if');
   var imagemin            = require('gulp-imagemin');
-  var imageminPngquant    = require('imagemin-pngquant');
   var plumber             = require('gulp-plumber');
   var postcss             = require('gulp-postcss');
   var rename              = require('gulp-rename');
-  var stripCssComments    = require('gulp-strip-css-comments');
   var uglify              = require('gulp-uglify');
   var gutil               = require('gulp-util');
   var watch               = require('gulp-watch');
   var zip                 = require('gulp-zip');
+  var imageminPngquant    = require('imagemin-pngquant');
   var grid                = require('lost');
   var gpath               = require('path');
   var precss              = require('precss');
@@ -41,7 +39,7 @@
   var runSequence         = require('run-sequence');
   var sugarss             = require("sugarss");
   var argv                = require('yargs').argv;
-
+  var reload              = browserSync.reload;
 
 /*---------- Пути к файлам, с котороыми работаем ----------*/
 
@@ -81,13 +79,6 @@
 
   // Настройки плагинов
   var plugins = {
-
-    autoprefixer: {
-        options: {
-            browsers: ['> 1%', 'IE 7'],
-            cascade: false
-        }
-    },
 
     browserSync: {
       server: {
@@ -141,22 +132,14 @@
 
   }
 
-  // Список задач для сборки стилей
-  var processors = [
-    imprt(plugins.imprt.options),
-    precss(),
-    ancestors(),
-    sprites(plugins.sprites.options),
-    cssnext({autoprefixer: (plugins.autoprefixer.options)}),
-    postcsssvg(plugins.postcsssvg.options),
-    assets(plugins.assets.options),
-    shorter(),
-    center(),
-    clearfix(),
-    mqpacker(),
-    grid(),
-    cqPostcss()
-  ];
+  // Вывод ошибок
+  var errorHandler = function (err) {
+    $.util.log([(err.name + ' in ' + err.plugin).bold.red, '', err.message, ''].join('\n'));
+    if ($.util.env.beep) {
+      $.util.beep();
+    }
+    this.emit('end');
+  };
 
   // Дата для формирования архива
   var correctNumber = function correctNumber(number) {
@@ -173,17 +156,22 @@
     return year + '-' + month + '-' + day + '-' + hours + '_' + minutes;
   };
 
-
-/*---------- Meanwhile ----------*/
-
-  var errorHandler = function (err) {
-    $.util.log([(err.name + ' in ' + err.plugin).bold.red, '', err.message, ''].join('\n'));
-    if ($.util.env.beep) {
-      $.util.beep();
-    }
-    this.emit('end');
-  };
-
+  // Список PostCSS-плагинов
+  var processors = [
+    imprt(plugins.imprt.options),
+    precss(),
+    ancestors(),
+    sprites(plugins.sprites.options),
+    cssnext(),
+    assets(plugins.assets.options),
+    postcsssvg(plugins.postcsssvg.options),
+    shorter(),
+    center(),
+    clearfix(),
+    mqpacker(),
+    grid(),
+    cqPostcss()
+  ];
 
 /*---------- Tasks ----------*/
 

@@ -50,32 +50,35 @@ npm run zip
 $GeneralFontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
 ```
 
-!!!Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested) и [postcss-nested-ancestors](https://github.com/toomuchdesign/postcss-nested-ancestors)) для элементов и модификаторов в [БЭМ](https://ru.bem.info/methodology/css/)-методолгии; ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)); миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)); `@extend` с помощью ([postcss-extend](https://github.com/travco/postcss-extend)):
+Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested) и [postcss-nested-ancestors](https://github.com/toomuchdesign/postcss-nested-ancestors)) для элементов и модификаторов в [БЭМе](https://ru.bem.info/methodology/css/); ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)); миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)); `@extend` с помощью ([postcss-extend](https://github.com/travco/postcss-extend)):
 
 ```css
-// Комментарии
+// Пример того, что можно вытворять
 ...
 .head
-  color: white
+  color: rgba(255,255,255,1)
+  ...
 .block
   ...
-  color: rgba(0,0,0,.95)
+  background-color: rgba(0,0,0,.95)
+  display: block
   width: 200px
   height: @width
   ...
   &__element
-    all: initial
     top: center
     size: 50px
     &:hover
       ^&-part
+        all: initial
         color: rgb(255, 102, 0)
     ...
   &--modifier
     @extend .head
+    border: 1px solid rgba(235,126,26,.8)
 ```
 
-#### PostCSS-плагины
+####PostCSS-плагины
 
 1. [CSSNext](http://cssnext.io). Штуки из CSS4, перменные, кастомные медиа-запросы;
 1. [PreCSS](https://github.com/jonathantneal/precss);
@@ -126,7 +129,7 @@ width: width('name.png')
 
 Можно писать на es2015 — подключен и работает Babel. Включен jQuery v3.
 
-Никаких `#id` для JS. Классы для JS нужно начинать с `_`, чтобы не мешать стили и логику в одну кучу. Исходники скриптов размещаются в `app/scripts/app.js`, компилируются в `dist/assets/scripts/scripts.js`.
+Никаких `#id` для JS. Классы для JS нужно начинать с `_`, чтобы не мешать стили и логику в одну кучу. Исходники скриптов собираются в `app/scripts/app.js`, компилируются в `dist/assets/scripts/scripts.js`.
 
 Сторонние скрипты и библиотеки кладутся в папку `app/scripts/vendor`, компилируются в `dist/assets/scripts/vendor.js`.
 
@@ -139,6 +142,7 @@ width: width('name.png')
 │   ├── templates/                    # Шаблоны
 │   │   ├── base/                     # Базовые блоки
 │   │   │   └── _head.html            # Разметка тега <head>
+│   │   │   └── _social.html          # Open Graph и meta-теги для соцсетей
 │   │   ├── blocks/                   # Блоки
 │   │   │   ├── _header               # Блок шапки
 │   │   │   │   ├── _header.html      # Разметка шапки
@@ -146,7 +150,7 @@ width: width('name.png')
 │   │   │   ├── _footer               # Блок подвала
 │   │   │   │   ├── _footer.html      # Разметка подвала
 │   │   │   │   └── _footer.sss       # Стили подвала
-│   │   │   ├── _start.html           # Вводная лекция
+│   │   │   ├── _start.html           # Вводная лекция для главной страницы
 │   │   ├── guideline.html            # Типовая текстовая страница
 │   │   ├── index.html                # Карта сайта с прогрессом работ
 │   │   └── home.html                 # Главная страница шаблона
@@ -156,8 +160,8 @@ width: width('name.png')
 │   ├── styles/                       # Стили
 │   │   ├── base/                     # Блоки
 │   │   │   ├── default.sss           # Базовые стили
-│   │   │   └── typo.sss              # Стили типографики
-│   │   │   └── form.sss              # Стили форм и элементов форм
+│   │   │   ├── typo.sss              # Стили типографики
+│   │   │   ├── form.sss              # Стили форм и элементов форм
 │   │   │   └── table.sss             # Стили для таблиц
 │   │   ├── helpers/                  # Блоки
 │   │   │   ├── variables.sss         # CSS-Переменные
