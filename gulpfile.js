@@ -52,7 +52,6 @@
           scripts:     dist + 'assets/scripts',
           styles:      dist + 'assets/styles',
           images:      dist + 'assets/images',
-          fonts:       dist + 'assets/fonts',
           resources:   dist
         },
         source: {
@@ -60,7 +59,6 @@
           scripts:     [src + 'scripts/'],
           styles:      [src + 'styles/'],
           images:      [src + 'images/**/*'],
-          fonts:       [src + 'fonts/**/*'],
           resources:   [src + 'resources/**/*']
         },
         watch: {
@@ -69,7 +67,6 @@
           vendor:      [src + 'scripts/vendor/**/*.js'],
           styles:      [src + 'styles/**/*.sss', src + 'templates/**/*.sss'],
           images:      [src + 'images/**/*.*'],
-          fonts:       [src + 'fonts/**/*.*'],
           resources:   [src + 'resources/**/*.*']
         }
   };
@@ -226,15 +223,6 @@
     });
   });
 
-  // Копируем шрифты
-  gulp.task('fonts', function () {
-    return gulp.src(paths.source.fonts)
-      .pipe(plumber(plugins.plumber))
-      .pipe(changed(paths.build.fonts))
-      .pipe(gulp.dest(paths.build.fonts))
-      .pipe(reload({stream: true}));
-  });
-
   // Копируем и минимизируем изображения
   gulp.task('images', function() {
     return gulp.src(paths.source.images)
@@ -295,9 +283,6 @@
     watch(paths.watch.resources, function() {
       return runSequence('resources', browserSync.reload);
     });
-    watch(paths.watch.fonts, function() {
-      return runSequence('fonts', browserSync.reload);
-    });
   });
 
 
@@ -337,7 +322,7 @@
   // Копируем статичные файлы
   gulp.task('copy', function(cb) {
     return runSequence(
-      ['fonts', 'images', 'resources', 'scripts:copy'],
+      ['images', 'resources', 'scripts:copy'],
       cb
     );
   });
