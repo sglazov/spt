@@ -1,0 +1,34 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# Set default charset
+[**.{js,html,sss}]
+charset = utf-8
+
+[app/scripts/**.js]
+indent_style = space
+indent_size = 2
+
+[app/templates/**.html]
+indent_style = space
+indent_size = 2
+
+[{app/scripts/**.sss, app/templates/**.html}]
+indent_style = space
+indent_size = 2
+
+# Tab indentation (no size specified)
+[Makefile]
+indent_style = tab
+
+# Matches the exact files either package.json
+[package.json, gulpfile.js]
+indent_style = space
+indent_size = 2

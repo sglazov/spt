@@ -53,7 +53,7 @@ $GeneralFontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helve
 Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested) и [postcss-nested-ancestors](https://github.com/toomuchdesign/postcss-nested-ancestors)) для элементов и модификаторов в [БЭМе](https://ru.bem.info/methodology/css/); ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)); миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)); `@extend` с помощью ([postcss-extend](https://github.com/travco/postcss-extend)):
 
 ```css
-// Пример того, что можно вытворять
+// Пример того, что может быть
 ...
 .head
   color: rgba(255,255,255,1)
@@ -123,7 +123,7 @@ width: width('name.png')
 
 ##Статические файлы для копирования
 
-Статические файлы для копирования в готовую сборку размещены в `app/resources`, копируются в `dist/assets/resources/` соответственно.
+Статические файлы для копирования в готовую сборку размещены в `app/resources`, копируются в `dist/assets/resources/`.
 
 ##Скрипты
 
@@ -133,7 +133,7 @@ width: width('name.png')
 
 Сторонние скрипты и библиотеки кладутся в папку `app/scripts/vendor`, компилируются в `dist/assets/scripts/vendor.js`.
 
-- - - -
+----
 
 ## Структура папок и файлов
 
