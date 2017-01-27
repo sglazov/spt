@@ -35,7 +35,7 @@
   var ancestors           = require("postcss-nested-ancestors");
   var shorter             = require('postcss-short');
   var sprites             = require('postcss-sprites');
-  var postcsssvg          = require('postcss-svg');
+  var inlinesvg           = require('postcss-inline-svg');
   var runSequence         = require('run-sequence');
   var sugarss             = require("sugarss");
   var argv                = require('yargs').argv;
@@ -55,7 +55,7 @@
           resources:   dist
         },
         source: {
-          templates:   [src + 'templates/'],
+          templates:   [src + 'templates/pages/'],
           scripts:     [src + 'scripts/'],
           styles:      [src + 'styles/'],
           images:      [src + 'images/**/*'],
@@ -110,16 +110,16 @@
       }
     },
 
-    postcsssvg: {
+    inlinesvg: {
       options: {
-        paths: ['app/images/svg/'],
-        ei: { "defaults": "[fill]: black" }
+        path: 'dist/assets/images/svg/'
       }
     },
 
     imprt: {
       options: {
-        extensions: ['.sss']
+        extensions: '.sss',
+        prefix: '_'
       }
     },
 
@@ -161,7 +161,7 @@
     sprites(plugins.sprites.options),
     cssnext(),
     assets(plugins.assets.options),
-    postcsssvg(plugins.postcsssvg.options),
+    inlinesvg(plugins.inlinesvg.options),
     shorter(),
     center(),
     clearfix(),
@@ -275,7 +275,7 @@
       return runSequence('scripts', browserSync.reload);
     });
     watch(paths.watch.vendor, function() {
-      runSequence('scripts:copy', browserSync.reload);
+      return runSequence('scripts:copy', browserSync.reload);
     });
     watch(paths.watch.images, function() {
       return runSequence('images', browserSync.reload);

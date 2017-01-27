@@ -1,25 +1,6 @@
 @charset 'utf-8'
 
-@import 'helpers/variables.sss'
-@import 'helpers/normalize.sss'
-@import 'base/default.sss'
-@import 'base/typo.sss'
-@import 'base/table.sss'
-@import 'base/form.sss'
+@import 'helpers/*.sss'
+@import 'base/*.sss'
 
-// слой для сравнения дизайна и вёрстки
-.px2px
-  position: absolute
-  top: 0
-  left: 50%
-  z-index: 9999
-  display: block
-  //width: width('test/px2px.png')
-  //height: height('test/px2px.png')
-  //margin: 0 0 0 width('test/px2px.png', -2)
-  pointer-events: none
-  transition: all .3s
-  opacity: .4
-  //background-image: resolve('test/px2px.png')
-  background-attachment: scroll
-  filter: invert(100%)
+@import '../templates/blocks/**/*.sss'
