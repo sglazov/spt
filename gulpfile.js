@@ -124,13 +124,13 @@
     },
 
     plumber: {
-      errorHandler: errorHandler
+      errorHandler: onError
     }
 
   }
 
   // Вывод ошибок
-  var errorHandler = function (err) {
+  var onError = function (err) {
     $.util.log([(err.name + ' in ' + err.plugin).bold.red, '', err.message, ''].join('\n'));
     if ($.util.env.beep) {
       $.util.beep();

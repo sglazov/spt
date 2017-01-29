@@ -1,0 +1,66 @@
+<div class="readme">
+  <h2>Исходники и структура папок и файлов</h2>
+  <p>Исходный код: <a href="https://bitbucket.org/chenki/spt" target="_blank" title="Версия 0.5.0.">bitbucket.org/chenki/spt</a>. Техническая информация в файле <code>README.md</code>.</p>
+  <div class="foldable">
+    <div class="foldable__control _foldable__control"><span class="foldable__link link pseudo _foldable__link" data-text-close="Свернуть стуктуру папок и файлов" data-text-open="Показать стуктуру папок и файлов">Показать стуктуру папок и файлов</span></div>
+    <div class="foldable__content _foldable__content">
+<pre>
+├── app/                              # Исходники
+│   ├── templates/                    # Шаблоны
+│   │   ├── base/                     # Базовые блоки
+│   │   │   └── _head.html            # Разметка тега &lt;head&gt;
+│   │   │   └── _social.html          # Open Graph и meta-теги для соцсетей
+│   │   ├── blocks/                   # Блоки
+│   │   │   ├── _header               # Блок шапки
+│   │   │   │   ├── _header.html      # Разметка шапки
+│   │   │   │   └── _header.sss       # Стили шапки
+│   │   │   ├── _footer               # Блок подвала
+│   │   │   │   ├── _footer.html      # Разметка подвала
+│   │   │   │   └── _footer.sss       # Стили подвала
+│   │   │   └── _start.html           # Вводная лекция для главной страницы
+│   │   ├── guideline.html            # Типовая текстовая страница
+│   │   ├── index.html                # Карта сайта с прогрессом работ
+│   │   └── home.html                 # Главная страница шаблона
+│   ├── scripts/                      # Скрипты
+│   │   ├── vendor/                   # Сторонние скрипты и JS-библиотеки
+│   │   └── app.js                    # Главный скрипт
+│   ├── styles/                       # Стили
+│   │   ├── base/                     # Блоки
+│   │   │   ├── default.sss           # Базовые стили
+│   │   │   ├── typo.sss              # Стили типографики
+│   │   │   ├── form.sss              # Стили форм и элементов форм
+│   │   │   └── table.sss             # Стили для таблиц
+│   │   ├── helpers/                  # Блоки
+│   │   │   ├── variables.sss         # CSS-Переменные
+│   │   │   └── normalize.sss         # Сброс стилей (опционально)
+│   │   └── layout.sss                # Главный стилевой файл
+│   ├── images/                       # Картинки
+│   │   ├── sprites/                  # Папка PNG-иконок для генерации растрового спрайта
+│   │   ├── svg/                      # Папка SVG-иконок
+│   │   └── test/                     # Папка для тестовых картинок
+│   └── resources/                    # Статические файлы для копирования в dist/
+│       ├── manifests                 # Манифесты (в том числе и для Яндекс.Табло)
+│       │   └── manifest.json         # Файл манифеста
+│       └── robots.txt                # Для роботов
+├── dist/                             # Сборка (автогенерация)
+│   ├── assets/                       # Подключаемые ресурсы
+│   │   ├── fonts/                    # Шрифты
+│   │   ├── images/                   # Изображения
+│   │   │   └── sprites/              # Спрайты (автогенерация)
+│   │   ├── scripts/                  # Скрипты
+│   │   └── styles/                   # Стили
+│   ├── manifests                     # Манифесты (в том числе и для Яндекса)
+│   ├── robots.txt                    # Файл для поисковых роботов
+│   ├── index.html                    # Карта сайта с прогрессом работ
+│   ├── guideline.html                # Типовая текстовая страница
+│   └── home.html                     # Сборка главной страницы
+├── .gitignore                        # Список исключённых файлов из Git
+├── browserslist                      # Список поддерживаемых браузеров для Автопрефиксера и т.п.
+├── package.json                      # Список модулей и прочей информации
+├── yarn.lock                         # Список модулей и прочей информации для Yarn
+├── gulpfile.js                       # Конфигурация Gulp.js
+└── README.md                         # Документация шаблона
+</pre>
+    </div><!-- /.foldable__content -->
+  </div><!-- /.foldable-box -->
+</div><!-- /.readme -->
