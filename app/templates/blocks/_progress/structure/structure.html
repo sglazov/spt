@@ -1,0 +1,70 @@
+<div class="progress-structure">
+  <h2>Исходники и структура папок и файлов</h2>
+  <p>Исходный код: <a href="https://@@git" target="_blank" title="Версия 0.6.0.">@@git</a>. Техническая информация в файле <code>README.md</code>.</p>
+  <div class="foldable">
+    <div class="foldable__control _foldable__control">
+      <span class="foldable__link link pseudo _foldable__link"
+      data-text-close="Свернуть стуктуру папок и файлов"
+      data-text-open="Показать стуктуру папок и файлов">
+      Показать стуктуру папок и файлов</span>
+    </div>
+    <div class="foldable__content _foldable__content">
+<pre>
+├── app/                              # Исходники
+│   ├── images/                       # Изображения и графика
+│   │   ├── _debug/                   # Картинки для отладки (Pixel-perfect)
+│   │   ├── sprites/                  # Папка PNG-иконок для генерации растрового спрайта
+│   │   └── svg/                      # SVG иконки
+│   ├── resources                     # Статические файлы для копирования в /dist
+│   │   ├── manifests                 # Манифесты
+│   │   └── robots.txt                # Роботс для поисковых систем
+│   ├── scripts/                      # Скрипты
+│   │   ├── vendor/                   # Сторонние скрипты и JS-библиотеки
+│   │   └── app.js                    # Главный скрипт
+│   ├── styles/                       # Стили
+│   │   ├── _debug/                   # Стили для отладки
+│   │   │   ├── _diagnostics.sss      # Быстрая диагностика
+│   │   │   └── _px2px.sss            # CSS-файл Pixel-perfect
+│   │   ├── base/                     # Стандратные стили
+│   │   │   ├── default.sss           # Базовые стили
+│   │   │   ├── form.sss              # Формы и элементы
+│   │   │   ├── table.sss             # Таблицы
+│   │   │   └── typo.sss              # Типографика
+│   │   ├── helpers/                  # Помощники
+│   │   │   ├── normalize.sss         # Сброс стилей (опционально)
+│   │   │   └── variables.sss         # Переменные
+│   │   └── layout.sss                # Главный стилевой файл
+│   └── templates/                    # Шаблоны
+│       ├── blocks/                   # Блоки
+│       │   ├── _base/                # Базовые блоки для общего шаблона
+│       │   │   ├── _head.html        # Разметка блока &lt;head&gt;
+│       │   │   └── _social.html      # Open Graph и meta-теги для соцсетей
+│       │   └── block/                # Блок
+│       │       ├── block.html        # Разметка блока
+│       │       ├── block.sss         # Стили блока
+│       │       └── block.js          # Скрипт блока
+│       └── pages/                    # Страницы
+│           ├── guideline.html        # Разметка типовой текстовой страницы
+│           ├── home.html             # Разметка домашней страницы проекта
+│           └── index.html            # Разметка карты сайта с прогрессом работ
+├── dist/                             # Сборка проекта (автогенерация)
+│   ├── assets/                       # Подключаемые ресурсы
+│   │   ├── manifests/                # Манифесты
+│   │   ├── images/                   # Изображения
+│   │   │   └── sprites/              # Спрайты (автогенерация)
+│   │   ├── scripts/                  # Скрипты
+│   │   └── styles/                   # Стили
+│   ├── robots.txt                    # Файл для поисковых систем
+│   ├── index.html                    # Карта сайта с прогрессом работ
+│   ├── guideline.html                # Типовая текстовая страница
+│   └── home.html                     # Сборка стартовой страницы
+├── .editorconfig                     # Конфигурационный файл IDE
+├── .gitignore                        # Список исключённых файлов из Git
+├── browserslist                      # Список поддерживаемых браузеров для Автопрефиксера
+├── package.json                      # Список модулей и прочей информации
+├── yarn.lock                         # Список модулей и прочей информации для Yarn
+├── gulpfile.js                       # Конфиг Gulp.js
+└── README.md                         # Документация проекта</pre>
+    </div><!-- /.foldable__content -->
+  </div><!-- /.foldable-box -->
+</div><!-- /.progress-structure -->
