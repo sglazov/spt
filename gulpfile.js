@@ -31,7 +31,7 @@
   var center              = require('postcss-center');
   var clearfix            = require('postcss-clearfix');
   var cssnext             = require("postcss-cssnext");
-  var imprt               = require('postcss-easy-import');
+  var easyImport          = require('postcss-easy-import');
   var ancestors           = require("postcss-nested-ancestors");
   var shorter             = require('postcss-short');
   var sprites             = require('postcss-sprites');
@@ -116,10 +116,10 @@
       }
     },
 
-    imprt: {
+    easyImport: {
       options: {
-        extensions: '.sss',
-        prefix: '_'
+        extensions: ['.sss'],
+        glob: true
       }
     },
 
@@ -155,11 +155,11 @@
 
   // Список PostCSS-плагинов
   var processors = [
-    imprt(plugins.imprt.options),
+    easyImport(plugins.easyImport.options),
     precss(),
+    cssnext(),
     ancestors(),
     sprites(plugins.sprites.options),
-    cssnext(),
     assets(plugins.assets.options),
     inlinesvg(plugins.inlinesvg.options),
     shorter(),
@@ -292,7 +292,8 @@
   gulp.task('default', function(cb) {
     return runSequence(
       'copy',
-      ['html', 'styles', 'scripts', 'watch'],
+      ['html', 'styles', 'scripts'],
+      'watch',
       'server',
       cb
     );
@@ -303,6 +304,7 @@
     return runSequence(
       'copy',
       ['html', 'styles', 'scripts'],
+      'server',
       cb
     );
   });
