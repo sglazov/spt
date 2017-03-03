@@ -37,7 +37,6 @@
     "gulp-watch": "^4.3.11",
     "gulp-zip": "^4.0.0",
     "imagemin-pngquant": "^5.0.0",
-    "lost": "^8.0.0",
     "path": "^0.12.7",
     "portfinder": "^1.0.13",
     "postcss-assets": "^4.1.0",
@@ -52,7 +51,6 @@
     "postcss-inline-svg": "^2.1.2",
     "precss": "^1.4.0",
     "run-sequence": "^1.2.2",
-    "sugarss": "^0.2.0",
     "yargs": "^6.6.0"
   },
   "babel": {

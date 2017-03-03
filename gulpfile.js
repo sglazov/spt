@@ -23,7 +23,6 @@
   var watch               = require('gulp-watch');
   var zip                 = require('gulp-zip');
   var imageminPngquant    = require('imagemin-pngquant');
-  var grid                = require('lost');
   var gpath               = require('path');
   var precss              = require('precss');
   var portfinder          = require('portfinder');
@@ -37,7 +36,6 @@
   var sprites             = require('postcss-sprites');
   var inlinesvg           = require('postcss-inline-svg');
   var runSequence         = require('run-sequence');
-  var sugarss             = require("sugarss");
   var argv                = require('yargs').argv;
   var reload              = browserSync.reload;
 
@@ -65,7 +63,7 @@
           templates:   [src + 'templates/**/*.html'],
           scripts:     [src + 'scripts/**/*.js'],
           vendor:      [src + 'scripts/vendor/**/*.js'],
-          styles:      [src + 'styles/**/*.sss', src + 'templates/**/*.sss'],
+          styles:      [src + 'styles/**/*.pcss', src + 'templates/**/*.pcss'],
           images:      [src + 'images/**/*.*'],
           resources:   [src + 'resources/**/*.*']
         }
@@ -118,7 +116,7 @@
 
     easyImport: {
       options: {
-        extensions: ['.sss'],
+        extensions: ['.pcss'],
         glob: true
       }
     },
@@ -166,7 +164,6 @@
     center(),
     clearfix(),
     mqpacker(),
-    grid(),
     cqPostcss()
   ];
 
@@ -182,13 +179,13 @@
 
   // Компиляция стилей
   gulp.task('styles', function () {
-    return gulp.src(paths.source.styles + 'layout.sss')
+    return gulp.src(paths.source.styles + 'layout.pcss')
       .pipe(plumber(plugins.plumber))
       .pipe(changed(paths.build.styles))
-      .pipe(postcss(processors, { parser: sugarss }))
+      .pipe(postcss(processors))
       .pipe(rename('style.css'))
       .pipe(gulp.dest(paths.build.styles))
-      .pipe(_if(argv.prod, cssnano()))
+      .pipe(_if(argv.prod, cssnano({convertValues: {length: false}})))
       .pipe(_if(argv.prod, rename('style.min.css')))
       .pipe(_if(argv.prod, gulp.dest(paths.build.styles)));
   });
