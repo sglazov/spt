@@ -31,7 +31,6 @@
   var clearfix            = require('postcss-clearfix');
   var cssnext             = require("postcss-cssnext");
   var easyImport          = require('postcss-easy-import');
-  var ancestors           = require("postcss-nested-ancestors");
   var shorter             = require('postcss-short');
   var sprites             = require('postcss-sprites');
   var inlinesvg           = require('postcss-inline-svg');
