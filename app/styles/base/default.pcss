@@ -5,11 +5,17 @@
   text-size-adjust: none;
 }
 
+html,
+.root {
+  font-size: 16px;
+  line-height: 21px;
+}
+
 body {
   font-family: $GeneralFontFamily;
-  background: $BodyBackground;
-  font-size: 15px;
-  line-height: 1.58;
+  background-color: $BodyBackground;
+  font-size: 16px;
+  line-height: 21px;
   font-weight: 400;
 }
 
@@ -17,6 +23,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  padding: 10px 45px 0 30px;
 }
 main {
   flex: 1;

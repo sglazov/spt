@@ -1,24 +1,7 @@
 /* страница прогресса */
 .progress-page {
-  padding: 25px 0;
-  font-family: 'Roboto', sans-serif;
-  width: 1000px;
-  margin: 0 auto;
+  font-family: $GeneralFontFamily;
   display: block;
-  h1 {
-    font-size: 35px;
-    margin-bottom: 25px;
-    font-weight: 400;
-    line-height: 35px;
-    color: #000;
-  }
-  h2 {
-    font-size: 25px;
-    margin-top: 25px;
-    margin-bottom: 20px;
-    font-weight: 400;
-    color: #000;
-  }
   ul, li {
     margin-left: 0;
   }
@@ -68,9 +51,6 @@
   .readme {
     margin-top: 10px;
   }
-  .readme p {
-    margin: 15px 0 0 0;
-  }
   .readme p > abbr[title] {
     border-bottom: 1px dashed #ccc;
     text-decoration: none;
@@ -98,22 +78,10 @@
     margin-top: 15px;
     display: none;
   }
-  a,
-  .link {
-    color: rgb(5, 95, 187);
-    text-decoration: none;
-    border-bottom: 1px inset #b4cfea;
-    transition: 0.3s ease;
+  .link:visited {
+    color: #B40EB4;
+    border-color: #e0b2e0;
   }
-  .link:hover {
-    color: #ff6600;
-    border-color: rgba(255, 95, 0, 0.68);
-    transition: 0s ease;
-  }
-  /*.link:visited {*/
-  /*color: #B40EB4;*/
-  /*border-color: #e0b2e0;*/
-  /*}*/
   code,
   tt {
     background: #FFFCD7;
