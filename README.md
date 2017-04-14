@@ -1,11 +1,11 @@
-#Шаблон проекта для быстрого старта
+# Шаблон проекта для быстрого старта
 
 Шаблон помогает быстро начать вёрстку проекта.
 
 Склонировать репозиторий, перейти в созданную папку проекта и удалить скрытую папку _.git_:
 
 ```bash
-git clone git@bitbucket.org:chenki/spt.git new-project && cd new-project && rm -rf ./.git
+git clone git@github.com:4enki/spt.git new-project && cd new-project && rm -rf ./.git
 ```
 
 Перед первым запуском нужно установить зависимости (_один раз на проект_):
@@ -14,7 +14,7 @@ git clone git@bitbucket.org:chenki/spt.git new-project && cd new-project && rm -
 npm i
 ```
 
-##Режимы
+## Режимы
 
 Одноразовая сборка:
 
@@ -34,15 +34,15 @@ npm run start
 npm run zip
 ```
 
-##Шаблонизация
+## Шаблонизация
 
 Шаблоны собираются в папке `app/templates/` с помощью тегов `<include>`. Составные части лежат в `blocks/`. [Переменные](https://github.com/zaharin/gulp-html-tag-include) — через `@@var`. Боевые файлы автоматически собираются в корне папки `dist/`.
 
-##Стили
+## Стили
 
 Верстаются в `app/styles/layout.sss` (_базовый стилевой файл_), компилируются в `dist/assets/styles/style.css`. Синтаксис [SugarSS](https://github.com/postcss/sugarss).
 
-###PostCSS
+### PostCSS
 
 Переменные ([PreCSS](https://github.com/jonathantneal/precss#variables)):
 
@@ -78,7 +78,7 @@ $GeneralFontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helve
     border: 1px solid rgba(235,126,26,.8)
 ```
 
-####PostCSS-плагины
+#### PostCSS-плагины
 
 1. [CSSNext](http://cssnext.io). Штуки из CSS4, перменные, кастомные медиа-запросы;
 1. [PreCSS](https://github.com/jonathantneal/precss);
@@ -92,9 +92,9 @@ $GeneralFontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helve
 1. [Lost Grid System](https://github.com/peterramsing/lost). Сетка, [работающая](http://lostgrid.org/) через `calc()`;
 1. [PostCSS Initial](https://github.com/maximkoretskiy/postcss-initial). Сброс CSS-стилей элемента;
 
-##Графика и файлы проекта
+## Графика и файлы проекта
 
-###Вектор
+### Вектор
 
 SVG-иконки собираются в папке `app/images/svg/`, в CSS:
 
@@ -102,7 +102,7 @@ SVG-иконки собираются в папке `app/images/svg/`, в CSS:
 background-image: svg-load('name.svg', '[fill]: #000000');
 ```
 
-###Растр
+### Растр
 
 PNG-иконки для спрайтов собираются в папке `app/images/sprites/`, в CSS:
 
@@ -121,11 +121,11 @@ background: resolve('name.jpg')
 width: width('name.png')
 ```
 
-##Статические файлы для копирования
+## Статические файлы для копирования
 
 Статические файлы для копирования в готовую сборку размещены в `app/resources`, копируются в `dist/assets/resources/`.
 
-##Скрипты
+## Скрипты
 
 Можно писать на es2015 — подключен и работает Babel. Включен jQuery v3.
 
