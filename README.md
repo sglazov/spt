@@ -144,15 +144,14 @@ width: width('name.png')
 │   │   ├── sprites/                  # Папка PNG-иконок для генерации растрового спрайта
 │   │   └── svg/                      # SVG иконки
 │   ├── resources                     # Статические файлы для копирования в /dist
-│   │   ├── manifests                 # Манифесты
 │   │   └── robots.txt                # Роботс для поисковых систем
 │   ├── scripts/                      # Скрипты
 │   │   ├── vendor/                   # Сторонние скрипты и JS-библиотеки
 │   │   └── app.js                    # Главный скрипт
 │   ├── styles/                       # Стили
 │   │   ├── _debug/                   # Стили для отладки
-│   │   │   ├── _diagnostics.sss      # Быстрая диагностика
-│   │   │   └── _px2px.sss            # CSS-файл Pixel-perfect
+│   │   │   ├── diagnostics.sss       # Быстрая диагностика
+│   │   │   └── px2px.sss             # CSS-файл Pixel-perfect
 │   │   ├── base/                     # Стандратные стили
 │   │   │   ├── default.sss           # Базовые стили
 │   │   │   ├── form.sss              # Формы и элементы
