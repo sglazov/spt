@@ -9,7 +9,7 @@ end_of_line = lf
 insert_final_newline = true
 
 # Set default charset
-[**.{js,html,sss}]
+[**.{js,html,pcss}]
 charset = utf-8
 
 [app/scripts/**.js]
@@ -20,7 +20,7 @@ indent_size = 2
 indent_style = space
 indent_size = 2
 
-[{app/scripts/**.sss, app/templates/**.html}]
+[{app/scripts/**.pcss, app/templates/**.html}]
 indent_style = space
 indent_size = 2
 
