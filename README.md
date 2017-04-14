@@ -99,7 +99,7 @@ $GeneralFontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helve
 SVG-иконки собираются в папке `app/images/svg/`, в CSS:
 
 ```css
-background-image: svg('name.svg', '[fill]: #000000');
+background-image: svg-load('name.svg', '[fill]: #000000');
 ```
 
 ###Растр

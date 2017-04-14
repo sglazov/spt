@@ -3,40 +3,7 @@
   <include src="../blocks/_base/_head.html" title="Что происходит и что делать?" description="Страница прогресса разработки проекта"></include>
   <body>
     <include src="../blocks/header/header.html"></include>
-    <style type="text/css">
-
-      @media only screen and (min-device-width : 100px) and (max-device-width : 760px) {
-        .progress-page {
-          padding: 10px 15px;
-        }
-        h1 {
-            font-size: 120%;
-            margin-bottom: 15px;
-            margin-top: 5px;
-            line-height: 22px;
-        }
-        h2 {
-          font-size: 100%;
-          margin-bottom: 20px;
-          margin-top: 15px;
-        }
-        progress,
-        .progress.design,
-        .progress.html,
-        h1 > span {
-          display: none;
-          overflow: hidden;
-        }
-        ul li {
-          margin-bottom: 1px;
-          font-size: 14px;
-        }
-        ul ul {
-          margin: 0 0 0 10px;
-        }
-      }
-    </style>
-    <include src="../blocks/_progress/_progress.html" project="Шаблон проекта для быстрого старта"></include>
+    <include src="../blocks/_progress/progress.html" project="Шаблон проекта для быстрого старта"></include>
     <include src="../blocks/footer/footer.html"></include>
   </body>
 </html>

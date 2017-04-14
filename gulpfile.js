@@ -23,7 +23,6 @@
   var watch               = require('gulp-watch');
   var zip                 = require('gulp-zip');
   var imageminPngquant    = require('imagemin-pngquant');
-  var grid                = require('lost');
   var gpath               = require('path');
   var precss              = require('precss');
   var portfinder          = require('portfinder');
@@ -31,13 +30,11 @@
   var center              = require('postcss-center');
   var clearfix            = require('postcss-clearfix');
   var cssnext             = require("postcss-cssnext");
-  var imprt               = require('postcss-easy-import');
-  var ancestors           = require("postcss-nested-ancestors");
+  var easyImport          = require('postcss-easy-import');
   var shorter             = require('postcss-short');
   var sprites             = require('postcss-sprites');
   var inlinesvg           = require('postcss-inline-svg');
   var runSequence         = require('run-sequence');
-  var sugarss             = require("sugarss");
   var argv                = require('yargs').argv;
   var reload              = browserSync.reload;
 
@@ -65,7 +62,7 @@
           templates:   [src + 'templates/**/*.html'],
           scripts:     [src + 'scripts/**/*.js'],
           vendor:      [src + 'scripts/vendor/**/*.js'],
-          styles:      [src + 'styles/**/*.sss', src + 'templates/**/*.sss'],
+          styles:      [src + 'styles/**/*.pcss', src + 'templates/**/*.pcss'],
           images:      [src + 'images/**/*.*'],
           resources:   [src + 'resources/**/*.*']
         }
@@ -116,10 +113,10 @@
       }
     },
 
-    imprt: {
+    easyImport: {
       options: {
-        extensions: '.sss',
-        prefix: '_'
+        extensions: ['.pcss'],
+        glob: true
       }
     },
 
@@ -155,18 +152,17 @@
 
   // Список PostCSS-плагинов
   var processors = [
-    imprt(plugins.imprt.options),
+    easyImport(plugins.easyImport.options),
     precss(),
+    cssnext(),
     ancestors(),
     sprites(plugins.sprites.options),
-    cssnext(),
     assets(plugins.assets.options),
     inlinesvg(plugins.inlinesvg.options),
     shorter(),
     center(),
     clearfix(),
     mqpacker(),
-    grid(),
     cqPostcss()
   ];
 
@@ -182,13 +178,13 @@
 
   // Компиляция стилей
   gulp.task('styles', function () {
-    return gulp.src(paths.source.styles + 'layout.sss')
+    return gulp.src(paths.source.styles + 'layout.pcss')
       .pipe(plumber(plugins.plumber))
       .pipe(changed(paths.build.styles))
-      .pipe(postcss(processors, { parser: sugarss }))
+      .pipe(postcss(processors))
       .pipe(rename('style.css'))
       .pipe(gulp.dest(paths.build.styles))
-      .pipe(_if(argv.prod, cssnano()))
+      .pipe(_if(argv.prod, cssnano({convertValues: {length: false}})))
       .pipe(_if(argv.prod, rename('style.min.css')))
       .pipe(_if(argv.prod, gulp.dest(paths.build.styles)));
   });
@@ -292,7 +288,8 @@
   gulp.task('default', function(cb) {
     return runSequence(
       'copy',
-      ['html', 'styles', 'scripts', 'watch'],
+      ['html', 'styles', 'scripts'],
+      'watch',
       'server',
       cb
     );
@@ -303,6 +300,7 @@
     return runSequence(
       'copy',
       ['html', 'styles', 'scripts'],
+      'server',
       cb
     );
   });
