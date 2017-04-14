@@ -155,7 +155,6 @@
     easyImport(plugins.easyImport.options),
     precss(),
     cssnext(),
-    ancestors(),
     sprites(plugins.sprites.options),
     assets(plugins.assets.options),
     inlinesvg(plugins.inlinesvg.options),
