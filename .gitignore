@@ -43,6 +43,7 @@ Thumbs.db
 .git
 .hg
 .idea
+.vscode
 .svn
 bower_components
 
