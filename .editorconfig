@@ -3,32 +3,17 @@
 # top-most EditorConfig file
 root = true
 
-# Unix-style newlines with a newline ending every file
 [*]
-end_of_line = lf
-insert_final_newline = true
-
-# Set default charset
-[**.{js,html,pcss}]
-charset = utf-8
-
-[app/scripts/**.js]
-indent_style = space
-indent_size = 2
-
-[app/templates/**.html]
-indent_style = space
-indent_size = 2
-
-[{app/scripts/**.pcss, app/templates/**.html}]
-indent_style = space
-indent_size = 2
-
-# Tab indentation (no size specified)
-[Makefile]
 indent_style = tab
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+indent_size = 4
 
-# Matches the exact files either package.json
-[package.json, gulpfile.js]
+[*.md]
+trim_trailing_whitespace = false
+
+[*.json]
 indent_style = space
 indent_size = 2

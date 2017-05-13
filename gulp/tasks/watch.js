@@ -27,6 +27,9 @@ gulp.task('watch', function() {
     watch(paths.watch.images, function() {
         return runSequence('images', browserSync.reload);
     });
+	watch(paths.watch.imagesblocks, function() {
+		return runSequence('images:blocks', browserSync.reload);
+	});
     watch(paths.watch.resources, function() {
         return runSequence('resources', browserSync.reload);
     });

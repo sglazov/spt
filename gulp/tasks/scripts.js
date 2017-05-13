@@ -16,7 +16,7 @@ const config = require('../config');
 
 // Сборка и минификация скриптов
 gulp.task('scripts', function() {
-    return gulp.src(paths.source.scripts + '*.js')
+    return gulp.src(paths.source.scripts)
         .pipe(plumber(config.plugins.plumber))
         .pipe(changed(paths.build.scripts))
         .pipe(eslint.format())
@@ -28,6 +28,7 @@ gulp.task('scripts', function() {
         .pipe(_if(argv.prod, gulp.dest(paths.build.scripts)));
 });
 
+// хуйня какая-то
 // Копируем сторонние скрипты и собираем в один файл
 gulp.task('scripts:copy', function() {
     return gulp.src(paths.source.scripts + 'vendor/*.js')

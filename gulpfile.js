@@ -44,7 +44,7 @@ require('require-dir')('./gulp', {recurse: true});
     // Копируем статичные файлы
     gulp.task('copy', function(cb) {
         return runSequence(
-            ['images', 'resources', 'scripts:copy'],
+            ['images', 'images:blocks', 'resources', 'scripts:copy'],
             cb
         );
     });
