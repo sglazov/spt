@@ -5,22 +5,16 @@
 Склонировать репозиторий, перейти в созданную папку проекта и удалить скрытую папку _.git_:
 
 ```bash
-git clone git@github.com:4enki/spt.git new-project && cd new-project && rm -rf ./.git
+git clone https://github.com/4enki/spt.git new-project && cd $_ && rm -rf ./.git
 ```
 
-Перед первым запуском нужно установить зависимости (_один раз на проект_):
+Перед первым запуском нужно установить зависимости (быстрее через [Yarn](https://yarnpkg.com), _один раз на проект_):
 
 ```bash
-npm i
+npm/yarn install
 ```
 
 ## Режимы
-
-Одноразовая сборка:
-
-```bash
-npm run one
-```
 
 Запуск живой сборки на локальном сервере:
 
@@ -28,11 +22,18 @@ npm run one
 npm run start
 ```
 
-Сборка проекта в _*.zip_-архив. Архив создаётся в корне проекта; CSS- и JS-файлы в архиве собираются в двух экземплярах: минифицированный и оригинальный без комментариев:
+Одноразовая сборка:
+
+```bash
+npm run one
+```
+
+Сборка проекта (папки `/dist`) в _*.zip_-архив. Архив создаётся в корне проекта; CSS- и JS-файлы в архиве собираются в двух экземплярах: минифицированный и оригинальный без комментариев. Имя проекта берётся из файла `package.json`:
 
 ```bash
 npm run zip
 ```
+
 
 ## Шаблонизация
 
@@ -40,53 +41,16 @@ npm run zip
 
 ## Стили
 
-Верстаются в `app/styles/layout.sss` (_базовый стилевой файл_), компилируются в `dist/assets/styles/style.css`. Синтаксис [SugarSS](https://github.com/postcss/sugarss).
+Верстаются в `app/styles/layout.pcss`, компилируются стили в файл `dist/assets/styles/style.css`.
 
 ### PostCSS
 
-Переменные ([PreCSS](https://github.com/jonathantneal/precss#variables)):
-
-```css
-$GeneralFontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
-```
-
-Вложенность ([postcss-nested](https://github.com/postcss/postcss-nested) и [postcss-nested-ancestors](https://github.com/toomuchdesign/postcss-nested-ancestors)) для элементов и модификаторов в [БЭМе](https://ru.bem.info/methodology/css/); ссылки на свойства ([postcss-property-lookup](https://github.com/simonsmith/postcss-property-lookup)); миксины ([postcss-mixins](https://github.com/postcss/postcss-mixins)); `@extend` с помощью ([postcss-extend](https://github.com/travco/postcss-extend)):
-
-```css
-// Пример того, что может быть
-...
-.head
-  color: rgba(255,255,255,1)
-  ...
-.block
-  ...
-  background-color: rgba(0,0,0,.95)
-  display: block
-  width: 200px
-  height: @width
-  ...
-  &__element
-    top: center
-    size: 50px
-    &:hover
-      ^&-part
-        all: initial
-        color: rgb(255, 102, 0)
-    ...
-  &--modifier
-    @extend .head
-    border: 1px solid rgba(235,126,26,.8)
-```
-
-#### PostCSS-плагины
-
-1. [CSSNext](http://cssnext.io). Штуки из CSS4, перменные, кастомные медиа-запросы;
 1. [PreCSS](https://github.com/jonathantneal/precss);
+1. [CSSNext](http://cssnext.io). Штуки из CSS4, перменные, кастомные медиа-запросы;
 1. [Container Queries Prolyfill](https://github.com/ausi/cq-prolyfill). Адаптивные контейнеры;
 1. [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker). Группирует медиазапросы и помещает их в конец CSS документа;
 1. [PostCSS Short](https://github.com/jonathantneal/postcss-short). Логичные укороченные конструкции дял свойств;
 1. [PostCSS Center](https://github.com/jedmao/postcss-center). Плагин для беззаботной центровки элементов;
-1. [PostCSS SVG](https://github.com/Pavliko/postcss-svg). Работа с SVG в CSS;
 1. [PostCSS ASSETS](https://github.com/assetsjs/postcss-assets). Магия для работы с ресурсами сайта;
 1. [PostCSS Sprites](https://github.com/2createStudio/postcss-sprites). Генерация спрайтов;
 1. [Lost Grid System](https://github.com/peterramsing/lost). Сетка, [работающая](http://lostgrid.org/) через `calc()`;
@@ -123,17 +87,15 @@ width: width('name.png')
 
 ## Статические файлы для копирования
 
-Статические файлы для копирования в готовую сборку размещены в `app/resources`, копируются в `dist/assets/resources/`.
+Статические файлы автоматически собираются из директории `app/resources`, копируются в `dist/assets/resources/`. Структура при копировании сохраняется.
 
 ## Скрипты
 
 Можно писать на es2015 — подключен и работает Babel. Включен jQuery v3.
 
-Никаких `#id` для JS. Классы для JS нужно начинать с `_`, чтобы не мешать стили и логику в одну кучу. Исходники скриптов собираются в `app/scripts/app.js`, компилируются в `dist/assets/scripts/scripts.js`.
+Никаких `#id` для JS. Классы для JS начинаются с символа `_`, чтобы не мешать стили и логику в одну кучу. Исходники скриптов собираются в `app/scripts/app.js`, компилируются в `dist/assets/scripts/scripts.js`.
 
 Сторонние скрипты и библиотеки кладутся в папку `app/scripts/vendor`, компилируются в `dist/assets/scripts/vendor.js`.
-
-----
 
 ## Структура папок и файлов
 
@@ -193,3 +155,7 @@ width: width('name.png')
 ├── gulpfile.js                       # Конфиг Gulp.js
 └── README.md                         # Документация проекта
 ```
+
+----
+
+ываыва

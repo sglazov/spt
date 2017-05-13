@@ -2,7 +2,7 @@
 # https://github.com/ai/browserslist
 
 # Desktop browsers
-Explorer >= 9
+Explorer >= 11
 Edge >= 12
 Safari >= 8
 last 4 Chrome versions
