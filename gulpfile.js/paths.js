@@ -7,14 +7,6 @@ const dist = 'dist/';
 
 
 module.exports = {
-	// Куда всё собирать-то?
-	build: {
-		html:            dist,
-		scripts:         dist + 'assets/scripts',
-		styles:          dist + 'assets/styles',
-		images:          dist + 'assets/images',
-		resources:       dist
-	},
 	// Исходники
     source: {
         templates:       [src + 'templates/pages/'],
@@ -34,5 +26,13 @@ module.exports = {
         images:          [src + 'images/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
 		imagesblocks:    [src + 'templates/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
         resources:       [src + 'resources/**/*.*']
-    }
+    },
+	// Куда всё собирать-то?
+	build: {
+		html:            dist,
+		scripts:         dist + 'assets/scripts',
+		styles:          dist + 'assets/styles',
+		images:          dist + 'assets/images',
+		resources:       dist
+	}
 };

@@ -39,7 +39,7 @@ require('require-dir')('./tasks', {recurse: true});
     // Одноразовая сборка проекта в *.zip-архив в корне проекта
     gulp.task('zip', function(cb) {
         return runSequence(
-            'cleanup',
+			'cleanup',
             'copy',
             ['html', 'styles', 'scripts'],
             'build-zip',
