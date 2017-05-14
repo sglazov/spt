@@ -1,9 +1,16 @@
-'use strict';
+/*
+	SPT — Template for a quick start
+	Version 0.7.0
 
+	Sergey Glazov
+	https://github.com/4enki/spt
+*/
 const gulp = require('gulp');
 const runSequence = require('run-sequence');
 
-require('require-dir')('./gulp', {recurse: true});
+const paths = require('./paths')
+
+require('require-dir')('./tasks', {recurse: true});
 
 
 /*---------- Режимы запуска ----------*/

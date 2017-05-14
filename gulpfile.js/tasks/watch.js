@@ -21,7 +21,7 @@ gulp.task('watch', function() {
     watch(paths.watch.scripts, function() {
         return runSequence('scripts', browserSync.reload);
     });
-    watch(paths.watch.vendor, function() {
+    watch(paths.watch.scriptsvendor, function() {
         return runSequence('scripts:copy', browserSync.reload);
     });
     watch(paths.watch.images, function() {

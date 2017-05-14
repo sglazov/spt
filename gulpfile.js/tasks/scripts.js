@@ -28,12 +28,11 @@ gulp.task('scripts', function() {
         .pipe(_if(argv.prod, gulp.dest(paths.build.scripts)));
 });
 
-// хуйня какая-то
 // Копируем сторонние скрипты и собираем в один файл
 gulp.task('scripts:copy', function() {
-    return gulp.src(paths.source.scripts + 'vendor/*.js')
+    return gulp.src(paths.source.scriptsvendor)
         .pipe(plumber(config.plugins.plumber))
-        .pipe(concat('vendor.js'))
+        .pipe(concat('vendor.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest(paths.build.scripts));
 });
