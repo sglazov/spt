@@ -46,7 +46,7 @@
     "imagemin-pngquant": "^5.0.0",
     "portfinder": "^1.0.13",
     "postcss-assets": "^4.1.0",
-    "postcss-inline-svg": "^2.3.1",
+    "postcss-inline-svg": "^3.0.0",
     "postcss-sprites": "^4.2.1",
     "require-dir": "0.3.1",
     "run-sequence": "^1.2.2",
