@@ -6,14 +6,14 @@ const changed = require('gulp-changed');
 const flatten = require('gulp-flatten');
 const debug = require('gulp-debug');
 
-const config = require('../config');
 const paths = require('../paths');
+const errorHandler = require('../errorHandler');
 
 
 // Копируем и минимизируем общие изображения
 gulp.task('images', function() {
     return gulp.src(paths.source.images)
-		.pipe(plumber(config.plugins.plumber))
+		.pipe(plumber({errorHandler: errorHandler}))
 		.pipe(changed(paths.build.images))
 		.pipe(debug({title: 'images:'}))
         .pipe(imagemin({
@@ -29,7 +29,7 @@ gulp.task('images', function() {
 // Копируем и минимизируем изображения
 gulp.task('images:blocks', function() {
 	return gulp.src(paths.source.imagesblocks)
-		.pipe(plumber(config.plugins.plumber))
+		.pipe(plumber({errorHandler: errorHandler}))
 		.pipe(flatten())
 		.pipe(changed(paths.build.images))
 		.pipe(debug({title: 'images for blocks:'}))

@@ -2,65 +2,49 @@ const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 const changed = require('gulp-changed');
 const rename = require('gulp-rename');
-const cssnano = require('gulp-cssnano');
 
-const precss = require('precss');
+const sass = require('gulp-sass');
+const sassGlob = require('gulp-sass-glob');
+const sourcemaps = require('gulp-sourcemaps');
 
+const autoprefixer = require('autoprefixer');
 const postcss = require('gulp-postcss');
 const assets = require('postcss-assets');
-const center = require('postcss-center');
-const clearfix = require('postcss-clearfix');
-const cssnext = require("postcss-cssnext");
-const easyImport = require('postcss-easy-import');
-const shorter = require('postcss-short');
 const sprites = require('postcss-sprites');
 const inlinesvg = require('postcss-inline-svg');
-
-const cqPostcss = require('cq-prolyfill/postcss-plugin');
 const mqpacker = require('css-mqpacker');
 
-const _if = require('gulp-if');
-const argv = require('yargs').argv;
-
 const paths = require('../paths');
-const config = require('../config');
+const errorHandler = require('../errorHandler');
 
 
 // Список PostCSS-плагинов
 const processors = [
-    easyImport({
-        extensions: ['.pcss'],
-        glob: true
-    }),
-    precss(),
-    cssnext(),
-    sprites({
-        stylesheetPath: 'dist/assets/styles/',
-        spritePath: 'dist/assets/images/sprites/'
-    }),
+	autoprefixer(),
+	mqpacker(),
     assets({
         basePath: 'dist/',
         loadPaths: ['assets/images/']
     }),
-    inlinesvg({
-        path: 'dist/assets/images/svg/'
-    }),
-    shorter(),
-    center(),
-    clearfix(),
-    mqpacker(),
-    cqPostcss()
+	sprites({
+		stylesheetPath: 'dist/assets/styles/',
+		spritePath: 'dist/assets/images/sprites/'
+	}),
+    inlinesvg({path: 'dist/assets/images/svg/'}),
+    mqpacker()
 ];
 
 // Компиляция стилей
 gulp.task('styles', function () {
-    return gulp.src(paths.source.styles + 'layout.pcss')
-        .pipe(plumber(config.plugins.plumber))
-        .pipe(changed(paths.build.styles))
-        .pipe(postcss(processors))
-        .pipe(rename('style.css'))
-        .pipe(gulp.dest(paths.build.styles))
-        .pipe(_if(argv.prod, cssnano({convertValues: {length: false}})))
-        .pipe(_if(argv.prod, rename('style.min.css')))
-        .pipe(_if(argv.prod, gulp.dest(paths.build.styles)));
+    return gulp.src(paths.source.styles + 'style.scss')
+		.pipe(sourcemaps.init())
+		.pipe(sassGlob())
+		.pipe(sass({
+			outputStyle: 'expanded',
+			errLogToConsole: true,
+			precision: 8
+		}).on('error', errorHandler))
+		.pipe(postcss(processors))
+		.pipe(sourcemaps.write('./maps'))
+		.pipe(gulp.dest(paths.build.styles));
 });

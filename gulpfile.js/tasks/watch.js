@@ -5,7 +5,6 @@ const browserSync = require("browser-sync");
 const reload = browserSync.reload;
 
 const paths = require('../paths');
-const config = require('../config');
 
 
 /*---------- Бдительные вотчеры ----------*/

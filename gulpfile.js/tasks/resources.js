@@ -4,13 +4,13 @@ const changed = require('gulp-changed');
 const debug = require('gulp-debug');
 
 const paths = require('../paths');
-const config = require('../config');
+const errorHandler = require('../errorHandler');
 
 
 // Копируем другие файлы в корень проекта
 gulp.task('resources', function() {
     return gulp.src(paths.source.resources)
-        .pipe(plumber(config.plugins.plumber))
+		.pipe(plumber({errorHandler: errorHandler}))
         .pipe(changed(paths.build.resources))
 		.pipe(debug({title: 'resources:'}))
         .pipe(gulp.dest(paths.build.resources));

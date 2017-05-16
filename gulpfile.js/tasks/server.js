@@ -2,8 +2,6 @@ const gulp = require('gulp');
 const portfinder = require('portfinder');
 const browserSync = require("browser-sync");
 
-const config = require('../config');
-
 
 // Запуск локального сервера
 gulp.task('server', function() {

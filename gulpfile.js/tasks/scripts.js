@@ -11,13 +11,13 @@ const _if = require('gulp-if');
 const argv = require('yargs').argv;
 
 const paths = require('../paths');
-const config = require('../config');
+const errorHandler = require('../errorHandler');
 
 
 // Сборка и минификация скриптов
 gulp.task('scripts', function() {
     return gulp.src(paths.source.scripts)
-        .pipe(plumber(config.plugins.plumber))
+		.pipe(plumber({errorHandler: errorHandler}))
         .pipe(changed(paths.build.scripts))
         .pipe(eslint.format())
         .pipe(babel())
@@ -31,7 +31,7 @@ gulp.task('scripts', function() {
 // Копируем сторонние скрипты и собираем в один файл
 gulp.task('scripts:copy', function() {
     return gulp.src(paths.source.scriptsvendor)
-        .pipe(plumber(config.plugins.plumber))
+		.pipe(plumber({errorHandler: errorHandler}))
         .pipe(concat('vendor.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest(paths.build.scripts));

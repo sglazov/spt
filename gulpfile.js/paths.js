@@ -22,7 +22,7 @@ module.exports = {
         templates:       [src + 'templates/**/*.html'],
 		scripts:         [src + 'scripts/**/*.js', src + 'templates/**/*.js', src + '!scripts/vendor/**/*.js'],
 		scriptsvendor:   [src + 'scripts/vendor/**/*.js'],
-        styles:          [src + 'styles/**/*.pcss', src + 'templates/**/*.pcss'],
+        styles:          [src + 'styles/**/*.scss', src + 'templates/**/*.scss'],
         images:          [src + 'images/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
 		imagesblocks:    [src + 'templates/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
         resources:       [src + 'resources/**/*.*']

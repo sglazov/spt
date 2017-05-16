@@ -4,13 +4,13 @@ const changed = require('gulp-changed');
 const include = require("gulp-html-tag-include");
 
 const paths = require('../paths');
-const config = require('../config');
+const errorHandler = require('../errorHandler');
 
 
 // Шаблонизация
 gulp.task('html', function() {
     return gulp.src(paths.source.templates + '*.html')
-        .pipe(plumber(config.plugins.plumber))
+		.pipe(plumber({errorHandler: errorHandler}))
         .pipe(include())
         .pipe(gulp.dest(paths.build.html));
 });

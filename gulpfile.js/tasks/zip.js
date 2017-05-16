@@ -4,7 +4,6 @@ const chalk = require('chalk');
 const log = console.log;
 
 const paths = require('../paths');
-const config = require('../config');
 
 const package = require('../../package.json');
 
