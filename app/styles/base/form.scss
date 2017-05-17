@@ -1,27 +1,25 @@
 *::placeholder {
-	color: $PlaceholderColor;
-	opacity: 1;
+  color: $PlaceholderColor;
+  opacity: 1;
 }
 
 *::placeholder-shown {
-	color: $PlaceholderColor;
+  color: $PlaceholderColor;
 }
 
 ::selection {
-	background: $SelectBackground;
-	color: $SelectColor;
+  background: $SelectBackground;
+  color: $SelectColor;
 }
 
 input,
 textarea,
 button {
-	outline: none;
-	font-family: $GeneralFontFamily;
+  outline: none;
+  font-family: $GeneralFontFamily;
 }
 
 input[placeholder],
-input:-moz-placeholder,
-input::-moz-placeholder,
-input:-ms-input-placeholder {
-	text-overflow: ellipsis;
+input:placeholder {
+  text-overflow: ellipsis;
 }

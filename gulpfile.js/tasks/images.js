@@ -12,18 +12,18 @@ const errorHandler = require('../errorHandler');
 
 // Копируем и минимизируем общие изображения
 gulp.task('images', function() {
-    return gulp.src(paths.source.images)
+  return gulp.src(paths.source.images)
 		.pipe(plumber({errorHandler: errorHandler}))
 		.pipe(changed(paths.build.images))
 		.pipe(debug({title: 'images:'}))
-        .pipe(imagemin({
+    .pipe(imagemin({
 			optimizationLevel: 3,
 			progressive: true,
 			interlaced: true,
 			svgoPlugins: [{removeViewBox: false}],
 			use: [pngquant()]
 		}))
-        .pipe(gulp.dest(paths.build.images));
+    .pipe(gulp.dest(paths.build.images));
 });
 
 // Копируем и минимизируем изображения

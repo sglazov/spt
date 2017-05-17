@@ -3,23 +3,26 @@ a {
   transition: .3s ease;
   text-decoration: none;
   color: #008ACE;
-  text-decoration: none;
   border-bottom: 1px solid;
-  transition: color .3s ease,border-color .3s ease;
+
   :focus {
     outline: none;
   }
+
   &:hover {
     color: #CC0000;
     transition: .1s ease;
   }
+
   &:visited {
     color: #B40EB4;
+
     &:hover {
       color: #CC0000;
       transition: .1s ease;
     }
   }
+
   &[href]:not([class]) {
     /*color: #0000FF;*/
   }
@@ -33,6 +36,7 @@ a {
   height: 0;
   overflow: hidden;
   border: 1px solid;
+
   & iframe,
   & object,
   & embed {
@@ -55,12 +59,10 @@ tt {
 }
 
 span.tsp {
-  display: inline;
   display: inline-block;
-  display: -moz-inline-box;
-  width: 0.12em;
+  width: .12em;
   overflow: hidden;
-  text-decoration: inherit
+  text-decoration: inherit;
 }
 
 h1, .h1 {
@@ -69,34 +71,40 @@ h1, .h1 {
   margin-top: 21px;
   margin-bottom: 42px;
 }
+
 h2, .h2 {
   font-size: 36px;
   line-height: 42px;
   margin-top: 21px;
   margin-bottom: 21px;
 }
+
 h3, .h3 {
   font-size: 24px;
   line-height: 42px;
   margin-top: 21px;
   margin-bottom: 0px;
 }
+
 h4, .h4 {
   font-size: 16px;
   line-height: 21px;
   margin-top: 21px;
   margin-bottom: 0px;
 }
+
 h5, .h5 {
   font-size: 16px;
   line-height: 21px;
   margin-top: 21px;
   margin-bottom: 0px;
 }
+
 p, ul, ol, pre, table, blockquote {
   margin-top: 0px;
   margin-bottom: 21px;
 }
+
 ul ul, ol ol, ul ol, ol ul {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -107,17 +115,21 @@ hr, .hr {
   border: 1px solid;
   margin: -1px 0;
 }
+
 a, b, i, strong, em, small, code {
   line-height: 0;
 }
+
 sub, sup {
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
+
 sup {
-  top: -0.5em;
+  top: -.5em;
 }
+
 sub {
-  bottom: -0.25em;
+  bottom: -.25em;
 }

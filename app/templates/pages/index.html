@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru" class="no-js">
-  <include src="../blocks/_base/_head.html" title="Что происходит и что делать?" description="Страница прогресса разработки проекта"></include>
+  @@include('blocks/_base/_head.html', {
+    "title": "Что происходит и что делать?",
+    "description": "Страница прогресса разработки проекта"
+  })
   <body>
-    <include src="../blocks/header/header.html"></include>
-    <include src="../blocks/_progress/progress.html" project="Шаблон проекта для быстрого старта"></include>
-    <include src="../blocks/footer/footer.html"></include>
+    @@include('blocks/header/header.html')
+    @@include('blocks/_progress/progress.html', {"project": "Шаблон проекта для быстрого старта"})
+    @@include('blocks/footer/footer.html')
   </body>
 </html>

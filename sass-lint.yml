@@ -1,6 +1,12 @@
+files:
+  include:
+    - assets/**/*.scss
+  ignore:
+    - app/styles/_debug/**/*.scss,
+    - app/styles/helpers/normalize.scss
+
 options:
   merge-default-rules: false
-  include: '**/*.scss'
 
 rules:
 # Правильный хекс

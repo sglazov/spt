@@ -5,8 +5,8 @@ li:empty,
 p:empty,
 td:empty,
 th:empty {
-	padding: 20px;
-	border: 5px dotted #ff0 !important;
+  padding: 20px;
+  border: 5px dotted #ff0 !important;
 }
 
 *[alt=""],
@@ -15,7 +15,7 @@ th:empty {
 *[id=""],
 a[href=""],
 a[href="#"] {
-	border: 5px solid #ff0 !important;
+  border: 5px solid #ff0 !important;
 }
 
 applet,
@@ -28,7 +28,7 @@ menu,
 s,
 strike,
 u {
-	border: 5px dotted #f00 !important;
+  border: 5px dotted #f00 !important;
 }
 
 *[background],
@@ -59,13 +59,13 @@ u {
 ul[type],
 ol[type],
 li[type] {
-	border: 5px solid #f00 !important;
+  border: 5px solid #f00 !important;
 }
 
 input[type="button"],
 big,
 tt {
-	border: 5px dotted #3f0 !important;
+  border: 5px dotted #3f0 !important;
 }
 
 *[border],
@@ -73,5 +73,5 @@ a[target],
 table[cellpadding],
 table[cellspacing],
 *[name] {
-	border: 5px solid #3f0 !important;
+  border: 5px solid #3f0 !important;
 }

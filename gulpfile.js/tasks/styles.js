@@ -5,6 +5,7 @@ const rename = require('gulp-rename');
 
 const sass = require('gulp-sass');
 const sassGlob = require('gulp-sass-glob');
+const sasslint = require('gulp-sass-lint');
 const sourcemaps = require('gulp-sourcemaps');
 
 const autoprefixer = require('autoprefixer');
@@ -13,10 +14,16 @@ const assets = require('postcss-assets');
 const sprites = require('postcss-sprites');
 const inlinesvg = require('postcss-inline-svg');
 const mqpacker = require('css-mqpacker');
+const runSequence = require('run-sequence');
 
 const paths = require('../paths');
 const errorHandler = require('../errorHandler');
 
+
+// Стили
+gulp.task('styles', function() {
+  runSequence('styles:build', 'styles:lint')
+});
 
 // Список PostCSS-плагинов
 const processors = [
@@ -35,7 +42,7 @@ const processors = [
 ];
 
 // Компиляция стилей
-gulp.task('styles', function () {
+gulp.task('styles:build', function () {
     return gulp.src(paths.source.styles + 'style.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sassGlob())
@@ -47,4 +54,12 @@ gulp.task('styles', function () {
 		.pipe(postcss(processors))
 		.pipe(sourcemaps.write('./maps'))
 		.pipe(gulp.dest(paths.build.styles));
+});
+
+// Линтинг стилей
+gulp.task('styles:lint', function() {
+  gulp.src(paths.source.styles + '**/*.scss')
+    .pipe(sasslint())
+    .pipe(sasslint.format())
+    .pipe(plumber({errorHandler: errorHandler}));
 });
