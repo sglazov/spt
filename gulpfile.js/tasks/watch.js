@@ -15,10 +15,10 @@ gulp.task('watch', function() {
     return runSequence('html', browserSync.reload);
   });
   watch(paths.watch.styles, function() {
-    return runSequence('styles', browserSync.reload);
+    return runSequence(['styles', 'cache'], browserSync.reload);
   });
   watch(paths.watch.scripts, function() {
-    return runSequence('scripts', browserSync.reload);
+    return runSequence(['scripts', 'cache'], browserSync.reload);
   });
   watch(paths.watch.scriptsvendor, function() {
     return runSequence('scripts:copy', browserSync.reload);

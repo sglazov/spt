@@ -2,8 +2,9 @@ files:
   include:
     - assets/**/*.scss
   ignore:
-    - app/styles/_debug/**/*.scss,
+    - app/styles/_debug/**/*.scss
     - app/styles/helpers/normalize.scss
+    - app/styles/helpers/mixins.scss
 
 options:
   merge-default-rules: false

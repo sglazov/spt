@@ -1,0 +1,21 @@
+// Сlear: fix
+%clearfix {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+
+// Ширина-высота для элемента
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}

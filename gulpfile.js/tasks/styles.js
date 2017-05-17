@@ -22,28 +22,28 @@ const errorHandler = require('../errorHandler');
 
 // Стили
 gulp.task('styles', function() {
-  runSequence('styles:build', 'styles:lint')
+  return runSequence('styles:build', 'styles:lint');
 });
 
 // Список PostCSS-плагинов
 const processors = [
 	autoprefixer(),
 	mqpacker(),
-    assets({
-        basePath: 'dist/',
-        loadPaths: ['assets/images/']
-    }),
+  assets({
+    basePath: 'dist/',
+    loadPaths: ['assets/images/']
+  }),
 	sprites({
 		stylesheetPath: 'dist/assets/styles/',
 		spritePath: 'dist/assets/images/sprites/'
 	}),
-    inlinesvg({path: 'dist/assets/images/svg/'}),
-    mqpacker()
+  inlinesvg({path: 'dist/assets/images/svg/'}),
+  mqpacker()
 ];
 
 // Компиляция стилей
 gulp.task('styles:build', function () {
-    return gulp.src(paths.source.styles + 'style.scss')
+  return gulp.src(paths.source.styles + 'style.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sassGlob())
 		.pipe(sass({

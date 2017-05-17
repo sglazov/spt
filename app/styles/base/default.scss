@@ -17,13 +17,16 @@ body {
   font-size: 16px;
   line-height: 21px;
   font-weight: 400;
+  //-ms-text-size-adjust 100%
+  //-webkit-text-size-adjust 100%
+  // macos
   //-webkit-font-smoothing: antialiased;
   //-moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
 
 body {
   display: flex;
+  min-width: 320px;
   min-height: 100vh;
   flex-direction: column;
   padding: 10px 45px 0 30px;
