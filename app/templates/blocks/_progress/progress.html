@@ -1,6 +1,11 @@
-<include src="list/list.html"></include>
+@@include('blocks/_progress/list/list.html')
 
-<include src="list/item.html" href="index.html" name="Главная страница" design="67" html="100" time="&ndash;&ndash;:&ndash;&ndash;:&ndash;&ndash;"></include>
-<include src="list/item.html" href="guideline.html" name="Типовая текстовая страница" design="74" html="79" time="&ndash;&ndash;:&ndash;&ndash;:&ndash;&ndash;"></include>
+@@loop("blocks/_progress/list/item.html", [
+  { "href": "index.html", "name": "Главная страница", "design": "67", "html": "100" },
+  { "href": "guideline.html", "name": "Типовая текстовая страница", "design": "74", "html": "79" }
+])
 
-<include src="structure/structure.html" git="github.com/4enki/spt" vv="0.7.0"></include>
+@@include('blocks/_progress/structure/structure.html", {
+  "git": "github.com/4enki/spt",
+  "vv": "1.0.0"
+})

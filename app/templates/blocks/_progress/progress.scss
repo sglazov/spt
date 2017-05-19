@@ -1,96 +1,55 @@
-/* страница прогресса */
+// страница прогресса
 .progress-page {
-  font-family: $GeneralFontFamily;
-  display: block;
+  .navigation-name {
+    font-weight: bold;
+  }
   ul, li {
     margin-left: 0;
   }
   ul li {
     list-style: none;
-    margin-bottom: 0.7em;
+    margin-bottom: 15px;
     position: relative;
   }
   ul ul {
     display: block;
-    margin: 0.5em 0 1em 1.5em;
+    margin: 8px 0 16px 24px;
     padding: 0;
-    position: static;
-  }
-  ul {
-    display: inline-block;
-    position: relative;
-    margin-left: 0;
-    padding-left: 0;
-  }
-  .selected {
-    font-weight: 800;
   }
   .progress {
-    position: absolute;
-    top: 0.1em;
-    left: 100%;
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background-color: darkslategrey;
+    progress {
+      margin-right: 8px;
+    }
   }
-  .progress.design {
-    margin-left: 40px;
-  }
-  .progress.html {
-    margin-left: 330px;
-  }
-  .progress.time {
-    margin-left: 615px;
-  }
-  progress {
-    margin-right: 8px;
-    width: 200px;
-  }
-  progress,  .progress_value {
-    display: inline-block;
-    vertical-align: middle;
-  }
+
   .readme {
     margin-top: 10px;
+    p > abbr[title] {
+      border-bottom: 1px dashed #ccc;
+      text-decoration: none;
+      cursor: help;
+      font-style: italic;
+    }
+    pre {
+      background: #fff0be;
+      font-family: Consolas, Menlo, "Liberation Mono", Courier, monospace;
+      padding: 15px 15px;
+      font-size: 12px;
+      line-height: 1.335;
+      margin-bottom: 20px;
+      overflow-x: auto;
+    }
+    h2 {
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+
   }
-  .readme p > abbr[title] {
-    border-bottom: 1px dashed #ccc;
-    text-decoration: none;
-    cursor: help;
-    font-style: italic;
-  }
-  .readme pre {
-    background: #fff0be;
-    font-family: Consolas, Menlo, "Liberation Mono", Courier, monospace;
-    padding: 15px 15px;
-    font-size: 12px;
-    line-height: 1.335;
-    margin-bottom: 20px;
-    overflow-x: auto;
-  }
-  .readme h2 {
-    margin-top: 15px;
-    margin-bottom: 10px;
-  }
-  .readme .foldable {
-    margin-top: 10px;
-    margin-bottom: 15px;
-  }
-  .readme .foldable .foldable__content {
-    margin-top: 15px;
-    display: none;
-  }
-  .link:visited {
-    color: #B40EB4;
-    border-color: #e0b2e0;
-  }
-  code,
-  tt {
-    background: #FFFCD7;
-    border: 1px solid #FFFCD7;
-    color: rgb(203, 55, 22);
-    border-radius: 3px;
-    padding: 2px 5px;
-    font-size: .85em;
-  }
+
   .link__spacer,
   .link__file-name {
     color: #b6b6b6;
@@ -128,72 +87,5 @@
     top: -10px;
     border-width: 0 4px 5px;
   }
-  a[target="_blank"]:after, .link[target="_blank"]:after {
-    content: '';
-    width: 11px;
-    height: 11px;
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.1%22%20id%3D%22Capa_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%20194.818%20194.818%22%20style%3D%22fill%3A%23a3a3a3%3B%22%20xml%3Aspace%3D%22preserve%22%20height%3D%22100%25%22%20width%3D%22100%25%22%3E%0D%0A%3Cg%3E%0D%0A%09%3Cpath%20d%3D%22M185.818%2C2.161h-57.04c-4.971%2C0-9%2C4.029-9%2C9s4.029%2C9%2C9%2C9h35.312l-86.3%2C86.3c-3.515%2C3.515-3.515%2C9.213%2C0%2C12.728%0D%0A%09%09c1.758%2C1.757%2C4.061%2C2.636%2C6.364%2C2.636s4.606-0.879%2C6.364-2.636l86.3-86.3v35.313c0%2C4.971%2C4.029%2C9%2C9%2C9s9-4.029%2C9-9v-57.04%0D%0A%09%09C194.818%2C6.19%2C190.789%2C2.161%2C185.818%2C2.161z%22%2F%3E%0D%0A%09%3Cpath%20d%3D%22M149%2C77.201c-4.971%2C0-9%2C4.029-9%2C9v88.456H18v-122h93.778c4.971%2C0%2C9-4.029%2C9-9s-4.029-9-9-9H9c-4.971%2C0-9%2C4.029-9%2C9v140%0D%0A%09%09c0%2C4.971%2C4.029%2C9%2C9%2C9h140c4.971%2C0%2C9-4.029%2C9-9V86.201C158%2C81.23%2C153.971%2C77.201%2C149%2C77.201z%22%2F%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3C%2Fsvg%3E");
-    background-position: 50% 50%;
-    text-indent: -9999px;
-    background-repeat: no-repeat;
-    display: inline-block;
-    overflow: hidden;
-    margin: 0 0 0 5px;
-    transition: 0.3s ease;
-  }
-  .ul-link {
-    position: relative;
-    color: #8b8b8b;
-    border-bottom-color: rgba(182, 182, 182, 0.54);
-  }
-  .ul-link-ico {
-    position: absolute;
-    left: -23px;
-    top: 2px;
-  }
-  .ul-link-ico .like-ico {
-    fill: #8b8b8b;
-  }
-  .ul-link:hover .like-ico {
-    fill: #ff6600;
-  }
-  a[target="_blank"]:hover:after,
-  .link[target="_blank"]:hover:after {
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.1%22%20id%3D%22Capa_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%20194.818%20194.818%22%20style%3D%22fill%3A%23ed3841%3B%22%20xml%3Aspace%3D%22preserve%22%20height%3D%22100%25%22%20width%3D%22100%25%22%3E%0D%0A%3Cg%3E%0D%0A%09%3Cpath%20d%3D%22M185.818%2C2.161h-57.04c-4.971%2C0-9%2C4.029-9%2C9s4.029%2C9%2C9%2C9h35.312l-86.3%2C86.3c-3.515%2C3.515-3.515%2C9.213%2C0%2C12.728%0D%0A%09%09c1.758%2C1.757%2C4.061%2C2.636%2C6.364%2C2.636s4.606-0.879%2C6.364-2.636l86.3-86.3v35.313c0%2C4.971%2C4.029%2C9%2C9%2C9s9-4.029%2C9-9v-57.04%0D%0A%09%09C194.818%2C6.19%2C190.789%2C2.161%2C185.818%2C2.161z%22%2F%3E%0D%0A%09%3Cpath%20d%3D%22M149%2C77.201c-4.971%2C0-9%2C4.029-9%2C9v88.456H18v-122h93.778c4.971%2C0%2C9-4.029%2C9-9s-4.029-9-9-9H9c-4.971%2C0-9%2C4.029-9%2C9v140%0D%0A%09%09c0%2C4.971%2C4.029%2C9%2C9%2C9h140c4.971%2C0%2C9-4.029%2C9-9V86.201C158%2C81.23%2C153.971%2C77.201%2C149%2C77.201z%22%2F%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3Cg%3E%0D%0A%3C%2Fg%3E%0D%0A%3C%2Fsvg%3E");
-  }
-  .nonono {
-    display: none;
-    visibility: hidden;
-  }
 }
-@media only screen and (min-device-width : 100px) and (max-device-width : 760px) {
-  .progress-page {
-    padding: 10px 15px;
-  }
-  h1 {
-    font-size: 120%;
-    margin-bottom: 15px;
-    margin-top: 5px;
-    line-height: 22px;
-  }
-  h2 {
-    font-size: 100%;
-    margin-bottom: 20px;
-    margin-top: 15px;
-  }
-  progress,
-  .progress.design,
-  .progress.html,
-  h1 > span {
-    display: none;
-    overflow: hidden;
-  }
-  ul li {
-    margin-bottom: 1px;
-    font-size: 14px;
-  }
-  ul ul {
-    margin: 0 0 0 10px;
-  }
-}
-/* /страница прогресса */
+

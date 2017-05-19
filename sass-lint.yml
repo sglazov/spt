@@ -5,6 +5,7 @@ files:
     - app/styles/_debug/**/*.scss
     - app/styles/helpers/normalize.scss
     - app/styles/helpers/mixins.scss
+    - app/styles/helpers/flexboxgrid.scss
 
 options:
   merge-default-rules: false

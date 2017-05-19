@@ -1,14 +1,28 @@
-<li class="page-list__item">
-  <a href="@@href" class="link">@@name</a>
-  <span class="link__spacer">—</span>
-  <span class="link__file-name" title="app/templates/@@href">@@href</span>
-  <div class="progress design">
-    <progress max="100" value="@@design"></progress>
-    <span class="progress_value">@@design%</span>
-  </div>
-  <div class="progress html">
-    <progress max="100" value="@@html"></progress>
-    <span class="progress_value">@@html%</span>
-  </div>
-  <div class="progress time notnow">@@time</div>
-</li><!-- /.page-list__item -->
+<li class="navigation__item">
+  <div class="row middle-xs">
+    <div class="col-xs">
+      <div class="progress-link">
+        <a href="@@href" class="link">@@name</a>
+        <span class="link__spacer">—</span>
+        <span class="link__file-name" title="app/templates/@@href">@@href</span>
+      </div><!-- /.progress-link -->
+    </div><!-- /.col-xs -->
+    <div class="col-xs">
+      <div class="progress progress-design">
+        <progress max="100" value="@@design"></progress>
+        <span class="progress_value">@@design%</span>
+      </div><!-- /.progress-design -->
+    </div><!-- /.col-xs -->
+    <div class="col-xs">
+      <div class="progress progress-html">
+        <progress max="100" value="@@html"></progress>
+        <span class="progress_value">@@html%</span>
+      </div><!-- /.progress-html -->
+    </div><!-- /.col-xs -->
+    <div class="col-xs">
+      <div class="progress-time">
+        @@if (context.time) {@@time} @@if (!context.time) {&ndash;&ndash;:&ndash;&ndash;:&ndash;&ndash;}
+      </div><!-- /.progress-time -->
+    </div><!-- /.col-xs -->
+  </div><!-- /.row -->
+</li><!-- /.sitemap__item -->

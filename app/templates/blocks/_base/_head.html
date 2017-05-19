@@ -33,7 +33,7 @@
 
   <include src="_social.html"></include>
 
-  <title>@@title</title>
+  <title>@@if (context.title) {@@title} @@if (!context.title) {Шаблон проекта быстрого старта}</title>
   <meta name="description" content="@@description"/>
   <meta name="keywords" content=""/>
 

@@ -20,8 +20,8 @@ require('require-dir')('./tasks', {recurse: true});
     return runSequence(
       'copy',
       ['html', 'scripts', 'styles'],
-      'cache',
       'watch',
+      'cache',
       'server',
       cb
     );
@@ -32,7 +32,6 @@ require('require-dir')('./tasks', {recurse: true});
     return runSequence(
       'copy',
       ['html', 'scripts', 'styles'],
-      'cache',
       'server',
       cb
     );
@@ -46,14 +45,6 @@ require('require-dir')('./tasks', {recurse: true});
       ['html', 'scripts', 'styles'],
       'build-zip',
       'cleanup',
-      cb
-    );
-  });
-
-  // Копируем статичные файлы
-  gulp.task('copy', function(cb) {
-    return runSequence(
-      ['images', 'images:blocks', 'resources', 'scripts:copy'],
       cb
     );
   });
