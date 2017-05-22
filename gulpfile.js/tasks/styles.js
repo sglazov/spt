@@ -58,7 +58,7 @@ gulp.task('styles:build', function () {
 
 // Линтинг стилей
 gulp.task('styles:lint', function() {
-  gulp.src(paths.source.styles + '**/*.scss', paths.watch.styles)
+  gulp.src(paths.watch.styles)
     .pipe(sasslint())
     .pipe(sasslint.format())
     .pipe(plumber({errorHandler: errorHandler}));

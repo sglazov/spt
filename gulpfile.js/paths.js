@@ -10,8 +10,7 @@ module.exports = {
   // Исходники
   source: {
     templates:       [src + 'templates/pages/'],
-    scripts:         [src + 'scripts/**/*.js', src + 'templates/**/*.js', src + '!scripts/vendor/**/*.js'],
-    scriptsvendor:   [src + 'scripts/vendor/**/*.js'],
+    scripts:         [src + 'scripts/**/*.js', src + 'templates/**/*.js'],
     styles:          [src + 'styles/'],
     images:          [src + 'images/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
     imagesblocks:    [src + 'templates/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
@@ -20,8 +19,7 @@ module.exports = {
   // Для вотчеров
   watch: {
     templates:       [src + 'templates/**/*.html'],
-    scripts:         [src + 'scripts/**/*.js', src + 'templates/**/*.js', src + '!scripts/vendor/**/*.js'],
-    scriptsvendor:   [src + 'scripts/vendor/**/*.js'],
+    scripts:         [src + 'scripts/**/*.js', src + 'templates/**/*.js'],
     styles:          [src + 'styles/**/*.scss', src + 'templates/**/*.scss'],
     images:          [src + 'images/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
     imagesblocks:    [src + 'templates/**/*.+(jpg|jpeg|png|svg|gif|ico)'],

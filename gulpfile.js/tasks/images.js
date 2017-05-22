@@ -32,7 +32,7 @@ gulp.task('images:blocks', function() {
 		.pipe(plumber({errorHandler: errorHandler}))
 		.pipe(flatten())
 		.pipe(changed(paths.build.images))
-		.pipe(debug({title: 'images for blocks:'}))
+		.pipe(debug({title: 'images blocks:'}))
 		.pipe(imagemin({
 			optimizationLevel: 3,
 			progressive: true,

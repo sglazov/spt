@@ -22,12 +22,3 @@ gulp.task('scripts', function() {
         .pipe(concat('scripts.js'))
         .pipe(gulp.dest(paths.build.scripts))
 });
-
-// Копируем сторонние скрипты и собираем в один файл
-gulp.task('scripts:copy', function() {
-    return gulp.src(paths.source.scriptsvendor)
-		.pipe(plumber({errorHandler: errorHandler}))
-        .pipe(concat('vendor.min.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest(paths.build.scripts));
-});

@@ -4,8 +4,8 @@ $(document).ready(function() {
   $('._foldable__content').hide();
   $('._foldable__control').click(function(){
     $(this).toggleClass("folded").toggleClass("unfolded").next().slideToggle();
-    var close = $('._foldable__link').attr("data-text-close");
-    var  open = $('._foldable__link').attr("data-text-open");
+    let close = $('._foldable__link').attr("data-text-close");
+    let  open = $('._foldable__link').attr("data-text-open");
     if($(this).hasClass('folded')) {
       if (close) {
         $('._foldable__link').html(close);

@@ -1,4 +1,6 @@
 /* Ссылки без дефолтного подчёркивания */
+// http://codepen.io/MadeByMike/pen/bEEGvv
+
 a {
   transition: .3s ease;
   text-decoration: none;
@@ -83,31 +85,31 @@ h3, .h3 {
   font-size: 24px;
   line-height: 42px;
   margin-top: 21px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 h4, .h4 {
   font-size: 16px;
   line-height: 21px;
   margin-top: 21px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 h5, .h5 {
   font-size: 16px;
   line-height: 21px;
   margin-top: 21px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 p, ul, ol, pre, table, blockquote {
-  margin-top: 0px;
+  margin-top: 0;
   margin-bottom: 21px;
 }
 
 ul ul, ol ol, ul ol, ol ul {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* Let's make sure all's aligned */

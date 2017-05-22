@@ -1,39 +1,51 @@
 // страница прогресса
 .progress-page {
+
   .navigation-name {
     font-weight: bold;
   }
+
   ul, li {
     margin-left: 0;
   }
+
   ul li {
     list-style: none;
     margin-bottom: 15px;
     position: relative;
   }
+
   ul ul {
     display: block;
     margin: 8px 0 16px 24px;
     padding: 0;
   }
+
   .progress {
     display: flex;
     align-items: center;
     align-content: center;
-    background-color: darkslategrey;
+
     progress {
       margin-right: 8px;
+    }
+
+    &-time {
+      color: #b6b6b6;
+      pointer-events: none;
     }
   }
 
   .readme {
     margin-top: 10px;
+
     p > abbr[title] {
       border-bottom: 1px dashed #ccc;
       text-decoration: none;
       cursor: help;
       font-style: italic;
     }
+
     pre {
       background: #fff0be;
       font-family: Consolas, Menlo, "Liberation Mono", Courier, monospace;
@@ -43,11 +55,11 @@
       margin-bottom: 20px;
       overflow-x: auto;
     }
+
     h2 {
       margin-top: 15px;
       margin-bottom: 10px;
     }
-
   }
 
   .link__spacer,
@@ -59,33 +71,9 @@
     padding: 0 0 0 2px;
     margin: 0;
   }
+
   .link__file-name:hover {
     cursor: help;
-  }
-  .notnow {
-    opacity: 0.31;
-    pointer-events: none;
-  }
-  .foldable__control .foldable__link {
-    position: relative;
-  }
-  .foldable__control .foldable__link:after {
-    content: '';
-    width: 0;
-    height: 0;
-    border: 5px solid;
-    border-right: 4px dashed transparent;
-    border-left: 4px dashed transparent;
-    border-width: 5px 4px 0;
-    margin: 0 -8px 0 0;
-    position: relative;
-    top: 14px;
-    left: 4px;
-    transition: 0s ease;
-  }
-  .foldable__control.unfolded .foldable__link:after {
-    top: -10px;
-    border-width: 0 4px 5px;
   }
 }
 
