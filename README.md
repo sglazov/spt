@@ -138,8 +138,8 @@ background: url('images/sprites/name.png') no-repeat 0 0;
 ├── .editorconfig                     # Конфигурационный файл IDE
 ├── .gitignore                        # Список исключённых файлов из Git
 ├── browserslist                      # Список поддерживаемых браузеров для Автопрефиксера
-├── package.json                      # Список модулей и прочей информации
-├── sass-lint.yml                     # Конфиг для линтинга scss
+├── package.json                      # Список модулей и прочей информации для NPM
 ├── yarn.lock                         # Список модулей и прочей информации для Yarn
+├── sass-lint.yml                     # Конфиг для линтинга scss
 └── README.md                         # Документация проекта
 ```
