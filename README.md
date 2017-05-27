@@ -130,11 +130,16 @@ background: url('images/sprites/name.png') no-repeat 0 0;
 │   │   └── styles/                   # Стили
 │   ├── robots.txt                    # Файл для поисковых систем
 │   └── index.html                    # Карта сайта с прогрессом работ
+├── gulpfile.js/                      # Конфиг Gulp.js
+│   ├── tasks/                        # Отдельные файлы с задачами
+│   ├── errorHandler.js               # Аккуратные ошибки, чтобы gulp не вылетал
+│   ├── paths.js                      # Пути к ресурсам проекта
+│   └── index.js                      # Основные задачи
 ├── .editorconfig                     # Конфигурационный файл IDE
 ├── .gitignore                        # Список исключённых файлов из Git
 ├── browserslist                      # Список поддерживаемых браузеров для Автопрефиксера
 ├── package.json                      # Список модулей и прочей информации
+├── sass-lint.yml                     # Конфиг для линтинга scss
 ├── yarn.lock                         # Список модулей и прочей информации для Yarn
-├── gulpfile.js                       # Конфиг Gulp.js
 └── README.md                         # Документация проекта
 ```
