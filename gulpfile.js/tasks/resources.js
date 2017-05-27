@@ -20,7 +20,7 @@ gulp.task('resources', function() {
 // Копируем статичные файлы
 gulp.task('copy', function(cb) {
   return runSequence(
-    ['images', 'images:blocks', 'resources', 'scripts:copy'],
+    ['images', 'images:blocks', 'resources'],
     cb
   );
 });

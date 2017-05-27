@@ -20,9 +20,6 @@ gulp.task('watch', function() {
   watch(paths.watch.scripts, function() {
     return runSequence('scripts', 'cache');
   });
-  watch(paths.watch.scriptsvendor, function() {
-    return runSequence('scripts:copy', browserSync.reload);
-  });
   watch(paths.watch.images, function() {
     return runSequence('images', browserSync.reload);
   });

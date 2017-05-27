@@ -1,9 +1,16 @@
 $GeneralFontFamily: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-$BodyBackground: rgb(255, 255, 255);
+$BodyBackground:    rgb(255, 255, 255);
 
-$SelectBackground: rgb(255, 102, 0);
+$link:              #008ACE;
+$link-hover:        #CC0000;
+$link-visited:      #B40EB4;
 
-$SelectColor: rgb(255, 255, 255);
+$SelectBackground:  rgb(255, 102, 0);
+$SelectColor:       rgb(255, 255, 255);
 
-$PlaceholderColor: #abb6ba;
+$PlaceholderColor:  #abb6ba;
+
+$sm: "only screen and (min-width: 48em)";
+$md: "only screen and (min-width: 64em)";
+$lg: "only screen and (min-width: 75em)";

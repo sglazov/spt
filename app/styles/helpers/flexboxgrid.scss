@@ -266,7 +266,7 @@
   order: 1;
 }
 
-@media only screen and (min-width: 48em) {
+@media #{$sm} {
   .container {
     width: 49rem;
   }
@@ -497,7 +497,7 @@
   }
 }
 
-@media only screen and (min-width: 64em) {
+@media #{$md} {
   .container {
     width: 65rem;
   }
@@ -728,7 +728,7 @@
   }
 }
 
-@media only screen and (min-width: 75em) {
+@media #{$lg} {
   .container {
     width: 76rem;
   }

@@ -29,9 +29,22 @@ body {
   min-width: 320px;
   min-height: 100vh;
   flex-direction: column;
-  padding: 10px 45px 0 30px;
+  padding: 10px 30px 0 30px;
 }
 
 main {
   flex: 1;
+}
+
+.hide {
+  display: none;
+  visibility: hidden;
+  @media #{$lg} {
+    display: block;
+    visibility: visible;
+  }
+  @media #{$md} {
+    display: block;
+    visibility: visible;
+  }
 }

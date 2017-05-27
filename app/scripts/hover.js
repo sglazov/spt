@@ -1,15 +1,13 @@
-$(document).ready(function() {
+// подсвечиваем ссылки с одинаковым адресом
+if ($) $(function () {
 
-  // подсвечиваем ссылки с одинаковым адресом
-  $(document).on('mouseover mouseout', "a", function(e) {
-    var href = $(this).attr('href');
-    if (!href || href == '#') {
-      return;
+  $('a').hover(function () {
+    if ($(this).attr('href') != '' && $(this).attr('href') != '#') {
+      $('a[href="' + $(this).attr('href') + '"]').addClass('hover');
     }
-    $("a")
-      .filter('[href="' + $(this).attr('href') + '"]')
-      .toggleClass("hover", e.type == 'mouseover');
+  }, function () {
+    $('a').removeClass('hover');
   });
-  // /подсвечиваем ссылки с одинаковым адресом
 
 });
+// /подсвечиваем ссылки с одинаковым адресом

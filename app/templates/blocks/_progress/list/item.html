@@ -1,28 +1,27 @@
 <li class="navigation__item">
-  <div class="row middle-xs">
-    <div class="col-xs">
-      <div class="progress-link">
-        <a href="@@href" class="link">@@name</a>
-        <span class="link__spacer">—</span>
-        <span class="link__file-name" title="app/templates/@@href">@@href</span>
-      </div><!-- /.progress-link -->
-    </div><!-- /.col-xs -->
-    <div class="col-xs">
-      <div class="progress progress-design">
-        <progress max="100" value="@@design"></progress>
-        <span class="progress_value">@@design%</span>
-      </div><!-- /.progress-design -->
-    </div><!-- /.col-xs -->
-    <div class="col-xs">
-      <div class="progress progress-html">
-        <progress max="100" value="@@html"></progress>
-        <span class="progress_value">@@html%</span>
-      </div><!-- /.progress-html -->
-    </div><!-- /.col-xs -->
-    <div class="col-xs">
-      <div class="progress-time">
-        @@if (context.time) {@@time} @@if (!context.time) {&ndash;&ndash;:&ndash;&ndash;:&ndash;&ndash;}
-      </div><!-- /.progress-time -->
-    </div><!-- /.col-xs -->
-  </div><!-- /.row -->
+  <div class="progress progress-link">
+    <div class="url">
+      <div class="url__link">
+        <a href="@@href">@@name</a>
+      </div><!-- /.url__link -->
+      <div class="url__info">
+        <span class="url__file" title="app/templates/@@href">@@href</span>
+      </div><!-- /.url__info -->
+    </div><!-- /.url -->
+  </div><!-- /.progress-link -->
+
+  <div class="progress progress-design hide">
+    <progress max="100" value="@@design"></progress>
+    <span class="progress_value">@@design%</span>
+  </div><!-- /.progress-design -->
+
+  <div class="progress progress-html hide">
+    <progress max="100" value="@@html"></progress>
+    <span class="progress_value">@@html%</span>
+  </div><!-- /.progress-html -->
+
+  <div class="progress progress-time hide">
+    @@if (context.time) {@@time} @@if (!context.time) {&ndash;&ndash;:&ndash;&ndash;:&ndash;&ndash;}
+  </div><!-- /.progress-time -->
+
 </li><!-- /.sitemap__item -->

@@ -13,7 +13,7 @@
   }
 }
 
-// Ширина-высота для элемента
+// Ширина-высота для элемента в одном свойстве
 @mixin size($width, $height: $width) {
   width: $width;
   height: $height;
