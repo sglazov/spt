@@ -42,7 +42,7 @@ npm run zip
 В шаблонах работает антикэш — к ссылкам на стили и скрипты добавляется md5-хэш.
 
 ## Стили
-Верстаются в `app/styles/styles.pcss`, компилируются стили в файл `dist/assets/styles/style.css`.
+Верстаются в `app/styles/styles.pcss`, компилируются стили в файл `dist/assets/styles/style.css`. Для лёгкого упрощения жизни есть коллекция миксинов.
 
 ### PostCSS-плагины и всякое
 1. [Autoprefixer](https://github.com/postcss/autoprefixer), конечно же.

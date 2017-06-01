@@ -1,0 +1,60 @@
+{
+    "name": "SPT",  
+    "short_name": "SPT",
+    "start_url": "/?utm_source=homescreen&utm_medium=pwa-icon",
+    "theme_color": "#ffffff",
+    "background_color": "#FFFFFF",
+    "display": "standalone",
+    "icons": [
+    {
+        "src": "assets/images/i/icon-16x16.png",
+        "sizes": "16x16",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/images/i/icon-32x32.png",
+        "sizes": "32x32",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/images/i/icon-48x48.png",
+        "sizes": "48x48",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/images/i/icon-64x64.png",
+        "sizes": "64x64",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/images/i/icon-128x128.png",
+        "sizes": "128x128",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/images/i/icon-144x144.png",
+        "sizes": "144x144",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/images/i/icon-152x152.png",
+        "sizes": "152x152",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/images/i/icon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/images/i/icon-256x256.png",
+        "sizes": "256x256",
+        "type": "image/png"
+    },
+    {
+        "src": "assets/images/i/icon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }
+    ]
+}

@@ -1,0 +1,44 @@
+<head>
+  <meta charset="utf-8"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui"/>
+
+  <title>@@if (context.title) {@@title} @@if (!context.title) {Шаблон проекта быстрого старта}</title>
+  <meta name="description" content="@@if (context.description) {@@description} @@if (!context.description) {Шаблон проекта быстрого старта}"/>
+  <meta name="keywords" content="@@keywords"/>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="imagetoolbar" content="no"/>
+  <meta name="msthemecompatible" content="no"/>
+  <meta name="cleartype" content="on"/>
+  <meta name="HandheldFriendly" content="True"/>
+
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="format-detection" content="address=no"/>
+
+  <meta name="google" value="notranslate"/>
+
+  <meta name="theme-color" content="#ffffff"/>
+
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+  <meta name="application-name" content=""/>
+  <meta name="msapplication-tooltip" content="">
+  <meta name="msapplication-TileColor" content="#ffffff"/>
+  <meta name="msapplication-starturl" content="">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="msapplication-TileImage" content="/mstile-large.png">
+
+<!--
+  <link rel="manifest" href="manifests/manifest.json"/>
+  <meta name="yandex-tableau-widget" content="logo=http://sitename.tld/assets/images/i/logo.png, color=#ffffff" />
+-->
+
+@@include('blocks/_base/icons.html')
+@@include('blocks/_base/social.html')
+
+  <link href="assets/styles/style.css" rel="stylesheet" />
+
+	<script>document.documentElement.className = document.documentElement.className.replace(/(\s|^)no-js(\s|$)/, '$1js$2');</script>
+</head>
