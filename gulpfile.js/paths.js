@@ -7,6 +7,7 @@ const dist = 'dist/';
 
 
 module.exports = {
+
   // Исходники
   source: {
     templates:       [src + 'templates/pages/'],
@@ -16,6 +17,7 @@ module.exports = {
     imagesblocks:    [src + 'templates/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
     resources:       [src + 'resources/**/*']
   },
+
   // Для вотчеров
   watch: {
     templates:       [src + 'templates/**/*.html'],
@@ -25,6 +27,7 @@ module.exports = {
     imagesblocks:    [src + 'templates/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
     resources:       [src + 'resources/**/*.*']
   },
+
   // Куда всё собирать-то?
   build: {
     html:            dist,

@@ -10,7 +10,7 @@ const paths = require('../paths');
 const errorHandler = require('../errorHandler');
 
 
-// Копируем и минимизируем общие изображения
+// Копируем и оптимизируем общие изображения
 gulp.task('images', function() {
   return gulp.src(paths.source.images)
 		.pipe(plumber({errorHandler: errorHandler}))
@@ -26,7 +26,7 @@ gulp.task('images', function() {
     .pipe(gulp.dest(paths.build.images));
 });
 
-// Копируем и минимизируем изображения
+// Копируем и оптимизируем изображения для блоков
 gulp.task('images:blocks', function() {
 	return gulp.src(paths.source.imagesblocks)
 		.pipe(plumber({errorHandler: errorHandler}))

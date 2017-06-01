@@ -1,6 +1,6 @@
 /*
 	SPT — Template for a quick start
-	Version 0.7.0
+	Version 1.0.0
 
 	Sergey Glazov
 	https://github.com/4enki/spt

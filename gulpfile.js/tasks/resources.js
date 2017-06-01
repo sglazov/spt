@@ -8,7 +8,7 @@ const paths = require('../paths');
 const errorHandler = require('../errorHandler');
 
 
-// Копируем другие файлы в корень проекта
+// Копируем файлы в корень проекта
 gulp.task('resources', function() {
   return gulp.src(paths.source.resources)
     .pipe(plumber({errorHandler: errorHandler}))
