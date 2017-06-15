@@ -5,19 +5,19 @@
         <a href="@@href">@@name</a>
       </div><!-- /.url__link -->
       <div class="url__info">
-        <span class="url__file" title="app/templates/@@href">@@href</span>
+        <span class="url__file" title="Разметка в файле app/templates/@@href">@@href</span>
       </div><!-- /.url__info -->
     </div><!-- /.url -->
   </div><!-- /.progress-link -->
 
   <div class="progress progress-design hide">
     <progress max="100" value="@@design"></progress>
-    <span class="progress_value">@@design%</span>
+    <span class="progress_value">@@if (context.design) {@@design} @@if (!context.design) {0}%</span>
   </div><!-- /.progress-design -->
 
   <div class="progress progress-html hide">
     <progress max="100" value="@@html"></progress>
-    <span class="progress_value">@@html%</span>
+    <span class="progress_value">@@if (context.html) {@@html} @@if (!context.html) {0}%</span>
   </div><!-- /.progress-html -->
 
   <div class="progress progress-time hide">

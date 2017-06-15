@@ -5,8 +5,10 @@
     "description": "Страница прогресса разработки проекта"
   })
   <body>
-    @@include('blocks/header/header.html')
-    @@include('blocks/_progress/progress.html', {"project": "Шаблон проекта для быстрого старта"})
+    <main>
+      @@include('blocks/header/header.html')
+      @@include('blocks/_progress/progress.html', {"project": "Шаблон проекта для быстрого старта"})
+    </main>
     @@include('blocks/footer/footer.html')
   </body>
 </html>
