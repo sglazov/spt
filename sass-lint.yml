@@ -66,3 +66,6 @@ rules:
 
 # Без айди
   no-ids: 1
+
+# Без использования !important
+  no-important: 1
