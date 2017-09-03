@@ -1,7 +1,6 @@
 .DS_Store
 .idea
 .vscode
-
 Thumbs.db
 
 dist
@@ -14,3 +13,4 @@ node_modules
 npm-debug.log
 
 ftp.config.js
+*.log
