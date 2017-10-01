@@ -269,15 +269,15 @@ atob@~1.1.0:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/atob/-/atob-1.1.3.tgz#95f13629b12c3a51a5d215abdce2aa9f32f80773"
 
-autoprefixer@^7.1.2:
-  version "7.1.3"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-7.1.3.tgz#0e8d337976d6f13644db9f8813b4c42f3d1ccc34"
+autoprefixer@^7.1.3:
+  version "7.1.4"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-7.1.4.tgz#960847dbaa4016bc8e8e52ec891cbf8f1257a748"
   dependencies:
     browserslist "^2.4.0"
-    caniuse-lite "^1.0.30000718"
+    caniuse-lite "^1.0.30000726"
     normalize-range "^0.1.2"
     num2fraction "^1.2.2"
-    postcss "^6.0.10"
+    postcss "^6.0.11"
     postcss-value-parser "^3.2.3"
 
 aws-sign2@~0.6.0:
@@ -979,6 +979,10 @@ camelcase@^4.1.0:
 caniuse-lite@^1.0.30000718:
   version "1.0.30000721"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000721.tgz#931a21a7bd85016300328d21f126d84b73437d35"
+
+caniuse-lite@^1.0.30000726:
+  version "1.0.30000740"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000740.tgz#f2c4c04d6564eb812e61006841700ad557f6f973"
 
 capture-stack-trace@^1.0.0:
   version "1.0.0"
@@ -5024,6 +5028,14 @@ postcss@^6.0.0, postcss@^6.0.1, postcss@^6.0.10, postcss@^6.0.9:
     source-map "^0.5.7"
     supports-color "^4.2.1"
 
+postcss@^6.0.11:
+  version "6.0.12"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-6.0.12.tgz#6b0155089d2d212f7bd6a0cecd4c58c007403535"
+  dependencies:
+    chalk "^2.1.0"
+    source-map "^0.5.7"
+    supports-color "^4.4.0"
+
 prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
@@ -5415,9 +5427,9 @@ run-async@^2.2.0:
   dependencies:
     is-promise "^2.1.0"
 
-run-sequence@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/run-sequence/-/run-sequence-2.1.0.tgz#149da012516f21dcf79db6dc99a2a95603631b21"
+run-sequence@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/run-sequence/-/run-sequence-2.2.0.tgz#b3f8d42836db89d08b2fe704eaf0c93dfd8335e2"
   dependencies:
     chalk "^1.1.3"
     gulp-util "^3.0.8"
@@ -5960,7 +5972,7 @@ supports-color@^3.2.3:
   dependencies:
     has-flag "^1.0.0"
 
-supports-color@^4.0.0, supports-color@^4.2.1:
+supports-color@^4.0.0, supports-color@^4.2.1, supports-color@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-4.4.0.tgz#883f7ddabc165142b2a61427f3352ded195d1a3e"
   dependencies:

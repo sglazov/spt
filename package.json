@@ -19,7 +19,7 @@
     "gulp": "node ./node_modules/gulp/bin/gulp.js"
   },
   "devDependencies": {
-    "autoprefixer": "^7.1.2",
+    "autoprefixer": "^7.1.3",
     "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.18.13",
@@ -54,7 +54,7 @@
     "postcss-inline-svg": "^3.0.0",
     "postcss-sprites": "^4.2.1",
     "require-dir": "0.3.2",
-    "run-sequence": "^2.1.0"
+    "run-sequence": "^2.2.0"
   },
   "babel": {
     "presets": [
