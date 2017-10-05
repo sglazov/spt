@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="ru" class="no-js">
-  @@include('blocks/_base/head.html', {
-    "title": "Что происходит и что делать?",
-    "description": "Страница прогресса разработки проекта"
-  })
-  <body>
-    <main>
-      @@include('blocks/header/header.html')
-      @@include('blocks/_progress/progress.html', {"project": "Шаблон проекта для быстрого старта"})
-    </main>
-    @@include('blocks/footer/footer.html')
-  </body>
-</html>
+---
+title:
+description:
+keywords:
+---
+{% extends "layouts/head.html" %}
+
+{% block content %}
+  {% include "blocks/header/header.html" %}
+  {% include "blocks/_progress/progress.html" %}
+  {% include "blocks/footer/footer.html" %}
+{% endblock %}

@@ -1,7 +1,8 @@
 const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 const changed = require('gulp-changed');
-const fileinclude = require("gulp-file-include");
+const nunjucksRender = require('gulp-nunjucks-render');
+const frontMatter    = require('gulp-front-matter');
 
 const paths = require('../paths');
 const errorHandler = require('../errorHandler');
@@ -11,9 +12,9 @@ const errorHandler = require('../errorHandler');
 gulp.task('html', function() {
   return gulp.src(paths.source.templates + '*.html')
     .pipe(plumber({errorHandler: errorHandler}))
-    .pipe(fileinclude({
-      prefix: '@@',
-      basepath: 'app/templates'
+    .pipe(frontMatter({ property: 'data' }))
+    .pipe(nunjucksRender({
+      path: 'app/templates'
     }))
     .pipe(gulp.dest(paths.build.html));
 });
