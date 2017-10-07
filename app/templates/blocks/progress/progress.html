@@ -1,8 +1,11 @@
-@@include('blocks/_progress/list/list.html')
+{% include "blocks/progress/list/list.html" %}
 
 @@loop("blocks/_progress/list/item.html", [
   { "href": "index.html", "name": "Главная страница", "design": "100", "html": "100" }
 ])
+
+
+{% include "blocks/progress/structure/structure.html" %}
 
 @@include('blocks/_progress/structure/structure.html", {
   "git": "github.com/4enki/spt",
