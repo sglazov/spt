@@ -45,10 +45,10 @@ npm run zip
 В шаблонах работает антикэш — к ссылкам на стили и скрипты добавляется md5-хэш.
 
 ## Стили
-Верстаются в `app/styles/styles.pcss`, компилируются стили в файл `dist/assets/styles/style.css`. Для лёгкого упрощения жизни есть коллекция миксинов.
+Верстаются в `app/styles/styles.scss`, компилируются в файл `dist/assets/styles/style.css`. Для лёгкого упрощения жизни есть коллекция миксинов и несколько вспомогательных файлов.
 
 ### PostCSS-плагины и всякое
-1. [Autoprefixer](https://github.com/postcss/autoprefixer), конечно же.
+1. [Autoprefixer](https://github.com/postcss/autoprefixer) — конечно же, префиксы расставляем не руками.
 1. [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker) — группирует медиазапросы и помещает их в конец CSS документа;
 1. [PostCSS ASSETS](https://github.com/assetsjs/postcss-assets) — магия для работы с ресурсами сайта;
 1. [PostCSS Sprites](https://github.com/2createStudio/postcss-sprites) — работа со спрайтами;
@@ -61,21 +61,26 @@ npm run zip
 
 Изображения для отдельного блока размещаются в папке `app/templates/blocks/**/images/` и копируются в корень папки `dist/assets/images/` без сохранения структуры.
 
-### Вектор
-SVG-иконки собираются в папке `app/images/svg/`, в CSS так:
 
-``` css
-background-image: svg-load('name.svg', fill: #000');
-```
+<details>
+  <summary>Про вектор и растр</summary>
 
-### Растр
-PNG-иконки для спрайтов собираются в папке `app/images/sprites/`, в CSS так:
-
-``` css
-background: url('images/sprites/name.png') no-repeat 0 0;
-```
-
-Общий спрайт автоматически собирается в `dist/assets/images/sprites/`.
+  ### Вектор
+  SVG-иконки собираются в папке `app/images/svg/`, в CSS так:
+  
+  ``` css
+  background-image: svg-load('name.svg', fill: #000');
+  ```
+  
+  ### Растр
+  PNG-иконки для спрайтов собираются в папке `app/images/sprites/`, в CSS так:
+  
+  ``` css
+  background: url('images/sprites/name.png') no-repeat 0 0;
+  ```
+  
+  Общий спрайт автоматически собирается в `dist/assets/images/sprites/`.
+</details>
 
 ## Статические файлы для копирования
 Статические файлы автоматически собираются из директории `app/resources`, копируются в `dist/assets/resources/`. Структура при копировании сохраняется.
