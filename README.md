@@ -63,7 +63,7 @@ npm run zip
 
 
 <details>
-  <summary>## Про вектор и растр</summary>
+  <summary>Про вектор и растр</summary>
 
   ### Вектор
   SVG-иконки собираются в папке `app/images/svg/`, в CSS так:
