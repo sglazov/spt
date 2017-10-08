@@ -33,7 +33,10 @@ npm run zip
 ```
 
 ## Шаблонизация
-Для шаблонизации использован [Nunjucks](https://www.npmjs.com/package/gulp-nunjucks-render). Файлы разметки размещены в папке `app/templates/`, страницы размещаются в `app/templates/pages/` и состоят из блоков `app/templates/blocks/`. Системные части для страниц размещены в `app/templates/layouts`. Общие данные проекта для шаблонизатора класть в `app/templates/data/data.html`. Данные отдельной страницы указываются в начале самой страницы [между](https://github.com/4enki/spt/blob/master/app/templates/pages/index.html#L1-L6) символами `---`.
+Для шаблонизации использован [Nunjucks](https://www.npmjs.com/package/gulp-nunjucks-render). Шаблоны собираются в папке `app/templates/`, страницы размещаются в `app/templates/pages/` и состоят из блоков `app/templates/blocks/`.
+
+Системные части для страниц размещены в `app/templates/layouts`. Общие данные проекта для шаблонизатора класть в `app/templates/data/data.html`.
+Данные отдельной страницы указываются в начале самой страницы [между](https://github.com/4enki/spt/blob/master/app/templates/pages/index.html#L1-L6) символами `---`.
 
 Внутри отдельного блока размещается всё, что имеет к нему отношение — файл разметки, стили, JS, изображения.
 
