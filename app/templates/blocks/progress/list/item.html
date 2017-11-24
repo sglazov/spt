@@ -1,11 +1,12 @@
+{% macro progressitem() %}
 <li class="navigation__item">
   <div class="progress progress-link">
     <div class="url">
       <div class="url__link">
-        <a href="@@href">@@name</a>
+        <a href="{{ href }}">{{ name }}</a>
       </div><!-- /.url__link -->
       <div class="url__info">
-        <span class="url__file" title="Разметка в файле app/templates/@@href">@@href</span>
+        <span class="url__file" title="Разметка в файле app/templates/{{ href }}">{{ href }}</span>
       </div><!-- /.url__info -->
     </div><!-- /.url -->
   </div><!-- /.progress-link -->
@@ -25,3 +26,4 @@
   </div><!-- /.progress-time -->
 
 </li><!-- /.sitemap__item -->
+{% endmacro %}
