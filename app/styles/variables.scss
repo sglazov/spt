@@ -1,10 +1,9 @@
-$GeneralFontFamily: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$mainFontFamily:       -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$backgroundColor:      rgb(255, 255, 255);
 
-$BodyBackground:    rgb(255, 255, 255);
-
-$link:              #008ACE;
-$link-hover:        #CC0000;
-$link-visited:      #B40EB4;
+$linkColor:              #008ACE;
+$hoverColor:        #CC0000;
+$linkColorVisited:      #B40EB4;
 
 $SelectBackground:  rgb(255, 102, 0);
 $SelectColor:       rgb(255, 255, 255);
@@ -14,3 +13,62 @@ $PlaceholderColor:  #abb6ba;
 $sm: "only screen and (min-width: 48em)";
 $md: "only screen and (min-width: 64em)";
 $lg: "only screen and (min-width: 75em)";
+
+/*
+:root {
+    --backgroundTransparentColor: rgba(255, 255, 255, 0.8);
+    --sheetBackgroundColor: rgba(240, 240, 240, 0.8);
+    --foregroundColor: #000;
+    --thinRuleColor: rgba(0, 0, 0, 0.15);
+    -
+    --linkUnderlineColor: rgba(0, 96, 160, 0.15);
+    --: #70a0b0;
+    --linkUnderlineColorVisited: rgba(112, 160, 176, 0.15);
+
+    --hoverUnderlineColor: rgba(176, 48, 0, 0.15);
+    --tagColor: #567;
+    --tagUnderlineColor: rgba(85, 102, 119, 0.15);
+    --adminColor: #009030;
+    --adminUnderlineColor: rgba(0, 144, 48, 0.15);
+    --engineTextColor: #a0a0a0;
+    --engineTextUnderlineColor: rgba(160, 160, 160, 0.15);
+    --markedTextBackground: #fffada;
+    --markedImageBorderColor: #fff8b8;
+    --inputBackgroundColor: #f0f0f0;
+    --inputTextColor: #000;
+    --imageBorderColor: #e8e8e8;
+    --disabledColor: #cccccc;
+    --errorColor: #b03000;
+    --currentItemBackgroundColor: #e8e8e8;
+    --windowBackgroundColor: #fff;
+    --unsavedIndicatorColor: #b03000;
+    --subscribeButtonBackground: rgba(231, 231, 231, 0.8);
+    --subscribeButtonHoverBackground: rgba(212, 212, 212, 0.8);
+    --subscribeButtonTextColor: #000;
+    --marginTop: 48px;
+    --marginLeft: 9%;
+    --marginRight: 9%;
+    --marginTopCompact: 16px;
+    --marginLeftCompact: 4%;
+    --marginRightCompact: 4%;
+    --displayLogoMarginal: block;
+    --displayLogo: none;
+    --displayLogoCompact: block;
+    --columnSpacing: 15px;
+    --logoTop: -20px;
+    --blogTitleFontSize: 16px;
+    --blogTitleLineHeight: 24px;
+    --pageHeadingFontSize: 36px;
+    --pageHeadingLineHeight: 42px;
+    --noteTitleFontSize: 20px;
+    --noteTitleLineHeight: 26px;
+    --noteTitleFavouriteFontSize: 36px;
+    --noteTitleFavouriteLineHeight: 40px;
+    --noteTextFontSize: 16px;
+    --noteTextLineHeight: 24px;
+    --mainFontFamily: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    --noteMainFontFamily: inherit;
+    --smallFontFamily: inherit;
+    --time: .2s
+}
+ */

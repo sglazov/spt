@@ -1,0 +1,30 @@
+// Ссылки
+a {
+  transition: .3s ease;
+  text-decoration: none;
+  color: $linkColor;
+  border-bottom: 1px solid;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover,
+  &.hover {
+    color: $hoverColor;
+    transition: .1s ease;
+  }
+
+  &:visited {
+    color: $linkColorVisited;
+
+    &:hover {
+      color: $hoverColor;
+      transition: .1s ease;
+    }
+  }
+
+  &[href]:not([class]) {
+    color: $linkColor;
+  }
+}
