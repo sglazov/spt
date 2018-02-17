@@ -1,22 +1,14 @@
-const gutil = require('gulp-util');
+const log = require('fancy-log');
+const beeper = require('beeper');
 const chalk = require('chalk');
 
 
 module.exports = function(error) {
-	gutil.log(
+	log([
 		chalk.black.bgRed.bold(error.name + ' in ' + error.plugin)
 		+ ': ' +
 		chalk.red(error.message)
-	);
-
-	// Run with '--beep'
-	if (gutil.env.beep) {
-		gutil.beep();
-	}
-
-	// Keep gulp from hanging on this task
+  ].join('\n'));
+  beeper();
 	this.emit('end');
 };
-
-
-
