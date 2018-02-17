@@ -24,7 +24,7 @@ gulp.task('watch', function() {
     return runSequence('images', reload);
   });
   watch(paths.watch.imagesblocks, function() {
-  return runSequence('images:blocks', reload);
+    return runSequence('images:blocks', reload);
   });
   watch(paths.watch.resources, function() {
     return runSequence('resources', reload);
