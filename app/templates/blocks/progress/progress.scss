@@ -136,17 +136,5 @@
     }
   }
 
-  .pseudo {
-    color: $link;
-    border-bottom: 1px dashed rgba(0, 114, 186, .5);
-    transition: .3s ease;
-    cursor: pointer;
-
-    &:hover {
-      color: $link-hover;
-      border-bottom-color: inherit;
-    }
-  }
-
 }
 
