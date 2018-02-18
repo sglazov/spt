@@ -294,8 +294,11 @@ input::-ms-clear {
   display: none;
 }
 img {
-  width: auto 9;
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
+  width: auto\9;
+}
+[role="button"] {
+  cursor: pointer;
 }
 /* autoprefixer: on */
