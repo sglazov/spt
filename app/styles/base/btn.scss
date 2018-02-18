@@ -2,7 +2,7 @@
 a {
   transition: .3s ease;
   text-decoration: none;
-  color: $linkColor;
+  color: $link-color;
   border-bottom: 1px solid;
 
   &:focus {
@@ -11,20 +11,20 @@ a {
 
   &:hover,
   &.hover {
-    color: $hoverColor;
+    color: $link-hover-color;
     transition: .1s ease;
   }
 
   &:visited {
-    color: $linkColorVisited;
+    color: $link-visited-color;
 
     &:hover {
-      color: $hoverColor;
+      color: $link-hover-color;
       transition: .1s ease;
     }
   }
 
   &[href]:not([class]) {
-    color: $linkColor;
+    color: $link-color;
   }
 }

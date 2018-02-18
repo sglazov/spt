@@ -23,7 +23,8 @@ body {
   font-size: 16px;
   line-height: 21px;
   font-weight: 400;
-  font-family: $mainFontFamily;
+  font-family: $font-family-base;
+  color: $text-color;
 
   @include antialias;
   @include text-size-adjust(100%);
