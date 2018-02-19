@@ -1,15 +1,15 @@
 *::placeholder {
-  color: $PlaceholderColor;
+  color: $placeholder-color;
   opacity: 1;
 }
 
 *::placeholder-shown {
-  color: $PlaceholderColor;
+  color: $placeholder-color;
 }
 
 ::selection {
-  background: $SelectBackground;
-  color: $SelectColor;
+  background: $selection-bg;
+  color:      $selection-color;
 }
 
 input,

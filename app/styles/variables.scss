@@ -1,4 +1,4 @@
-$body-bg:                 rgb(255, 255, 255);
+$body-bg:                 #fff;
 $text-color:              #333333;
 
 $link-color:              #008ACE;
@@ -22,36 +22,17 @@ $font-size-h6:            ceil(($font-size-base * .85)) !default; // ~12px
 $line-height-base:        1.428571429 !default; // 20/14
 $line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
 
-$border-radius-base:      4px !default;
+$border-radius-base:      3px !default;
 
 $code-color:              #2f6f9f !default;
 $code-bg:                 #f9f2f4 !default;
 
 $hr-border:               #eee;
 
-$SelectBackground:        rgb(255, 102, 0);
-$SelectColor:             rgb(255, 255, 255);
+$selection-bg:            #FF6600;
+$selection-color:         #fff;
 
-$PlaceholderColor:  #abb6ba;
-
-
-//== Code
-//
-//##
-
-
-
-$kbd-color:                   #fff !default;
-$kbd-bg:                      #333 !default;
-
-$pre-bg:                      #f5f5f5 !default;
-$pre-color:                   #cb4b16 !default;
-$pre-border-color:            #ccc !default;
-$pre-scrollable-max-height:   340px !default;
-
-
-
-
+$placeholder-color:       #abb6ba;
 
 $sm: "only screen and (min-width: 48em)";
 $md: "only screen and (min-width: 64em)";
