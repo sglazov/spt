@@ -11,7 +11,6 @@ const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('autoprefixer');
 const postcss = require('gulp-postcss');
 const assets = require('postcss-assets');
-const sprites = require('postcss-sprites');
 const inlinesvg = require('postcss-inline-svg');
 const mqpacker = require('css-mqpacker');
 const runSequence = require('run-sequence');
@@ -33,10 +32,6 @@ const processors = [
     basePath: 'dist/',
     loadPaths: ['assets/images/']
   }),
-	sprites({
-		stylesheetPath: 'dist/assets/styles/',
-		spritePath: 'dist/assets/images/sprites/'
-	}),
   inlinesvg({path: 'dist/assets/images/svg/'}),
   mqpacker()
 ];
