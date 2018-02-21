@@ -3,32 +3,32 @@
 
 Склонировать репозиторий, перейти в созданную папку проекта, удалить скрытую папку _.git_:
 
-``` bash
+```bash
 git clone https://github.com/4enki/spt.git new-project && cd $_ && rm -rf ./.git
 ```
 
 Перед первым запуском нужно установить зависимости (_быстрее через [Yarn](https://yarnpkg.com); один раз на проект_):
 
-``` bash
+```bash
 npm/yarn install
 ```
 
 ## Режимы сборки
 Запуск живой сборки на локальном сервере:
 
-``` bash
+```bash
 npm run start
 ```
 
 Одноразовая сборка:
 
-``` bash
+```bash
 npm run one
 ```
 
 Сборка проекта и архивация в _*.zip_-архив:
 
-``` bash
+```bash
 npm run zip
 ```
 
@@ -51,7 +51,6 @@ npm run zip
 1. [Autoprefixer](https://github.com/postcss/autoprefixer) — конечно же, префиксы расставляем не руками.
 1. [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker) — группирует медиазапросы и помещает их в конец CSS документа;
 1. [PostCSS ASSETS](https://github.com/assetsjs/postcss-assets) — магия для работы с ресурсами сайта;
-1. [PostCSS Sprites](https://github.com/2createStudio/postcss-sprites) — работа со спрайтами;
 1. [Postcss Inline-SVG](https://github.com/TrySound/postcss-inline-svg) — работа с SVG;
 
 ## Графика и файлы проекта
@@ -68,14 +67,14 @@ npm run zip
   ### Вектор
   SVG-иконки собираются в папке `app/images/svg/`, в CSS так:
   
-  ``` css
+  ```css
   background-image: svg-load('name.svg', fill: #000');
   ```
   
   ### Растр
   PNG-иконки для спрайтов собираются в папке `app/images/sprites/`, в CSS так:
   
-  ``` css
+  ```css
   background: url('images/sprites/name.png') no-repeat 0 0;
   ```
   
