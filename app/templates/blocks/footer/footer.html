@@ -5,3 +5,16 @@
 
 <script src="assets/scripts/jquery-3.3.1.min.js"></script>
 <script src="assets/scripts/scripts.js"></script>
+
+<script src="//4enki.github.io/progress/progress.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function ($) {
+
+    if ($.isFunction(window.projectPagesList)) {
+      projectPagesList([
+        'index',
+      ]);
+    }
+
+  });
+</script>
