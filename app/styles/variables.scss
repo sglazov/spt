@@ -23,6 +23,11 @@ $font-size-h6:            ceil(($font-size-base * .85)) !default; // ~12px
 $line-height-base:        1.428571429 !default; // 20/14
 $line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
 
+$headings-font-family:    inherit !default;
+$headings-font-weight:    500 !default;
+$headings-line-height:    1.1 !default;
+$headings-color:          inherit !default;
+
 $border-radius-base:      3px !default;
 
 $code-color:              #2f6f9f !default;
