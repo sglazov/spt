@@ -12,7 +12,7 @@ a {
   &:hover,
   &.hover {
     color: $link-hover-color;
-    transition: .1s ease;
+    transition: .2s ease;
   }
 
   &:visited {
@@ -20,8 +20,13 @@ a {
 
     &:hover {
       color: $link-hover-color;
-      transition: .1s ease;
+      transition: .2s ease;
     }
+  }
+
+  &:active,
+  &.active {
+    color: $link-active-color;
   }
 
   &[href]:not([class]) {

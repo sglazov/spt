@@ -3,10 +3,11 @@ $text-color:              #333333;
 
 $link-color:              #008ACE;
 $link-hover-color:        #CC0000;
+$link-active-color:       #FF0000;
 $link-visited-color:      #B40EB4;
 
 $font-family-base:        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-monospace:   Menlo, Monaco, Consolas, 'Courier New', monospace !default;
 
 $font-size-base:          14px !default;
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
