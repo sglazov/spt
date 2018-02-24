@@ -23,3 +23,7 @@ input[placeholder],
 input:placeholder {
   text-overflow: ellipsis;
 }
+
+textarea {
+  hyphens: auto;
+}
