@@ -8,20 +8,23 @@ const dist = 'dist/';
 
 module.exports = {
 
-  // Исходники
+  // Пути к исходникам проекта
   source: {
     templates:       [src + 'templates/pages/'],
-    scripts:         [src + 'scripts/**/*.js', src + 'templates/**/*.js'],
+    scripts:         {
+      app:           [src + 'scripts/app/**/*.js', src + 'templates/**/*.js'],
+      vendor:        [src + 'scripts/vendor/**/*.js']
+    },
     styles:          [src + 'styles/'],
     images:          [src + 'images/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
     imagesblocks:    [src + 'templates/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
     resources:       [src + 'resources/**/*']
   },
 
-  // Для вотчеров
+  // Пути к исходникам проекта для бдительных вотчеров
   watch: {
     templates:       [src + 'templates/**/*.html'],
-    scripts:         [src + 'scripts/**/*.js', src + 'templates/**/*.js'],
+    scripts:         [src + 'scripts/app/**/*.js', src + 'scripts/vendor/**/*.js', src + 'templates/**/*.js'],
     styles:          [src + 'styles/**/*.scss', src + 'templates/**/*.scss'],
     images:          [src + 'images/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
     imagesblocks:    [src + 'templates/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
