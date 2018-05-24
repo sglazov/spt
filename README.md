@@ -54,7 +54,7 @@ npm run zip
 1. [Postcss Inline-SVG](https://github.com/TrySound/postcss-inline-svg) — работа с SVG;
 
 ## Графика и файлы проекта
-Вся графика размещается в `app/images`, собираются в `dist/assets/images/` с сохранением структуры. 
+Вся графика размещается в `app/images`, собираются в `dist/assets/images/` с сохранением структуры.
 
 В `app/images/_debug/` размещается графика для Pixel-perfect сравнения.
 
@@ -66,18 +66,18 @@ npm run zip
 
   ### Вектор
   SVG-иконки собираются в папке `app/images/svg/`, в CSS так:
-  
+
   ```css
   background-image: svg-load('name.svg', fill: #000');
   ```
-  
+
   ### Растр
   PNG-иконки для спрайтов собираются в папке `app/images/sprites/`, в CSS так:
-  
+
   ```css
   background: url('images/sprites/name.png') no-repeat 0 0;
   ```
-  
+
   Общий спрайт автоматически собирается в `dist/assets/images/sprites/`.
 </details>
 
@@ -87,7 +87,9 @@ npm run zip
 ## Скрипты
 Можно писать на es2015 — подключен и работает Babel. Включен jQuery v3.
 
-Классы для JS в разметке начинаются с символа `_`, чтобы не мешать стили и логику в одну кучу. Исходники скриптов рамещены в `app/scripts/`, компилируются в `dist/assets/scripts/scripts.js`.
+Классы для JS в разметке начинаются с символа `_`, чтобы не мешать стили и логику в одну кучу. Исходники скриптов рамещены в `app/scripts/app` и в отдельный дирректория компонентов (блоков) в `app/templates`, компилируются в `dist/assets/scripts/scripts.js`.
+
+Используемые JS-библиотеки размещаются в `app/scripts/vendor`.
 
 ## Структура папок и файлов
 ```
@@ -101,7 +103,8 @@ npm run zip
 │   ├── resources                     # Статические файлы для копирования в /dist
 │   │   └── robots.txt                # Роботс для поисковых систем
 │   ├── scripts/                      # Скрипты
-│   │   └── hover.js                  # Подсвечивает одинаковые ссылки
+│   │   ├── app/                      # базовые JS-файлы проекта
+│   │   └── vendor/                   # JS-библиотеки
 │   ├── styles/                       # Стили
 │   │   ├── _debug/                   # Стили для отладки
 │   │   │   ├── diagnostics.scss      # Быстрая диагностика
