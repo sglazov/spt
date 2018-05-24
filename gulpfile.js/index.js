@@ -1,9 +1,9 @@
 /*
-	SPT — Template for a quick start
-	Version 1.0.0
+  SPT — Template for a quick start
+  Version 1.0.0
 
-	Sergey Glazov
-	https://github.com/4enki/spt
+  Sergey Glazov
+  https://github.com/4enki/spt
 */
 const gulp = require('gulp');
 const runSequence = require('run-sequence');

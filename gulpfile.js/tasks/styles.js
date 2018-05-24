@@ -26,8 +26,8 @@ gulp.task('styles', function() {
 
 // Список PostCSS-плагинов
 const processors = [
-	autoprefixer(),
-	mqpacker(),
+  autoprefixer(),
+  mqpacker(),
   assets({
     basePath: 'dist/',
     loadPaths: ['assets/images/']
@@ -39,16 +39,16 @@ const processors = [
 // Компиляция стилей
 gulp.task('styles:build', function () {
   return gulp.src(paths.source.styles + 'style.scss')
-		.pipe(sourcemaps.init())
-		.pipe(sassGlob())
-		.pipe(sass({
-			outputStyle: 'compressed',
-			errLogToConsole: true,
-			precision: 8
-		}).on('error', errorHandler))
-		.pipe(postcss(processors))
-		.pipe(sourcemaps.write('./maps'))
-		.pipe(gulp.dest(paths.build.styles));
+    .pipe(sourcemaps.init())
+    .pipe(sassGlob())
+    .pipe(sass({
+      outputStyle: 'compressed',
+      errLogToConsole: true,
+      precision: 8
+    }).on('error', errorHandler))
+    .pipe(postcss(processors))
+    .pipe(sourcemaps.write('./maps'))
+    .pipe(gulp.dest(paths.build.styles));
 });
 
 // Линтинг стилей

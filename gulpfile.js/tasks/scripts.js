@@ -15,7 +15,7 @@ const errorHandler = require('../errorHandler');
 // Сборка и минификация скриптов
 gulp.task('scripts', function() {
     return gulp.src(paths.source.scripts)
-		.pipe(plumber({errorHandler: errorHandler}))
+    .pipe(plumber({errorHandler: errorHandler}))
         .pipe(changed(paths.build.scripts))
         .pipe(eslint.format())
         .pipe(babel())
