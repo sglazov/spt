@@ -12,6 +12,7 @@ const autoprefixer = require('autoprefixer');
 const postcss = require('gulp-postcss');
 const assets = require('postcss-assets');
 const inlinesvg = require('postcss-inline-svg');
+const flexbugs = require('postcss-flexbugs-fixes');
 const mqpacker = require('css-mqpacker');
 const runSequence = require('run-sequence');
 
@@ -33,7 +34,8 @@ const processors = [
     loadPaths: ['assets/images/']
   }),
   inlinesvg({path: 'dist/assets/images/svg/'}),
-  mqpacker()
+  mqpacker(),
+  flexbugs()
 ];
 
 // Компиляция стилей
