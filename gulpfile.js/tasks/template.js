@@ -3,6 +3,7 @@ const plumber = require('gulp-plumber');
 const changed = require('gulp-changed');
 const nunjucksRender = require('gulp-nunjucks-render');
 const frontMatter    = require('gulp-front-matter');
+// const htmlmin = require('gulp-htmlmin');
 
 const paths = require('../paths');
 const errorHandler = require('../errorHandler');
@@ -16,5 +17,10 @@ gulp.task('html', function() {
     .pipe(nunjucksRender({
       path: 'app/templates'
     }))
+//  .pipe(htmlmin({
+//    collapseWhitespace: true,
+//    minifyJS: true,
+//    removeComments: true
+//  }))
     .pipe(gulp.dest(paths.build.html));
 });
