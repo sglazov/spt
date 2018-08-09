@@ -16,7 +16,7 @@ const flexbugs = require('postcss-flexbugs-fixes');
 const mqpacker = require('css-mqpacker');
 const runSequence = require('run-sequence');
 
-const paths = require('../paths');
+const config = require('../config');
 const errorHandler = require('../errorHandler');
 
 
@@ -31,7 +31,7 @@ const processors = [
   mqpacker(),
   assets({
     basePath: 'dist/',
-    loadPaths: ['assets/images/']
+    loadconfig: ['assets/images/']
   }),
   inlinesvg({path: 'dist/assets/images/svg/'}),
   mqpacker(),
@@ -40,7 +40,7 @@ const processors = [
 
 // Компиляция стилей
 gulp.task('styles:build', function () {
-  return gulp.src(paths.source.styles + 'style.scss')
+  return gulp.src(config.source.styles + 'style.scss')
     .pipe(sourcemaps.init())
     .pipe(sassGlob())
     .pipe(sass({
@@ -50,12 +50,12 @@ gulp.task('styles:build', function () {
     }).on('error', errorHandler))
     .pipe(postcss(processors))
     .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest(paths.build.styles));
+    .pipe(gulp.dest(config.build.styles));
 });
 
 // Линтинг стилей
 gulp.task('styles:lint', function() {
-  gulp.src(paths.watch.styles)
+  gulp.src(config.watch.styles)
     .pipe(sasslint())
     .pipe(sasslint.format())
     .pipe(plumber({errorHandler: errorHandler}));

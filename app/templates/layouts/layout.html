@@ -37,10 +37,15 @@
   </head>
   <body{% if bodyclass %} class="{{ bodyclass }}"{% else %}{% endif %}>
     {% block header %}{% endblock %}
+
     <main>
       {% block content %}{% endblock %}
     </main>
+
     {% include "components/footer/footer.html" %}
+
+    <script src="assets/scripts/vendor.js"></script>
+    <script src="assets/scripts/app.js"></script>
   </body>
 </html>
 

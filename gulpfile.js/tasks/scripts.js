@@ -9,7 +9,7 @@ const uglify = require('gulp-uglify');
 const runSequence = require('run-sequence');
 
 
-const paths = require('../paths');
+const config = require('../config');
 const errorHandler = require('../errorHandler');
 
 // Сборка и минификация JS
@@ -19,24 +19,24 @@ gulp.task('scripts', function() {
 
 // Сборка и минификация (по желанию) скриптов проекта
 gulp.task('scripts:app', function() {
-  return gulp.src(paths.source.scripts.app)
+  return gulp.src(config.source.scripts.app)
     .pipe(plumber({errorHandler: errorHandler}))
-    .pipe(changed(paths.build.scripts))
+    .pipe(changed(config.build.scripts))
     .pipe(eslint.format())
     .pipe(babel())
     // .pipe(uglify())
     .pipe(concat('app.js'))
-    .pipe(gulp.dest(paths.build.scripts))
+    .pipe(gulp.dest(config.build.scripts))
 });
 
 // Сборка и минификация используемых библиотек
 gulp.task('scripts:vendor', function() {
-  return gulp.src(paths.source.scripts.vendor)
+  return gulp.src(config.source.scripts.vendor)
     .pipe(plumber({errorHandler: errorHandler}))
-    .pipe(changed(paths.build.scripts))
+    .pipe(changed(config.build.scripts))
     .pipe(eslint.format())
     .pipe(babel())
     .pipe(uglify())
     .pipe(concat('vendor.js'))
-    .pipe(gulp.dest(paths.build.scripts))
+    .pipe(gulp.dest(config.build.scripts))
 });

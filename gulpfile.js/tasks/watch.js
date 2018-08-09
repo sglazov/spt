@@ -4,29 +4,29 @@ const runSequence = require('run-sequence');
 const browserSync = require("browser-sync");
 const reload = browserSync.reload;
 
-const paths = require('../paths');
+const config = require('../config');
 
 
 /*---------- Бдительные вотчеры ----------*/
 
 // Федеральная служба по контролю за оборотом файлов
 gulp.task('watch', function() {
-  watch(paths.watch.templates, function() {
+  watch(config.watch.templates, function() {
     return runSequence('html', reload);
   });
-  watch(paths.watch.styles, function() {
+  watch(config.watch.styles, function() {
     return runSequence(['styles', 'cleancache']);
   });
-  watch(paths.watch.scripts, function() {
+  watch(config.watch.scripts, function() {
     return runSequence(['scripts', 'cleancache']);
   });
-  watch(paths.watch.images, function() {
+  watch(config.watch.images, function() {
     return runSequence('images', reload);
   });
-  watch(paths.watch.imagesblocks, function() {
+  watch(config.watch.imagesblocks, function() {
     return runSequence('images:blocks', reload);
   });
-  watch(paths.watch.resources, function() {
+  watch(config.watch.resources, function() {
     return runSequence('resources', reload);
   });
 });

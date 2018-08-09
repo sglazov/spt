@@ -5,13 +5,13 @@ const nunjucksRender = require('gulp-nunjucks-render');
 const frontMatter    = require('gulp-front-matter');
 // const htmlmin = require('gulp-htmlmin');
 
-const paths = require('../paths');
+const config = require('../config');
 const errorHandler = require('../errorHandler');
 
 
 // Шаблонизация
 gulp.task('html', function() {
-  return gulp.src(paths.source.templates + '*.html')
+  return gulp.src(config.source.templates + '*.html')
     .pipe(plumber({errorHandler: errorHandler}))
     .pipe(frontMatter({ property: 'data' }))
     .pipe(nunjucksRender({
@@ -22,5 +22,5 @@ gulp.task('html', function() {
 //    minifyJS: true,
 //    removeComments: true
 //  }))
-    .pipe(gulp.dest(paths.build.html));
+    .pipe(gulp.dest(config.build.html));
 });

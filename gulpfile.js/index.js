@@ -8,7 +8,7 @@
 const gulp = require('gulp');
 const runSequence = require('run-sequence');
 
-const paths = require('./paths')
+const config = require('./config')
 
 require('require-dir')('./tasks', {recurse: true});
 
