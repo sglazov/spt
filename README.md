@@ -33,7 +33,7 @@ npm run zip
 ```
 
 ## Шаблонизация
-Для шаблонизации использован [Nunjucks](https://www.npmjs.com/package/gulp-nunjucks-render). Шаблоны собираются в папке `app/templates/`, страницы размещаются в `app/templates/pages/` и состоят из блоков `app/templates/blocks/`.
+Для шаблонизации использован [Nunjucks](https://www.npmjs.com/package/gulp-nunjucks-render). Шаблоны собираются в папке `app/templates/`, страницы размещаются в `app/templates/pages/` и состоят из блоков `app/templates/components/`.
 
 Системные части для страниц размещены в `app/templates/layouts`. Общие данные проекта для шаблонизатора класть в `app/templates/data/data.html`.
 Данные отдельной страницы указываются в начале самой страницы [между](https://github.com/4enki/spt/blob/master/app/templates/pages/index.html#L1-L6) символами `---`.
@@ -58,7 +58,7 @@ npm run zip
 
 В `app/images/_debug/` размещается графика для Pixel-perfect сравнения.
 
-Изображения для отдельного блока размещаются в папке `app/templates/blocks/**/images/` и копируются в корень папки `dist/assets/images/` без сохранения структуры.
+Изображения для отдельного блока размещаются в папке `app/templates/components/**/images/` и копируются в корень папки `dist/assets/images/` без сохранения структуры.
 
 
 <details>
@@ -98,7 +98,6 @@ npm run zip
 │   ├── images/                       # Изображения и графика
 │   │   ├── _debug/                   # Картинки для отладки (Pixel-perfect)
 │   │   ├── i/                        # Favicons
-│   │   ├── sprites/                  # Папка PNG-иконок для генерации растрового спрайта
 │   │   └── svg/                      # SVG иконки
 │   ├── resources                     # Статические файлы для копирования в /dist
 │   │   └── robots.txt                # Роботс для поисковых систем
@@ -111,31 +110,31 @@ npm run zip
 │   │   │   └── px2px.scss            # CSS-файл Pixel-perfect
 │   │   ├── base/                     # Стандратные стили
 │   │   │   ├── default.scss          # Базовые стили
-│   │   │   ├── btn.scss              # Кнопки
 │   │   │   ├── form.scss             # Формы и элементы
+│   │   │   ├── links-and-btn.scss    # Ссылки и кнопки
 │   │   │   ├── table.scss            # Таблицы
 │   │   │   └── typo.scss             # Типографика
-│   │   ├── helpers/                  # Помощники
-│   │   │   ├── animations.scss       # Анимации
-│   │   │   ├── flexboxgrid.scss      # Сетка
-│   │   │   ├── mixins.scss           # Миксины
-│   │   │   └── normalize.scss        # Normalize
-│   │   ├── variables.scss            # Переменные
-│   │   └── style.scss                # Главный стилевой файл
-│   └── templates/                    # Шаблоны
-│       ├── blocks/                   # Блоки
-│       │   └── block/                # Блок
-│       │       ├── images            # Изображения, используемые в этом блоке
-│       │       ├── block.html        # Разметка блока
-│       │       ├── block.sсss        # Стили блока
-│       │       └── block.js          # Скрипт блока
+│   │   ├── helpers/                  # Помогаторы
+│   │   │   ├── animations.scss       # CSS-анимации
+│   │   │   ├── flexboxgrid.scss      # Flexbox Grid by https://github.com/kristoferjoseph/flexboxgrid
+│   │   │   ├── mixins.scss           # SCSS-Миксины
+│   │   │   └── normalize.scss        # Normalize.css
+│   │   ├── variables.scss            # SCSS-Переменные
+│   │   └── style.scss                # Главный стилевой файл приложения
+│   └── templates/                    # Шаблоны HTML-разметки страниц и блоков
+│       ├── components/               # Компоненты и блоки
+│       │   └── component/            # Отдельный компонент
+│       │       ├── images/           # Изображения, используемые в этом компоненте
+│       │       ├── template.html     # Разметка компонента
+│       │       ├── style.sсss        # Стили компонента
+│       │       └── script.js         # JS для компонента
 │       ├── data/                     # Данные для шаблонизатора
 │       ├── layouts/                  # Базовые блоки для общего шаблона
 │       │   ├── layout.html           # Базовая разметка шаблона документа
 │       │   ├── favicons.html         # Базовый джентльменский набор иконок всех пород и размеров
 │       │   └── social.html           # Базовый джентльменский набор OpenGraph-тегов
-│       └── pages/                    # Разметка страниц
-│           └── index.html            # Разметка стартовой страницы
+│       └── pages/                    # Страницы приложения
+│           └── index.html            # Стартовая страницы приложения
 ├── dist/                             # Сборка проекта (автогенерация)
 │   ├── assets/                       # Подключаемые ресурсы
 │   │   ├── images/                   # Изображения
@@ -145,14 +144,13 @@ npm run zip
 │   └── index.html                    # Карта сайта с прогрессом работ
 ├── gulpfile.js/                      # Конфиг Gulp.js
 │   ├── tasks/                        # Отдельные файлы с задачами
-│   ├── errorHandler.js               # Аккуратные ошибки, чтобы gulp не вылетал
+│   ├── utils/                        # Помогаторы
 │   ├── paths.js                      # Пути к ресурсам проекта
 │   └── index.js                      # Основные задачи
 ├── .editorconfig                     # Конфигурационный файл IDE
 ├── .gitignore                        # Список исключённых файлов из Git
 ├── browserslist                      # Список поддерживаемых браузеров для Автопрефиксера
-├── package.json                      # Список модулей и прочей информации для NPM
-├── yarn.lock                         # Список модулей и прочей информации для Yarn
-├── sass-lint.yml                     # Конфиг для линтинга scss
+├── package.json                      # Файл-конфиг сборщика: пакеты, скприты, выходные данные
+├── sass-lint.yml                     # Конфиг SCSS-линтера
 └── README.md                         # Документация проекта
 ```
