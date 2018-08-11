@@ -42,11 +42,10 @@ require('require-dir')('./tasks', {recurse: true});
   // Одноразовая сборка проекта без вотчеров и браузера
   gulp.task('build', function(cb) {
     return (
-      log(
-        chalk.green (
-          'Собираем сборку в окружении: ' + chalk.bold( config.env.production ? 'production' : 'development' )
-        )
-      ),
+      log( chalk.green (
+          'Собираем сборку в окружении: ' +
+          chalk.bold( config.env.production ? 'production' : 'development' )
+      ) ),
       runSequence(
         'copy',
        ['html', 'scripts', 'styles:build'],
