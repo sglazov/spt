@@ -20,16 +20,22 @@ npm/yarn install
 npm run start
 ```
 
-Одноразовая сборка:
+Одноразовая сборка в браузере, без вотчеров:
 
 ```bash
 npm run one
 ```
 
-Сборка проекта и архивация в _*.zip_-архив:
+Сборка проекта с минифицированной статикой и архивация в _*.zip_-архив:
 
 ```bash
 npm run zip
+```
+
+Сборка боевой версии проекта с минифицированной статикой:
+
+```bash
+npm run prod
 ```
 
 ## Шаблонизация
@@ -50,9 +56,9 @@ npm run zip
 
 ### PostCSS-плагины и всякое
 1. [Autoprefixer](https://github.com/postcss/autoprefixer) — конечно же, префиксы расставляем не руками.
-1. [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker) — группирует медиазапросы и помещает их в конец CSS документа;
-1. [PostCSS ASSETS](https://github.com/assetsjs/postcss-assets) — магия для работы с ресурсами сайта;
-1. [Postcss Inline-SVG](https://github.com/TrySound/postcss-inline-svg) — работа с SVG;
+2. [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker) — группирует медиазапросы и помещает их в конец CSS документа;
+3. [PostCSS ASSETS](https://github.com/assetsjs/postcss-assets) — магия для работы с ресурсами сайта;
+4. [Postcss Inline-SVG](https://github.com/TrySound/postcss-inline-svg) — работа с SVG;
 
 ## Графика и файлы проекта
 Вся графика размещается в `app/images`, собираются в `dist/assets/images/` с сохранением структуры.
