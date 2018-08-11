@@ -43,7 +43,7 @@ gulp.task('styles:build', function () {
     .pipe(sourcemaps.init())
     .pipe(sassGlob())
     .pipe(sass({
-      outputStyle: 'compressed',
+      outputStyle: config.env.production ? 'compressed' : 'expanded',
       errLogToConsole: true,
       precision: 8
     }).on('error', config.errorHandler))

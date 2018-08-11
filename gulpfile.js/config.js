@@ -2,15 +2,13 @@
    Пути к файлам, с котороыми работаем:
    сборка, исходники и файлы для watch
 */
+
+const env = require('minimist')(process.argv.slice(2));
+
 const src  = 'app/';
 const dist = 'dist/';
-// const production = util.env.production || util.env.prod || false;
-
 
 let config = {
-
-//  env:       'development',
-//  production: production,
 
   // Пути к исходникам проекта
   source: {
@@ -44,23 +42,12 @@ let config = {
     resources:       dist
   },
 
-// setEnv: function(env) {
-//  if (typeof env !== 'string') return;
-//  this.env = env;
-//  this.production = env === 'production';
-//  process.env.NODE_ENV = env;
-//},
+  errorHandler: require('./utils/errors'),
 
-//logEnv: function() {
-//  util.log(
-//    'Environment:',
-//    util.colors.white.bgRed(' ' + process.env.NODE_ENV + ' ')
-//  );
-//},
-
-  errorHandler: require('./utils/errors')
+  env: {
+    build:      !!env.build,
+    production: !!env.production
+  }
 };
-
-// config.setEnv(production ? 'production' : 'development');
 
 module.exports = config;
