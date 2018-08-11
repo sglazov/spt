@@ -1,10 +1,10 @@
-const gulp = require('gulp');
-const watch = require('gulp-watch');
+const gulp        = require('gulp');
+const watch       = require('gulp-watch');
 const runSequence = require('run-sequence');
 const browserSync = require("browser-sync");
-const reload = browserSync.reload;
+const reload      = browserSync.reload;
 
-const config = require('../config');
+const config      = require('../config');
 
 
 /*---------- Бдительные вотчеры ----------*/

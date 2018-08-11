@@ -4,9 +4,13 @@
 */
 const src  = 'app/';
 const dist = 'dist/';
+// const production = util.env.production || util.env.prod || false;
 
 
-module.exports = {
+let config = {
+
+//  env:       'development',
+//  production: production,
 
   // Пути к исходникам проекта
   source: {
@@ -38,5 +42,25 @@ module.exports = {
     styles:          dist + 'assets/styles',
     images:          dist + 'assets/images',
     resources:       dist
-  }
+  },
+
+// setEnv: function(env) {
+//  if (typeof env !== 'string') return;
+//  this.env = env;
+//  this.production = env === 'production';
+//  process.env.NODE_ENV = env;
+//},
+
+//logEnv: function() {
+//  util.log(
+//    'Environment:',
+//    util.colors.white.bgRed(' ' + process.env.NODE_ENV + ' ')
+//  );
+//},
+
+  errorHandler: require('./utils/errors')
 };
+
+// config.setEnv(production ? 'production' : 'development');
+
+module.exports = config;

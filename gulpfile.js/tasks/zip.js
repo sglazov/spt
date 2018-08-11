@@ -1,9 +1,7 @@
-const gulp = require('gulp');
-const zip = require('gulp-zip');
-const chalk = require('chalk');
-const log = console.log;
-
-const config = require('../config');
+const gulp    = require('gulp');
+const zip     = require('gulp-zip');
+const chalk   = require('chalk');
+const log     = console.log;
 
 const package = require('../../package.json');
 
@@ -12,6 +10,7 @@ const package = require('../../package.json');
 const correctNumber = function correctNumber(number) {
   return number < 10 ? '0' + number : number;
 };
+
 // Сегодня сейчас
 const getDateTime = function getDateTime() {
   const now = new Date();
@@ -27,7 +26,7 @@ const getDateTime = function getDateTime() {
 gulp.task('build-zip', function() {
   let prjName = 'dist';
   let rootFolderName = package.name;
-  if (!rootFolderName || typeof rootFolderName === 'string') {
+  if ( !rootFolderName || typeof rootFolderName === 'string' ) {
     prjName = rootFolderName;
   }
   const datetime = '-' + getDateTime();

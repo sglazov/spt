@@ -1,5 +1,5 @@
-const gulp = require('gulp');
-const portfinder = require('portfinder');
+const gulp        = require('gulp');
+const portfinder  = require('portfinder');
 const browserSync = require("browser-sync");
 
 

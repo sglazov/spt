@@ -1,4 +1,4 @@
-const gulp = require('gulp');
+const gulp   = require('gulp');
 const deploy = require('gulp-gh-pages');
 
 
