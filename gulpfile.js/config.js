@@ -45,8 +45,8 @@ let config = {
   errorHandler: require('./utils/errors'),
 
   env: {
-    build:      !!env.build,
-    production: !!env.production
+    development: !!env.development,
+    production:  !!env.production
   }
 };
 
