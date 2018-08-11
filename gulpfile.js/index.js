@@ -5,10 +5,10 @@
   Sergey Glazov
   https://github.com/4enki/spt
 */
-const gulp = require('gulp');
+const gulp        = require('gulp');
 const runSequence = require('run-sequence');
 
-const config = require('./config')
+const config      = require('./config')
 
 require('require-dir')('./tasks', {recurse: true});
 
@@ -19,7 +19,7 @@ require('require-dir')('./tasks', {recurse: true});
   gulp.task('default', function(cb) {
     return runSequence(
       'copy',
-      ['html', 'scripts', 'styles'],
+     ['html', 'scripts', 'styles'],
       'watch',
       'cleancache',
       'server',
@@ -31,7 +31,7 @@ require('require-dir')('./tasks', {recurse: true});
   gulp.task('one', function(cb) {
     return runSequence(
       'copy',
-      ['html', 'scripts', 'styles'],
+     ['html', 'scripts', 'styles'],
       'server',
       cb
     );
@@ -42,7 +42,7 @@ require('require-dir')('./tasks', {recurse: true});
     return runSequence(
       'cleanup',
       'copy',
-      ['html', 'scripts', 'styles'],
+     ['html', 'scripts', 'styles'],
       'build-zip',
       'cleanup',
       cb

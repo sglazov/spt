@@ -1,6 +1,6 @@
-const log = require('fancy-log');
+const log    = require('fancy-log');
 const beeper = require('beeper');
-const chalk = require('chalk');
+const chalk  = require('chalk');
 
 
 module.exports = function(error) {
