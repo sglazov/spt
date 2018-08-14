@@ -1,6 +1,7 @@
 .DS_Store
 .idea
 .vscode
+.publish
 Thumbs.db
 
 dist

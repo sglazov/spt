@@ -55,6 +55,16 @@ require('require-dir')('./tasks', {recurse: true});
   });
 
   // Одноразовая сборка проекта в *.zip-архив в корне проекта
+  gulp.task('deploy', function(cb) {
+    return runSequence(
+      'cleanup',
+      'build',
+      'push',
+      cb
+    );
+  });
+
+  // Одноразовая сборка проекта в *.zip-архив в корне проекта
   gulp.task('zip', function(cb) {
     return runSequence(
       'cleanup',

@@ -1,8 +1,8 @@
-const gulp   = require('gulp');
-const deploy = require('gulp-gh-pages');
+const gulp    = require('gulp');
+const ghPages = require('gulp-gh-pages');
 
 
-gulp.task('deploy', function () {
+gulp.task('push', function () {
   return gulp.src("dist/**/*")
-    .pipe(deploy())
+    .pipe(ghPages())
 });
