@@ -1,7 +1,7 @@
 const gulp         = require('gulp');
+const gulpif      = require('gulp-if');
 const plumber      = require('gulp-plumber');
 // const changed   = require('gulp-changed');
-// const rename    = require('gulp-rename');
 
 const sass         = require('gulp-sass');
 const sassGlob     = require('gulp-sass-glob');
@@ -21,7 +21,7 @@ const config       = require('../config');
 
 // Стили
 gulp.task('styles', function() {
-  return runSequence('styles:build', 'styles:lint');
+  return runSequence(['styles:build', 'styles:lint']);
 });
 
 // Список PostCSS-плагинов
@@ -32,7 +32,9 @@ const processors = [
     basePath: 'dist/',
     loadconfig: ['assets/images/']
   }),
-  inlinesvg({path: 'dist/assets/images/svg/'}),
+  inlinesvg({
+    path: 'dist/assets/images/svg/'
+  }),
   mqpacker(),
   flexbugs()
 ];
@@ -40,7 +42,7 @@ const processors = [
 // Компиляция стилей
 gulp.task('styles:build', function () {
   return gulp.src(config.source.styles + 'style.scss')
-    .pipe(sourcemaps.init())
+    .pipe(gulpif(config.env.development, sourcemaps.init()))
     .pipe(sassGlob())
     .pipe(sass({
       outputStyle: config.env.production ? 'compressed' : 'expanded',
@@ -48,7 +50,7 @@ gulp.task('styles:build', function () {
       precision: 8
     }).on('error', config.errorHandler))
     .pipe(postcss(processors))
-    .pipe(sourcemaps.write('./maps'))
+    .pipe(gulpif(config.env.development, sourcemaps.write('./maps')))
     .pipe(gulp.dest(config.build.styles));
 });
 

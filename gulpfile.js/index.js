@@ -23,8 +23,8 @@ require('require-dir')('./tasks', {recurse: true});
       'copy',
      ['html', 'scripts', 'styles'],
       'watch',
-      'cleancache',
       'server',
+      'cleancache',
       cb
     );
   });

@@ -14,8 +14,8 @@ let config = {
   source: {
     templates:       [src + 'templates/pages/'],
     scripts:         {
-      app:           [src + 'scripts/app/**/*.js', src + 'templates/**/*.js'],
-      vendor:        [src + 'scripts/vendor/**/*.js']
+      app:           [src + 'scripts/app/app.js'],
+      vendor:        [src + 'scripts/vendor/vendor.js'],
     },
     styles:          [src + 'styles/'],
     images:          [src + 'images/**/*.+(jpg|jpeg|png|svg|gif|ico)'],

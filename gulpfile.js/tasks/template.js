@@ -1,8 +1,9 @@
 const gulp           = require('gulp');
+const gulpif         = require('gulp-if');
 const plumber        = require('gulp-plumber');
 const nunjucksRender = require('gulp-nunjucks-render');
 const frontMatter    = require('gulp-front-matter');
-// const htmlmin     = require('gulp-htmlmin');
+const htmlmin        = require('gulp-htmlmin');
 // const changed     = require('gulp-changed');
 
 const config         = require('../config');
@@ -16,10 +17,11 @@ gulp.task('html', function() {
     .pipe(nunjucksRender({
       path: 'app/templates'
     }))
-//  .pipe(htmlmin({
-//    collapseWhitespace: true,
-//    minifyJS: true,
-//    removeComments: true
-//  }))
+    .pipe(gulpif(config.env.production, htmlmin({
+      collapseWhitespace: true,
+      ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[\s\S]*?\?>/ ],
+      minifyJS: false,
+      removeComments: true
+    })))
     .pipe(gulp.dest(config.build.html));
 });
