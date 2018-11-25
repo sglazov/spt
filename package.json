@@ -13,7 +13,7 @@
     "email": "github@4enki.ru"
   },
   "scripts": {
-    "start": "gulp",
+    "start": "gulp --development",
     "one": "gulp one",
     "zip": "gulp zip --production",
     "prod": "gulp build --production",
