@@ -1,23 +1,36 @@
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="{{ og_url }}" />
-  <meta property="og:locale" content="ru_RU" />
-  <meta property="og:title" content="{{ og_title }}"/>
-  <meta property="og:description" content="{{ og_description }}" />
-  <meta property="og:image" content="{{ og_image }}" />
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+{% set og_image            = "/assets/images/i/og.png" %}
+{% set og_url              = "" %}
+{% set og_title            = ""  %}
+{% set og_sitename         = ""  %}
+{% set og_description      = "" %}
 
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:title" content="{{ twitter_title }}" />
+{% set twitter_image       = og_image %}
+{% set twitter_url         = og_url %}
+{% set twitter_title       = og_title %}
+{% set twitter_description = og_description %}
+
+  <meta property="og:type"             content="website" /> <!--для главной страницы -->
+  <meta property="og:type"             content="article">   <!-- для внутренней страницы; см. https://www.ruogp.me/#types -->
+  <meta property="og:url"              content="{{ og_url }}" />
+  <meta property="og:locale"           content="ru_RU" />
+  <meta property="og:site_name"        content="{{ og_sitename }}" />
+  <meta property="og:title"            content="{{ og_title }}"/>
+  <meta property="og:description"      content="{{ og_description }}" />
+  <meta property="og:image"            content="{{ og_image }}" />
+  <meta property="og:image:type"       content="image/png">
+  <meta property="og:image:width"      content="1200" />
+  <meta property="og:image:height"     content="630" />
+
+  <meta property="twitter:card"        content="summary_large_image" />
+  <meta property="twitter:title"       content="{{ twitter_title }}" />
   <meta property="twitter:description" content="{{ twitter_description }}" />
-  <meta property="twitter:image" content="{{ twitter_image }}" />
-  <meta property="twitter:url" content="{{ twitter_url }}" />
-  <meta property="twitter:site" content="@username" />
-  <meta property="twitter:creator" content="@username" />
+  <meta property="twitter:image"       content="{{ twitter_image }}" />
+  <meta property="twitter:url"         content="{{ twitter_url }}" />
+  <meta property="twitter:site"        content="@username" />
+  <meta property="twitter:creator"     content="@username" />
 
-  <meta itemprop="name" content="{{ og_sitename }}"/>
-  <meta itemprop="description" content="{{ og_description }}"/>
-  <meta itemprop="image" content="{{ og_image }}" />
+  <meta itemprop="name"                content="{{ og_sitename }}"/>
+  <meta itemprop="description"         content="{{ og_description }}"/>
+  <meta itemprop="image"               content="{{ og_image }}" />
 
-  <link rel="image_src" href="{{ og_image }}" />
+  <link rel="image_src"                href="{{ og_image }}" />

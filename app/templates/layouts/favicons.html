@@ -21,6 +21,10 @@
   <link rel="shortcut icon" href="{{ pathicons }}/favicon.ico" type="image/x-icon" />
   <link rel="icon" href="{{ pathicons }}/favicon.ico" type="image/x-icon" />
 
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ pathicons }}/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ pathicons }}/favicon-32x32.png">
+  <link rel="mask-icon" href="{{ pathicons }}/safari-pinned-tab.svg" color="{{ brandcolor }}">
+
   <meta name="msapplication-square70x70logo" content="{{ pathicons }}/smalltile.png" />
   <meta name="msapplication-square150x150logo" content="{{ pathicons }}/mediumtile.png" />
   <meta name="msapplication-wide310x150logo" content="{{ pathicons }}/widetile.png" />
@@ -28,8 +32,9 @@
 
   <meta name="theme-color" content="{{ brandcolor }}" />
 
+  <meta name=”apple-mobile-web-app-status-bar-style” content=”{{ brandcolor }}”>
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="">
 
   <meta name="application-name" content="" />
   <meta name="msapplication-tooltip" content="" />
@@ -37,3 +42,9 @@
   <meta name="msapplication-starturl" content="" />
   <meta name="msapplication-tap-highlight" content="no" />
   <meta name="msapplication-TileImage" content="{{ pathicons }}/ms-icon-144x144.png" />
+
+  <link rel="manifest" href="/manifest.json"/>
+  <meta name="msapplication-config" content="/browserconfig.xml" />
+  <meta name="yandex-tableau-widget" content="logo={{ pathicons }}/widetile.png, color={{ brandcolor }}" />
+
+  <link type="text/plain" rel="author" href="/humans.txt" />

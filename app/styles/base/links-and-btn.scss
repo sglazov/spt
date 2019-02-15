@@ -33,3 +33,20 @@ a {
     color: $link-color;
   }
 }
+
+// Кнопки
+button[disabled=disabled],
+button:disabled,
+.button:disabled,
+.button.disabled {
+  cursor: not-allowed;
+  //pointer-events: none;
+  color: rgb(173, 177, 185);
+  background-color: rgb(247, 247, 248);
+  border-color: rgb(214, 218, 221);
+}
+
+button,
+button.button {
+  cursor: pointer;
+}

@@ -1,7 +1,8 @@
 {
   "lang": "ru",
   "short_name": "SPT",
-  "name": "A template for a quick start",
+  "name": "Start Project Template",
+  "description": "A template for a quick start",
   "start_url": "/?utm_source=homescreen&utm_medium=pwa-icon",
   "theme_color": "#ffffff",
   "background_color": "#FFFFFF",

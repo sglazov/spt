@@ -1,0 +1,18 @@
+/* TEAM */
+  Author:
+  Site:
+  Instagram:
+  Mail:
+  Location:
+
+  Developer: Sergey Glazov
+  Site:      https://4enki.ru
+  Mail:      github@4enki.ru
+  Github:    https://github.com/4enki
+  Location:  Russia
+
+/* SITE */
+  CMS:
+  Language:
+  Environment: HTML, CSS, JavaScript
+  Software:
