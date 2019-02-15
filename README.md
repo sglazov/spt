@@ -126,6 +126,7 @@ npm run prod
 │   │   │   ├── flexboxgrid.scss      # Flexbox Grid by https://github.com/kristoferjoseph/flexboxgrid
 │   │   │   ├── mixins.scss           # SCSS-Миксины
 │   │   │   └── normalize.scss        # Normalize.css
+│   │   ├── libs/                     # CSS-библиотеки
 │   │   ├── variables.scss            # SCSS-Переменные
 │   │   └── style.scss                # Главный стилевой файл приложения
 │   └── templates/                    # Шаблоны HTML-разметки страниц и блоков
@@ -139,6 +140,7 @@ npm run prod
 │       ├── layouts/                  # Базовые блоки для общего шаблона
 │       │   ├── layout.html           # Базовая разметка шаблона документа
 │       │   ├── favicons.html         # Базовый джентльменский набор иконок всех пород и размеров
+│       │   ├── svg.symbols.html      # SVG-символы
 │       │   └── social.html           # Базовый джентльменский набор OpenGraph-тегов
 │       └── pages/                    # Страницы приложения
 │           └── index.html            # Стартовая страницы приложения

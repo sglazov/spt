@@ -1,3 +1,4 @@
 # Browserslist config for autoprefixer
 # https://github.com/ai/browserslist
+last 1 version
 > 1%

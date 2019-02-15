@@ -1,10 +1,3 @@
-.hide,
-[hide]
-.hidden,
-.is-hide {
-  @include hidden;
-}
-
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);

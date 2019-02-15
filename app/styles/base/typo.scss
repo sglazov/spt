@@ -1,3 +1,10 @@
+.hide,
+[hide],
+.hidden,
+.is-hide {
+  @include hidden;
+}
+
 // адаптивный видео-блок
 .video-container {
   position: relative;
@@ -80,6 +87,11 @@ h6, .h6 { font-size: $font-size-h6; }
 
 p {
   margin: 0 0 ($line-height-computed / 2);
+
+  &:empty {
+    margin: 0;
+    display: none;
+  }
 }
 
 // Отступы
@@ -99,4 +111,14 @@ code {
   color: $code-color;
   background-color: $code-bg;
   border-radius: $border-radius-base;
+}
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.float-left { float: left; }
+.float-right { float: right; }
+
+mark {
+  background-color: #fff9cd;
 }
