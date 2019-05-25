@@ -1,22 +1,21 @@
 @mixin antialias {
-	font-smoothing: antialiased;
-	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	 -webkit-font-smoothing: antialiased;
+   	       font-smoothing: antialiased;
 }
 
 @mixin text-size-adjust($value: none) {
   -webkit-text-size-adjust: $value;
-  -moz-text-size-adjust: $value;
-  -ms-text-size-adjust: $value;
+     -moz-text-size-adjust: $value;
+      -ms-text-size-adjust: $value;
 }
 
-// Сlear: fix
 @mixin cf() {
   *zoom: 1;
 
   &:before,
   &:after {
-    content: " ";
+    content: '';
     display: table;
   }
 
@@ -39,15 +38,21 @@
 }
 
 // ellipsis
-@mixin truncate($truncation-boundary) {
-  max-width: $truncation-boundary;
+@mixin text-overflow($max-width) {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: $max-width;
 }
 
-// hidden
 @mixin hidden {
 	display: none !important;
 	visibility: hidden !important;
+}
+
+@mixin retina {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+         only screen and (min-device-pixel-ratio: 2) {
+           @content;
+         }
 }

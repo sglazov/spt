@@ -1,3 +1,8 @@
+@import "normalize.scss";
+@import "mixins.scss";
+@import "flexboxgrid.scss";
+@import "animations.scss";
+
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -21,6 +26,14 @@
 
 .invisible {
   visibility: hidden;
+}
+
+.hide,
+[hide],
+.hidden,
+[hidden],
+.is-hide {
+  @include hidden;
 }
 
 .svg-symbols {
