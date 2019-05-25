@@ -1,7 +1,7 @@
 # Шаблон проекта для быстрого старта
 Шаблон помогает быстро начать вёрстку проекта.
 
-Склонировать репозиторий в папку `new-project`, перейти в созданную папку проекта, удалить скрытую папку _.git_:
+Склонировать репозиторий в папку `new-project`, перейти в созданную папку проекта, удалить скрытую папку `.git`:
 
 ```bash
 git clone https://github.com/4enki/spt.git new-project && cd $_ && rm -rf ./.git
@@ -13,52 +13,58 @@ git clone https://github.com/4enki/spt.git new-project && cd $_ && rm -rf ./.git
 npm/yarn install
 ```
 
-## Режимы сборки
-Запуск живой сборки на локальном сервере:
 
+## Режимы сборки
+Запуск живой сборки локально:
 ```bash
-npm run start
+yarn start
 ```
 
-Одноразовая сборка в браузере, без вотчеров:
-
+Одноразовая сборка в браузер, без вотчеров:
 ```bash
-npm run one
+yarn one
 ```
 
 Сборка проекта с минифицированной статикой и архивация в _*.zip_-архив:
-
 ```bash
-npm run zip
+yarn zip
 ```
 
-Сборка боевой версии проекта с минифицированной статикой:
-
+Сборка прод-версии проекта с минифицированной статикой:
 ```bash
-npm run prod
+yarn prod
 ```
+
 
 ## Шаблонизация
-Для шаблонизации использован [Nunjucks](https://www.npmjs.com/package/gulp-nunjucks-render). Шаблоны собираются в папке `app/templates/`, страницы размещаются в `app/templates/pages/` и состоят из компонентов (блоков) `app/templates/components/`.
+Для шаблонизации использован [Nunjucks](https://www.npmjs.com/package/gulp-nunjucks-render). Файлы разметки живут в папке `app/templates/`, страницы размещаются в `app/templates/pages/` и состоят из компонентов _(= блоков)_ `app/templates/components/`.
 
-Системные части для страниц размещены в `app/templates/layouts`. Общие данные проекта для шаблонизатора класть в `app/templates/data/data.html`.
+Системные части страниц размещены в `app/templates/layouts`. Общие данные проекта для шаблонизатора класть в `app/templates/data/data.html`.
 
 Данные отдельной страницы указываются в начале самой страницы [между символами](https://github.com/4enki/spt/blob/master/app/templates/pages/index.html#L1-L6) `---`.
 
-Внутри дирректории отдельного компонента размещается всё, что имеет к нему отношение — файл разметки, стили, JS, изображения.
+Внутри дирректории отдельного компонента размещается всё, что имеет к нему отношение — файл разметки (`*.html`), стили (`*.scss`), JS, изображения в отдельной папке `images/`.
 
-Готовые страницы компилируются в корень папки `dist/`.
+Готовые страницы компилируются в корень папки `dist/*`.
 
-В шаблонах работает антикэш — к ссылкам на стили и скрипты добавляется md5-хэш.
+В шаблонах работает антикэш — к ссылкам на стили и скрипты добавляется хэш.
+
 
 ## Стили
-Верстаются в `app/styles/styles.scss` и в отдельном компоненте `app/templates/components/`, компилируются в файл `dist/assets/styles/style.css`. Для лёгкого упрощения жизни есть коллекция миксинов и несколько вспомогательных файлов.
+Препроцессор — [SASS](https://sass-scss.ru/) + чуть-чуть PostCSS. Базовые стили инклюдятся в файле `app/styles/styles.scss`.
 
-### PostCSS-плагины и всякое
+Файлы стилей отдельного компонента размещены внутри папки компонента и собираются в базовый файл: `app/templates/**/*.scss`.
+
+CSS компилируются в файл `dist/assets/styles/style.css`.
+
+Для лёгкого упрощения жизни есть коллекция миксинов и несколько вспомогательных файлов и PostCSS-плагины.
+
+### PostCSS-плагины всякие
 1. [Autoprefixer](https://github.com/postcss/autoprefixer) — конечно же, префиксы расставляем не руками.
-2. [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker) — группирует медиазапросы и помещает их в конец CSS документа;
+2. [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker) — группирует медиазапросы и помещает их в конец CSS документа; не забывайте о том, что `@media`-запросы можно вкладывать друг в друга. Даже в чистом CSS.
 3. [PostCSS ASSETS](https://github.com/assetsjs/postcss-assets) — магия для работы с ресурсами сайта;
 4. [Postcss Inline-SVG](https://github.com/TrySound/postcss-inline-svg) — работа с SVG;
+
 
 ## Графика и файлы проекта
 Вся графика размещается в `app/images`, собираются в `dist/assets/images/` с сохранением структуры.
@@ -67,32 +73,25 @@ npm run prod
 
 Изображения для отдельного блока размещаются в папке `app/templates/components/**/images/` и копируются в корень папки `dist/assets/images/` без сохранения структуры.
 
+Для сжатия изрбражений рекомендуется [Squoosh](https://squoosh.app/).
 
 <details>
-  <summary>Про вектор и растр</summary>
+  <summary>Про SVG-иконки</summary>
 
-  ### Вектор
-  SVG-иконки собираются в папке `app/images/svg/`, в CSS так:
+  ### SVG
+  SVG-иконки собираются в папке и подпапках внутри `app/images/svg/` по смыслу:
 
-  ```css
-  background-image: svg-load('name.svg', fill: #000');
-  ```
+  Для использования в CSS использовать [URL-encoder for SVG](https://yoksel.github.io/url-encoder/) от прекрасной @yoksel.
 
-  ### Растр
-  PNG-иконки для спрайтов собираются в папке `app/images/sprites/`, в CSS так:
-
-  ```css
-  background: url('images/sprites/name.png') no-repeat 0 0;
-  ```
-
-  Общий спрайт автоматически собирается в `dist/assets/images/sprites/`.
+  И не забывать про [SVGOMG](https://jakearchibald.github.io/svgomg/).
 </details>
 
 ## Статические файлы для копирования
 Статические файлы автоматически собираются из директории `app/resources`, копируются в `dist/assets/resources/`. Структура при копировании сохраняется.
 
+
 ## Скрипты
-Можно писать на es2015 — подключен и работает Babel. Включен jQuery v3.
+Можно писать на es2016 — подключен и работает Babel. В SPT есть jQuery v3.
 
 Классы для JS в разметке начинаются с символа `_`, чтобы не мешать стили и логику в одну кучу. Исходники скриптов рамещены в `app/scripts/app/modules` и в отдельный дирректория компонентов в `app/templates/*`, компилируются в `dist/assets/scripts/app.js`.
 
@@ -101,11 +100,11 @@ npm run prod
 ## Структура папок и файлов
 ```
 ├── design                            # Дизайн, макеты и всякое
-├── app/                              # Исходники
+├── app/                              # Исходники проекта
 │   ├── images/                       # Изображения и графика
 │   │   ├── _debug/                   # Картинки для отладки (Pixel-perfect)
-│   │   ├── i/                        # Favicons
-│   │   └── svg/                      # SVG иконки
+│   │   ├── i/                        # Зоопарк для Favicons
+│   │   └── svg/                      # SVG-иконки
 │   ├── resources                     # Статические файлы для копирования в /dist
 │   │   └── robots.txt                # Роботс для поисковых систем
 │   ├── scripts/                      # Скрипты
