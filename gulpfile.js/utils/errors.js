@@ -5,10 +5,12 @@ const chalk  = require('chalk');
 
 module.exports = function(error) {
   log([
-    chalk.black.bgRed.bold(error.name + ' in ' + error.plugin)
+    chalk.white.bgRed.bold(error.name + ' in ' + error.plugin)
     + ': ' +
     chalk.red(error.message)
-  ].join('\n'));
+    + '\n' +
+    chalk.white.bgRed.bold(error.fileName)
+  ].join('\n\n'));
   beeper();
   this.emit('end');
 };
