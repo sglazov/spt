@@ -2,9 +2,9 @@
 
    utils.picture('/path-to/picture', 'Альт-текст изображения')
 #}
-{% macro picture(src, alt, no-webp) %}
+{% macro picture(src, alt, noWebp) %}
 <picture class="picture" title="{{alt}}">
-  {% if not(no-webp) %}
+  {% if not(noWebp) %}
   <source
     class="picture__media"
     type="image/webp"
@@ -27,13 +27,13 @@
 {% endmacro %}
 
 
-{% macro video-youtube(youtube-id) %}
+{% macro videoyoutube(youtubeId) %}
 <!-- begin .video-container -->
 <div class="video-container">
   <iframe
     width="100%"
     height="100%"
-    src="https://www.youtube.com/embed/{{youtube-id}}"
+    src="https://www.youtube.com/embed/{{youtubeId}}"
     frameborder="0"
     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen></iframe>
