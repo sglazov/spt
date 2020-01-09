@@ -3,7 +3,7 @@
   Version 1.0.0
 
   Sergey Glazov
-  https://github.com/4enki/spt
+  https://github.com/sglazov/spt
 */
 const gulp        = require('gulp');
 const runSequence = require('run-sequence');
