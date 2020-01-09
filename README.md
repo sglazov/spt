@@ -4,7 +4,7 @@
 Склонировать репозиторий в папку `new-project`, перейти в созданную папку проекта, удалить скрытую папку `.git`:
 
 ```bash
-git clone https://github.com/4enki/spt.git new-project && cd $_ && rm -rf ./.git
+git clone https://github.com/sglazov/spt.git new-project && cd $_ && rm -rf ./.git
 ```
 
 Перед первым запуском нужно установить зависимости (_быстрее через [Yarn](https://yarnpkg.com); один раз на проект_):
@@ -41,7 +41,7 @@ yarn prod
 
 Системные части страниц размещены в `app/templates/layouts`. Общие данные проекта для шаблонизатора класть в `app/templates/data/data.html`.
 
-Данные отдельной страницы указываются в начале самой страницы [между символами](https://github.com/4enki/spt/blob/master/app/templates/pages/index.html#L1-L6) `---`.
+Данные отдельной страницы указываются в начале самой страницы [между символами](https://github.com/sglazov/spt/blob/master/app/templates/pages/index.html#L1-L6) `---`.
 
 Внутри дирректории отдельного компонента размещается всё, что имеет к нему отношение — файл разметки (`*.html`), стили (`*.scss`), JS, изображения в отдельной папке `images/`.
 
