@@ -1,52 +1,65 @@
-// Ссылки
+// links
 a {
-  transition: .3s ease;
+  transition: var(--global-transition-time) var(--global-transition-rule);
   text-decoration: none;
-  color: $link-color;
-  border-bottom: 1px solid;
-
-  &:focus {
-    outline: none;
-  }
+  color: var(--link-color);
+  border-bottom: 1px solid var(--link-border-color);
 
   &:hover,
   &.hover {
-    color: $link-hover-color;
-    transition: .2s ease;
-  }
-
-  &:visited {
-    color: $link-visited-color;
-
-    &:hover {
-      color: $link-hover-color;
-      transition: .2s ease;
-    }
+    color: var(--link-hover-color);
+    border-bottom-color: var(--link-hover-border-color);
   }
 
   &:active,
   &.active {
-    color: $link-active-color;
+    color: var(--link-active-color);
+    border-bottom-color: var(--link-active-border-color);
+  }
+
+  &:visited,
+  &.visited {
+    color: var(--link-visited-color);
+    border-bottom-color: var(--link-visited-border-color);
+
+    &:hover {
+      color: var(--link-hover-color);
+      border-bottom-color: var(--link-hover-border-color);
+    }
   }
 
   &[href]:not([class]) {
-    color: $link-color;
+    color: var(--link-color);
+    border-bottom: 1px solid var(--link-border-color);
   }
 }
 
-// Кнопки
-button[disabled=disabled],
-button:disabled,
-.button:disabled,
-.button.disabled {
-  cursor: not-allowed;
-  //pointer-events: none;
-  color: rgb(173, 177, 185);
-  background-color: rgb(247, 247, 248);
-  border-color: rgb(214, 218, 221);
-}
-
-button,
-button.button {
+.pseudolink {
+  transition: var(--global-transition-time) var(--global-transition-rule);
+  color: var(--link-color);
+  border-bottom: 1px dashed var(--link-border-color);
   cursor: pointer;
+
+  &:hover,
+  &.hover {
+    color: var(--link-hover-color);
+    border-bottom-color: var(--link-hover-border-color);
+  }
+
+  &:active,
+  &.active {
+    color: var(--link-active-color);
+    border-bottom-color: var(--link-active-border-color);
+  }
+
+  &:visited,
+  &.visited {
+    color: var(--link-visited-color);
+    border-bottom-color: var(--link-visited-border-color);
+
+    &:hover {
+      color: var(--link-hover-color);
+      border-bottom-color: var(--link-hover-border-color);
+    }
+  }
 }

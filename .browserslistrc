@@ -1,4 +1,7 @@
 # Browserslist config for autoprefixer
 # https://github.com/ai/browserslist
-last 1 version
+
+last 2 version
 > 1%
+not dead
+not ie <= 11
