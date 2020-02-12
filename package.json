@@ -19,6 +19,7 @@
     "zip": "gulp zip --production",
     "prod": "gulp build --production",
     "deploy": "gulp deploy --production",
+    "yaspeller": "yaspeller app",
     "gulp": "node ./node_modules/gulp/bin/gulp.js"
   },
   "devDependencies": {
@@ -64,6 +65,7 @@
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-inline-svg": "^4.1.0",
     "require-dir": "1.2.0",
-    "run-sequence": "^2.2.0"
+    "run-sequence": "^2.2.0",
+    "yaspeller": "^6.0.2"
   }
 }
