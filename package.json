@@ -65,18 +65,5 @@
     "postcss-inline-svg": "^4.1.0",
     "require-dir": "1.2.0",
     "run-sequence": "^2.2.0"
-  },
-  "eslintConfig": {
-    "parserOptions": {
-      "ecmaVersion": 6
-    },
-    "env": {
-      "browser": true,
-      "es6": true
-    },
-    "rules": {
-      "semi": 2
-    }
-  },
-  "sasslintConfig": "sass-lint.yml"
+  }
 }
