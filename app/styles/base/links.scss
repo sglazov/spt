@@ -1,0 +1,52 @@
+// Ссылки
+a {
+  transition: .3s ease;
+  text-decoration: none;
+  color: $link-color;
+  border-bottom: 1px solid;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover,
+  &.hover {
+    color: $link-hover-color;
+    transition: .2s ease;
+  }
+
+  &:visited {
+    color: $link-visited-color;
+
+    &:hover {
+      color: $link-hover-color;
+      transition: .2s ease;
+    }
+  }
+
+  &:active,
+  &.active {
+    color: $link-active-color;
+  }
+
+  &[href]:not([class]) {
+    color: $link-color;
+  }
+}
+
+// Кнопки
+button[disabled=disabled],
+button:disabled,
+.button:disabled,
+.button.disabled {
+  cursor: not-allowed;
+  //pointer-events: none;
+  color: rgb(173, 177, 185);
+  background-color: rgb(247, 247, 248);
+  border-color: rgb(214, 218, 221);
+}
+
+button,
+button.button {
+  cursor: pointer;
+}

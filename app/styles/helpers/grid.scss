@@ -1,0 +1,10 @@
+.wrap {
+  max-width: var(--base-max-width, 1200px);
+  margin: 0 auto;
+
+  @each $devide-width in $xs, $sm, $md {
+    @media #{$devide-width} {
+      padding: 0 var(--base-padding-horisontal, 20px);
+    }
+  }
+}
