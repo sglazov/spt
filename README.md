@@ -1,42 +1,45 @@
 # Шаблон проекта для быстрого старта
-Шаблон помогает быстро начать вёрстку проекта.
+Gulp-шаблон помогает быстро начать вёрстку проекта.
 
 ## С чего начать?
-
 1. Склонировать репозиторий в папку `new-project`, перейти в созданную папку проекта, удалить скрытую папку `.git`:
-    ```console
-    git clone https://github.com/sglazov/spt.git new-project && cd $_ && rm -rf ./.git
-    ```
+   ```console
+   git clone https://github.com/sglazov/spt.git new-project && cd $_ && rm -rf ./.git
+   ```
 
-2. Перед первым запуском нужно установить зависимости (_быстрее через [Yarn](https://yarnpkg.com); один раз на проект_):
+1. Перед первым запуском нужно установить зависимости; один раз на проект:
+   ```console
+   npm install / yarn
+   ```
 
-```console
-npm install / yarn
-```
-
+1. Начать работу с файла `app/templates/pages/index.html`.
 
 ## Режимы сборки
 Запуск живой сборки локально:
 ```console
 npm run start
 ```
-`npm run dev` — просто синоним и забота, чтобы не ожибаться;
+`npm run dev` — просто синоним и забота, чтобы не ошибаться;
 
 Одноразовая сборка в браузер, без вотчеров:
 ```console
-yarn one
+npm run one
 ```
 
 Сборка проекта с минифицированной статикой и архивация в _*.zip_-архив:
 ```console
-yarn zip
+npm run zip
 ```
 
 Сборка прод-версии проекта с минифицированной статикой:
 ```console
-yarn prod
+npm run prod
 ```
 
+Если работа происходит с кодом на GitHub _(вы сейчас здесь)_ — можно собрать и закоммитить в ветку `gh-pages` одной командой:
+```console
+npm run deploy
+```
 
 ## Шаблонизация
 Для шаблонизации использован [Nunjucks](https://www.npmjs.com/package/gulp-nunjucks-render). Файлы разметки живут в папке `app/templates/`, страницы размещаются в `app/templates/pages/` и состоят из компонентов _(= блоков)_ `app/templates/components/`.
