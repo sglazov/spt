@@ -4,7 +4,7 @@ Gulp-шаблон помогает быстро начать вёрстку пр
 ## С чего начать?
 1. Склонировать репозиторий в папку `new-project`, перейти в созданную папку проекта, удалить скрытую папку `.git`:
    ```console
-   git clone https://github.com/sglazov/spt.git new-project && cd $_ && rm -rf ./.git
+   git clone https://github.com/sglazov/spt.git new-project && cd $_ && rm -rf .git
    ```
 
 1. Перед первым запуском нужно установить зависимости; один раз на проект:
