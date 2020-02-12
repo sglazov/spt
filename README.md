@@ -1,37 +1,39 @@
 # Шаблон проекта для быстрого старта
 Шаблон помогает быстро начать вёрстку проекта.
 
-Склонировать репозиторий в папку `new-project`, перейти в созданную папку проекта, удалить скрытую папку `.git`:
+## С чего начать?
 
-```bash
-git clone https://github.com/sglazov/spt.git new-project && cd $_ && rm -rf ./.git
-```
+1. Склонировать репозиторий в папку `new-project`, перейти в созданную папку проекта, удалить скрытую папку `.git`:
+    ```console
+    git clone https://github.com/sglazov/spt.git new-project && cd $_ && rm -rf ./.git
+    ```
 
-Перед первым запуском нужно установить зависимости (_быстрее через [Yarn](https://yarnpkg.com); один раз на проект_):
+2. Перед первым запуском нужно установить зависимости (_быстрее через [Yarn](https://yarnpkg.com); один раз на проект_):
 
-```bash
-npm/yarn install
+```console
+npm install / yarn
 ```
 
 
 ## Режимы сборки
 Запуск живой сборки локально:
-```bash
-yarn start
+```console
+npm run start
 ```
+`npm run dev` — просто синоним и забота, чтобы не ожибаться;
 
 Одноразовая сборка в браузер, без вотчеров:
-```bash
+```console
 yarn one
 ```
 
 Сборка проекта с минифицированной статикой и архивация в _*.zip_-архив:
-```bash
+```console
 yarn zip
 ```
 
 Сборка прод-версии проекта с минифицированной статикой:
-```bash
+```console
 yarn prod
 ```
 
@@ -98,6 +100,9 @@ CSS компилируются в файл `dist/assets/styles/style.css`.
 Используемые JS-библиотеки размещаются в `app/scripts/vendor/libs`, компилируются в `dist/assets/scripts/vendor.js`.
 
 ## Структура папок и файлов
+<details>
+  <summary>Показать стуктуру папок и файлов</summary>
+
 ```
 ├── design                            # Дизайн, макеты и всякое
 ├── app/                              # Исходники проекта
@@ -162,3 +167,4 @@ CSS компилируются в файл `dist/assets/styles/style.css`.
 ├── sass-lint.yml                     # Конфиг SCSS-линтера
 └── README.md                         # Документация проекта
 ```
+</details>

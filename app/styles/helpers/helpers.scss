@@ -1,45 +1,11 @@
-@import "normalize.scss";
-@import "mixins.scss";
-@import "flexboxgrid.scss";
+$enable-normalize: true !default;
+
+@if $enable-normalize {
+  @import "normalize.scss";
+}
+
+@import "grid";
+@import "svg";
+
+@import "accessibility.scss";
 @import "animations.scss";
-
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-
-  &.focusable:active,
-  &.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
-  }
-}
-
-.invisible {
-  visibility: hidden;
-}
-
-.hide,
-[hide],
-.hidden,
-[hidden],
-.is-hide {
-  @include hidden;
-}
-
-.svg-symbols {
-  position: absolute;
-  visibility: hidden;
-  width: 0;
-  height: 0;
-  opacity: 0;
-}
