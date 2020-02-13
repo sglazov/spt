@@ -10,7 +10,7 @@ const runSequence = require('run-sequence');
 const chalk       = require('chalk');
 const log         = console.log;
 
-const config      = require('./config')
+const config      = require('./config');
 
 require('require-dir')('./tasks', {recurse: true});
 

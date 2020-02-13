@@ -6,9 +6,9 @@
   Location:
 
   Developer: Sergey Glazov
-  Site:      https://4enki.ru
-  Mail:      github@4enki.ru
-  Github:    https://github.com/4enki
+  Site:      https://sglazov.ru
+  Mail:      github@sglazov.ru
+  Github:    https://github.com/sglazov
   Location:  Russia
 
 /* SITE */
