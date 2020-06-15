@@ -1,0 +1,38 @@
+.avatar {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 50%;
+  overflow: hidden;
+
+  &__photo {
+    vertical-align: top;
+    background-color: #dce2e3;
+    background-image: #a5b2b8;
+  }
+
+  &__dummy {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #dce2e3;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  &:hover::after {
+    display: block;
+  }
+}

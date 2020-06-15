@@ -1,0 +1,15 @@
+$global-font-path : '../fonts/';
+$font-path : '';
+$font-name : '';
+
+// Пример подключения шрифта
+@font-face {
+  font-display: swap;
+  font-family: $font-name;
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url('#{$global-font-path}#{$font-path}.woff2') format('woff2'),
+    url('#{$global-font-path}#{$font-path}.woff') format('woff');
+  //unicode-range: U+; // опционлально
+}

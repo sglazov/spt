@@ -1,32 +1,30 @@
-const gulp        = require('gulp');
-const watch       = require('gulp-watch');
-const runSequence = require('run-sequence');
-const browserSync = require("browser-sync");
-const reload      = browserSync.reload;
+/**
+ * Федеральная служба по контролю за оборотом файлов
+ */
 
-const config      = require('../config');
+const { watch, series } = require('gulp');
+const { reload } = require('./server');
+
+const scss = require('./scss');
+const template = require('./template');
+const { copy_resources, copy_php, copy_fonts } = require('./copy');
+const images = require('./images');
+const svg_symbols = require('./svg-symbols');
+
+const config = require('../config');
 
 
-/*---------- Бдительные вотчеры ----------*/
+function watcher() {
+  watch(config.watch.templates, series(template, reload));
+  watch(config.watch.styles, series(scss, reload));
+  watch(config.watch.scripts, reload);
 
-// Федеральная служба по контролю за оборотом файлов
-gulp.task('watch', function() {
-  watch(config.watch.templates, function() {
-    return runSequence('html', reload);
-  });
-  watch(config.watch.styles, function() {
-    return runSequence(['styles', 'cleancache']);
-  });
-  watch(config.watch.scripts, function() {
-    return runSequence(['scripts', 'cleancache']);
-  });
-  watch(config.watch.images, function() {
-    return runSequence('images', reload);
-  });
-  watch(config.watch.imagesblocks, function() {
-    return runSequence('images:blocks', reload);
-  });
-  watch(config.watch.resources, function() {
-    return runSequence('resources', reload);
-  });
-});
+  watch(config.src.resources, series(copy_resources, reload));
+  watch(config.src.php, series(copy_php, reload));
+  watch(config.src.fonts, series(copy_fonts, reload));
+
+  watch(config.src.images, series(images, reload));
+  watch(config.src.svg_symbols, series(svg_symbols, reload));
+}
+
+module.exports = watcher;

@@ -1,0 +1,24 @@
+*::placeholder {
+  color: $placeholder-color;
+  opacity: 1;
+}
+
+*::placeholder-shown {
+  color: $placeholder-color;
+}
+
+input,
+textarea,
+button {
+  font-family: $font-family-base;
+  outline: none;
+}
+
+input[placeholder],
+input:placeholder {
+  text-overflow: ellipsis;
+}
+
+textarea {
+  hyphens: auto;
+}

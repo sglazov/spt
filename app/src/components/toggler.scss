@@ -1,0 +1,118 @@
+.toggler {
+  position: relative;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer
+}
+
+.toggler__label {
+  position: relative;
+  font-size: 15px;
+  line-height: 20px
+}
+
+.toggler__label:first-child {
+  padding-right: 20px
+}
+
+.toggler__label:last-child {
+  padding-left: 20px
+}
+
+.toggler__label .explain {
+  margin-left: 2px;
+  position: relative;
+  top: 1px
+}
+
+.toggler__widget {
+  position: relative;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  display: block;
+  width: 30px;
+  height: 20px;
+  cursor: pointer
+}
+
+.toggler__checkbox {
+  opacity: 0
+}
+
+.toggler__background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #d5e4ea;
+  border-radius: 10px;
+  transition: background-color .2s cubic-bezier(0.075, 0.82, 0.165, 1)
+}
+
+.toggler__checkbox:focus~.toggler__background {
+  outline: auto
+}
+
+.toggler__handler {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: #FFF;
+  background-image: linear-gradient(#FFF,#F5F8F9);
+  box-shadow: 0 1px 3px rgba(0,0,0,.15);
+  border-radius: 50%;
+  transition: left .2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden
+}
+
+.toggler__checkbox:checked~.toggler__background {
+  background-color: #1dc044
+}
+
+.toggler__checkbox:checked~.toggler__handler {
+  left: 10px
+}
+
+.toggler:hover .toggler__background {
+  background-color: #bed3df
+}
+
+.toggler:hover .toggler__checkbox:checked~.toggler__background {
+  background-color: #80e1a2
+}
+
+.toggler--disabled {
+  cursor: default
+}
+
+.toggler--disabled .toggler__label {
+  color: #97B1BF
+}
+
+.toggler--disabled .toggler__widget {
+  cursor: default
+}
+
+.toggler--disabled .toggler__background,.toggler--disabled:hover .toggler__background {
+  background-color: #eef4f6
+}
+
+.toggler--disabled .toggler__checkbox:checked~.toggler__background {
+  background-color: #80e1a2
+}
+
+.toggler--disabled .toggler__handler {
+  background-image: none;
+  box-shadow: none
+}

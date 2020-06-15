@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 30 40">
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#FFF" fill-opacity=".35" fill-rule="nonzero" d="M22 10h8L20 0v8c0 1.1.9 2 2 2z"/>
+    <polygon fill="#FFF" fill-rule="nonzero" points="20 10 30 10 20 0" transform="rotate(-180 25 5)"/>
+  </g>
+</svg>

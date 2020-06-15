@@ -1,53 +1,76 @@
-/*
-   Пути к файлам, с котороыми работаем:
-   сборка, исходники и файлы для watch
+/**
+ *
+ * Пути к файлам, с котороыми работаем:
+ *
 */
-
 const env = require('minimist')(process.argv.slice(2));
 
-const src  = 'app/';
-const dist = 'dist/';
+const src     = './app/src/';
+const dist    = './app/public_html/';
+const assets  = dist + 'assets/';
 
-let config = {
+const reports = dist + './__reports/';
 
-  // Пути к исходникам проекта
-  source: {
-    templates:       [src + 'templates/pages/'],
-    scripts:         {
-      app:           [src + 'scripts/app/app.js'],
-      vendor:        [src + 'scripts/vendor/vendor.js'],
-    },
-    styles:          [src + 'styles/'],
-    images:          [src + 'images/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
-    imagesblocks:    [src + 'templates/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
-    resources:       [src + 'resources/**/*']
+const images = '*.+(jpg|jpeg|png|gif|ico|webp|svg)';
+const fonts = '*.{woff,woff2,ttf,eot,svg}';
+
+const config = {
+  // Сорсмапы
+  maps: './maps',
+
+  root: './app',
+
+  // Шаблоны
+  templates: {
+    path : src
   },
 
-  // Пути к исходникам проекта для бдительных вотчеров
-  watch: {
-    templates:       [src + 'templates/**/*.html'],
-    scripts:         [src + 'scripts/app/**/*.js', src + 'scripts/vendor/**/*.js', src + 'templates/**/*.js'],
-    styles:          [src + 'styles/**/*.scss', src + 'templates/**/*.scss'],
-    images:          [src + 'images/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
-    imagesblocks:    [src + 'templates/**/*.+(jpg|jpeg|png|svg|gif|ico)'],
-    resources:       [src + 'resources/**/*.*']
+  reports: {
+    scss : reports + 'stylelint'
   },
+
+  // Где исходники
+  src: {
+    pages       : [src + 'pages/**/*.html'],
+    templates   : [src + '**/*.html'],
+    styles      : [src + 'styles/*.scss'],
+    scripts     : [src + 'scripts/app.js'],
+    resources   : [src + 'resources/**/*.*'],
+    images      : [src + 'images/**/' + images, src + 'components/**/' + images, '!' + src + 'images/svg-symbols/**/*.svg'],
+    svg_symbols : [src + 'images/svg-symbols/**/*.svg', '!' + src + 'images/svg-symbols/templates/*'],
+    php         : [src + 'php/**/*.*'],
+    fonts       : [src + 'fonts/**/' + fonts]
+  },
+
 
   // Куда всё собирать-то?
   build: {
-    html:            dist,
-    scripts:         dist + 'assets/scripts',
-    styles:          dist + 'assets/styles',
-    images:          dist + 'assets/images',
-    resources:       dist
+    root    : dist,
+    assets  : assets,
+    styles  : assets + 'styles',
+    scripts : assets + 'scripts',
+    images  : assets + 'images',
+    svg     : src + 'templates/svg',
+    fonts   : assets + 'fonts',
+    php     : dist + 'php'
   },
 
-  errorHandler: require('./utils/errors'),
+  // Наблюдаем за изменением файлов
+  watch: {
+    templates : [src + 'pages/**/*.html', src + 'components/**/*.html', src + 'layouts/**/*.html'],
+    styles    : [src + 'styles/**/*.scss', src + 'components/**/*.scss'],
+    scripts   : [src + 'scripts/**/*.js', src + 'components/**/*.js'],
+  },
 
+
+  // Окружения
   env: {
-    development: !!env.development,
-    production:  !!env.production
-  }
+    development : !!env.development,
+    production  : !!env.production
+  },
+
+  error_handler: require('./utils/error'),
 };
+
 
 module.exports = config;

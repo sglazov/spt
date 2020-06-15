@@ -1,0 +1,11 @@
+{
+  "extends": "stylelint-config-sass-guidelines",
+  "ignoreFiles": [
+    "app/src/styles/vendor/**/*.*",
+    "app/src/styles/_diagnostics-and-debug/**/*.*"
+  ],
+  "rules": {
+    "string-quotes": "single",
+    "scss/dollar-variable-colon-space-before": "always"
+  }
+}

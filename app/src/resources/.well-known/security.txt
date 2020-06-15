@@ -1,0 +1,4 @@
+Contact:             mailto:github@sglazov.ru
+Canonical:           /.well-known/security.txt
+Team info:           /humans.txt
+Preferred-Languages: en, ru

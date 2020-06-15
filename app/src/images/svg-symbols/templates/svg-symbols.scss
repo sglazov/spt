@@ -1,0 +1,11 @@
+<% _.forEach( icons, function( icon ){ %>
+$svg-<%= icon.id %>-width  : <%= icon.width %>;
+$svg-<%= icon.id %>-height : <%= icon.height %>;
+<% }); %>
+
+<% _.forEach( icons, function( icon ){ %>
+.symbol-<%= icon.id %> {
+  width: $svg-<%= icon.id %>-width;
+  height: $svg-<%= icon.id %>-height;
+}
+<%= icon.style %><% }); %>

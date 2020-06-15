@@ -1,0 +1,17 @@
+<title>
+  {% if title %}
+    {{ title }}
+  {% else %}
+    {{ global.title }}
+  {% endif %}
+</title>
+
+{% if description %}
+  <meta name="description"
+        content="{{ description }}"/>
+{% endif %}
+
+{% if keywords %}
+  <meta name="keywords"
+        content="{{ keywords }}"/>
+{% endif %}

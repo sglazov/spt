@@ -1,0 +1,30 @@
+{% import "./utils/globals.html" as global %}
+{% import "./utils/utils.html" as utils %}
+
+<!DOCTYPE html>
+  <html lang="ru" class="no-js">
+  <head>
+    {% include "./head/head.html" %}
+  </head>
+  <body{% if bodyclass %} class="{{ bodyclass }}"{% else %}{% endif %}>
+    <a class="skip-link" href="#main" tabindex="0">Перейти к основному контенту</a>
+    <!-- begin .wrap-overlay -->
+    <div class="wrap-overlay"></div>
+    <!-- end .wrap-overlay -->
+
+    {% include "components/header/header.html" %}
+    {% block header %}{% endblock %}
+
+    <main id="main" class="main">
+      {% block content %}{% endblock %}
+    </main>
+
+    {% block footer %}{% endblock %}
+
+    {% include "components/footer/footer.html" %}
+
+    {% include "./parts/svg-symbols.html" %}
+
+    <script src="assets/scripts/app.bundle.js" async></script>
+  </body>
+</html>

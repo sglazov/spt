@@ -1,0 +1,39 @@
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+
+  &.focusable:active,
+  &.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.skip-link {
+  padding: 16px 16px;
+  background-color: $light-color;
+  position: fixed;
+  left: 50%;
+  margin-right: -50%;
+  transform: translateY(-100%) translateX(-50%);
+  transition: transform 0.35s ease;
+
+  &:focus {
+    transform: translateY(0%) translateX(-50%);
+    z-index: map-get($z-index, navigation);
+  }
+}

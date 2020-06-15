@@ -1,0 +1,11 @@
+::selection {
+  background: var(--selection-bg-color);
+  color: var(--selection-text-color);
+}
+
+.disable-selection {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}

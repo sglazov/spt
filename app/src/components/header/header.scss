@@ -1,0 +1,16 @@
+.header {
+  border-bottom: 2px solid $light-color;
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+    padding: $space 0;
+
+    justify-content: space-between;
+
+    @include bp(phone) {
+      flex-direction: column;
+    }
+  }
+}

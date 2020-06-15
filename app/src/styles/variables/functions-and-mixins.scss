@@ -1,0 +1,54 @@
+@mixin antialias {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+@mixin text-size-adjust($value: none) {
+  -webkit-text-size-adjust: $value;
+  -moz-text-size-adjust: $value;
+  -ms-text-size-adjust: $value;
+}
+
+@function rem($value) {
+  $rem : $value / $font-size-base;
+  @return #{$rem}rem;
+}
+
+@function up($selector) {
+  $elementList : nth($selector, 1);
+  $elements : length($elementList);
+
+  @if $elements > 1 {
+    $parentElement : nth($elementList, 1);
+    @return $parentElement;
+  } @else {
+    @return null;
+  }
+}
+
+@mixin size($width, $height: $width) {
+  height: $height;
+  width: $width;
+}
+
+// Псевдо-элементы
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+// ellipsis
+@mixin text-overflow($max-width) {
+  max-width: $max-width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+

@@ -1,0 +1,24 @@
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  display: flex;
+  align-items: center;
+  align-content: flex-start;
+
+  &__item {
+    display: inline-flex;
+  }
+
+  &__link {
+    padding: $space;
+    text-decoration: none;
+    border-bottom: 0;
+
+    // активный пункт меню
+    &_active {
+      font-weight: bold;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{% set logo_href   = "/" %}
+{% set logo_alt    = "Логотип" %}
+{% set logo_src    = "" %}
+{% set logo_width  = "" %}
+{% set logo_height = "" %}
+
+<header class="header">
+  <div class="header__wrap wrap">
+    <div class="header__logo logo">
+      <a class="logo__link"
+         {% if not(active_page == 'index') %}href="{{ logo_href }}"{% endif %}>
+        <img class="logo__symbol"
+             alt="{{ logo_alt }}"
+             src="{{ logo_src }}"
+             width="{{ logo_width }}"
+             height="{{ logo_height }}">
+      </a>
+    </div><!-- /.logo -->
+    <nav class="header__navigation navigation">
+      <button class="menu-toggle"
+              aria-label="Открыть меню"
+              aria-expanded="true"
+              aria-controls="menu"
+              type="button"><span class="menu-toggle__inner">Открыть меню</span></button>
+      {% include "components/menu/menu.html" %}
+    </nav><!-- /.navigation -->
+  </div><!-- /.header__wrap -->
+</header>

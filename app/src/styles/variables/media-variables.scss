@@ -1,0 +1,51 @@
+$phone     : 'only screen and (max-width: 575px)';
+$phablet   : 'only screen and (min-width: 576px) and (max-width: 767px)';
+$tablet    : 'only screen and (min-width: 768px) and (max-width: 991px)';
+$tablet-lg : 'only screen and (min-width: 992px) and (max-width: 1199px)';
+$laptop    : 'only screen and (min-width: 1025px) and (max-width: 1280px)';
+$desktop   : 'only screen and (min-width: 1281px)';
+
+@mixin bp($point: null) {
+  @if $point == phone {
+    @media #{$phone} {
+      @content;
+    }
+  }
+  @if $point == phablet {
+    @media #{$phablet} {
+      @content;
+    }
+  }
+  @if $point == tablet {
+    @media #{$tablet} {
+      @content;
+    }
+  }
+  @if $point == tablet-lg {
+    @media #{$tablet-lg} {
+      @content;
+    }
+  }
+  @if $point == laptop {
+    @media #{$laptop} {
+      @content;
+    }
+  }
+  @if $point == desktop {
+    @media #{$desktop} {
+      @content;
+    }
+  }
+
+  @if $point == retina {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+      @content;
+    }
+  }
+}
+
+//@each $media in $phone, $phablet {
+//  @media #{$media} {
+//    ...
+//  }
+//}

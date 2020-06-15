@@ -1,77 +1,62 @@
-/*
-  SPT — Template for a quick start
-  Version 1.0.0
-
-  Sergey Glazov
-  https://github.com/sglazov/spt
+/**
+ * SPT — Template for a quick start
+ *
+ * Sergey Glazov, sglazov@sglazov.ru
+ * https://github.com/sglazov/spt
 */
-const gulp        = require('gulp');
-const runSequence = require('run-sequence');
-const chalk       = require('chalk');
-const log         = console.log;
 
-const config      = require('./config');
+const { parallel, series } = require('gulp');
 
-require('require-dir')('./tasks', {recurse: true});
+const { copy } = require('./tasks/copy');
+const images = require('./tasks/images');
+const svg_symbols = require('./tasks/svg-symbols');
+const scripts = require('./tasks/scripts');
+const scss = require('./tasks/scss');
+const template = require('./tasks/template');
+const watcher = require('./tasks/watch');
+const { serve } = require('./tasks/server');
+const clean = require('./tasks/clean');
+const zip = require('./tasks/zip');
 
 
-/*---------- Режимы запуска ----------*/
+// дефолтная дев-сборка
+exports.default = series(
+  svg_symbols,
+  parallel(
+    copy,
+    images
+  ),
+  parallel(
+    template,
+    scss,
+  ),
+  parallel(
+    serve,
+    scripts,
+    watcher
+  )
+);
 
-  // Запуск живой сборки
-  gulp.task('default', function(cb) {
-    return runSequence(
-      'copy',
-     ['html', 'scripts', 'styles'],
-      'watch',
-      'server',
-      'cleancache',
-      cb
-    );
-  });
+// одноразовая сборка без вотчера и сервера
+exports.build = series(
+  svg_symbols,
+  parallel(
+    copy, images
+  ),
+  scripts,
+  scss,
+  template
+);
 
-  // Одноразовая сборка проекта в браузер
-  gulp.task('one', function(cb) {
-    return runSequence(
-      'copy',
-     ['html', 'scripts', 'styles:build'],
-      'server',
-      cb
-    );
-  });
-
-  // Одноразовая сборка проекта без вотчеров и браузера
-  gulp.task('build', function(cb) {
-    return (
-      log( chalk.green (
-          'Собираем сборку в окружении: ' +
-          chalk.bold( config.env.production ? 'production' : 'development' )
-      ) ),
-      runSequence(
-        'copy',
-       ['html', 'scripts', 'styles:build'],
-        cb
-      )
-    );
-  });
-
-  // Одноразовая сборка проекта в *.zip-архив в корне проекта
-  gulp.task('deploy', function(cb) {
-    return runSequence(
-      'cleanup',
-      'build',
-      'push',
-      cb
-    );
-  });
-
-  // Одноразовая сборка проекта в *.zip-архив в корне проекта
-  gulp.task('zip', function(cb) {
-    return runSequence(
-      'cleanup',
-      'copy',
-     ['html', 'scripts', 'styles:build'],
-      'build-zip',
-      'cleanup',
-      cb
-    );
-  });
+//
+exports.zip = series(
+  clean,
+  svg_symbols,
+  copy,
+  images,
+  scripts,
+  scss,
+  template,
+  zip,
+  clean
+);

@@ -1,0 +1,69 @@
+@import 'constants';
+@import 'media-variables';
+@import 'functions-and-mixins';
+@import 'z-index';
+
+$spacers_enable      : true !default;
+
+$space : 16px !global;
+
+$global-font-size    : 16px !global;
+$global-font-family  : $_FONT_FAMILY !global;
+
+$brand-color         : $_BRAND-COLOR !global;
+$brand-color-opacity : transparentize($brand-color, 0.65) !global;
+
+$light-color         : #f5f9fa !global;
+
+$links-opacity       : 0.35; // = 100% - 65% = 35%
+
+$link-color : #0078ff;
+$link-color-opacity : transparentize($link-color, $links-opacity);
+
+$link-color-hover : #cc0000;
+$link-color-hover-opacity : transparentize($link-color-hover, $links-opacity);
+
+$link-color-active : #ff0000;
+$link-color-active-opacity : transparentize($link-color-active, $links-opacity);
+
+$link-color-visited : #b40eb4;
+$link-color-visited-opacity : transparentize($link-color-visited, $links-opacity);
+
+$border-radius : 4px;
+
+html {
+  --global-bg: transparent;
+
+  --global-transition-time: 0.5s;
+  --global-transition-rule: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  --font-size-base: #{$global-font-size};
+  --line-height-base: 1.42857143;
+  --text-color: #000;
+
+  --link-color: #{$link-color};
+  --link-border-color: #{$link-color-opacity};
+
+  --link-hover-color: #{$link-color-hover};
+  --link-hover-border-color: #{$link-color-hover-opacity};
+
+  --link-active-color: #{$link-color-active};
+  --link-active-border-color: #{$link-color-active-opacity};
+
+  --link-visited-color: #{$link-color-visited};
+  --link-visited-border-color: #{$link-color-visited-opacity};
+
+  --base-focus: 4px solid var(--link-color);
+  --selection-bg-color: var(--link-color);
+  --selection-text-color: #fff;
+
+  --font-family-base: #{$global-font-family};
+  --base-max-width: 1200px;
+
+  //@each $devide-width in $xs, $sm, $md {
+  //  @media #{$devide-width} {
+  //    --max-width: none;
+  //    --font-size-base: 16px;
+  //  }
+  //}
+}

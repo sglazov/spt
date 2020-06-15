@@ -1,0 +1,12 @@
+@charset 'utf-8';
+
+$styles_debug : false;
+
+@import 'variables/variables';
+@import 'layout/index';
+
+@import 'helpers/index';
+@import 'components/index';
+
+@import '../components/**/*.scss'; // стили компонентов
+@import '../templates/**/*.scss';  // стили в шаблонах

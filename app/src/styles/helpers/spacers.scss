@@ -1,0 +1,17 @@
+// stylelint-disable declaration-no-important
+
+$spacers: (0, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 120);
+
+@if $spacers_enable {
+  @each $space in $spacers {
+    @each $side in (top, bottom, left, right) {
+      .m#{str-slice($side, 0, 1)}-#{$space} {
+        margin-#{$side}: #{$space}px !important;
+      }
+
+      .p#{str-slice($side, 0, 1)}-#{$space} {
+        padding-#{$side}: #{$space}px !important;
+      }
+    }
+  }
+}

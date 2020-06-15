@@ -1,0 +1,25 @@
+{% if global.og_description %}
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ global.og_url }}" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:title" content="{{ global.og_title }}" />
+<meta property="og:description" content="{{ global.og_description }}" />
+<meta property="og:image" content="{{ global.og_image }}" />
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="{{ global.twitter_title }}" />
+<meta property="twitter:description" content="{{ global.twitter_description }}" />
+<meta property="twitter:image" content="{{ global.twitter_image }}" />
+<meta property="twitter:url" content="{{ global.twitter_url }}" />
+<meta property="twitter:site" content="{{ global.twitter_nickname }}" />
+<meta property="twitter:creator" content="{{ global.twitter_nickname }}" />
+
+<meta itemprop="name" content="{{ global.og_sitename }}"/>
+<meta itemprop="description" content="{{ global.og_description }}"/>
+<meta itemprop="image" content="{{ global.og_image }}" />
+
+<link rel="image_src" href="{{ global.og_image }}" />
+{% endif %}

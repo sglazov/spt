@@ -1,0 +1,44 @@
+{% if global.app_url %}
+<link sizes="57x57"   href="{{ global.favicons_path }}/apple-icon-57x57.png"   rel="apple-touch-icon" />
+<link sizes="60x60"   href="{{ global.favicons_path }}/apple-icon-60x60.png"   rel="apple-touch-icon" />
+<link sizes="72x72"   href="{{ global.favicons_path }}/apple-icon-72x72.png"   rel="apple-touch-icon" />
+<link sizes="76x76"   href="{{ global.favicons_path }}/apple-icon-76x76.png"   rel="apple-touch-icon" />
+<link sizes="114x114" href="{{ global.favicons_path }}/apple-icon-114x114.png" rel="apple-touch-icon" />
+<link sizes="120x120" href="{{ global.favicons_path }}/apple-icon-120x120.png" rel="apple-touch-icon" />
+<link sizes="144x144" href="{{ global.favicons_path }}/apple-icon-144x144.png" rel="apple-touch-icon" />
+<link sizes="152x152" href="{{ global.favicons_path }}/apple-icon-152x152.png" rel="apple-touch-icon" />
+<link sizes="180x180" href="{{ global.favicons_path }}/apple-icon-180x180.png" rel="apple-touch-icon" />
+<link href="{{ global.favicons_path }}/apple-icon-152x152.png" rel="apple-touch-icon" />
+
+<link sizes="192x192" href="{{ global.favicons_path }}/favicon-192x192.png" rel="icon" type="image/png" />
+<link sizes="160x160" href="{{ global.favicons_path }}/favicon-160x160.png" rel="icon" type="image/png" />
+<link sizes="96x96"   href="{{ global.favicons_path }}/favicon-96x96.png"   rel="icon" type="image/png" />
+<link sizes="32x32"   href="{{ global.favicons_path }}/favicon-32x32.png"   rel="icon" type="image/png" />
+<link sizes="16x16"   href="{{ global.favicons_path }}/favicon-16x16.png"   rel="icon" type="image/png" />
+
+<link rel="shortcut icon" href="{{ global.favicons_path }}/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="{{ global.favicons_path }}/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="{{ global.favicons_path }}/favicon.png" type="image/png" />
+
+<meta name="msapplication-square70x70logo" content="{{ global.favicons_path }}/smalltile.png" />
+<meta name="msapplication-square150x150logo" content="{{ global.favicons_path }}/mediumtile.png" />
+<meta name="msapplication-wide310x150logo" content="{{ global.favicons_path }}/widetile.png" />
+<meta name="msapplication-square310x310logo" content="{{ global.favicons_path }}/largetile.png" />
+
+<meta name="theme-color" content="{{ global.brand_color }}" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="application-name"            content="{{ global.og_title }}" />
+<meta name="msapplication-tooltip"       content="{{ global.og_description }}" />
+<meta name="msapplication-TileColor"     content="{{ global.brand_color }}" />
+<meta name="msapplication-starturl"      content="{{ global.app_url }}" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="msapplication-TileImage"     content="{{ global.favicons_path }}//ms-icon-144x144.png" />
+
+<link rel="manifest" href="/manifest.json"/>
+<meta name="msapplication-config" content="/browserconfig.xml" />
+
+<link type="text/plain" rel="author" href="/humans.txt" />
+{% endif %}

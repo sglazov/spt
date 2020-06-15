@@ -1,9 +1,0 @@
-@charset "utf-8";
-
-@import "base/variables"; // переменные
-
-@import "helpers/helpers";   // помогаторы
-
-@import "base/base";
-
-@import "../templates/blocks/**/*.scss";  // Блоки

@@ -1,0 +1,16 @@
+.wrap {
+  margin: 0 auto;
+  max-width: var(--base-max-width, 1240px);
+
+  @each $media in $phone, $phablet {
+    @media #{$media} {
+      padding: 0 var(--base-padding-horisontal, 20px);
+    }
+  }
+}
+
+.wrap-fluid {
+  width: auto;
+  max-width: none;
+  padding: 0;
+}

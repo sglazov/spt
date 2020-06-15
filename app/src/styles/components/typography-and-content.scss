@@ -1,0 +1,171 @@
+.opacity-text { opacity: 0.65; }
+
+.fw-300 { font-weight: normal; }
+.fw-400 { font-weight: normal; }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.fw-700 { font-weight: 700; }
+.fw-900 { font-weight: 900; }
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.float-left { float: left; }
+.float-right { float: right; }
+
+// Полпробела
+span.tsp {
+  display: inline-block;
+  overflow: hidden;
+  text-decoration: inherit;
+  width: 0.12em;
+}
+
+// адаптивный видео-блок
+.video-container {
+  border: 1px solid;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  position: relative;
+
+  & iframe,
+  & object,
+  & embed {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.img-container {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%; // 16:9 ratio
+  position: relative;
+
+  & img {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    //aspect-ratio: attr(width) / attr(height);
+  }
+}
+
+abbr {
+  border-bottom: 1px dashed;
+  text-decoration: none;
+}
+
+mark {
+  background-color: transparent;
+  color: var(--text-color);
+  position: relative;
+  white-space: nowrap;
+  z-index: 0;
+
+  &::after {
+    background-color: var(--mark-bg);
+    border-radius: 2px;
+    box-sizing: content-box;
+    content: '';
+    display: inline-block;
+    font-size: inherit;
+    height: 100%;
+    left: -6px;
+    line-height: inherit;
+    padding: 4px 6px;
+    position: absolute;
+    top: -4px;
+    width: 100%;
+    z-index: -1;
+  }
+}
+
+// всё, что касается wysiwyg-штук
+.typography {
+
+  p:empty {
+    display: none;
+    margin: 0;
+  }
+
+  p {
+    margin: $space 0;
+  }
+
+  h2 {
+    margin-top: 40px;
+    margin-bottom: 23px;
+  }
+
+  h3 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  a:not([class]) {
+    border-bottom: 1px solid var(--link-border-color);
+    color: var(--link-color);
+    text-decoration: none;
+    transition: var(--global-transition-time) var(--global-transition-rule);
+
+    &:hover,
+    &.hover {
+      border-bottom-color: var(--link-hover-border-color);
+      color: var(--link-hover-color);
+    }
+
+    &:active,
+    &.active {
+      border-bottom-color: var(--link-active-border-color);
+      color: var(--link-active-color);
+    }
+
+    &:visited,
+    &.visited {
+      border-bottom-color: var(--link-visited-border-color);
+      color: var(--link-visited-color);
+
+      &:hover {
+        border-bottom-color: var(--link-hover-border-color);
+        color: var(--link-hover-color);
+      }
+    }
+  }
+
+  .pseudolink {
+    border-bottom: 1px dashed var(--link-border-color);
+    color: var(--link-color);
+    cursor: pointer;
+    transition: var(--global-transition-time) var(--global-transition-rule);
+
+    &:hover,
+    &.hover {
+      border-bottom-color: var(--link-hover-border-color);
+      color: var(--link-hover-color);
+    }
+
+    &:active,
+    &.active {
+      border-bottom-color: var(--link-active-border-color);
+      color: var(--link-active-color);
+    }
+
+    &:visited,
+    &.visited {
+      border-bottom-color: var(--link-visited-border-color);
+      color: var(--link-visited-color);
+
+      &:hover {
+        border-bottom-color: var(--link-hover-border-color);
+        color: var(--link-hover-color);
+      }
+    }
+  }
+}
