@@ -1,0 +1,7 @@
+{# Пример использования:
+
+   см. файл templates/svg/...
+#}
+{% macro svg(symbol, width, height) %}
+  <svg role="img" width="{{ width }}" height="{{ height }}" class="svg-icon symbol-{{ symbol }}"><use xlink:href="#{{ symbol }}" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
+{% endmacro %}

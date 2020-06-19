@@ -1,5 +1,7 @@
-{% import "./utils/globals.html" as global %}
-{% import "./utils/utils.html" as utils %}
+{% import "./parts/globals.html" as global %}
+{% from "./utils/picture.html"   import picture %}
+{% from "./utils/svg.html"       import svg %}
+{% from "./utils/youtube.html"   import youtube %}
 
 <!DOCTYPE html>
   <html lang="ru" class="no-js">
@@ -7,7 +9,11 @@
     {% include "./head/head.html" %}
   </head>
   <body{% if bodyclass %} class="{{ bodyclass }}"{% else %}{% endif %}>
-    <a class="skip-link" href="#main" tabindex="0">Перейти к основному контенту</a>
+
+    <a class="skip-link"
+       href="#main"
+       tabindex="0">Перейти к основному контенту</a>
+
     <!-- begin .wrap-overlay -->
     <div class="wrap-overlay"></div>
     <!-- end .wrap-overlay -->
@@ -23,7 +29,7 @@
 
     {% include "components/footer/footer.html" %}
 
-    {% include "./parts/svg-symbols.html" %}
+    {% include "./parts/svg-symbols.html" ignore missing %}
 
     <script src="assets/scripts/app.bundle.js" async></script>
   </body>

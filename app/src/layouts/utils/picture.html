@@ -1,0 +1,23 @@
+{# Пример использования:
+
+   picture('/path-to/picture', 'Альт-текст изображения')
+#}
+
+{% macro picture(src, alt, caption) %}
+  <figure>
+    <picture class="picture" title="{{ alt }}">
+      <source
+        class="picture__media"
+        type="image/webp"
+        draggable="false"
+        srcset="assets/images/{{ src }}.webp, assets/images/{{ src }}@2x.webp 2x, assets/images/{{ src }}@3x.webp 3x">
+      <img
+        class="picture__media"
+        alt="{{ alt }}"
+        draggable="false"
+        src="assets/images/{{ src }}.jpg"
+        srcset="assets/images/{{ src }}.jpg, assets/images/{{ src }}@2x.jpg 2x, assets/images/{{ src }}@3x.jpg 3x">
+    </picture>
+    <figcaption>{{ caption }}</figcaption>
+  </figure>
+{% endmacro %}

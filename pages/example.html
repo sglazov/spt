@@ -1,11 +1,11 @@
 ---
-title: 'Типовая текстовая страница'
+title:       'Типовая текстовая страница'
 description: ''
-keywords: ''
+keywords:    ''
 bodyclass: ''
 ---
 
-{% extends "layouts/layout.html" %}
+{% extends "layouts/default.html" %}
 
 {% block content %}
   <section class="page pb-40">
@@ -20,20 +20,20 @@ bodyclass: ''
         <h3>Иконки</h3>
         <button class="button button_icon">
           <span class="button__symbol button__symbol_start">
-            {{ utils.svg('i_fire', '18', '18') }}
+            {{ svg('i_fire', '18', '18') }}
           </span>
           <span class="button__text">.button.button_icon</span>
         </button>
         <button class="button button_icon">
           <span class="button__text">.button.button_icon</span>
           <span class="button__symbol button__symbol_end">
-            {{ utils.svg('i_attention', '18', '16') }}
+            {{ svg('i_attention', '18', '16') }}
           </span>
         </button>
         <button class="button button_icon-single">
           <span class="button__text">.button.button_icon-single</span>
           <span class="button__symbol ">
-            {{ utils.svg('i_calendar', '18', '18') }}
+            {{ svg('i_calendar', '18', '18') }}
           </span>
         </button>
 

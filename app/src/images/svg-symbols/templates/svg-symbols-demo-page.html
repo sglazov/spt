@@ -433,7 +433,7 @@
       return (hrSize >= s ? '>' : '<') + s;
       }));
       var example = '<svg role="img" width="' + icon.svg.width + '" height="' + icon.svg.height + '" class="svg-icon symbol-'+ icon.id +'">\n' +
-        '  <use xlink:href="#' + icon.id + '"></use>\n</svg>\n\n{{ utils.svg(\''+ icon.id +'\', \''+ icon.svg.width +'\', \'' + icon.svg.height + '\') }}';
+        '  <use xlink:href="#' + icon.id + '"></use>\n</svg>\n\n{{ svg(\''+ icon.id +'\', \''+ icon.svg.width +'\', \'' + icon.svg.height + '\') }}';
       %>
       <div class="gss-iconbox gss-searchable"
            id="gss-iconbox-<%= icon.id %>"
