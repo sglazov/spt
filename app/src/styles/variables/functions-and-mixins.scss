@@ -1,13 +1,13 @@
 @mixin antialias {
   -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
+   -webkit-font-smoothing: antialiased;
+           font-smoothing: antialiased;
 }
 
 @mixin text-size-adjust($value: none) {
   -webkit-text-size-adjust: $value;
-  -moz-text-size-adjust: $value;
-  -ms-text-size-adjust: $value;
+     -moz-text-size-adjust: $value;
+      -ms-text-size-adjust: $value;
 }
 
 @function rem($value) {

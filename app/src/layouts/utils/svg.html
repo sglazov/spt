@@ -1,7 +1,4 @@
-{# Пример использования:
-
-   см. файл templates/svg/...
-#}
+{# Примеры использования смотрите в демо-файле с иконками: ./app/src/templates/svg/svg-symbols-demo-page.html (генерируется0 #}
 {% macro svg(symbol, width, height) %}
   <svg role="img" width="{{ width }}" height="{{ height }}" class="svg-icon symbol-{{ symbol }}"><use xlink:href="#{{ symbol }}" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
 {% endmacro %}
