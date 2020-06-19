@@ -31,15 +31,15 @@ const config = {
 
   // Где исходники
   src: {
-    pages       : [src + 'pages/**/*.html'],
-    templates   : [src + '**/*.html'],
-    styles      : [src + 'styles/*.scss'],
-    scripts     : [src + 'scripts/app.js'],
-    resources   : [src + 'resources/**/*.*'],
+    pages       : './pages/**/*.html',
+    templates   : src + '**/*.html',
+    styles      : src + 'styles/*.scss',
+    scripts     : src + 'scripts/app.js',
+    resources   : src + 'resources/**/*.*',
     images      : [src + 'images/**/' + images, src + 'components/**/' + images, '!' + src + 'images/svg-symbols/**/*.svg'],
     svg_symbols : [src + 'images/svg-symbols/**/*.svg', '!' + src + 'images/svg-symbols/templates/*'],
-    php         : [src + 'php/**/*.*'],
-    fonts       : [src + 'fonts/**/' + fonts]
+    php         : src + 'php/**/*.*',
+    fonts       : src + 'fonts/**/' + fonts
   },
 
 
@@ -57,7 +57,7 @@ const config = {
 
   // Наблюдаем за изменением файлов
   watch: {
-    templates : [src + 'pages/**/*.html', src + 'components/**/*.html', src + 'layouts/**/*.html'],
+    templates : ['./pages/**/*.html', src + 'components/**/*.html', src + 'layouts/**/*.html'],
     styles    : [src + 'styles/**/*.scss', src + 'components/**/*.scss'],
     scripts   : [src + 'scripts/**/*.js', src + 'components/**/*.js'],
   },
