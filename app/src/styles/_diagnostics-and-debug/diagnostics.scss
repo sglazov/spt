@@ -1,4 +1,4 @@
-@if $styles_debug {
+@if (global-variable-exists(styles_debug)) {
   // https://css-tricks.com/snippets/css/css-diagnostics/
   div:empty,
   span:empty,
