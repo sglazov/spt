@@ -1,97 +1,31 @@
 @import 'constants';
+@import 'colors';
 @import 'media-variables';
 @import 'functions-and-mixins';
 @import 'z-index';
 
 // включалки
-$spacers_enable      : true;
-$styles_debug        : false !global;
+$spacers_enable : true;
+$styles_debug   : false !global;
 
-$space               : $_SPACE;
+// базовый отступ
+$space          : $_SPACE;
 
-$font-family  : $_FONT_FAMILY;
-$font-size    : $_FONT_SIZE;
-$line-height  : 22px;
+$font-family    : $_FONT_FAMILY;
+$font-size      : $_FONT_SIZE;
+$line-height    : 1.42857143;
 
-$border-radius : 4px;
+$border-radius  : 4px;
 
+$focus          : 4px solid map-get($colors, link);
 
-// variables.scss
-$colors: (
-  "light"       : #f5f9fa,
-  "white"       : #f5f9fa,
-  "black"       : #1f1f1f,
-  "text"        : #000000,
+$selection-bg   : map-get($colors, link);
+$selection-text : map-get($colors, white);
 
-  "accent"      : $_BRAND-COLOR,
-  "accent-35"   : transparentize($_BRAND-COLOR, 0.65),
-
-
-  "hover"       : #f5a623
-  // etc...
-);
+$container-width : 1200px;
 
 :root {
   @each $key, $value in $colors {
     --#{$key}: #{$value};
   }
-}
-
-$light-color         : #f5f9fa !global;
-
-
-$brand-color         : $_BRAND-COLOR;
-$brand-color-opacity : transparentize($brand-color, 0.65);
-
-//$light-color         : #;
-
-$links-opacity       : 0.35; // = 100% - 65% = 35%
-
-$link-color : #0078ff;
-$link-color-opacity : transparentize($link-color, $links-opacity);
-
-$link-color-hover : #cc0000;
-$link-color-hover-opacity : transparentize($link-color-hover, $links-opacity);
-
-$link-color-active : #ff0000;
-$link-color-active-opacity : transparentize($link-color-active, $links-opacity);
-
-$link-color-visited : #b40eb4;
-$link-color-visited-opacity : transparentize($link-color-visited, $links-opacity);
-
-html {
-  --global-bg: transparent;
-
-  --global-transition-time: 0.5s;
-  --global-transition-rule: cubic-bezier(0.075, 0.82, 0.165, 1);
-
-  --font-size-base: #{$font-size};
-  --line-height-base: 1.42857143;
-  --text-color: #000;
-
-  --link-color: #{$link-color};
-  --link-border-color: #{$link-color-opacity};
-
-  --link-hover-color: #{$link-color-hover};
-  --link-hover-border-color: #{$link-color-hover-opacity};
-
-  --link-active-color: #{$link-color-active};
-  --link-active-border-color: #{$link-color-active-opacity};
-
-  --link-visited-color: #{$link-color-visited};
-  --link-visited-border-color: #{$link-color-visited-opacity};
-
-  --base-focus: 4px solid var(--link-color);
-  --selection-bg-color: var(--link-color);
-  --selection-text-color: #fff;
-
-  --font-family-base: #{$font-family};
-  --base-max-width: 1200px;
-
-  //@each $devide-width in $xs, $sm, $md {
-  //  @media #{$devide-width} {
-  //    --max-width: none;
-  //    --font-size-base: 16px;
-  //  }
-  //}
 }

@@ -1,0 +1,24 @@
+$color-opacity  : 0.35;
+
+$colors: (
+  'background'  : #ffffff,
+
+  'light'       : #f5f9fa,
+  'white'       : #ffffff,
+  'black'       : #1f1f1f,
+  'text'        : #000000,
+
+  // акцент-цвета ну или бренд-цвета
+  'accent'                 : $_BRAND-COLOR,
+  'accent-opacity'         : transparentize($_BRAND-COLOR, 1 - $color-opacity),
+
+  // ссылки
+  'link'                   : #0078ff,
+  'link-underline'         : transparentize(#0078ff, 1 - $color-opacity),
+  'link-hover'             : #ff0000,
+  'link-hover-underline'   : transparentize(#ff0000, 1 - $color-opacity),
+  'link-active'            : #cc0000,
+  'link-active-underline'  : transparentize(#cc0000, 1 - $color-opacity),
+  'link-visited'           : #b40eb4,
+  'link-visited-underline' : transparentize(#b40eb4, 1 - $color-opacity)
+);

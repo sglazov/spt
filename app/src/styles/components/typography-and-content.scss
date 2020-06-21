@@ -110,61 +110,61 @@ mark {
   }
 
   a:not([class]) {
+    color: var(--link);
     border-bottom: 1px solid var(--link-border-color);
-    color: var(--link-color);
     text-decoration: none;
-    transition: var(--global-transition-time) var(--global-transition-rule);
+    //transition: var(--global-transition-time) var(--global-transition-rule);
 
     &:hover,
     &.hover {
-      border-bottom-color: var(--link-hover-border-color);
-      color: var(--link-hover-color);
+      color: var(--link-hover);
+      border-bottom-color: var(--link-hover-underline);
     }
 
     &:active,
     &.active {
-      border-bottom-color: var(--link-active-border-color);
       color: var(--link-active-color);
+      border-bottom-color: var(--link-active-border-color);
     }
 
     &:visited,
     &.visited {
-      border-bottom-color: var(--link-visited-border-color);
       color: var(--link-visited-color);
+      border-bottom-color: var(--link-visited-border-color);
 
       &:hover {
-        border-bottom-color: var(--link-hover-border-color);
         color: var(--link-hover-color);
+        border-bottom-color: var(--link-hover-border-color);
       }
     }
   }
 
   .pseudolink {
-    border-bottom: 1px dashed var(--link-border-color);
-    color: var(--link-color);
+    color: var(--link);
+    border-bottom: 1px dashed var(--link-underline);
     cursor: pointer;
     transition: var(--global-transition-time) var(--global-transition-rule);
 
     &:hover,
     &.hover {
+      color: var(--link-hover);
       border-bottom-color: var(--link-hover-border-color);
-      color: var(--link-hover-color);
     }
 
     &:active,
     &.active {
-      border-bottom-color: var(--link-active-border-color);
       color: var(--link-active-color);
+      border-bottom-color: var(--link-active-border-color);
     }
 
     &:visited,
     &.visited {
-      border-bottom-color: var(--link-visited-border-color);
       color: var(--link-visited-color);
+      border-bottom-color: var(--link-visited-border-color);
 
       &:hover {
-        border-bottom-color: var(--link-hover-border-color);
         color: var(--link-hover-color);
+        border-bottom-color: var(--link-hover-border-color);
       }
     }
   }

@@ -20,7 +20,7 @@
   border: none;
 
   &:hover {
-    background-color: $light-color;
+    background-color: var(--light);
   }
 
   &__inner {

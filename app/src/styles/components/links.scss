@@ -1,6 +1,6 @@
 .link {
+  color: var(--link);
   border-bottom: 1px solid var(--link-border-color);
-  color: var(--link-color);
   text-decoration: none;
   transition: var(--global-transition-time) var(--global-transition-rule);
 
@@ -24,7 +24,7 @@
   &:hover,
   &.hover {
     border-bottom-color: var(--link-hover-border-color);
-    color: var(--link-hover-color);
+    color: var(--link-hover);
   }
 
   &:active,

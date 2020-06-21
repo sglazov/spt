@@ -1,5 +1,5 @@
 .header {
-  border-bottom: 2px solid $light-color;
+  border-bottom: 2px solid var(--light);
 
   &__wrap {
     display: flex;
