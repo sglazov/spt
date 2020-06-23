@@ -44,8 +44,24 @@ $desktop   : 'only screen and (min-width: 1281px)';
   }
 }
 
-//@each $media in $phone, $phablet {
-//  @media #{$media} {
+// примеры использования:
+//
+// в параметрах
+//    phone
+//    phablet
+//    tablet
+//    tablet-lg
+//    laptop
+//    desktop
+//    retina
+//@include bp(phone) {
+//  ...
+//}
+//
+// или вариант в цикле для нескольких значения bp
+//
+//@each $mq in $phone, $phablet {
+//  @media #{$mq} {
 //    ...
 //  }
 //}

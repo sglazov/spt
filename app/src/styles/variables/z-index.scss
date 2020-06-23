@@ -8,3 +8,16 @@ $z-index: (
   default    : 0,
   under      : -1
 );
+
+// использование через map-get:
+// z-index: map-get($z-index, navigation);
+//
+// или так:
+// z-index: z(navigation);
+@function z($key) {
+  @if map-has-key($z-index, $key) {
+    @return map-get($z-index, $key);
+  }
+  @warn "Значения `#{$key}` нет в $z-index-списке, см. файл app/src/styles/variables/z-index.scss";
+  @return null;
+}

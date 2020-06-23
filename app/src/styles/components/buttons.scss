@@ -35,10 +35,8 @@ button.button {
   text-decoration: none;
   white-space: nowrap;
 
-  border-color: pink;
-
   &_brand {
-    background-color: $brand-color;
+    background-color: var(--link);
     color: #fff;
   }
 
