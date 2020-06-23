@@ -1,5 +1,5 @@
 @import 'constants';
-@import 'colors';
+@import 'colors'; // цвета
 @import 'media-variables';
 @import 'functions-and-mixins';
 @import 'z-index';
@@ -17,12 +17,15 @@ $line-height    : 1.42857143;
 
 $border-radius  : 4px;
 
-$focus          : 4px solid map-get($colors, link);
+$focus          : 4px solid color(link);
 
-$selection-bg   : map-get($colors, link);
-$selection-text : map-get($colors, white);
+$selection-bg   : color(link);
+$selection-text : color(white);
 
 $container-width : 1200px;
+
+$transition-time : 0.5s;
+$transition-rule : cubic-bezier(0.075, 0.82, 0.165, 1);
 
 :root {
   @each $key, $value in $colors {

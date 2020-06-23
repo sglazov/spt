@@ -11,25 +11,29 @@ html,
 body {
   @include antialias;
   @include text-size-adjust(100%);
-  background-color: var(--global-bg);
-  color: var(--text-color);
+  background-color: var(--background);
+  color: var(--text);
   display: flex;
   flex-direction: column;
-  font-family: $font-family;
 
-  font-size: $font-size;
+  font-family: $font-family;
   font-weight: 400;
+  font-size: $font-size;
   line-height: $line-height;
+
   margin: 0;
+  padding: 0;
+
   min-height: 100vh;
   min-width: 320px;
-  padding: 0;
+
   transition: all 0.15s ease;
 }
 
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
   color-scheme: light dark;
 }
 

@@ -31,7 +31,7 @@ const config = {
 
   // Где исходники
   src: {
-    pages       : './pages/**/*.html',
+    pages       : './app/pages/**/*.html',
     templates   : src + '**/*.html',
     styles      : src + 'styles/*.scss',
     scripts     : src + 'scripts/app.js',
@@ -57,7 +57,7 @@ const config = {
 
   // Наблюдаем за изменением файлов
   watch: {
-    templates : ['./pages/**/*.html', src + 'components/**/*.html', src + 'layouts/**/*.html'],
+    templates : ['./app/pages/**/*.html', src + 'components/**/*.html', src + 'layouts/**/*.html'],
     styles    : [src + 'styles/**/*.scss', src + 'components/**/*.scss'],
     scripts   : [src + 'scripts/**/*.js', src + 'components/**/*.js'],
   },

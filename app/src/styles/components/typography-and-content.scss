@@ -64,7 +64,7 @@ abbr {
 
 mark {
   background-color: transparent;
-  color: var(--text-color);
+  color: var(--text);
   position: relative;
   white-space: nowrap;
   z-index: 0;
@@ -110,62 +110,11 @@ mark {
   }
 
   a:not([class]) {
-    color: var(--link);
-    border-bottom: 1px solid var(--link-border-color);
-    text-decoration: none;
-    //transition: var(--global-transition-time) var(--global-transition-rule);
-
-    &:hover,
-    &.hover {
-      color: var(--link-hover);
-      border-bottom-color: var(--link-hover-underline);
-    }
-
-    &:active,
-    &.active {
-      color: var(--link-active-color);
-      border-bottom-color: var(--link-active-border-color);
-    }
-
-    &:visited,
-    &.visited {
-      color: var(--link-visited-color);
-      border-bottom-color: var(--link-visited-border-color);
-
-      &:hover {
-        color: var(--link-hover-color);
-        border-bottom-color: var(--link-hover-border-color);
-      }
-    }
+    @include link;
   }
 
   .pseudolink {
-    color: var(--link);
-    border-bottom: 1px dashed var(--link-underline);
-    cursor: pointer;
-    transition: var(--global-transition-time) var(--global-transition-rule);
-
-    &:hover,
-    &.hover {
-      color: var(--link-hover);
-      border-bottom-color: var(--link-hover-border-color);
-    }
-
-    &:active,
-    &.active {
-      color: var(--link-active-color);
-      border-bottom-color: var(--link-active-border-color);
-    }
-
-    &:visited,
-    &.visited {
-      color: var(--link-visited-color);
-      border-bottom-color: var(--link-visited-border-color);
-
-      &:hover {
-        color: var(--link-hover-color);
-        border-bottom-color: var(--link-hover-border-color);
-      }
-    }
+    @include link;
+    border-bottom-style: dashed;
   }
 }

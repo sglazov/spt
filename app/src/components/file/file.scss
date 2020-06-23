@@ -1,7 +1,7 @@
 .file {
   position: relative;
   display: inline-flex;
-  border: 2px solid var(--light);
+  border: 2px solid color(light);
   min-height: 60px;
   border-radius: 3px;
   padding: $space / 2 $space;
@@ -12,7 +12,7 @@
   margin-bottom: $space;
 
   &:hover {
-    border-color: var(--accent);
+    border-color: var(--link);
   }
 
   &__type {

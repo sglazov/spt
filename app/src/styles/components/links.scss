@@ -1,46 +1,37 @@
-.link {
+@mixin link {
   color: var(--link);
-  border-bottom: 1px solid var(--link-border-color);
+  border-bottom: 1px solid var(--link-underline);
   text-decoration: none;
-  transition: var(--global-transition-time) var(--global-transition-rule);
-
-  //display: inline;
-  //vertical-align: baseline;
-  //padding: 4px 0 0;
-  //background-color: transparent;
-  //border: none;
-  //border-bottom: 1px solid transparent;
-  //font-family: inherit;
-  //font-size: inherit;
-  //line-height: inherit;
-  //color: #109BD8;
-  //text-decoration: none;
-  //cursor: pointer;
-
-  &_inverted {
-    border-bottom-color: transparent;
-  }
+  transition: $transition-time $transition-rule;
 
   &:hover,
   &.hover {
-    border-bottom-color: var(--link-hover-border-color);
     color: var(--link-hover);
+    border-bottom-color: var(--link-hover-underline);
   }
 
   &:active,
   &.active {
-    border-bottom-color: var(--link-active-border-color);
-    color: var(--link-active-color);
+    color: var(--link-active);
+    border-bottom-color: var(--link-active-underline);
   }
 
   &:visited,
   &.visited {
-    border-bottom-color: var(--link-visited-border-color);
-    color: var(--link-visited-color);
+    color: var(--link-visited);
+    border-bottom-color: var(--link-visited-underline);
 
     &:hover {
-      border-bottom-color: var(--link-hover-border-color);
-      color: var(--link-hover-color);
+      color: var(--link-hover);
+      border-bottom-color: var(--link-hover-underline);
     }
+  }
+}
+
+.link {
+  @include link;
+
+  &_inverted {
+    border-bottom-color: transparent;
   }
 }
