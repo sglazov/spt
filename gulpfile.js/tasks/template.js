@@ -14,10 +14,16 @@ const typograf = require('gulp-typograf');
 const config = require('../config');
 
 const htmlmin_options = {
+  removeAttributeQuotes: true,
+  collapseBooleanAttributes: true,
   collapseWhitespace: true,
-  ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[\s\S]*?\?>/ ],
-  minifyJS: false,
-  removeComments: true
+  removeComments: true,
+  sortClassName: true,
+  sortAttributes: true,
+  html5: true,
+  decodeEntities: true,
+  ignoreCustomFragments: [ /{%[\s\S]*?%}/, /<\?[=|php]?[\s\S]*?\?>/ ],
+  minifyJS: false
 };
 
 const typograf_options = {
