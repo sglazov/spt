@@ -1,15 +1,41 @@
-$global-font-path : '../fonts/';
-$font-path : '';
-$font-name : '';
+$global-font-path : '/assets/fonts/';
 
-// Пример подключения шрифта
-@font-face {
-  font-display: swap;
-  font-family: $font-name;
-  font-style: normal;
-  font-weight: normal;
-  src:
-    url('#{$global-font-path}#{$font-path}.woff2') format('woff2'),
-    url('#{$global-font-path}#{$font-path}.woff') format('woff');
-  //unicode-range: U+; // опционлально
+$fonts: (
+  // ну как пример
+  //"FONT NAME": ( 100, 200, 300, normal, ..., bold )
+);
+
+@mixin font-face($font, $weight) {
+
+  // каждый стиль: обычный и курсив
+  @each $style in (normal, italic) {
+
+    $path : slug($font);
+
+    // если курсив, то добавить суффикс
+    $font-file: if( $style == italic, $weight + '-italic', $weight);
+
+    // повторить этот блок
+    @font-face {
+      font-family: $font;
+      font-display: swap; // это важно для отрисовки
+      font-weight: $weight;
+      font-style: $style;
+      src:
+        url('#{$global-font-path}#{$path}/#{$font-file}.woff2') format('woff2'),
+        url('#{$global-font-path}#{$path}/#{$font-file}.woff') format('woff');
+    }
+  }
 }
+
+@each $font, $weight in $fonts {
+
+  @if type-of($weight) == list {
+    @each $weight in $weight {
+      @include font-face($font, $weight);
+    }
+  } @else {
+    @include font-face($font, $weight);
+  }
+}
+
