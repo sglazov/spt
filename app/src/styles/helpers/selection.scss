@@ -1,6 +1,6 @@
 ::selection {
-  background: var(--selection-bg-color);
-  color: var(--selection-text-color);
+  background: $selection-bg;
+  color: $selection-text;
 }
 
 .disable-selection {

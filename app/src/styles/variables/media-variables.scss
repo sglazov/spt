@@ -37,31 +37,47 @@ $desktop   : 'only screen and (min-width: 1281px)';
     }
   }
 
+  @if $point == no-hover {
+    @media (hover: none) and (pointer: coarse) {
+      @content;
+    }
+  }
+
   @if $point == retina {
-    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min-device-pixel-ratio: 2) {
       @content;
     }
   }
 }
 
-// примеры использования:
-//
-// в параметрах
-//    phone
-//    phablet
-//    tablet
-//    tablet-lg
-//    laptop
-//    desktop
-//    retina
-//@include bp(phone) {
-//  ...
-//}
-//
-// или вариант в цикле для нескольких значения bp
-//
-//@each $mq in $phone, $phablet {
-//  @media #{$mq} {
-//    ...
-//  }
-//}
+@mixin bps($mq...) {
+  @each $point in $mq {
+
+    @media #{$point} {
+      @content;
+    }
+  }
+}
+
+/// Примеры использования:
+///
+/// 1. Для одного брэайкпоинта (bp = брэайкпоинт):
+///
+/// @param:
+///   phone
+///   phablet
+///   tablet
+///   tablet-lg
+///   laptop
+///   desktop
+///   retina
+///
+/// @include bp(phone) {
+///   ...
+/// }
+/// 2. Для нескольких брэйкпонитов:
+///
+/// @include bps($phablet, $tablet) {
+///   ...
+/// }

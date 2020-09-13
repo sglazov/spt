@@ -25,10 +25,10 @@ $colors: (
 );
 
 // использование через map-get:
-// z-index: map-get($colors, accent);
+// color: map-get($colors, accent);
 //
 // или так:
-// z-index: color(accent);
+// color: color(accent);
 @function color($key) {
   @if map-has-key($colors, $key) {
     @return map-get($colors, $key);
