@@ -3,7 +3,7 @@ const { src, dest, lastRun, parallel } = require('gulp');
 const config = require('../config');
 
 function copy_resources() {
-  return src(config.src.resources, { since: lastRun(copy_resources) })
+return src(config.src.resources, { since: lastRun(copy_resources), dot: true })
     .pipe(dest(config.build.root))
 }
 
