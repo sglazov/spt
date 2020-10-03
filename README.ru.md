@@ -32,12 +32,12 @@ npm run start
 ```
 
 Сборка прод-версии проекта с минифицированной статикой:
-```console
+```bash
 npm run build
 ```
 
 Сборка проекта с минифицированной статикой и архивация в _*.zip_-архив:
-```console
+```bash
 npm run zip
 ```
 
@@ -59,7 +59,7 @@ npm run zip
 <details>
   <summary>Показать стуктуру SPT</summary>
 
-```
+```bash
 ├── app # корень проекта
 │   ├── pages   # страницы
 │   │   ├── index.html # стартовая страница
