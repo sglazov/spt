@@ -111,17 +111,16 @@ npm run zip
 │       └── templates/
 │           ├── data.html
 │           └── svg/
-├── component.js
 ├── gulpfile.js
 │   ├── config.js
 │   ├── index.js
 │   ├── tasks/
 │   └── utils/
-├── CHANGELOG.md
-├── README.md
-├── README.ru.md
+├── component.js
+├── webpack.config.js
 ├── package.json
 ├── rsync-excludes.txt
-└── webpack.config.js
+├── CHANGELOG.md
+└── README.md
 ```
 </details>
