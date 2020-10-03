@@ -9,4 +9,11 @@ _Read this in other languages: [на 🇷🇺 русском языке ](./READ
 
 ## Usage
 
-## 
+## Helpers
+
+Command
+```bash
+node ./component.js \
+"clients" # component name (or many names) = folder name
+```
+for create component folder on `./app/src/components/` and add `component.html` and `component.scss` files inside.
