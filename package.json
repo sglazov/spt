@@ -48,7 +48,7 @@
     "minimist": "^1.2.5",
     "node-sass-glob-importer": "^5.3.2",
     "postcss": "^8.1.4",
-    "postcss-100vh-fix": "^0.1.1",
+    "postcss-100vh-fix": "^1.0.2",
     "postcss-flexbugs-fixes": "^5.0.0",
     "postcss-media-minmax": "^4.0.0",
     "stylelint": "^13.3.1",
