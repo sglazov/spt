@@ -20,7 +20,7 @@
     "yaspeller": "yaspeller app"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-env": "^7.12.13",
     "autoprefixer": "^10.2.4",
     "browser-sync": "^2.26.14",
     "del": "^6.0.0",
