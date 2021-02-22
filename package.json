@@ -51,7 +51,7 @@
     "postcss-100vh-fix": "^1.0.2",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-media-minmax": "^5.0.0",
-    "stylelint": "^13.10.0",
+    "stylelint": "^13.11.0",
     "stylelint-config-sass-guidelines": "^8.0.0",
     "webpack": "^5.23.0",
     "webpack-stream": "^6.1.2",
