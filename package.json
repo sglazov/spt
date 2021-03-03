@@ -58,6 +58,6 @@
     "yaspeller": "^7.0.0"
   },
   "dependencies": {
-    "jquery": "^3.5.0"
+    "jquery": "^3.6.0"
   }
 }
