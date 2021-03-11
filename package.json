@@ -44,7 +44,7 @@
     "gulp-svg-symbols": "^3.2.3",
     "gulp-svgmin": "^3.0.0",
     "gulp-typograf": "^4.0.3",
-    "gulp-zip": "^5.0.1",
+    "gulp-zip": "^5.1.0",
     "minimist": "^1.2.5",
     "node-sass-glob-importer": "^5.3.2",
     "postcss": "^8.2.8",
