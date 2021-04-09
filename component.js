@@ -1,7 +1,7 @@
 /**
  * Хелпер для создания блоков с .html, .scss и .js-файлами
  *
- * node ./component.js "clients" "about" "etc"
+ * node ./component.js "hours" "about" "etc"
  */
 const fs = require('fs');
 const path = require('path');
@@ -11,7 +11,7 @@ const path = require('path');
 const componentsPath = './app/src/components/';
 const componentFiles = {
   html : `<section class="{component}">\n\t<div class="{component}__wrap wrap">\n\t\t\n\t\</div>\n</section><!-- /section.{component} -->`,
-  scss : `.{component} {\n\t\n}\n`
+  scss : `.{component} {\n\t$b : '.{component}';\n\t\n}\n`
 };
 
 
