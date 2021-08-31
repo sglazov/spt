@@ -54,7 +54,7 @@
     "stylelint": "^13.13.1",
     "stylelint-config-sass-guidelines": "^8.0.0",
     "webpack": "^5.51.1",
-    "webpack-stream": "^6.1.2",
+    "webpack-stream": "^7.0.0",
     "yaspeller": "^7.0.0"
   },
   "dependencies": {
