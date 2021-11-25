@@ -53,7 +53,7 @@
     "postcss-media-minmax": "^5.0.0",
     "stylelint": "^13.13.1",
     "stylelint-config-sass-guidelines": "^8.0.0",
-    "webpack": "^5.64.2",
+    "webpack": "^5.64.3",
     "webpack-stream": "^7.0.0",
     "yaspeller": "^8.0.0"
   },
