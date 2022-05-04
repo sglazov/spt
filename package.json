@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.17.10",
-    "autoprefixer": "^10.4.5",
+    "autoprefixer": "^10.4.7",
     "browser-sync": "^2.27.9",
     "del": "^6.0.0",
     "fancy-log": "^2.0.0",
