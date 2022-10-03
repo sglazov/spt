@@ -47,7 +47,7 @@
     "gulp-zip": "^5.1.0",
     "minimist": "^1.2.6",
     "node-sass-glob-importer": "^5.3.2",
-    "postcss": "^8.4.16",
+    "postcss": "^8.4.17",
     "postcss-100vh-fix": "^1.0.2",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-media-minmax": "^5.0.0",
