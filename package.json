@@ -25,7 +25,7 @@
     "browser-sync": "^3.0.2",
     "del": "^7.0.0",
     "fancy-log": "^2.0.0",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-cheerio": "^1.0.0",
     "gulp-clean-css": "^4.3.0",
